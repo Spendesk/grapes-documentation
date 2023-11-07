@@ -2,26 +2,107 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+@font-face {
+  font-family: "GT-America";
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+  src: url("/static/fonts/GT-America/GT-America-Standard-Regular.woff2")
+      format("woff2"),
+    url("/static/fonts/GT-America/GT-America-Standard-Regular.woff")
+      format("woff");
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@font-face {
+  font-family: "GT-America";
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+  src: url("/static/fonts/GT-America/GT-America-Standard-Regular-Italic.woff2")
+      format("woff2"),
+    url("/static/fonts/GT-America/GT-America-Standard-Regular-Italic.woff")
+      format("woff");
+}
+
+@font-face {
+  font-family: "GT-America";
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  src: url("/static/fonts/GT-America/GT-America-Standard-Medium.woff2")
+      format("woff2"),
+    url("/static/fonts/GT-America/GT-America-Standard-Medium.woff")
+      format("woff");
+}
+
+@font-face {
+  font-family: "GT-America";
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+  src: url("/static/fonts/GT-America/GT-America-Standard-Medium-Italic.woff2")
+      format("woff2"),
+    url("/static/fonts/GT-America/GT-America-Standard-Medium-Italic.woff")
+      format("woff");
+}
+
+/* Global reset */
+@layer reset {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  *:before,
+  *:after {
+    box-sizing: border-box;
+  }
+
+  html {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  body {
+    background-color: var(--color-page-background);
+  }
+
+  a {
+    text-decoration: none;
+    outline: none;
+  }
+
+  a:hover,
+  a:focus,
+  a.active {
+    outline: none;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-weight: normal;
+  }
+
+  fieldset {
+    border: none;
+  }
+
+  input,
+  textarea,
+  select {
+    background-color: transparent;
+    -webkit-appearance: none;
+    appearance: none;
+    outline: none;
+    resize: none;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
+@layer reset, grapes;

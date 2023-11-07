@@ -1,20 +1,23 @@
-import type { Config } from 'tailwindcss'
+import type { Config } from "tailwindcss";
 
 const config: Config = {
   content: [
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    "./mdx-components.tsx",
+    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  theme: {
-    extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-      },
-    },
-  },
   plugins: [],
-}
-export default config
+  corePlugins: {
+    // Disable preflight because we already have everything
+    preflight: false,
+
+    // Color opacity shouldn't be necessary
+    backgroundOpacity: false,
+    borderOpacity: false,
+    textOpacity: false,
+  },
+  presets: [require("@dev-spendesk/grapes/tailwind")],
+  variants: {},
+};
+export default config;
