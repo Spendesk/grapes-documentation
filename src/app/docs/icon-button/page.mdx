@@ -2,6 +2,20 @@ import { CodeBlock } from "@/components/code-block/code-block";
 
 # IconButton
 
-```jsx
-<Button text="Coucou" onClick={() => console.log("Coucou !")} />
+```tsx
+const [selectedValue, setSelectedValue] = useState<string | null>(null);
+return (
+  <OptionGroup
+    options={[
+      { value: "daily", label: "Daily" },
+      { value: "weekly", label: "Weekly" },
+      { value: "yearly", label: "Yearly" },
+    ]}
+    value={selectedValue}
+    name="optionGroupField"
+    onChange={(event) => {
+      setSelectedValue(event.target.value);
+    }}
+  />
+);
 ```

@@ -6,6 +6,8 @@ import { routes } from "@/config/routes";
 import { GridContainer, GridItem, Navigation } from "@dev-spendesk/grapes";
 import React from "react";
 
+import "prismjs/themes/prism-tomorrow.css";
+
 export default function MdxLayout({ children }: { children: React.ReactNode }) {
   return (
     <div>

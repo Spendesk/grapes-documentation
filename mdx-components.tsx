@@ -4,7 +4,8 @@ import type { MDXComponents } from "mdx/types";
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
-    pre: ({ children }) => <CodeBlock>{children}</CodeBlock>,
+    // @ts-ignore
+    pre: ({ children }) => <CodeBlock>{children.props.children}</CodeBlock>,
     h1: ({ children }) => (
       <h1
         className="title-xl leading-10"
