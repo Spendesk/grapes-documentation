@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "docs:generate": "esno ./scripts/docgen"
   },
   "dependencies": {
     "@babel/runtime": "^7.23.2",
@@ -14,11 +15,15 @@
     "@mdx-js/loader": "^3.0.0",
     "@mdx-js/react": "^3.0.0",
     "@next/mdx": "^14.0.1",
+    "@react-docgen/cli": "^2.0.0",
     "@types/mdx": "^2.0.9",
+    "esno": "^0.17.0",
     "github-slugger": "^2.0.0",
     "next": "14.0.1",
     "prismjs": "^1.29.0",
     "react": "^18",
+    "react-docgen": "^7.0.0",
+    "react-docgen-typescript": "^2.2.2",
     "react-dom": "^18"
   },
   "devDependencies": {
