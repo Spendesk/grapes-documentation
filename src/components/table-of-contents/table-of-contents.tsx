@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { NavigationItem } from "@dev-spendesk/grapes";
+import { usePathname } from "next/navigation";
 
 function getClassNameForHeading(type: string) {
   switch (type) {
@@ -13,6 +14,7 @@ function getClassNameForHeading(type: string) {
 }
 
 export function TableOfContents() {
+  const pathname = usePathname();
   const [headings, setHeadings] = useState<
     {
       id: string;
@@ -28,7 +30,7 @@ export function TableOfContents() {
         type: heading.nodeName,
       }))
     );
-  }, []);
+  }, [pathname]);
 
   return (
     <div className="pt-m">
