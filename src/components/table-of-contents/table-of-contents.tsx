@@ -22,13 +22,11 @@ export function TableOfContents() {
   >([]);
   useEffect(() => {
     setHeadings(
-      Array.from(document.querySelectorAll("[data-heading]")).map(
-        (heading) => ({
-          id: heading.id,
-          label: heading.textContent ?? "",
-          type: heading.nodeName,
-        })
-      )
+      Array.from(document.querySelectorAll("h1, h2, h3")).map((heading) => ({
+        id: heading.id,
+        label: heading.textContent ?? "",
+        type: heading.nodeName,
+      }))
     );
   }, []);
 
