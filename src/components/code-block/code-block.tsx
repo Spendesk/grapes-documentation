@@ -1,25 +1,25 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Prism from "prismjs";
 import { Button } from "@dev-spendesk/grapes";
+import hljs from "highlight.js";
 
 type Props = {
   language?: string;
   children: React.ReactNode;
 };
 
-export function CodeBlock({ language = "js", children }: Props) {
+export function CodeBlock({ language = "ts", children }: Props) {
   const [hasBeenCopied, setHasBeenCopied] = useState(false);
 
   useEffect(() => {
-    Prism.highlightAll();
+    hljs.initHighlighting();
   }, []);
 
   return (
-    <div className="relative">
+    <div className="relative mt-s">
       <pre>
-        <code className={`language-${language}`}>{children}</code>
+        <code className={`${language} rounded-xs`}>{children}</code>
       </pre>
       <Button
         className="absolute top-xs right-xs"
