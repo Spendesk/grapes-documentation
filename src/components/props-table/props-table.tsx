@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 type PropsDoc = {
   name: string;
   description: string;
-  defaultValue: string | null;
+  defaultValue: { value: string | boolean } | null;
 };
 
 type Props = {
@@ -42,7 +42,8 @@ export function PropsTable({ name }: Props) {
             header: "defaultValue",
             id: "Default value",
             width: "20%",
-            renderCell: ({ defaultValue }) => defaultValue ?? "",
+            renderCell: ({ defaultValue }) =>
+              defaultValue ? `${defaultValue.value}` : "",
           },
           {
             header: "description",
