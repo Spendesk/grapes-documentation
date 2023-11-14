@@ -28,32 +28,29 @@ export function PropsTable({ name }: Props) {
       });
   }, []);
   return (
-    <>
-      <div>{name}</div>
-      <Table
-        columns={[
-          {
-            header: "name",
-            id: "Name",
-            width: "30%",
-            renderCell: ({ name }) => name,
-          },
-          {
-            header: "defaultValue",
-            id: "Default value",
-            width: "20%",
-            renderCell: ({ defaultValue }) =>
-              defaultValue ? `${defaultValue.value}` : "",
-          },
-          {
-            header: "description",
-            id: "Description",
-            width: "50%",
-            renderCell: ({ description }) => description,
-          },
-        ]}
-        data={props}
-      />
-    </>
+    <Table
+      columns={[
+        {
+          header: "name",
+          id: "Name",
+          width: "30%",
+          renderCell: ({ name }) => name,
+        },
+        {
+          header: "defaultValue",
+          id: "Default value",
+          width: "20%",
+          renderCell: ({ defaultValue }) =>
+            defaultValue ? `${defaultValue.value}` : "",
+        },
+        {
+          header: "description",
+          id: "Description",
+          width: "50%",
+          renderCell: ({ description }) => description,
+        },
+      ]}
+      data={props}
+    />
   );
 }
