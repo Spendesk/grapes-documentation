@@ -35,7 +35,6 @@ export function PropsTableMultiple({ names }: Props) {
         if (!components) {
           return;
         }
-        console.log(components);
         setProps(
           components.map(
             (component: { props: any[] }) =>

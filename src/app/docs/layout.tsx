@@ -1,22 +1,51 @@
 "use client";
 
+import {
+  GrapesProvider,
+  GridContainer,
+  GridItem,
+  Icon,
+  Navigation,
+  colors,
+} from "@dev-spendesk/grapes";
+import React from "react";
+
+import { Search } from "@/components/search/search";
 import { SideBar } from "@/components/sidebar/sidebar";
 import { TableOfContents } from "@/components/table-of-contents/table-of-contents";
 import { routes } from "@/config/routes";
-import { GridContainer, GridItem, Navigation } from "@dev-spendesk/grapes";
-import React from "react";
 
 import "highlight.js/styles/stackoverflow-dark.min.css";
 
 export default function MdxLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div>
+    <GrapesProvider
+      locale="en-US"
+      localesDefinition={{
+        locales: {
+          "en-US": {
+            cancel: "Cancel",
+            close: "Close",
+            nextMonth: "Next month",
+            previousMonth: "Previous month",
+            openCalendar: "Open calendar",
+            hide: "Hide",
+            show: "Show",
+          },
+        },
+      }}
+    >
       <Navigation
         leftNavigationItems={[
-          <div key="grapes" className="text-white">
-            Grapes
+          <div
+            key="grapes"
+            className="text-white title-l flex gap-xs items-center"
+          >
+            <Icon color={colors.white} size="l" name="spendesk" />
+            <div>Grapes</div>
           </div>,
         ]}
+        rightNavigationItems={[<Search key="search" />]}
       />
       <div className="max-w-[1400px] mx-auto">
         <GridContainer className="justify-between">
@@ -40,6 +69,6 @@ export default function MdxLayout({ children }: { children: React.ReactNode }) {
           </GridItem>
         </GridContainer>
       </div>
-    </div>
+    </GrapesProvider>
   );
 }
