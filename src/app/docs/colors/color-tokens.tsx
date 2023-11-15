@@ -71,10 +71,10 @@ export function ColorTokens() {
   const style = getComputedStyle(document.body);
 
   return (
-    <>
-      {Object.entries(tokens).map(([key, values]) => (
+    <div className="box">
+      {Object.entries(tokens).map(([key, values], index) => (
         <Fragment key={key}>
-          <div className="w-[150px] my-s title-m">
+          <div className={`w-[150px] my-s title-m ${index === 0 && "mt-0"}`}>
             {getSectionName(key as ColorSection)}
           </div>
           <div className="grid grid-cols-3 gap-s">
@@ -98,6 +98,6 @@ export function ColorTokens() {
           </div>
         </Fragment>
       ))}
-    </>
+    </div>
   );
 }

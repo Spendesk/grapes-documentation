@@ -4,7 +4,7 @@ import { spacingTokens } from "./types";
 
 export function SpacingTokens() {
   return (
-    <div className="grid grid-cols-4 gap-s text-center items-end">
+    <div className="grid grid-cols-4 gap-s text-center items-end box">
       {spacingTokens.map((token) => {
         const value = getComputedStyle(
           document.documentElement
