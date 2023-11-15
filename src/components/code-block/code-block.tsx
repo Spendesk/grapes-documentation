@@ -9,7 +9,7 @@ type Props = {
   children: React.ReactNode;
 };
 
-export function CodeBlock({ language = "ts", children }: Props) {
+export function CodeBlock({ language, children }: Props) {
   const [hasBeenCopied, setHasBeenCopied] = useState(false);
 
   useEffect(() => {

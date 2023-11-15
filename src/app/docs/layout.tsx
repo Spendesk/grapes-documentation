@@ -5,9 +5,6 @@ import { TableOfContents } from "@/components/table-of-contents/table-of-content
 import { routes } from "@/config/routes";
 import { GridContainer, GridItem, Navigation } from "@dev-spendesk/grapes";
 import React from "react";
-import hljs from "highlight.js";
-import typescript from "highlight.js/lib/languages/typescript";
-hljs.registerLanguage("typescript", typescript);
 
 import "highlight.js/styles/stackoverflow-dark.min.css";
 
