@@ -3,6 +3,8 @@
 import { Table } from "@dev-spendesk/grapes";
 import { useEffect, useState } from "react";
 
+import styles from "./props-table.module.css";
+
 type PropsDoc = {
   name: string;
   description: string;
@@ -26,9 +28,11 @@ export function PropsTable({ name }: Props) {
         }
         setProps(Object.values(component.props) as PropsDoc[]);
       });
-  }, []);
+  }, [name]);
+
   return (
     <Table
+      className={styles.table}
       columns={[
         {
           header: "name",

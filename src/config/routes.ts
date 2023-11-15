@@ -1,5 +1,5 @@
 export type Route = {
-  category: "Interaction" | "Design Tokens";
+  category: "Interaction" | "Design Tokens" | "Navigation";
   routes: { label: string; url: string }[];
 };
 
@@ -18,6 +18,15 @@ export const routes: Route[] = [
       {
         label: "Link",
         url: "/docs/link",
+      },
+    ],
+  },
+  {
+    category: "Navigation",
+    routes: [
+      {
+        label: "CollapsibleList",
+        url: "/docs/collapsible-list",
       },
     ],
   },

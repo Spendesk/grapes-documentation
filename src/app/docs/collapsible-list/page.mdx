@@ -1,0 +1,48 @@
+import { CollapsibleList } from "./collapsible-list";
+import { PropsTableMultiple } from "@/components/props-table/props-table-multiple";
+
+# CollapsibleList
+
+## Usage
+
+<CollapsibleList />
+
+```tsx
+(args) => {
+  const [activeListItem, setActiveListItem] = useState<number | null>(null);
+
+  return (
+    <div className="w-[360px]">
+      <CollapsibleList
+        {...args}
+        renderHeader={(toggle, isCollapsed) => (
+          <CollapsibleListItem
+            asHeader
+            isCollapsed={isCollapsed}
+            onClick={toggle}
+          >
+            Header
+          </CollapsibleListItem>
+        )}
+      >
+        <CollapsibleListItem
+          isActive={activeListItem === 0}
+          onClick={() => setActiveListItem(0)}
+        >
+          Item 1
+        </CollapsibleListItem>
+        <CollapsibleListItem
+          isActive={activeListItem === 1}
+          onClick={() => setActiveListItem(1)}
+        >
+          Item 2
+        </CollapsibleListItem>
+      </CollapsibleList>
+    </div>
+  );
+};
+```
+
+## Props
+
+<PropsTableMultiple names={["CollapsibleList", "CollapsibleListItem"]} />
