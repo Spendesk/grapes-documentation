@@ -14,6 +14,7 @@ type Props = {
 export function SideBarLink({ isActive, subRoute }: Props) {
   return (
     <NavigationItem
+      className="title-m"
       isActive={isActive}
       variant="sideNavigation"
       component={Link}
