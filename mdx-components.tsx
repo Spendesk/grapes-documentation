@@ -7,20 +7,21 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     // @ts-ignore
     pre: ({ children }) => <CodeBlock>{children.props.children}</CodeBlock>,
     h1: ({ children }) => (
-      <h1 className="title-xl leading-10" id={slug(children as string)}>
+      <h1 className="title-xl leading-10 my-xs" id={slug(children as string)}>
         {children}
       </h1>
     ),
     h2: ({ children }) => (
-      <h2 className="title-l leading-8" id={slug(children as string)}>
+      <h2 className="title-l leading-8 my-xs" id={slug(children as string)}>
         {children}
       </h2>
     ),
     h3: ({ children }) => (
-      <h3 className="title-m leading-8" id={slug(children as string)}>
+      <h3 className="title-m leading-8 my-xs" id={slug(children as string)}>
         {children}
       </h3>
     ),
+    p: ({ children }) => <p className="my-xs">{children}</p>,
     ...components,
   };
 }
