@@ -3,18 +3,12 @@
 import { useEffect, useState } from "react";
 import { NavigationItem } from "@dev-spendesk/grapes";
 import { usePathname } from "next/navigation";
-
-function getClassNameForHeading(type: string) {
-  switch (type) {
-    case "H2":
-      return "ml-s";
-    case "H3":
-      return "ml-l";
-  }
-}
+import { useHeadsObserver } from "./useHeadsObserver";
 
 export function TableOfContents() {
   const pathname = usePathname();
+  const { activeId } = useHeadsObserver(pathname);
+
   const [headings, setHeadings] = useState<
     {
       id: string;
@@ -22,9 +16,10 @@ export function TableOfContents() {
       type: string;
     }[]
   >([]);
+
   useEffect(() => {
     setHeadings(
-      Array.from(document.querySelectorAll("h1, h2, h3")).map((heading) => ({
+      Array.from(document.querySelectorAll("h2, h3")).map((heading) => ({
         id: heading.id,
         label: heading.textContent ?? "",
         type: heading.nodeName,
@@ -36,7 +31,8 @@ export function TableOfContents() {
     <div className="pt-m">
       {headings.map((heading) => (
         <NavigationItem
-          className={`${getClassNameForHeading(heading.type)} title-m`}
+          isEmphasized={activeId === heading.id}
+          className={`${heading.type === "H3" ? "ml-s" : ""} title-m`}
           variant="sideNavigation"
           component="a"
           href={`#${heading.id}`}
