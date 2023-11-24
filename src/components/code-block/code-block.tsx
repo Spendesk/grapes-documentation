@@ -13,7 +13,7 @@ export function CodeBlock({ language, children }: Props) {
   const [hasBeenCopied, setHasBeenCopied] = useState(false);
 
   useEffect(() => {
-    hljs.initHighlighting();
+    hljs.highlightAll();
   }, []);
 
   return (

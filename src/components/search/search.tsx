@@ -40,7 +40,7 @@ export function Search() {
           break;
         case "Escape":
           if (isModalOpen) {
-            setIsModalOpen(false);
+            closeModal();
           }
           break;
       }
@@ -75,6 +75,11 @@ export function Search() {
     }
   }, [isModalOpen]);
 
+  function closeModal() {
+    setIsModalOpen(false);
+    setValue("");
+  }
+
   return (
     <>
       <TextInput
@@ -94,11 +99,7 @@ export function Search() {
         }}
       />
       <ModalOverlay isOpen={isModalOpen}>
-        <ModalContent
-          onClose={() => {
-            setIsModalOpen(false);
-          }}
-        >
+        <ModalContent onClose={closeModal}>
           <ModalBody className="w-[80%] text-left">
             <TextInput
               ref={modalInputRef}
