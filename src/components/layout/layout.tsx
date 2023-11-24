@@ -17,7 +17,8 @@ import { routes } from "@/config/routes";
 
 import "highlight.js/styles/stackoverflow-dark.min.css";
 
-export default function MdxLayout({ children }: { children: React.ReactNode }) {
+export function MdxLayout(props: { children: React.ReactNode }) {
+  console.log("Props", props);
   return (
     <GrapesProvider
       locale="en-US"
@@ -59,7 +60,7 @@ export default function MdxLayout({ children }: { children: React.ReactNode }) {
             columnSpan={8}
             className="h-[calc(100vh-68px)] overflow-y-auto py-l px-m"
           >
-            <main>{children}</main>
+            <main>{props.children}</main>
           </GridItem>
           <GridItem
             columnSpan={2}

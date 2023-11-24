@@ -1,5 +1,14 @@
+import { MdxLayout } from "@/components/layout/layout";
 import { Button } from "@/components/button/button";
 import { PropsTable } from "@/components/props-table/props-table";
+
+export const metadata = {
+  title: "Bloup",
+};
+
+export default ({ children }) => (
+  <MdxLayout meta={metadata}>{children}</MdxLayout>
+);
 
 # Button
 
