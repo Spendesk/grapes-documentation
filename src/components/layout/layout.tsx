@@ -6,19 +6,33 @@ import {
   GridItem,
   Icon,
   Navigation,
+  Tab,
+  TabList,
+  TabPanel,
+  TabPanels,
+  Tabs,
   colors,
 } from "@dev-spendesk/grapes";
-import React from "react";
+import React, { ReactNode } from "react";
 
+import { PropsTable } from "../props-table/props-table";
 import { Search } from "@/components/search/search";
 import { SideBar } from "@/components/sidebar/sidebar";
 import { TableOfContents } from "@/components/table-of-contents/table-of-contents";
 import { routes } from "@/config/routes";
 
 import "highlight.js/styles/stackoverflow-dark.min.css";
+import { PageHeader } from "../page-header/page-header";
 
-export function MdxLayout(props: { children: React.ReactNode }) {
-  console.log("Props", props);
+type Props = {
+  children: ReactNode;
+  metadata: {
+    title: string;
+    props?: string | string[];
+  };
+};
+
+export function MdxLayout({ children, metadata }: Props) {
   return (
     <GrapesProvider
       locale="en-US"
@@ -60,7 +74,23 @@ export function MdxLayout(props: { children: React.ReactNode }) {
             columnSpan={8}
             className="h-[calc(100vh-68px)] overflow-y-auto py-l px-m"
           >
-            <main>{props.children}</main>
+            <main>
+              <PageHeader title={metadata.title} />
+              <Tabs>
+                <TabList>
+                  <Tab>Usage</Tab>
+                  {metadata.props && <Tab>Props</Tab>}
+                </TabList>
+                <TabPanels>
+                  <TabPanel>{children}</TabPanel>
+                  {metadata.props && (
+                    <TabPanel>
+                      <PropsTable props={metadata.props} />
+                    </TabPanel>
+                  )}
+                </TabPanels>
+              </Tabs>
+            </main>
           </GridItem>
           <GridItem
             columnSpan={2}

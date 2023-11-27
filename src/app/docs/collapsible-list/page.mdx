@@ -1,9 +1,14 @@
+import { MdxLayout } from "@/components/layout/layout";
 import { CollapsibleList } from "./collapsible-list";
-import { PropsTableMultiple } from "@/components/props-table/props-table-multiple";
 
-# CollapsibleList
+export const metadata = {
+  title: "CollapsibleList",
+  props: ["CollapsibleList", "CollapsibleListItem"],
+};
 
-## Usage
+export default ({ children }) => (
+  <MdxLayout metadata={metadata}>{children}</MdxLayout>
+);
 
 <CollapsibleList />
 
@@ -42,7 +47,3 @@ import { PropsTableMultiple } from "@/components/props-table/props-table-multipl
   );
 };
 ```
-
-## Props
-
-<PropsTableMultiple names={["CollapsibleList", "CollapsibleListItem"]} />

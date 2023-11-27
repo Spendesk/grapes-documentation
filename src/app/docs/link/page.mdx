@@ -1,9 +1,10 @@
-import { PropsTable } from "@/components/props-table/props-table";
+import { MdxLayout } from "@/components/layout/layout";
 
-# Link
+export const metadata = {
+  title: "Link",
+  props: "Link",
+};
 
-## Usage
-
-## Props
-
-<PropsTable name="Link" />
+export default ({ children }) => (
+  <MdxLayout metadata={metadata}>{children}</MdxLayout>
+);

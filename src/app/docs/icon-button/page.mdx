@@ -1,6 +1,13 @@
-import { PropsTable } from "@/components/props-table/props-table";
+import { MdxLayout } from "@/components/layout/layout";
 
-# IconButton
+export const metadata = {
+  title: "IconButton",
+  props: "IconButton",
+};
+
+export default ({ children }) => (
+  <MdxLayout metadata={metadata}>{children}</MdxLayout>
+);
 
 ```tsx
 const [selectedValue, setSelectedValue] = useState<string | null>(null);
@@ -19,7 +26,3 @@ return (
   />
 );
 ```
-
-## Props
-
-<PropsTable name="IconButton" />

@@ -1,7 +1,14 @@
+import { MdxLayout } from "@/components/layout/layout";
 import { SpacingTokens } from "./spacing-tokens";
 import { SpacingsTailwind } from "./spacings-tailwind";
 
-# Spacings
+export const metadata = {
+  title: "Spacings",
+};
+
+export default ({ children }) => (
+  <MdxLayout metadata={metadata}>{children}</MdxLayout>
+);
 
 ## Tokens
 

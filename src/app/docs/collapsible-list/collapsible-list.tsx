@@ -6,8 +6,6 @@ import {
   CollapsibleListItem,
 } from "@dev-spendesk/grapes";
 
-type Props = {};
-
 export function CollapsibleList() {
   const [activeListItem, setActiveListItem] = useState<number | null>(null);
 

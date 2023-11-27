@@ -1,20 +1,16 @@
 import { MdxLayout } from "@/components/layout/layout";
 import { Button } from "@/components/button/button";
-import { PropsTable } from "@/components/props-table/props-table";
 
 export const metadata = {
-  title: "Bloup",
+  title: "Button",
+  props: "Button",
 };
 
 export default ({ children }) => (
-  <MdxLayout meta={metadata}>{children}</MdxLayout>
+  <MdxLayout metadata={metadata}>{children}</MdxLayout>
 );
 
-# Button
-
-## Usage
-
-### Variant
+## Variant
 
 The variant...
 
@@ -38,7 +34,7 @@ The variant...
 </>
 ```
 
-### Fit
+## Fit
 
 The `fit` prop...
 
@@ -53,7 +49,3 @@ The `fit` prop...
   <Button fit="parent" text="Parent fit" />
 </>
 ```
-
-## Props
-
-<PropsTable name="Button" />
