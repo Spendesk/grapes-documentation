@@ -8,7 +8,8 @@ import {
   Table,
   Tabs,
 } from "@dev-spendesk/grapes";
-import { useEffect, useState } from "react";
+
+import * as allProps from "../../../json/props.json";
 
 import styles from "./props-table-multiple.module.css";
 
@@ -23,26 +24,13 @@ type Props = {
 };
 
 export function PropsTableMultiple({ names }: Props) {
-  const [props, setProps] = useState<PropsDoc[][]>([]);
-
-  useEffect(() => {
-    fetch("/api/props")
-      .then((res) => res.json())
-      .then((data) => {
-        const components = data.filter((d: any) =>
-          names.includes(d.displayName)
-        );
-        if (!components) {
-          return;
-        }
-        setProps(
-          components.map(
-            (component: { props: any[] }) =>
-              Object.values(component.props) as PropsDoc[]
-          )
-        );
-      });
-  }, [names]);
+  const components = allProps.filter((d) => names.includes(d.displayName));
+  if (!components) {
+    return;
+  }
+  const props = components.map(
+    (component) => Object.values(component.props) as PropsDoc[]
+  );
 
   return (
     <Tabs>

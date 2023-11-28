@@ -1,7 +1,7 @@
 "use client";
 
 import { Table } from "@dev-spendesk/grapes";
-import { useEffect, useState } from "react";
+import * as allProps from "../../../json/props.json";
 
 import styles from "./props-table-single.module.css";
 
@@ -16,19 +16,11 @@ type Props = {
 };
 
 export function PropsTableSingle({ name }: Props) {
-  const [props, setProps] = useState<PropsDoc[]>([]);
-
-  useEffect(() => {
-    fetch("/api/props")
-      .then((res) => res.json())
-      .then((data) => {
-        const component = data.find((d: any) => d.displayName === name);
-        if (!component) {
-          return;
-        }
-        setProps(Object.values(component.props) as PropsDoc[]);
-      });
-  }, [name]);
+  const component = allProps.find((d) => d.displayName === name);
+  if (!component) {
+    return;
+  }
+  const props = Object.values(component.props) as PropsDoc[];
 
   return (
     <Table
