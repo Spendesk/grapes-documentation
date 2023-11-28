@@ -68,7 +68,11 @@ function getSectionName(section: ColorSection): string {
 
 export function ColorTokens() {
   const regExp = /\(([^]+)\)/;
-  const style = getComputedStyle(document.body);
+  if (typeof window === "undefined") {
+    return null;
+  }
+
+  const style = window.getComputedStyle(document.body);
 
   return (
     <div className="box">

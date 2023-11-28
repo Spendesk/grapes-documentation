@@ -3,12 +3,15 @@
 import { spacingTokens } from "./types";
 
 export function SpacingTokens() {
+  if (typeof window === "undefined") {
+    return null;
+  }
+
+  const style = window.getComputedStyle(document.documentElement);
   return (
     <div className="grid grid-cols-4 gap-s text-center items-end box">
       {spacingTokens.map((token) => {
-        const value = getComputedStyle(
-          document.documentElement
-        ).getPropertyValue(token);
+        const value = style.getPropertyValue(token);
         return (
           <div key={token}>
             <div

@@ -20,9 +20,9 @@ import { Search } from "@/components/search/search";
 import { SideBar } from "@/components/sidebar/sidebar";
 import { TableOfContents } from "@/components/table-of-contents/table-of-contents";
 import { routes } from "@/config/routes";
+import { PageHeader } from "../page-header/page-header";
 
 import "highlight.js/styles/stackoverflow-dark.min.css";
-import { PageHeader } from "../page-header/page-header";
 
 type Props = {
   children: ReactNode;

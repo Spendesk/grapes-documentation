@@ -4,8 +4,13 @@ import type { MDXComponents } from "mdx/types";
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
-    // @ts-ignore
-    pre: ({ children }) => <CodeBlock>{children.props.children}</CodeBlock>,
+    pre: ({ children }) => (
+      // @ts-ignore
+      <CodeBlock language={children.props.className}>
+        {/* @ts-ignore */}
+        {children.props.children}
+      </CodeBlock>
+    ),
     h1: ({ children }) => (
       <h1 className="title-xl leading-10 my-xs" id={slug(children as string)}>
         {children}
