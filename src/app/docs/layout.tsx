@@ -1,7 +1,6 @@
 "use client";
 
 import {
-  GrapesProvider,
   GridContainer,
   GridItem,
   Icon,
@@ -26,22 +25,7 @@ type Props = {
 
 export default function Layout({ children, metadata }: Props) {
   return (
-    <GrapesProvider
-      locale="en-US"
-      localesDefinition={{
-        locales: {
-          "en-US": {
-            cancel: "Cancel",
-            close: "Close",
-            nextMonth: "Next month",
-            previousMonth: "Previous month",
-            openCalendar: "Open calendar",
-            hide: "Hide",
-            show: "Show",
-          },
-        },
-      }}
-    >
+    <>
       <Navigation
         leftNavigationItems={[
           <div
@@ -76,6 +60,6 @@ export default function Layout({ children, metadata }: Props) {
           </GridItem>
         </GridContainer>
       </div>
-    </GrapesProvider>
+    </>
   );
 }

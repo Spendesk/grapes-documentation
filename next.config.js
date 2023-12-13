@@ -4,6 +4,9 @@ const withMDX = require("@next/mdx")();
 const nextConfig = {
   pageExtensions: ["js", "jsx", "mdx", "ts", "tsx"],
   output: "export",
+  images: {
+    unoptimized: true,
+  },
 };
 
 module.exports = withMDX(nextConfig);

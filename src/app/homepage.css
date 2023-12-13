@@ -1,0 +1,31 @@
+main {
+  height: 400dvh;
+}
+
+h1 {
+  font-size: 100px !important;
+  --chars: 144;
+  background:
+      /* base color */ var(--color-complementary)
+    /* highlight gradient */
+    linear-gradient(
+      to right,
+      var(--color-primary-light) 0%,
+      var(--color-info) 100%
+    )
+    0 / 0 no-repeat;
+  -webkit-background-clip: text;
+  color: transparent;
+
+  animation: text steps(var(--chars)) forwards;
+  animation-timeline: scroll(root);
+}
+
+@keyframes text {
+  0% {
+    background-size: 0ch;
+  }
+  100% {
+    background-size: calc(var(--chars) * 1ch);
+  }
+}
