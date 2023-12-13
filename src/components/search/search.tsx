@@ -15,6 +15,8 @@ import {
 import { useEffect, useRef, useState } from "react";
 
 export function Search() {
+  console.log(window.navigator.platform);
+
   const inputRef = useRef<HTMLInputElement | null>(null);
   const modalInputRef = useRef<HTMLInputElement | null>(null);
 

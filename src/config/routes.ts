@@ -1,23 +1,47 @@
-export type Route = {
-  category: "Interaction" | "Design Tokens" | "Navigation";
-  routes: { label: string; url: string }[];
+import { IconName } from "@dev-spendesk/grapes";
+
+type RouteCategory = {
+  category: string;
+  iconName: IconName;
+  url: string;
 };
 
-export const routes: Route[] = [
+type RouteConfig = {
+  category: string;
+  routes: {
+    label: string;
+    url: string;
+  }[];
+}[];
+
+export const routeCategories: RouteCategory[] = [
+  {
+    category: "Components",
+    iconName: "dashboard",
+    url: "/docs/components",
+  },
+  {
+    category: "Design Tokens",
+    iconName: "sparkles",
+    url: "/docs/design-tokens",
+  },
+];
+
+export const routes: RouteConfig = [
   {
     category: "Interaction",
     routes: [
       {
         label: "Button",
-        url: "/docs/button",
+        url: "/docs/components/button",
       },
       {
         label: "IconButton",
-        url: "/docs/icon-button",
+        url: "/docs/components/icon-button",
       },
       {
         label: "Link",
-        url: "/docs/link",
+        url: "/docs/components/link",
       },
     ],
   },
@@ -26,20 +50,20 @@ export const routes: Route[] = [
     routes: [
       {
         label: "CollapsibleList",
-        url: "/docs/collapsible-list",
+        url: "/docs/components/collapsible-list",
       },
     ],
   },
   {
-    category: "Design Tokens",
+    category: "Design tokens",
     routes: [
       {
         label: "Colors",
-        url: "/docs/colors",
+        url: "/docs/design-tokens/colors",
       },
       {
         label: "Spacings",
-        url: "/docs/spacings",
+        url: "/docs/design-tokens/spacings",
       },
     ],
   },

@@ -1,16 +1,24 @@
-import { Route } from "@/config/routes";
-import { SideBarLink } from "./sidebar-link";
+import { routes, routeCategories } from "@/config/routes";
 import { usePathname } from "next/navigation";
 
-type Props = {
-  routes: Route[];
-};
+import { SideBarLink } from "./sidebar-link";
 
-export function SideBar({ routes }: Props) {
+export function SideBar() {
   const pathname = usePathname();
 
   return (
-    <div className="pl-s pt-m">
+    <nav className="pl-s pt-m">
+      <ul className="mb-l">
+        {routeCategories.map((routeCategory) => (
+          <SideBarLink
+            key={routeCategory.category}
+            isActive={pathname.startsWith(routeCategory.url)}
+            url={routeCategory.url}
+            label={routeCategory.category}
+            iconName={routeCategory.iconName}
+          />
+        ))}
+      </ul>
       {routes.map((route) => (
         <div key={route.category}>
           <div className="uppercase text-primary-dark title-m ml-xs my-xs">
@@ -20,11 +28,12 @@ export function SideBar({ routes }: Props) {
             <SideBarLink
               key={subRoute.label}
               isActive={pathname === subRoute.url}
-              subRoute={subRoute}
+              url={subRoute.url}
+              label={subRoute.label}
             />
           ))}
         </div>
       ))}
-    </div>
+    </nav>
   );
 }
