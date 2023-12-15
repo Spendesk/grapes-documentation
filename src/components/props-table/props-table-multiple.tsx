@@ -1,26 +1,12 @@
 "use client";
 
-import {
-  Tab,
-  TabList,
-  TabPanel,
-  TabPanels,
-  Table,
-  Tabs,
-  Tag,
-} from "@dev-spendesk/grapes";
+import { Tab, TabList, TabPanel, TabPanels, Tabs } from "@dev-spendesk/grapes";
+
+import { PropsTableComponent } from "./props-table-component";
+import { sortProps } from "./utils";
 
 import allProps from "../../../json/props.json";
-
 import styles from "./props-table-multiple.module.css";
-
-type PropsDoc = {
-  name: string;
-  description: string;
-  required: boolean;
-  defaultValue: { value: string | boolean } | null;
-  type: { name: string };
-};
 
 type Props = {
   names: string[];
@@ -31,19 +17,10 @@ export function PropsTableMultiple({ names }: Props) {
     names.includes(d.displayName)
   );
   if (!components) {
-    return;
+    return null;
   }
-  const props = components.map(
-    (component) =>
-      Object.values(component.props).sort((a, b) => {
-        if (a.required && !b.required) {
-          return -1;
-        }
-        if (b.required && !a.required) {
-          return 1;
-        }
-        return a.name.localeCompare(b.name);
-      }) as PropsDoc[]
+  const props = components.map((component) =>
+    sortProps(Object.values(component.props))
   );
 
   return (
@@ -56,46 +33,7 @@ export function PropsTableMultiple({ names }: Props) {
       <TabPanels>
         {props.map((prop, index) => (
           <TabPanel key={index}>
-            <Table
-              className={styles.table}
-              columns={[
-                {
-                  header: "Name",
-                  id: "name",
-                  width: "20%",
-                  renderCell: ({ name, required }) => (
-                    <>
-                      <span>{name}</span>{" "}
-                      <span className="text-alert font-bold">
-                        {required ? "*" : ""}
-                      </span>
-                    </>
-                  ),
-                },
-                {
-                  header: "Type",
-                  id: "type",
-                  width: "20%",
-                  renderCell: ({ type }) => type.name,
-                },
-                {
-                  header: "Description",
-                  id: "description",
-                  width: "40%",
-                  renderCell: ({ defaultValue, description }) => (
-                    <div className="py-xs">
-                      <div>{description}</div>
-                      {defaultValue && (
-                        <Tag className="mt-xxs" variant="neutral">
-                          Default: {`${defaultValue.value}`}
-                        </Tag>
-                      )}
-                    </div>
-                  ),
-                },
-              ]}
-              data={prop}
-            />
+            <PropsTableComponent className={styles.table} props={prop} />
           </TabPanel>
         ))}
       </TabPanels>
