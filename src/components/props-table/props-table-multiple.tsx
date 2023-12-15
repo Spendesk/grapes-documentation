@@ -7,6 +7,7 @@ import {
   TabPanels,
   Table,
   Tabs,
+  Tag,
 } from "@dev-spendesk/grapes";
 
 import allProps from "../../../json/props.json";
@@ -16,7 +17,9 @@ import styles from "./props-table-multiple.module.css";
 type PropsDoc = {
   name: string;
   description: string;
+  required: boolean;
   defaultValue: { value: string | boolean } | null;
+  type: { name: string };
 };
 
 type Props = {
@@ -31,7 +34,16 @@ export function PropsTableMultiple({ names }: Props) {
     return;
   }
   const props = components.map(
-    (component) => Object.values(component.props) as PropsDoc[]
+    (component) =>
+      Object.values(component.props).sort((a, b) => {
+        if (a.required && !b.required) {
+          return -1;
+        }
+        if (b.required && !a.required) {
+          return 1;
+        }
+        return a.name.localeCompare(b.name);
+      }) as PropsDoc[]
   );
 
   return (
@@ -48,23 +60,38 @@ export function PropsTableMultiple({ names }: Props) {
               className={styles.table}
               columns={[
                 {
-                  header: "name",
-                  id: "Name",
-                  width: "30%",
-                  renderCell: ({ name }) => name,
-                },
-                {
-                  header: "defaultValue",
-                  id: "Default value",
+                  header: "Name",
+                  id: "name",
                   width: "20%",
-                  renderCell: ({ defaultValue }) =>
-                    defaultValue ? `${defaultValue.value}` : "",
+                  renderCell: ({ name, required }) => (
+                    <>
+                      <span>{name}</span>{" "}
+                      <span className="text-alert font-bold">
+                        {required ? "*" : ""}
+                      </span>
+                    </>
+                  ),
                 },
                 {
-                  header: "description",
-                  id: "Description",
-                  width: "50%",
-                  renderCell: ({ description }) => description,
+                  header: "Type",
+                  id: "type",
+                  width: "20%",
+                  renderCell: ({ type }) => type.name,
+                },
+                {
+                  header: "Description",
+                  id: "description",
+                  width: "40%",
+                  renderCell: ({ defaultValue, description }) => (
+                    <div className="py-xs">
+                      <div>{description}</div>
+                      {defaultValue && (
+                        <Tag className="mt-xxs" variant="neutral">
+                          Default: {`${defaultValue.value}`}
+                        </Tag>
+                      )}
+                    </div>
+                  ),
                 },
               ]}
               data={prop}
