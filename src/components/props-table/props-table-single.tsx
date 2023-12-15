@@ -1,7 +1,7 @@
 "use client";
 
 import { Table } from "@dev-spendesk/grapes";
-import * as allProps from "../../../json/props.json";
+import allProps from "../../../json/props.json";
 
 import styles from "./props-table-single.module.css";
 
@@ -16,7 +16,7 @@ type Props = {
 };
 
 export function PropsTableSingle({ name }: Props) {
-  const component = allProps.find((d) => d.displayName === name);
+  const component = allProps.props.find((d) => d.displayName === name);
   if (!component) {
     return;
   }

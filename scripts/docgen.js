@@ -12,7 +12,7 @@ const documentation = parse([
 
 fs.writeFile(
   "json/props.json",
-  JSON.stringify(documentation),
+  `{"props": ${JSON.stringify(documentation)}}`,
   "utf8",
   () => {}
 );

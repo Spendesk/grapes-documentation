@@ -9,7 +9,7 @@ import {
   Tabs,
 } from "@dev-spendesk/grapes";
 
-import * as allProps from "../../../json/props.json";
+import allProps from "../../../json/props.json";
 
 import styles from "./props-table-multiple.module.css";
 
@@ -24,7 +24,9 @@ type Props = {
 };
 
 export function PropsTableMultiple({ names }: Props) {
-  const components = allProps.filter((d) => names.includes(d.displayName));
+  const components = allProps.props.filter((d) =>
+    names.includes(d.displayName)
+  );
   if (!components) {
     return;
   }
