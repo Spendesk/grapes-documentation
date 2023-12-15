@@ -1,24 +1,9 @@
 "use client";
 
-import {
-  GrapesProvider,
-  GridContainer,
-  GridItem,
-  Icon,
-  Navigation,
-  Tab,
-  TabList,
-  TabPanel,
-  TabPanels,
-  Tabs,
-  colors,
-} from "@dev-spendesk/grapes";
+import { Tab, TabList, TabPanel, TabPanels, Tabs } from "@dev-spendesk/grapes";
 import React, { ReactNode } from "react";
 
 import { PropsTable } from "../props-table/props-table";
-import { Search } from "@/components/search/search";
-import { SideBar } from "@/components/sidebar/sidebar";
-import { TableOfContents } from "@/components/table-of-contents/table-of-contents";
 import { PageHeader } from "../page-header/page-header";
 
 import "highlight.js/styles/stackoverflow-dark.min.css";
