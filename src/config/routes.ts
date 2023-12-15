@@ -30,6 +30,11 @@ export const routeCategories: RouteCategory[] = [
     iconName: "sparkles",
     url: "/docs/design-tokens",
   },
+  {
+    category: "Theming",
+    iconName: "magic-wand",
+    url: "/docs/theming",
+  },
 ];
 
 export const routes: RouteConfig = [
