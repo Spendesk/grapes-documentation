@@ -11,6 +11,11 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         {children.props.children}
       </CodeBlock>
     ),
+    code: ({ children }) => (
+      <code className="bg-neutral-lighter text-s p-xxs rounded-xxs">
+        {children}
+      </code>
+    ),
     h1: ({ children }) => (
       <h1 className="title-xl leading-10 my-xs" id={slug(children as string)}>
         {children}

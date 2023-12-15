@@ -1,0 +1,93 @@
+import { SupportedBrowsers } from "./supported-browsers";
+
+# Getting Started
+
+A quick tutorial to get you up and running with Grapes.
+
+## Installation
+
+Grapes is available as a [NPM package](https://www.npmjs.com/package/@dev-spendesk/grapes).
+
+```bash
+// with npm
+npm install @dev-spendesk/grapes
+
+// with yarn
+yarn add @dev-spendesk/grapes
+```
+
+Please note that `react` >= 18.2 and `react-dom` >= 18.2 are peer dependencies.
+
+## Usage
+
+All Grapes applications start with a `GrapesProvider`. This provider specifies the locale to use, along with some optional settings like a mapbox token.
+
+Here is a quick example if you want to use Grapes components in your React app:
+
+```jsx
+import { SwitchField, GrapesProvider } from "@dev-spendesk/grapes";
+
+const MySwitchField = () => {
+  return (
+    <GrapesProvider
+      locale="en-US"
+      localesDefinition={{
+        fallbackLocale: "en-US",
+        locales: {
+          "en-US": {
+            cancel: "Cancel",
+            close: "Close",
+            nextMonth: "Next month",
+            previousMonth: "Previous month",
+            openCalendar: "Open calendar",
+            show: "show",
+            hide: "hide",
+          },
+        },
+      }}
+    >
+      <SwitchField
+        label="Should I use Grapes?"
+        isChecked
+        onChange={() => {
+          console.log("Of course you need to use it, what are you doing?");
+        }}
+      />
+    </GrapesProvider>
+  );
+};
+```
+
+### TailwindCSS Preset
+
+Grapes exposes a preset that can be included into any existing Tailwind CSS project.
+To get started, you first need to make sure that you have a working Tailwind CSS project installed. More information about the installation can be found on Tailwind's documentation website: [https://tailwindcss.com/docs/installation](https://tailwindcss.com/docs/installation).
+Then, include the preset to your `tailwind.config.js` file:
+
+```js
+{
+  presets: [require('@dev-spendesk/grapes/tailwind')],
+}
+```
+
+### Using the theme
+
+Here is a quick example if you want to use Grapes theme and design tokens in your SCSS:
+
+```css
+.MyComponent {
+  margin-bottom: var(--spacing-s);
+}
+```
+
+## Supported platforms
+
+### Browser
+
+Grapes supports the latest, stable releases of all major browsers.
+
+<SupportedBrowsers />
+
+### React
+
+Grapes supports the most recent versions of React, starting with **18.2.0**.
