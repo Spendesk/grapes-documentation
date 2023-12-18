@@ -1,0 +1,12 @@
+.layout {
+  max-width: 1400px;
+  margin: 0 auto;
+  height: calc(100vh - 68px);
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  gap: var(--spacing-m);
+}
+
+.layoutItem {
+  overflow-y: auto;
+}
