@@ -1,0 +1,66 @@
+import { Callout } from "@/components/callout/callout";
+
+# Theming
+
+Learn how styling works in Grapes, including how you can apply a theme to Grapes.
+
+## Introduction
+
+Grapes is designed to maintain uniformity across all Spendesk applications. Each component comes with pre-defined styles tested to align with Spendesk guidelines and ensure accessibility standards are met.
+
+**Customizing Grapes is discouraged** but our components do provide flexibility
+for adjusting layouts, spacing, and other elements to suit your needs.
+
+## CSS Cascade layer
+
+This section assumes that you're already familiar with CSS cascade layers.
+Grapes exposes one [CSS cascade layer](https://developer.mozilla.org/en-US/docs/Web/CSS/@layer) named `grapes`.
+All styles are contained within this layer.
+
+When you need to overwrite some styles from Grapes, your CSS need be defined either outside of any layer or inside a layer taking precedence over `grapes`.
+
+## className props
+
+All Grapes components should support the props `className`. This props is intended to set styling option such as layout, position, and spacing.
+Although not recommended, this props can also be used to override any style within a given component.
+
+<Callout variant="warning" title="Mind the order of your layer">
+  If your className is defined in a layer, make sure your layer takes precedence
+  over `grapes`.
+</Callout>
+
+## Theming
+
+Colors, sizing, spacing, fonts, and other tokens can be customized throught the use of CSS variables. Most predefined CSS variables are defined under the section `Design Token`.
+
+The recommended way to override the Grapes theme is to define a new CSS Cascade layer inside your application, say `marketing`.
+
+```css
+@layer marketing {
+  // rules
+}
+```
+
+To override any CSS variable use the pseudo-class `:root` :
+
+```css
+@layer marketing {
+  :root {
+    --color-primary: red;
+    --spacing-xxs: 0.8rem;
+  }
+}
+```
+
+To take effect, **your layer should take precedence** over the layer `grapes`:
+
+```css
+@layer grapes, marketing;
+
+@layer marketing {
+  :root {
+    --color-primary: red;
+    --spacing-xxs: 0.8rem;
+  }
+}
+```

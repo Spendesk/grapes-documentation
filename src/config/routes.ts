@@ -16,6 +16,11 @@ type RouteConfig = {
 
 export const routeCategories: RouteCategory[] = [
   {
+    category: "Getting Started",
+    iconName: "success",
+    url: "/docs/getting-started",
+  },
+  {
     category: "Components",
     iconName: "dashboard",
     url: "/docs/components",
@@ -24,6 +29,11 @@ export const routeCategories: RouteCategory[] = [
     category: "Design Tokens",
     iconName: "sparkles",
     url: "/docs/design-tokens",
+  },
+  {
+    category: "Theming",
+    iconName: "magic-wand",
+    url: "/docs/theming",
   },
 ];
 

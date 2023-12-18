@@ -1,6 +1,8 @@
-import { CodeBlock } from "@/components/code-block/code-block";
 import { slug } from "github-slugger";
 import type { MDXComponents } from "mdx/types";
+
+import { CodeBlock } from "@/components/code-block/code-block";
+import { Link } from "@/components/link/link";
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
@@ -10,6 +12,11 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         {/* @ts-ignore */}
         {children.props.children}
       </CodeBlock>
+    ),
+    code: ({ children }) => (
+      <code className="bg-neutral-lighter text-s p-xxs rounded-xxs">
+        {children}
+      </code>
     ),
     h1: ({ children }) => (
       <h1 className="title-xl leading-10 my-xs" id={slug(children as string)}>
@@ -27,6 +34,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       </h3>
     ),
     p: ({ children }) => <p className="my-xs">{children}</p>,
+    a: ({ children, href }) => <Link href={href}>{children}</Link>,
     ...components,
   };
 }
