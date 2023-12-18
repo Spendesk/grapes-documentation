@@ -26,9 +26,9 @@ export const routeCategories: RouteCategory[] = [
     url: "/docs/components",
   },
   {
-    category: "Design Tokens",
+    category: "Theme",
     iconName: "sparkles",
-    url: "/docs/design-tokens",
+    url: "/docs/theme",
   },
   {
     category: "Theming",
@@ -69,11 +69,11 @@ export const routes: RouteConfig = [
     routes: [
       {
         label: "Colors",
-        url: "/docs/design-tokens/colors",
+        url: "/docs/theme/colors",
       },
       {
         label: "Spacings",
-        url: "/docs/design-tokens/spacings",
+        url: "/docs/theme/spacings",
       },
     ],
   },

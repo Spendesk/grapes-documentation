@@ -19,7 +19,7 @@ export function SpacingTokens() {
               className="aspect-square mx-auto bg-primary-lighter border border-dashed border-primary-light"
             />
             <div className="title-m mt-xs">{token}</div>
-            <div style={{ color: "var(--color-neutral)" }}>{value}</div>
+            <div className="text-neutral">{value}</div>
           </div>
         );
       })}
