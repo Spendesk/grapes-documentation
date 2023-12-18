@@ -44,7 +44,7 @@ export function MdxLayout({ children, metadata }: Props) {
           <TabPanel>{children}</TabPanel>
           {metadata.props && (
             <TabPanel>
-              <PropsTable props={metadata.props} />
+              <PropsTable component={metadata.props} />
             </TabPanel>
           )}
         </TabPanels>
