@@ -1,0 +1,46 @@
+import { MdxLayout } from "@/components/layout/layout";
+import { TypographyTailwind } from "./typography-tailwind";
+import { TypographyTokens } from "./typography-tokens";
+import { bodyTokens, titleTokens } from "./types";
+
+export const metadata = {
+  title: "Typography",
+};
+
+export default ({ children }) => (
+  <MdxLayout metadata={metadata}>{children}</MdxLayout>
+);
+
+## Tokens
+
+### Title placeholders
+
+<TypographyTokens tokens={titleTokens} />
+
+### Body placeholders
+
+<TypographyTokens tokens={bodyTokens} />
+
+## Usage in CSS
+
+Whenever you want to apply this style to text, you can use the corresponding placeholder.
+
+```css
+.myBodyClass {
+  font-size: var(--body-m);
+  font-weight: var(--fw-regular);
+  font-family: var(--ff-base);
+}
+
+.myTitleClass {
+  font-size: var(--title-m);
+  font-weight: var(--fw-medium);
+  font-family: var(--ff-base);
+}
+```
+
+## Usage in TailwindCSS
+
+Whenever you want to apply a typography style to the block element, you can use the corresponding className.
+
+<TypographyTailwind />

@@ -1,0 +1,40 @@
+import { MdxLayout } from "@/components/layout/layout";
+
+export const metadata = {
+  title: "Ellipsis",
+};
+
+export default ({ children }) => (
+  <MdxLayout metadata={metadata}>{children}</MdxLayout>
+);
+
+It truncates a string when the content overflows its container and displays an ellipsis ("...") to represent the clipped text.
+
+## Example
+
+<p className="truncate">
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+  incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+  nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+  eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
+  in culpa qui officia deserunt mollit anim id est laborum.
+</p>
+
+## Usage in TailwindCSS
+
+Whenever you want to truncate a text with TailwindCSS, you can use the className `truncate` provided by TailwindCSS.
+
+Read full documentation: [https://tailwindcss.com/docs/text-overflow](https://tailwindcss.com/docs/text-overflow).
+
+## Usage in CSS
+
+Whenever you want to apply ellipsis on a text, you can use the following style.
+
+```css
+.myClass {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+```

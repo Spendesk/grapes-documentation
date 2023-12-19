@@ -1,0 +1,35 @@
+import { MdxLayout } from "@/components/layout/layout";
+import { BorderRadiusTokens } from "./border-radius-tokens";
+import { BorderRadiusTailwind } from "./border-radius-tailwind";
+
+export const metadata = {
+  title: "Border radius",
+};
+
+export default ({ children }) => (
+  <MdxLayout metadata={metadata}>{children}</MdxLayout>
+);
+
+## Tokens
+
+<BorderRadiusTokens />
+
+## Usage in CSS
+
+Whenever you want to apply this style, you can use the corresponding variable.
+
+```css
+.myClass {
+  border-radius: var(--border-radius-xs);
+}
+```
+
+## Usage with TailwindCSS
+
+Whenever you want to use a border radius from Grapes with TailwindCSS, you can use the corresponding keys.
+
+Example with border-radius:
+
+<BorderRadiusTailwind />
+
+See documentation from TailwindCSS: [https://tailwindcss.com/docs/border-radius](https://tailwindcss.com/docs/border-radius)
