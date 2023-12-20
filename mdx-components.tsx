@@ -1,8 +1,8 @@
+import { Link } from "@dev-spendesk/grapes";
 import { slug } from "github-slugger";
 import type { MDXComponents } from "mdx/types";
 
 import { CodeBlock } from "@/components/code-block/code-block";
-import { Link } from "@/components/link/link";
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
@@ -34,7 +34,11 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       </h3>
     ),
     p: ({ children }) => <p className="my-xs">{children}</p>,
-    a: ({ children, href }) => <Link href={href}>{children}</Link>,
+    a: ({ children, href }) => (
+      <Link as="a" href={href}>
+        {children}
+      </Link>
+    ),
     ...components,
   };
 }
