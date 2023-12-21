@@ -1,5 +1,3 @@
-"use client";
-
 import { Avatar, Icon } from "@dev-spendesk/grapes";
 import Link from "next/link";
 import "./homepage.css";
@@ -48,13 +46,14 @@ export default function Home() {
               <Icon name="arrow-right" className="arrow" />
             </Link>
           </div>
-          <div className="side">
-            <img src="/grapes.png" alt="grapes" className="parallalax" />
-          </div>
+          <div className="side"></div>
         </div>
 
         <section>
-          <h2>Provide a consistent experience to anyone</h2>
+          <h2>
+            Provide a <span className="highlight">consistent</span> experience
+            to anyone
+          </h2>
           <p className="body-l text-neutral-dark">
             Users should have this experience across devices and form factors.
             They should also feel that Spendesk honors the conventions of the
@@ -101,7 +100,7 @@ export default function Home() {
 
         <section>
           <h2>
-            Meet the <span className="text-primary">team</span>
+            Meet the <span className="highlight">team</span>
           </h2>
           <p className="body-l text-neutral-dark">
             Amazing people who lead the design system full-time. A question or

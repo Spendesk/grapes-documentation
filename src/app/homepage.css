@@ -5,7 +5,7 @@
   --size-header: calc(2 * var(--spacing-3xl) + var(--size-header-content));
   --font-size-h2: 50px;
   --gap-section: 10vh;
-  background: var(--color-white);
+  background: var(--color-page-background);
 }
 
 header {
@@ -56,11 +56,11 @@ main {
   grid-column: bleed;
   display: grid;
   grid-template-columns: subgrid;
-  background: var(--color-page-background);
+  background: var(--color-white);
   border-radius: var(--border-radius-xs);
   overflow: clip;
-  height: clamp(400px, 50vh, 600px);
-  box-shadow: var(--elevation-20);
+  height: clamp(350px, 50vh, 500px);
+  border: 1px solid var(--color-neutral-lighter);
 }
 
 .primaryLink {
@@ -140,11 +140,7 @@ main {
   grid-column: bleed-right;
   background: url("/bg.avif");
   background-position: 50% 50%;
-
-  .parallalax {
-    position: absolute;
-    bottom: 0;
-  }
+  background-size: cover;
 }
 
 section {
@@ -158,6 +154,24 @@ section {
     width: 50%;
     text-wrap: pretty;
     margin-block-end: var(--spacing-s);
+  }
+}
+
+.highlight {
+  position: relative;
+  color: var(--color-primary);
+
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    background: var(--color-primary-lighter);
+    z-index: -1;
+    width: 100%;
+    top: 30px;
+    left: 0;
+    height: 20px;
+    transform: rotate(2deg);
   }
 }
 
@@ -177,17 +191,17 @@ section {
   }
 
   :where(.item) {
-    background: var(--color-page-background);
+    background: var(--color-white);
     border-radius: var(--border-radius-xs);
     padding: var(--spacing-m);
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: var(--spacing-s);
-    border: 1px solid transparent;
+    border: 1px solid var(--color-neutral-lighter);
 
     &:hover {
-      border: 1px solid var(--color-primary-lighter);
+      border: 1px solid var(--color-primary-light);
       h3 {
         color: var(--color-primary);
       }
@@ -228,15 +242,12 @@ section {
 }
 
 @keyframes header-scale {
+  from {
+    background-color: var(--color-page-background);
+  }
   to {
     border-color: var(--color-neutral-lighter);
     padding: var(--spacing-s) 0;
-  }
-}
-
-@keyframes parallalax {
-  to {
-    bottom: 100%;
   }
 }
 
@@ -249,10 +260,5 @@ section {
     animation-timeline: scroll();
     animation-range: entry 0% entry 10%;
     border-block-end: 1px solid transparent;
-  }
-  .parallalax {
-    animation: parallalax auto linear both;
-    animation-timeline: scroll();
-    animation-range: cover 0% cover 100%;
   }
 }
