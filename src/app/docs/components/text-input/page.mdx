@@ -1,0 +1,78 @@
+import { MdxLayout } from "@/components/layout/layout";
+import { Button, Icon, TextInput } from "@dev-spendesk/grapes";
+
+import { DemoTextInput } from "./demo";
+
+export const metadata = {
+  title: "TextInput",
+  props: "TextInput",
+};
+
+export default ({ children }) => (
+  <MdxLayout metadata={metadata}>{children}</MdxLayout>
+);
+
+## Demo
+
+<DemoTextInput />
+
+```tsx
+const [value, setValue] = useState("");
+
+return (
+  <TextInput
+    placeholder="Enter account number"
+    value={value}
+    onChange={(event) => setValue(event.target.value)}
+  />
+);
+```
+
+## Usage
+
+### Disabled
+
+<div className="box">
+  <TextInput
+    className="w-[360px]"
+    placeholder="Enter account number"
+    isDisabled
+  />
+</div>
+
+### Invalid
+
+<div className="box pointer-events-none">
+  <TextInput
+    className="w-[360px]"
+    placeholder="Enter account number"
+    isInvalid
+/>
+
+</div>
+
+### Magic gradient
+
+<div className="box pointer-events-none">
+  <TextInput
+    className="w-[360px]"
+    placeholder="Enter account number"
+    variant="magicGradient"
+/>
+
+</div>
+
+### With addon
+
+<div className="box pointer-events-none flex flex-col gap-s">
+  <TextInput
+    className="w-[360px]"
+    placeholder="Enter account number"
+    leftAddon={<Icon className="mx-xs" name="search" />}
+  />
+  <TextInput
+    className="w-[360px]"
+    placeholder="Enter account number"
+    rightAddon={<Button variant="ghost" text="Copy" />}
+  />
+</div>

@@ -8,6 +8,7 @@ const documentation = parse([
   "./node_modules/@dev-spendesk/grapes/src/components/Link/Link.tsx",
   "./node_modules/@dev-spendesk/grapes/src/components/CollapsibleList/CollapsibleList.tsx",
   "./node_modules/@dev-spendesk/grapes/src/components/CollapsibleList/CollapsibleListItem/CollapsibleListItem.tsx",
+  "./node_modules/@dev-spendesk/grapes/src/components/TextInput/TextInput.tsx",
 ]);
 
 fs.writeFile(

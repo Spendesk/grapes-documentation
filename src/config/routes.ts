@@ -56,6 +56,15 @@ export const routes: RouteConfig = [
     ],
   },
   {
+    category: "Form",
+    routes: [
+      {
+        label: "TextInput",
+        url: "/docs/components/text-input",
+      },
+    ],
+  },
+  {
     category: "Navigation",
     routes: [
       {
