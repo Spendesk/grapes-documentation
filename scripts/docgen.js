@@ -8,6 +8,7 @@ const documentation = parse([
   "./node_modules/@dev-spendesk/grapes/src/components/CollapsibleList/CollapsibleListItem/CollapsibleListItem.tsx",
   "./node_modules/@dev-spendesk/grapes/src/components/IconButton/IconButton.tsx",
   "./node_modules/@dev-spendesk/grapes/src/components/Link/Link.tsx",
+  "./node_modules/@dev-spendesk/grapes/src/components/Tag/Tag.tsx",
   "./node_modules/@dev-spendesk/grapes/src/components/Toast/Toast.tsx",
   "./node_modules/@dev-spendesk/grapes/src/components/Tooltip/Tooltip.tsx",
 ]);
