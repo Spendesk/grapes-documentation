@@ -59,6 +59,10 @@ export const routes: RouteConfig = [
     category: "Feedback",
     routes: [
       {
+        label: "Toast",
+        url: "/docs/components/toast",
+      },
+      {
         label: "Tooltip",
         url: "/docs/components/tooltip",
       },
