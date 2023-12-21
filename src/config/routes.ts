@@ -59,6 +59,10 @@ export const routes: RouteConfig = [
     category: "Feedback",
     routes: [
       {
+        label: "Modal",
+        url: "/docs/components/modal",
+      },
+      {
         label: "Tag",
         url: "/docs/components/tag",
       },
