@@ -56,6 +56,15 @@ export const routes: RouteConfig = [
     ],
   },
   {
+    category: "Feedback",
+    routes: [
+      {
+        label: "Tooltip",
+        url: "/docs/components/tooltip",
+      },
+    ],
+  },
+  {
     category: "Navigation",
     routes: [
       {

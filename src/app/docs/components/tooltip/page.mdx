@@ -1,0 +1,122 @@
+import { Button, Callout, Tooltip } from "@dev-spendesk/grapes";
+import { MdxLayout } from "@/components/layout/layout";
+
+import { VisibleOnClick } from "./visible-on-click";
+
+export const metadata = {
+  title: "Tooltip",
+  props: "Tooltip",
+};
+
+export default ({ children }) => (
+  <MdxLayout metadata={metadata}>{children}</MdxLayout>
+);
+
+## Demo
+
+<div className="box">
+  <Tooltip
+    content="This is some useful information in a tooltip"
+    placement="top"
+    triggerAsChild
+  >
+    <Button variant="primary" isDisabled text="Top tooltip" />
+  </Tooltip>
+</div>
+
+```tsx
+<Tooltip content="This is some useful information in a tooltip">
+  <Button variant="primary" isDisabled text="Top tooltip" />
+</Tooltip>
+```
+
+## Usage
+
+### Placement
+
+<div className="box flex flex-wrap gap-l">
+  <Tooltip
+    content="This is some useful information in a tooltip"
+    placement="top"
+  >
+    <Button variant="primary" isDisabled text="Top tooltip" />
+  </Tooltip>
+  <Tooltip
+    content="This is some useful information in a tooltip"
+    placement="bottom"
+  >
+    <Button variant="primary" isDisabled text="Bottom tooltip" />
+  </Tooltip>
+  <Tooltip
+    content="This is some useful information in a tooltip"
+    placement="left"
+  >
+    <Button variant="primary" isDisabled text="Left tooltip" />
+  </Tooltip>
+  <Tooltip
+    content="This is some useful information in a tooltip"
+    placement="right"
+  >
+    <Button variant="primary" isDisabled text="Right tooltip" />
+  </Tooltip>
+</div>
+
+### Disabled
+
+If the `isDisabled` prop is set to `true`, the tooltip will never appear.
+
+<div className="box">
+  <Tooltip content="This is some useful information in a tooltip" isDisabled>
+    <Button variant="primary" isDisabled text="Tooltip" />
+  </Tooltip>
+</div>
+
+### Visible
+
+If the `isVisible` prop is set to `true`, the tooltip will appear.
+
+<div className="box">
+  <Tooltip
+    content="This is some useful information in a tooltip"
+    isVisible
+    triggerAsChild
+  >
+    <Button variant="primary" isDisabled text="Tooltip" />
+  </Tooltip>
+</div>
+
+### Visible on click
+
+<VisibleOnClick />
+
+```tsx
+() => {
+  const [isVisible, setIsVisible] = useState(false);
+  return (
+    <Tooltip content="Copied" isOpen={isVisible}>
+      <Button
+        variant="primary"
+        text="Click to copy"
+        onClick={() => {
+          setIsVisible(true);
+          setTimeout(() => {
+            setIsVisible(false);
+          }, 2000);
+        }}
+      />
+    </Tooltip>
+  );
+};
+```
+
+## triggerAsChild and forwardRef
+
+To use any component as the trigger (the component around which the tooltip will go), a `div` has been added around it. To avoid having this div around the trigger (this can be useful for ellipsis for example), you can use the `triggerAsChild` prop to do so. This will remove the div but you will need to add `forwardRef` to your custom component.
+
+At least the Grapes `Button`, `Icon`, `IconButton`, and `HighlightIcon` components have a forwardRef, and this will be added to more components in the future.
+
+<Callout variant="alert" title="Disabled elements">
+  The `triggerAsChild` prop will not work with disabled elements. Since disabled
+  elements do not send events, it is for now necessary to have the surrounding
+  div to add a tooltip around it.
+</Callout>
