@@ -71,6 +71,12 @@ If the `isDisabled` prop is set to `true`, the tooltip will never appear.
   </Tooltip>
 </div>
 
+```tsx
+<Tooltip content="This is some useful information in a tooltip" isDisabled>
+  <Button variant="primary" isDisabled text="Tooltip" />
+</Tooltip>
+```
+
 ### Visible
 
 If the `isVisible` prop is set to `true`, the tooltip will appear.
@@ -84,6 +90,16 @@ If the `isVisible` prop is set to `true`, the tooltip will appear.
     <Button variant="primary" isDisabled text="Tooltip" />
   </Tooltip>
 </div>
+
+```tsx
+<Tooltip
+  content="This is some useful information in a tooltip"
+  isVisible
+  triggerAsChild
+>
+  <Button variant="primary" isDisabled text="Tooltip" />
+</Tooltip>
+```
 
 ### Visible on click
 

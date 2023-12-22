@@ -81,6 +81,31 @@ The following are lower-level construct that is leveraged by `Modal` or `ModalSl
 
 <WithIllustration />
 
+```tsx
+<Modal
+  isOpen={isOpen}
+  onClose={() => setIsOpen(false)}
+  title="Adopt a smooth transition"
+  illustration={<img src="/illustration-2.webp" alt="" />}
+  actions={[
+    <Button
+      key="cancel"
+      variant="secondary"
+      text="Cancel"
+      onClick={() => setIsOpen(false)}
+    />,
+    <Button
+      key="switch"
+      variant="primary"
+      text="Switch"
+      onClick={() => setIsOpen(false)}
+    />,
+  ]}
+>
+  We recommend closing first before switching.
+</Modal>
+```
+
 ### With lower-level construct
 
 <WithLowerLevelConstructModal />
