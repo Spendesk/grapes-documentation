@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Button } from "@dev-spendesk/grapes";
+import { IconButton } from "@dev-spendesk/grapes";
 import hljs from "highlight.js";
 
 type Props = {
@@ -19,12 +19,13 @@ export function CodeBlock({ language, children }: Props) {
   return (
     <div className="relative mt-s">
       <pre>
-        <code className={`${language} rounded-xs`}>{children}</code>
+        <code className={`${language} rounded-xs body-s`}>{children}</code>
       </pre>
-      <Button
+      <IconButton
         className="absolute top-xs right-xs"
-        variant="contrasted"
-        text={hasBeenCopied ? "Copied" : "Copy"}
+        iconName="copy"
+        variant="border"
+        aria-label={hasBeenCopied ? "Copied" : "Copy"}
         onClick={() => {
           setHasBeenCopied(true);
           navigator.clipboard.writeText(children as string);

@@ -7,7 +7,7 @@ export function SideBar() {
   const pathname = usePathname();
 
   return (
-    <nav className="pl-s pt-m">
+    <nav className="pt-m">
       <ul className="mb-l">
         {routeCategories.map((routeCategory) => (
           <SideBarLink
