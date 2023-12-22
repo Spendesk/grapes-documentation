@@ -38,12 +38,6 @@ export function TableOfContents() {
           href={`#${heading.id}`}
           key={heading.label}
           text={heading.label}
-          onClick={(event: React.MouseEvent<HTMLElement>) => {
-            event.preventDefault();
-            document
-              .getElementById(heading.id)
-              ?.scrollIntoView({ behavior: "smooth" });
-          }}
         />
       ))}
     </div>
