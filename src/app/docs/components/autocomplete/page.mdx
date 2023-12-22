@@ -1,0 +1,30 @@
+import { MdxLayout } from "@/components/layout/layout";
+
+import { DemoAutocomplete } from "./demo";
+
+export const metadata = {
+  title: "Autocomplete",
+  props: "Autocomplete",
+};
+
+export default ({ children }) => (
+  <MdxLayout metadata={metadata}>{children}</MdxLayout>
+);
+
+## Demo
+
+<DemoAutocomplete />
+
+```tsx
+const [value, setValue] = useState("");
+
+return (
+  <TextInput
+    placeholder="Enter account number"
+    value={value}
+    onChange={(event) => setValue(event.target.value)}
+  />
+);
+```
+
+## Usage

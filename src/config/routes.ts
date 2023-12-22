@@ -65,6 +65,19 @@ export const routes: RouteConfig = [
     ],
   },
   {
+    category: "Form",
+    routes: [
+      {
+        label: "Autocomplete",
+        url: "/docs/components/autocomplete",
+      },
+      {
+        label: "TextInput",
+        url: "/docs/components/text-input",
+      },
+    ],
+  },
+  {
     category: "Navigation",
     routes: [
       {
