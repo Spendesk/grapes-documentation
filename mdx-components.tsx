@@ -39,6 +39,9 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         {children}
       </Link>
     ),
+    strong: ({ children }) => (
+      <strong className="font-medium">{children}</strong>
+    ),
     ...components,
   };
 }
