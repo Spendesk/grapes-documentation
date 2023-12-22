@@ -1,0 +1,51 @@
+import { Avatar, Tag } from "@dev-spendesk/grapes";
+import { MdxLayout } from "@/components/layout/layout";
+
+export const metadata = {
+  title: "Tag",
+  props: "Tag",
+};
+
+export default ({ children }) => (
+  <MdxLayout metadata={metadata}>{children}</MdxLayout>
+);
+
+## Demo
+
+<div className="box">
+  <Tag variant="success">My tag</Tag>
+</div>
+
+```tsx
+<Tag variant="success">My tag</Tag>
+```
+
+## Usage
+
+### Variant
+
+<div className="box flex flex-wrap gap-m">
+  <Tag variant="alert">My tag</Tag>
+  <Tag variant="info">My tag</Tag>
+  <Tag variant="neutral">My tag</Tag>
+  <Tag variant="primary">My tag</Tag>
+  <Tag variant="success">My tag</Tag>
+  <Tag variant="warning">My tag</Tag>
+</div>
+
+### With icon
+
+<div className="box">
+  <Tag variant="primary" iconName="airplane">
+    My tag
+  </Tag>
+</div>
+
+### With an avatar
+
+<div className="box">
+  <Tag variant="neutral" isRounded>
+    <Avatar variant="circle" src="/aurelien.webp" size="xs" text="aurelien" />
+    <span className="ml-xs">Alex Smith</span>
+  </Tag>
+</div>

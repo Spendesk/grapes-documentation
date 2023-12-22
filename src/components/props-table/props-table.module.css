@@ -5,6 +5,7 @@
   border-radius: var(--border-radius-xs) var(--border-radius-xs) 0 0;
   padding: 0 var(--spacing-xxs) 0;
   margin-bottom: -1px;
+  overflow-x: auto;
 }
 
 .tabList::after {

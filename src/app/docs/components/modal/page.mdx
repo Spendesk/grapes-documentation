@@ -1,0 +1,118 @@
+import { MdxLayout } from "@/components/layout/layout";
+
+import { DemoModal } from "./demo";
+import { WithIllustration } from "./with-illustration";
+import { WithLowerLevelConstructModal } from "./with-lower-level-construct";
+
+export const metadata = {
+  title: "Modal",
+  props: [
+    "Modal",
+    "ModalOverlay",
+    "ModalContent",
+    "ModalHeaderWithIcon",
+    "ModalHeaderWithIllustration",
+    "ModalBody",
+    "ModalFooter",
+  ],
+};
+
+export default ({ children }) => (
+  <MdxLayout metadata={metadata}>{children}</MdxLayout>
+);
+
+Dialogs are windows containing contextual information, tasks, or workflows that appear over the user interface. Content behind a modal dialog is **inert**, meaning that users cannot interact with it.
+
+Grapes exposes 7 components to help you create any dialog.
+
+- **Modal**: The fastest and **recommended** way to create a Dialog.
+
+The following are lower-level construct that is leveraged by `Modal` or `ModalSlideshow`:
+
+- **ModalOverlay**: The dimmed overlay behind the modal dialog.
+- **ModalContent**: The container for the modal content. It also contains the button that closes the modal.
+- **ModalHeaderWithIcon**: The header that labels the modal dialog with a Grapes icon.
+- **ModalHeaderWithIllustration**: The header that labels the modal dialog with an Illustration.
+- **ModalBody**: The wrapper that contains the modal's main content.
+- **ModalFooter**: The footer that contains the modal actions.
+
+## Demo
+
+<DemoModal />
+
+```tsx
+() => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <>
+      <Button text="Open the modal" onClick={() => setIsOpen(true)} />
+      <Modal
+        isOpen={isOpen}
+        onClose={() => setIsOpen(false)}
+        title="Adopt a smooth transition"
+        iconName="swap"
+        iconVariant="info"
+        actions={[
+          <Button
+            key="cancel"
+            variant="secondary"
+            text="Cancel"
+            onClick={() => setIsOpen(false)}
+          />,
+          <Button
+            key="switch"
+            variant="primary"
+            text="Switch"
+            onClick={() => setIsOpen(false)}
+          />,
+        ]}
+      >
+        We recommend closing first before switching.
+      </Modal>
+    </>
+  );
+};
+```
+
+## Usage
+
+### With Illustration
+
+<WithIllustration />
+
+### With lower-level construct
+
+<WithLowerLevelConstructModal />
+
+```tsx
+<ModalOverlay isOpen={isOpen}>
+  <ModalContent aria-labelledby="grapes-id" onClose={handleClose}>
+    <ModalHeaderWithIcon
+      title="Adopt a smooth transition"
+      iconName="swap"
+      iconVariant="info"
+      titleId="grapes-id"
+    />
+    <ModalBody>We recommend closing first before switching.</ModalBody>
+    <ModalFooter>
+      <Button
+        key="cancel"
+        variant="secondary"
+        text="Cancel"
+        onClick={() => setIsOpen(false)}
+      />
+      <Button
+        key="switch"
+        variant="primary"
+        text="Switch"
+        onClick={() => setIsOpen(false)}
+      />
+    </ModalFooter>
+  </ModalContent>
+</ModalOverlay>
+```
+
+## Accessibility
+
+Adheres to the `dialog` [role requirements](https://www.w3.org/TR/wai-aria-1.2/#dialog).
