@@ -39,7 +39,7 @@ export function WithLowerLevelConstructModal() {
               key="switch"
               variant="primary"
               text="Switch"
-              onClick={() => console.log("onClick")}
+              onClick={() => setIsOpen(false)}
             />
           </ModalFooter>
         </ModalContent>

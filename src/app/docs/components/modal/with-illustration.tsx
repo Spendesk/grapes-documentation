@@ -25,7 +25,7 @@ export function WithIllustration() {
             key="switch"
             variant="primary"
             text="Switch"
-            onClick={() => console.log("onClick")}
+            onClick={() => setIsOpen(false)}
           />,
         ]}
       >
