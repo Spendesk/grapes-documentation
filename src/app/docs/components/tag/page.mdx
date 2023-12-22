@@ -25,12 +25,12 @@ export default ({ children }) => (
 ### Variant
 
 <div className="box flex flex-wrap gap-m">
-  <Tag variant="alert">My tag</Tag>
-  <Tag variant="info">My tag</Tag>
-  <Tag variant="neutral">My tag</Tag>
-  <Tag variant="primary">My tag</Tag>
-  <Tag variant="success">My tag</Tag>
-  <Tag variant="warning">My tag</Tag>
+  <Tag variant="alert">Alert</Tag>
+  <Tag variant="info">Info</Tag>
+  <Tag variant="neutral">Neutral</Tag>
+  <Tag variant="primary">Primary</Tag>
+  <Tag variant="success">Success</Tag>
+  <Tag variant="warning">Warning</Tag>
 </div>
 
 ### With icon
@@ -41,6 +41,12 @@ export default ({ children }) => (
   </Tag>
 </div>
 
+```tsx
+<Tag variant="primary" iconName="airplane">
+  My tag
+</Tag>
+```
+
 ### With an avatar
 
 <div className="box">
@@ -49,3 +55,10 @@ export default ({ children }) => (
     <span className="ml-xs">Alex Smith</span>
   </Tag>
 </div>
+
+```tsx
+<Tag variant="neutral" isRounded>
+  <Avatar variant="circle" src="/aurelien.webp" size="xs" text="aurelien" />
+  <span className="ml-xs">Alex Smith</span>
+</Tag>
+```
