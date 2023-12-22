@@ -1,0 +1,44 @@
+import { MdxLayout } from "@/components/layout/layout";
+
+export const metadata = {
+  title: "Box",
+};
+
+export default ({ children }) => (
+  <MdxLayout metadata={metadata}>{children}</MdxLayout>
+);
+
+Style for the block element.
+
+## Example
+
+<div className="box">
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+  incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+  nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+  eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
+  in culpa qui officia deserunt mollit anim id est laborum.
+</div>
+
+## Usage in TailwindCSS
+
+Whenever you want to apply this style to the block element, you can use the `box` className.
+
+```tsx
+<MyComponent className="box" />
+```
+
+## Usage in CSS
+
+Whenever you want to apply this style to the block element, you can use the following variables.
+
+```css
+.myClass {
+  box-shadow: var(--elevation-10);
+  border: 1px solid var(--color-neutral-light);
+  border-radius: var(--border-radius-xs);
+  background-color: var(--color-white);
+  padding: var(--spacing-m);
+}
+```

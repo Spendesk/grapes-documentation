@@ -26,9 +26,9 @@ export const routeCategories: RouteCategory[] = [
     url: "/docs/components",
   },
   {
-    category: "Design Tokens",
+    category: "Theme",
     iconName: "sparkles",
-    url: "/docs/design-tokens",
+    url: "/docs/theme",
   },
   {
     category: "Theming",
@@ -89,12 +89,49 @@ export const routes: RouteConfig = [
     category: "Design tokens",
     routes: [
       {
+        label: "Animations",
+        url: "/docs/theme/animations",
+      },
+      {
+        label: "Border radius",
+        url: "/docs/theme/border-radius",
+      },
+      {
         label: "Colors",
-        url: "/docs/design-tokens/colors",
+        url: "/docs/theme/colors",
+      },
+      {
+        label: "Elevation",
+        url: "/docs/theme/elevation",
+      },
+      {
+        label: "Sizings",
+        url: "/docs/theme/sizings",
       },
       {
         label: "Spacings",
-        url: "/docs/design-tokens/spacings",
+        url: "/docs/theme/spacings",
+      },
+      {
+        label: "Typography",
+        url: "/docs/theme/typography",
+      },
+    ],
+  },
+  {
+    category: "Design placeholders",
+    routes: [
+      {
+        label: "Box",
+        url: "/docs/theme/box",
+      },
+      {
+        label: "Ellipsis",
+        url: "/docs/theme/ellipsis",
+      },
+      {
+        label: "Separator",
+        url: "/docs/theme/separator",
       },
     ],
   },

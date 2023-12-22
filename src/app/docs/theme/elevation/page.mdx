@@ -1,0 +1,44 @@
+import { MdxLayout } from "@/components/layout/layout";
+import { Callout } from "@/components/callout/callout";
+import { ElevationTokens } from "./elevation-tokens";
+import { ElevationTailwind } from "./elevation-tailwind";
+
+export const metadata = {
+  title: "Elevation",
+};
+
+export default ({ children }) => (
+  <MdxLayout metadata={metadata}>{children}</MdxLayout>
+);
+
+## Tokens
+
+<ElevationTokens />
+
+## Usage in CSS
+
+Whenever you want to apply this style, you can use the corresponding token.
+
+```css
+.myClass {
+  box-shadow: var(--elevation-10);
+}
+```
+
+## Usage with TailwindCSS
+
+Whenever you want to use an elevation from Grapes with TailwindCSS, you can use the corresponding className.
+
+<ElevationTailwind />
+
+<Callout
+  className="mt-s"
+  title="elevation-XX is an alias for shadow-XX from tailwindcss. You can use both elevation-XX or shadow-XX"
+  variant="info"
+>
+  Please note that elevation-XX doesn't compose gracefully with ring-X
+  utilities. If you need to use ring-X with an elevation, it's recommended to
+  use shadow-XX instead.
+</Callout>
+
+See documentation from TailwindCSS: [https://tailwindcss.com/docs/box-shadow](https://tailwindcss.com/docs/box-shadow).

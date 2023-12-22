@@ -1,0 +1,43 @@
+import { MdxLayout } from "@/components/layout/layout";
+
+import { AnimationTokens } from "./animation-tokens";
+
+export const metadata = {
+  title: "Animations",
+};
+
+export default ({ children }) => (
+  <MdxLayout metadata={metadata}>{children}</MdxLayout>
+);
+
+export const renderAnimationsToken = (animationToken) => {
+  const value = getComputedStyle(document.documentElement).getPropertyValue(
+    animationToken
+  );
+  return (
+    <div
+      key={animationToken}
+      style={{
+        textAlign: "center",
+      }}
+    >
+      <div className={styles.title}>{animationToken}</div>
+      <div className={styles.body}>{value}</div>
+    </div>
+  );
+};
+
+## Tokens
+
+<AnimationTokens />
+
+## Usage in CSS
+
+Whenever you want to apply this style, you can use the corresponding variable.
+
+```css
+.myClass {
+  animation-duration: var(--transition-duration);
+  animation-timing-function: var(--transition-timing-function);
+}
+```

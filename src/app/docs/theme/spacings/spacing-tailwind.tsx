@@ -3,26 +3,26 @@
 import { Table } from "@dev-spendesk/grapes";
 import { spacingTokens } from "./types";
 
-export function SpacingsTailwind() {
+export function SpacingTailwind() {
   return (
     <Table
       columns={[
         {
           header: "TailwindCSS className",
-          id: "column1",
-          renderCell: ({ column1 }) => column1.replace("--spacing", "m"),
+          id: "tailwind",
+          renderCell: ({ tailwind }) => tailwind,
         },
         {
-          header: "Result",
-          id: "column2",
+          header: "CSS equivalent",
+          id: "css",
           align: "right",
-          renderCell: ({ column2 }) => `margin: var(${column2})`,
+          renderCell: ({ css }) => css,
         },
       ]}
       rowHeight="compact"
       data={spacingTokens.map((spacingToken) => ({
-        column1: spacingToken,
-        column2: spacingToken,
+        tailwind: spacingToken.replace("--spacing", "m"),
+        css: `margin: var(${spacingToken})`,
       }))}
     />
   );

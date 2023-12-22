@@ -1,8 +1,8 @@
 "use client";
 
-import { spacingTokens } from "./types";
+import { sizingTokens } from "./types";
 
-export function SpacingTokens() {
+export function SizingTokens() {
   if (typeof window === "undefined") {
     return null;
   }
@@ -10,7 +10,7 @@ export function SpacingTokens() {
   const style = window.getComputedStyle(document.documentElement);
   return (
     <div className="grid grid-cols-4 gap-s text-center items-end box">
-      {spacingTokens.map((token) => {
+      {sizingTokens.map((token) => {
         const value = style.getPropertyValue(token);
         return (
           <div key={token}>
@@ -19,7 +19,7 @@ export function SpacingTokens() {
               className="aspect-square mx-auto bg-primary-lighter border border-dashed border-primary-light"
             />
             <div className="title-m mt-xs">{token}</div>
-            <div style={{ color: "var(--color-neutral)" }}>{value}</div>
+            <div className="text-neutral">{value}</div>
           </div>
         );
       })}

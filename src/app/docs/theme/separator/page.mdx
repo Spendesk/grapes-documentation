@@ -1,0 +1,39 @@
+import { MdxLayout } from "@/components/layout/layout";
+
+export const metadata = {
+  title: "Separator",
+};
+
+export default ({ children }) => (
+  <MdxLayout metadata={metadata}>{children}</MdxLayout>
+);
+
+## Example
+
+<div key="separator" className="box flex items-center">
+  <div style={{ flex: "0 0 96px" }}>
+    <div className="title-m">separator</div>
+  </div>
+  <div className="separator w-[240px] h-0" />
+</div>
+
+Whenever you want to apply this style, you can use the corresponding token.
+
+## Usage in TailwindCSS
+
+Whenever you want to apply this style to the block element, you can use the `separator` className.
+
+```tsx
+<MyComponent className="separator" />
+```
+
+## Usage in CSS
+
+Whenever you want to apply this style to the block element, you can use the following variables.
+
+```css
+.myClass {
+  width: 100%;
+  border-bottom: 1px solid var(--color-neutral-light);
+}
+```
