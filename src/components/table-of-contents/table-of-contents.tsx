@@ -2,11 +2,13 @@
 
 import { useEffect, useState } from "react";
 import { NavigationItem } from "@dev-spendesk/grapes";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import { useHeadsObserver } from "./useHeadsObserver";
 
 export function TableOfContents() {
   const pathname = usePathname();
+  const searchParams = useSearchParams();
+
   const { activeId } = useHeadsObserver(pathname);
 
   const [headings, setHeadings] = useState<
@@ -19,13 +21,17 @@ export function TableOfContents() {
 
   useEffect(() => {
     setHeadings(
-      Array.from(document.querySelectorAll("h2, h3")).map((heading) => ({
+      Array.from(
+        document.querySelectorAll(
+          `[role="tabpanel"]:not([hidden]) h2, [role="tabpanel"]:not([hidden]) h3`
+        )
+      ).map((heading) => ({
         id: heading.id,
         label: heading.textContent ?? "",
         type: heading.nodeName,
       }))
     );
-  }, [pathname]);
+  }, [pathname, searchParams]);
 
   return (
     <div className="pt-m">
@@ -38,12 +44,6 @@ export function TableOfContents() {
           href={`#${heading.id}`}
           key={heading.label}
           text={heading.label}
-          onClick={(event: React.MouseEvent<HTMLElement>) => {
-            event.preventDefault();
-            document
-              .getElementById(heading.id)
-              ?.scrollIntoView({ behavior: "smooth" });
-          }}
         />
       ))}
     </div>
