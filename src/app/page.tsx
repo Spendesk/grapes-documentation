@@ -4,7 +4,7 @@ import "./homepage.css";
 
 export default function Home() {
   return (
-    <div className="root">
+    <div className="root body-m">
       <header>
         <div>
           <img src="/logo.svg" alt="Grapes" />

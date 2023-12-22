@@ -107,3 +107,8 @@
 }
 
 @layer reset, grapes;
+
+:root {
+  --width-docs: min(95vw, 1400px);
+  --offset-header: 68px;
+}

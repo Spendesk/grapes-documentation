@@ -11,7 +11,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="body-m bg-page-background">
+      <body className="bg-page-background">
         <GrapesProvider
           locale="en-US"
           localesDefinition={{
