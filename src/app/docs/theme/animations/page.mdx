@@ -1,14 +1,8 @@
-import { MdxLayout } from "@/components/layout/layout";
-
 import { AnimationTokens } from "./animation-tokens";
 
 export const metadata = {
   title: "Animations",
 };
-
-export default ({ children }) => (
-  <MdxLayout metadata={metadata}>{children}</MdxLayout>
-);
 
 export const renderAnimationsToken = (animationToken) => {
   const value = getComputedStyle(document.documentElement).getPropertyValue(
@@ -26,6 +20,8 @@ export const renderAnimationsToken = (animationToken) => {
     </div>
   );
 };
+
+# Animations
 
 ## Tokens
 

@@ -119,15 +119,11 @@ export const routes: RouteConfig = [
     ],
   },
   {
-    category: "Design placeholders",
+    category: "TailwindCSS utils",
     routes: [
       {
         label: "Box",
         url: "/docs/theme/box",
-      },
-      {
-        label: "Ellipsis",
-        url: "/docs/theme/ellipsis",
       },
       {
         label: "Separator",
