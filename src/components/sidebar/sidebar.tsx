@@ -1,3 +1,5 @@
+"use client";
+
 import { routes, routeCategories } from "@/config/routes";
 import { usePathname } from "next/navigation";
 

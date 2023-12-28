@@ -2,44 +2,53 @@
   position: sticky;
   z-index: 1;
   top: 0;
-  background: rgb(255 255 255 / 0.9);
+  background: var(--docs-background-header);
+  backdrop-filter: var(--docs-background-filter);
   border-block-end: 1px solid var(--color-neutral-lighter);
-  backdrop-filter: blur(8px);
-  height: var(--offset-header);
+  height: var(--docs-offset-header);
 
   .docs-header-wrapper {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: var(--width-docs);
+    width: var(--docs-width);
     margin: 0 auto;
     height: 100%;
+  }
+
+  .logo {
+    height: var(--sizing-l);
   }
 }
 
 .docs-layout {
+  --bkp-fs-title-m: var(--fs-title-m);
+  --bkp-fs-body-m: var(--fs-body-m);
+  --bkp-ff-base: var(--ff-base);
+
   position: relative;
   z-index: 0;
   display: grid;
   grid-template: "sidebar content toc" / 1fr 3fr 1fr;
   align-items: start;
   gap: var(--spacing-l);
-  width: var(--width-docs);
+  width: var(--docs-width);
   margin: 0 auto;
+  font: var(--fw-regular) var(--docs-fs-m) var(--ff-base);
 
   h2[id],
   h3[id] {
-    scroll-margin-block-start: var(--offset-header);
+    scroll-margin-block-start: var(--docs-offset-header);
   }
 }
 
 .docs-sidebar {
   position: sticky;
   grid-area: sidebar;
-  top: var(--offset-header);
+  top: var(--docs-offset-header);
 
   .docs-sidebar-inner {
-    height: calc(100vh - var(--offset-header));
+    height: calc(100vh - var(--docs-offset-header));
     overflow-y: scroll;
     scrollbar-color: var(--color-primary-light) transparent;
     scrollbar-width: thin;
@@ -47,6 +56,10 @@
 }
 
 .docs-content {
+  --fs-body-m: var(--docs-fs-m);
+  --fs-title-m: var(--docs-fs-m);
+  --ff-base: system-ui;
+
   grid-area: content;
   color: var(--color-neutral-dark);
   padding-block-start: var(--spacing-l);
@@ -55,13 +68,39 @@
   h2,
   h3 {
     color: var(--color-complementary);
+    font-weight: var(--fw-medium);
+    margin-block: var(--spacing-m) var(--spacing-xs);
+  }
+
+  h1 {
+    font-size: var(--docs-fs-xxl);
+    margin-block-start: 0;
+  }
+
+  h2 {
+    font-size: var(--docs-fs-l);
+  }
+
+  h3 {
+    font-size: var(--docs-fs-m);
+  }
+
+  :is(&, [role="tabpanel"]) > p {
+    margin-block: var(--spacing-xs);
+    font-size: var(--docs-fs-m);
+  }
+
+  .box {
+    --fs-title-m: var(--bkp-fs-title-m);
+    --fs-body-m: var(--bkp-fs-body-m);
+    --ff-base: var(--bkp-ff-base);
   }
 }
 
 .docs-toc {
   grid-area: toc;
   position: sticky;
-  top: var(--offset-header);
+  top: var(--docs-offset-header);
 }
 
 @media (width <= 1200px) {

@@ -34,7 +34,7 @@ export function MdxLayout({ children, metadata }: Props) {
   );
 
   return (
-    <main>
+    <>
       <PageHeader title={metadata.title} />
       <Tabs onChange={callback} defaultTabIndex={defaultTabIndex}>
         <TabList>
@@ -50,6 +50,6 @@ export function MdxLayout({ children, metadata }: Props) {
           )}
         </TabPanels>
       </Tabs>
-    </main>
+    </>
   );
 }

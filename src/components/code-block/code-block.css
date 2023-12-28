@@ -1,0 +1,11 @@
+.docs-code {
+  position: relative;
+  margin-block: var(--spacing-s);
+  font-size: 0.9rem;
+
+  .docs-cta-copy {
+    position: absolute;
+    top: var(--spacing-xs);
+    right: var(--spacing-xs);
+  }
+}

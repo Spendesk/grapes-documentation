@@ -109,6 +109,12 @@
 @layer reset, grapes;
 
 :root {
-  --width-docs: min(95vw, 1400px);
-  --offset-header: 68px;
+  --docs-offset-header: 68px;
+  --docs-background-header: rgb(255 255 255 / 0.8);
+  --docs-background-filter: blur(8px);
+  --docs-width: min(95vw, 1400px);
+  --docs-fs-s: 0.9rem;
+  --docs-fs-m: 1rem;
+  --docs-fs-l: 1.3rem;
+  --docs-fs-xxl: 2rem;
 }

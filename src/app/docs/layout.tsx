@@ -1,6 +1,3 @@
-"use client";
-
-import { Icon, colors } from "@dev-spendesk/grapes";
 import Link from "next/link";
 import React, { ReactNode } from "react";
 
@@ -14,25 +11,20 @@ import "./layout.css";
 
 type Props = {
   children: ReactNode;
-  metadata: {
-    title: string;
-    props?: string | string[];
-  };
 };
 
-export default function Layout({ children, metadata }: Props) {
+export default function Layout({ children }: Props) {
   return (
     <>
       <header className="docs-header">
         <div className="docs-header-wrapper">
           <Link href="/" key="grapes" className=" flex gap-xs items-center">
-            <Icon color={colors.primary} size="l" name="spendesk" />
-            <div className="text-primary title-l">Grapes</div>
+            <img src="/logo.svg" alt="Grapes" className="logo" />
           </Link>
           <Search key="search" />
         </div>
       </header>
-      <div className="docs-layout body-m">
+      <div className="docs-layout">
         <div className="docs-sidebar">
           <div className="docs-sidebar-inner">
             <SideBar />

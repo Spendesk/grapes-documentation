@@ -1,6 +1,6 @@
 .root {
   --size-content: clamp(800px, 80vw, 1200px);
-  --size-header-content: var(--spacing-3xl);
+  --size-header-content: var(--spacing-xl);
   --size-header-padding: var(--spacing-s);
   --size-header: calc(2 * var(--spacing-3xl) + var(--size-header-content));
   --font-size-h2: 50px;
@@ -14,9 +14,9 @@ header {
   top: 0;
   z-index: 1;
   width: 100%;
-  background: rgb(255 255 255 / 0.8);
+  background: var(--docs-background-header);
   color: var(--color-complementary);
-  backdrop-filter: blur(8px);
+  backdrop-filter: var(--docs-background-filter);
   border-block-end: 1px solid var(--color-neutral-lighter);
 
   div {

@@ -1,8 +1,14 @@
-"use client";
-
+import { Metadata } from "next";
 import { GrapesProvider } from "@dev-spendesk/grapes";
 
 import "./globals.css";
+
+export const metadata: Metadata = {
+  title: {
+    template: "Grapes - %s",
+    default: "Grapes",
+  },
+};
 
 export default function RootLayout({
   children,
