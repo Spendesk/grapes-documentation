@@ -1,9 +1,34 @@
 "use client";
 
-import { routes, headerRoutes } from "@/config/routes";
+import React, { useId } from "react";
+import { routes, headerRoutes, type RouteConfig } from "@/config/routes";
 import { usePathname } from "next/navigation";
 
 import { SideBarLink } from "./sidebar-link";
+
+function NavigationList({ route }: { route: RouteConfig }) {
+  const pathname = usePathname();
+  const listId = useId();
+
+  return (
+    <>
+      <h3 id={listId} className="text-primary-dark title-m ml-xs mb-xs">
+        {route.category}
+      </h3>
+      <ul className="mb-l" aria-labelledby={listId}>
+        {route.routes.map((subRoute) => (
+          <li key={subRoute.label}>
+            <SideBarLink
+              isActive={pathname === subRoute.url}
+              url={subRoute.url}
+              label={subRoute.label}
+            />
+          </li>
+        ))}
+      </ul>
+    </>
+  );
+}
 
 export function SideBar() {
   const pathname = usePathname();
@@ -32,22 +57,7 @@ export function SideBar() {
         ))}
       </ul>
       {activeSubRoute.map((route) => (
-        <div key={route.category}>
-          <h3 className="uppercase text-primary-dark title-m ml-xs my-xs">
-            {route.category}
-          </h3>
-          <ul>
-            {route.routes.map((subRoute) => (
-              <li key={subRoute.label}>
-                <SideBarLink
-                  isActive={pathname === subRoute.url}
-                  url={subRoute.url}
-                  label={subRoute.label}
-                />
-              </li>
-            ))}
-          </ul>
-        </div>
+        <NavigationList key={route.category} route={route} />
       ))}
     </>
   );

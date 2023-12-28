@@ -7,13 +7,15 @@ type HeaderRoute = {
   url: string;
 };
 
-type RouteConfig = {
+export type RouteConfig = {
   category: string;
-  routes: {
-    label: string;
-    url: string;
-  }[];
-}[];
+  routes: Route[];
+};
+
+export type Route = {
+  label: string;
+  url: string;
+};
 
 export const headerRoutes: HeaderRoute[] = [
   {
@@ -36,7 +38,7 @@ export const headerRoutes: HeaderRoute[] = [
   },
 ];
 
-const componentRoutes: RouteConfig = [
+const componentRoutes: RouteConfig[] = [
   {
     category: "Interaction",
     routes: [
@@ -86,7 +88,7 @@ const componentRoutes: RouteConfig = [
   },
 ];
 
-const designTokensRoutes: RouteConfig = [
+const designTokensRoutes: RouteConfig[] = [
   {
     category: "Design tokens",
     routes: [
