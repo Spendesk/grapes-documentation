@@ -19,21 +19,21 @@ export default function Layout({ children }: Props) {
       <header className="docs-header">
         <div className="docs-header-wrapper">
           <Link href="/" key="grapes" className=" flex gap-xs items-center">
-            <img src="/logo.svg" alt="Grapes" className="logo" />
+            <img src="/logo.svg" alt="Grapes homepage" className="logo" />
           </Link>
           <Search key="search" />
         </div>
       </header>
       <div className="docs-layout">
-        <div className="docs-sidebar">
+        <nav className="docs-sidebar">
           <div className="docs-sidebar-inner">
             <SideBar />
           </div>
-        </div>
-        <div className="docs-content">{children}</div>
-        <div className="docs-toc">
+        </nav>
+        <main className="docs-content">{children}</main>
+        <aside className="docs-toc">
           <TableOfContents />
-        </div>
+        </aside>
       </div>
     </>
   );
