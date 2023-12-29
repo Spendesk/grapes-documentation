@@ -1,26 +1,3 @@
-.docs-header {
-  position: sticky;
-  z-index: 1;
-  top: 0;
-  background: var(--docs-background-header);
-  backdrop-filter: var(--docs-background-filter);
-  border-block-end: 1px solid var(--color-neutral-lighter);
-  height: var(--docs-offset-header);
-
-  .docs-header-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: var(--docs-width);
-    margin: 0 auto;
-    height: 100%;
-  }
-
-  .logo {
-    height: var(--sizing-l);
-  }
-}
-
 .docs-layout {
   --bkp-fs-title-m: var(--fs-title-m);
   --bkp-fs-body-m: var(--fs-body-m);
@@ -63,7 +40,7 @@
 
   grid-area: content;
   color: var(--color-neutral-dark);
-  padding-block-start: var(--spacing-l);
+  padding-block: var(--spacing-l);
 
   h1,
   h2,

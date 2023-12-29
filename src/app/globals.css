@@ -66,6 +66,9 @@
   body {
     background-color: var(--color-page-background);
   }
+  body:has(dialog[open]) {
+    overflow: hidden;
+  }
 
   a {
     text-decoration: none;

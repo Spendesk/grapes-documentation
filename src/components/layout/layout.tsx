@@ -5,9 +5,6 @@ import React, { ReactNode, useCallback } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 import { PropsTable } from "../props-table/props-table";
-import { PageHeader } from "../page-header/page-header";
-
-import "highlight.js/styles/stackoverflow-dark.min.css";
 
 type Props = {
   children: ReactNode;
@@ -35,7 +32,7 @@ export function MdxLayout({ children, metadata }: Props) {
 
   return (
     <>
-      <PageHeader title={metadata.title} />
+      <h1>{metadata.title}</h1>
       <Tabs onChange={callback} defaultTabIndex={defaultTabIndex}>
         <TabList>
           <Tab>Usage</Tab>

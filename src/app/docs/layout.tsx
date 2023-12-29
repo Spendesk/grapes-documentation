@@ -1,11 +1,10 @@
-import Link from "next/link";
 import React, { ReactNode } from "react";
 
-import { Search } from "@/components/search/search";
 import { SideBar } from "@/components/sidebar/sidebar";
 import { TableOfContents } from "@/components/table-of-contents/table-of-contents";
+import { DocsHeader } from "@/components/docs-header/docs-header";
 
-import "highlight.js/styles/stackoverflow-dark.min.css";
+import "highlight.js/styles/github-dark.min.css";
 
 import "./layout.css";
 
@@ -16,14 +15,7 @@ type Props = {
 export default function Layout({ children }: Props) {
   return (
     <>
-      <header className="docs-header">
-        <div className="docs-header-wrapper">
-          <Link href="/" key="grapes" className=" flex gap-xs items-center">
-            <img src="/logo.svg" alt="Grapes homepage" className="logo" />
-          </Link>
-          <Search key="search" />
-        </div>
-      </header>
+      <DocsHeader />
       <div className="docs-layout">
         <nav className="docs-sidebar">
           <div className="docs-sidebar-inner">

@@ -2,45 +2,35 @@
 
 import { routes } from "@/config/routes";
 import {
-  DropdownItem,
   Icon,
   IconButton,
   ModalBody,
-  ModalContent,
-  ModalOverlay,
   Tag,
   TextInput,
   colors,
 } from "@dev-spendesk/grapes";
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
+import "./search.css";
+
 export function Search() {
+  const modalRef = useRef<HTMLDialogElement | null>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
   const modalInputRef = useRef<HTMLInputElement | null>(null);
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const [value, setValue] = useState("");
   const [searchResults, setSearchResults] = useState<
     { label: string; url: string }[]
   >([]);
-  const [previousKey, setPreviousKey] = useState<string | null>(null);
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       switch (event.key) {
-        case "Meta":
-          setPreviousKey(previousKey === "Meta" ? null : "Meta");
-          break;
         case "k":
         case "K":
-          if (previousKey === "Meta") {
-            setIsModalOpen(true);
-            setPreviousKey(null);
-          }
-          break;
-        case "Escape":
-          if (isModalOpen) {
-            closeModal();
+          if (event.metaKey) {
+            modalRef.current?.showModal();
           }
           break;
       }
@@ -50,7 +40,7 @@ export function Search() {
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
     };
-  }, [isModalOpen, previousKey]);
+  }, []);
 
   useEffect(() => {
     if (value.trim()) {
@@ -69,17 +59,6 @@ export function Search() {
     }
   }, [value]);
 
-  useEffect(() => {
-    if (isModalOpen) {
-      modalInputRef.current?.focus();
-    }
-  }, [isModalOpen]);
-
-  function closeModal() {
-    setIsModalOpen(false);
-    setValue("");
-  }
-
   return (
     <>
       <TextInput
@@ -94,13 +73,16 @@ export function Search() {
           </div>
         }
         onFocus={() => {
-          setIsModalOpen(true);
           inputRef.current?.blur();
+          modalRef.current?.showModal();
         }}
       />
-      <ModalOverlay isOpen={isModalOpen}>
-        <ModalContent onClose={closeModal}>
-          <ModalBody className="w-[80%] text-left">
+      <dialog ref={modalRef} className="search">
+        <form>
+          <ModalBody>
+            <button value="cancel" formMethod="dialog">
+              Cancel
+            </button>
             <TextInput
               ref={modalInputRef}
               fit="parent"
@@ -129,17 +111,24 @@ export function Search() {
               }}
             />
             {searchResults.length > 0 && (
-              <div className="flex flex-col gap-xs mt-s">
+              <ul className="search-list">
                 {searchResults.map((searchResult, index) => (
-                  <a key={index} href={searchResult.url}>
-                    <DropdownItem isHighlighted label={searchResult.label} />
-                  </a>
+                  <li>
+                    <Link
+                      key={index}
+                      href={searchResult.url}
+                      className="search-result"
+                    >
+                      {searchResult.label}
+                      <Icon name="caret-right" size="m" />
+                    </Link>
+                  </li>
                 ))}
-              </div>
+              </ul>
             )}
           </ModalBody>
-        </ModalContent>
-      </ModalOverlay>
+        </form>
+      </dialog>
     </>
   );
 }
