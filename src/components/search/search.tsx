@@ -1,28 +1,19 @@
 "use client";
 
+import { useRouter } from "next/navigation";
+import { Icon, Tag, TextInput, colors } from "@dev-spendesk/grapes";
 import { routes } from "@/config/routes";
-import {
-  Icon,
-  IconButton,
-  ModalBody,
-  Tag,
-  TextInput,
-  colors,
-} from "@dev-spendesk/grapes";
-import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type KeyboardEvent } from "react";
+import { ListBox } from "./listbox/listbox";
 
 import "./search.css";
 
 export function Search() {
   const modalRef = useRef<HTMLDialogElement | null>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
-  const modalInputRef = useRef<HTMLInputElement | null>(null);
-
   const [value, setValue] = useState("");
-  const [searchResults, setSearchResults] = useState<
-    { label: string; url: string }[]
-  >([]);
+  const router = useRouter();
+  const [selectedIndex, setSelectedIndex] = useState(0);
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -30,6 +21,7 @@ export function Search() {
         case "k":
         case "K":
           if (event.metaKey) {
+            event.preventDefault(); // Prevent Firefox default behavior
             modalRef.current?.showModal();
           }
           break;
@@ -42,22 +34,40 @@ export function Search() {
     };
   }, []);
 
-  useEffect(() => {
-    if (value.trim()) {
-      setSearchResults(
-        routes
-          .flatMap((route) => route.routes)
-          .filter((route) =>
-            route.label
-              .toLowerCase()
-              .includes(value.toLowerCase().replaceAll(" ", ""))
-          )
-          .slice(0, 5)
-      );
-    } else {
-      setSearchResults([]);
+  const handleResultClick = () => {
+    setSelectedIndex(0);
+    modalRef.current?.close();
+  };
+  const handleClose = () => {
+    setValue("");
+  };
+
+  const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
+    switch (event.key) {
+      case "Enter": {
+        handleResultClick();
+        return router.push(searchResults.at(selectedIndex)?.url);
+      }
+      case "ArrowDown":
+        return setSelectedIndex((index) =>
+          Math.min(index + 1, searchResults.length - 1)
+        );
+      case "ArrowUp":
+        return setSelectedIndex((index) => Math.max(index - 1, 0));
     }
-  }, [value]);
+  };
+
+  const searchResults = routes
+    .flatMap((route) => route.routes)
+    .filter((route) => {
+      if (value.trim().length < 1) {
+        return false;
+      }
+      return route.label
+        .toLowerCase()
+        .includes(value.toLowerCase().replaceAll(" ", ""));
+    })
+    .slice(0, 5);
 
   return (
     <>
@@ -77,57 +87,28 @@ export function Search() {
           modalRef.current?.showModal();
         }}
       />
-      <dialog ref={modalRef} className="search">
-        <form>
-          <ModalBody>
-            <button value="cancel" formMethod="dialog">
-              Cancel
-            </button>
-            <TextInput
-              ref={modalInputRef}
-              fit="parent"
+      <dialog ref={modalRef} className="search" onClose={handleClose}>
+        <div className="search-body" onKeyDown={handleKeyDown}>
+          <div className="seach-input-wrapper">
+            <Icon name="search" color={colors.neutralDark} size="m" />
+            <input
+              placeholder="Search documentation"
+              type="text"
               value={value}
-              leftAddon={
-                <Icon
-                  name="search"
-                  color={colors.neutralDark}
-                  className="ml-xs"
-                />
-              }
-              rightAddon={
-                value && (
-                  <IconButton
-                    iconName="cross"
-                    color={colors.neutralDark}
-                    onClick={() => {
-                      setValue("");
-                      modalInputRef.current?.focus();
-                    }}
-                  />
-                )
-              }
               onChange={(event) => {
                 setValue(event.target.value);
               }}
             />
-            {searchResults.length > 0 && (
-              <ul className="search-list">
-                {searchResults.map((searchResult, index) => (
-                  <li>
-                    <Link
-                      key={index}
-                      href={searchResult.url}
-                      className="search-result"
-                    >
-                      {searchResult.label}
-                      <Icon name="caret-right" size="m" />
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </ModalBody>
-        </form>
+          </div>
+
+          {searchResults.length > 0 ? (
+            <ListBox
+              selectedIndex={selectedIndex}
+              options={searchResults}
+              onOptionSelected={handleResultClick}
+            />
+          ) : null}
+        </div>
       </dialog>
     </>
   );

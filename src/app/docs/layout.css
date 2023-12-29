@@ -36,7 +36,7 @@
 .docs-content {
   --fs-body-m: var(--docs-fs-m);
   --fs-title-m: var(--docs-fs-m);
-  --ff-base: system-ui;
+  --ff-base: var(--docs-ff);
 
   grid-area: content;
   color: var(--color-neutral-dark);

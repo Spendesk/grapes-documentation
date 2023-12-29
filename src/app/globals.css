@@ -120,4 +120,5 @@
   --docs-fs-m: 1rem;
   --docs-fs-l: 1.3rem;
   --docs-fs-xxl: 2rem;
+  --docs-ff: system-ui;
 }
