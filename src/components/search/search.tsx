@@ -1,19 +1,22 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { Icon, Tag, TextInput, colors } from "@dev-spendesk/grapes";
+import { Icon, IconButton, Tag, TextInput, colors } from "@dev-spendesk/grapes";
 import { routes } from "@/config/routes";
-import { useEffect, useRef, useState, type KeyboardEvent } from "react";
-import { ListBox } from "./listbox/listbox";
+import { useEffect, useRef, useState } from "react";
+import { Option } from "./option";
+import { useHighlight } from "./useHighlight";
 
 import "./search.css";
 
 export function Search() {
   const modalRef = useRef<HTMLDialogElement | null>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
+  const listboxRef = useRef<HTMLUListElement | null>(null);
   const [value, setValue] = useState("");
   const router = useRouter();
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const highlight = useHighlight(listboxRef);
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -34,20 +37,21 @@ export function Search() {
     };
   }, []);
 
-  const handleResultClick = () => {
-    setSelectedIndex(0);
+  useEffect(() => {
+    highlight(value);
+  }, [value]);
+
+  const closeModal = () => {
     modalRef.current?.close();
   };
+
   const handleClose = () => {
+    setSelectedIndex(0);
     setValue("");
   };
 
-  const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLFormElement>) => {
     switch (event.key) {
-      case "Enter": {
-        handleResultClick();
-        return router.push(searchResults.at(selectedIndex)?.url);
-      }
       case "ArrowDown":
         return setSelectedIndex((index) =>
           Math.min(index + 1, searchResults.length - 1)
@@ -55,6 +59,10 @@ export function Search() {
       case "ArrowUp":
         return setSelectedIndex((index) => Math.max(index - 1, 0));
     }
+  };
+
+  const handleSubmit = () => {
+    return router.push(searchResults.at(selectedIndex)?.url);
   };
 
   const searchResults = routes
@@ -88,7 +96,12 @@ export function Search() {
         }}
       />
       <dialog ref={modalRef} className="search" onClose={handleClose}>
-        <div className="search-body" onKeyDown={handleKeyDown}>
+        <form
+          method="dialog"
+          className="search-body"
+          onKeyDown={handleKeyDown}
+          onSubmit={handleSubmit}
+        >
           <div className="seach-input-wrapper">
             <Icon name="search" color={colors.neutralDark} size="m" />
             <input
@@ -99,16 +112,25 @@ export function Search() {
                 setValue(event.target.value);
               }}
             />
+            <IconButton
+              iconName="cross"
+              iconColor={colors.neutralDark}
+              aria-label="Close"
+              onClick={closeModal}
+            />
           </div>
 
-          {searchResults.length > 0 ? (
-            <ListBox
-              selectedIndex={selectedIndex}
-              options={searchResults}
-              onOptionSelected={handleResultClick}
-            />
-          ) : null}
-        </div>
+          <ul ref={listboxRef} className="search-list" role="listbox">
+            {searchResults.map((option, index) => (
+              <Option
+                key={option.label}
+                option={option}
+                isSelected={selectedIndex === index}
+                onOptionClick={closeModal}
+              />
+            ))}
+          </ul>
+        </form>
       </dialog>
     </>
   );

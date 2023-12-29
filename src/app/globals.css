@@ -122,3 +122,8 @@
   --docs-fs-xxl: 2rem;
   --docs-ff: system-ui;
 }
+
+::highlight(primary) {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
