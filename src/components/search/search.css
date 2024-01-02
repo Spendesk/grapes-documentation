@@ -4,7 +4,7 @@
   border: none;
   border-radius: var(--border-radius-xs);
   background: var(--color-white);
-  font: var(--fw-regular) var(--docs-fs-m) var(--docs-ff);
+  font: var(--fw-regular) var(--docs-fs-body-m) var(--docs-ff);
 
   &::backdrop {
     background: #17114eb3;
@@ -26,7 +26,7 @@
     display: block;
     flex: 1;
     border: none;
-    font-size: var(--docs-fs-m);
+    font-size: var(--docs-fs-body-m);
   }
 }
 

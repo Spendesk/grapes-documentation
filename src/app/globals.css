@@ -116,11 +116,16 @@
   --docs-background-header: rgb(255 255 255 / 0.8);
   --docs-background-filter: blur(8px);
   --docs-width: min(95vw, 1400px);
-  --docs-fs-s: 0.9rem;
-  --docs-fs-m: 1rem;
-  --docs-fs-l: 1.3rem;
-  --docs-fs-xxl: 2rem;
+  --docs-fs-body-m: 1rem;
+  --docs-fs-title-m: 0.9rem;
+  --docs-fs-title-l: 1rem;
+  --docs-fs-title-xl: 1.3rem;
+  --docs-fs-title-xxl: 2rem;
   --docs-ff: system-ui;
+
+  --bkp-fs-title-m: var(--fs-title-m);
+  --bkp-fs-body-m: var(--fs-body-m);
+  --bkp-ff-base: var(--ff-base);
 }
 
 ::highlight(primary) {

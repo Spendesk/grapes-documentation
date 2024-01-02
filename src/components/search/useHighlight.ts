@@ -2,11 +2,13 @@ import { MutableRefObject } from "react";
 
 const colorHighlight =
   typeof window !== "undefined" && "Highlight" in window
-    ? new Highlight()
+    ? // @ts-ignore
+      new Highlight()
     : null;
 
 export function useHighlight(root: MutableRefObject<HTMLUListElement | null>) {
   if (colorHighlight) {
+    // @ts-ignore
     CSS.highlights.set("primary", colorHighlight);
 
     return (searchPattern: string) => {

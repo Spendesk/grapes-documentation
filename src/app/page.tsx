@@ -20,14 +20,14 @@ export default function Home() {
               A bunch of <span>grapes</span>
             </h1>
             <p className="body-l">
-              We're convinced that anyone who uses our products should easily
-              and quickly recognize the value of Spendesk while using the
+              We&apos;re convinced that anyone who uses our products should
+              easily and quickly recognize the value of Spendesk while using the
               platform and be delighted by the experience, feeling a sense of
               accomplishment and empowerment.
             </p>
             <Link href="/docs/getting-started" className="primaryLink">
               <span className="initial">Get Started</span>
-              <span className="hover">Let's go</span>
+              <span className="hover">Let&apos;s go</span>
               <Icon name="arrow-right" className="arrow" />
             </Link>
           </div>

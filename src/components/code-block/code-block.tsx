@@ -1,10 +1,20 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { IconButton, colors, Tooltip } from "@dev-spendesk/grapes";
-import hljs from "highlight.js";
+import hljs from "highlight.js/lib/core";
+
+import ts from "highlight.js/lib/languages/typescript";
+import xml from "highlight.js/lib/languages/xml";
+import css from "highlight.js/lib/languages/css";
+import bash from "highlight.js/lib/languages/bash";
 
 import "./code-block.css";
+
+hljs.registerLanguage("typescript", ts);
+hljs.registerLanguage("xml", xml);
+hljs.registerLanguage("css", css);
+hljs.registerLanguage("bash", bash);
 
 type Props = {
   language?: string;
@@ -12,15 +22,20 @@ type Props = {
 };
 
 export function CodeBlock({ language, children }: Props) {
+  const codeRef = useRef<HTMLElement | null>(null);
   const [hasBeenCopied, setHasBeenCopied] = useState(false);
 
   useEffect(() => {
-    hljs.highlightAll();
+    if (codeRef.current) {
+      hljs.highlightElement(codeRef.current);
+    }
   }, []);
 
   return (
     <pre className="docs-code">
-      <code className={`${language} rounded-xs`}>{children}</code>
+      <code ref={codeRef} className={`${language} rounded-xs`}>
+        {children}
+      </code>
       <Tooltip
         triggerAsChild
         content="Copied"

@@ -54,7 +54,7 @@ export function Search() {
     switch (event.key) {
       case "ArrowDown":
         return setSelectedIndex((index) =>
-          Math.min(index + 1, searchResults.length - 1)
+          Math.max(Math.min(index + 1, searchResults.length - 1), 0)
         );
       case "ArrowUp":
         return setSelectedIndex((index) => Math.max(index - 1, 0));
@@ -62,7 +62,10 @@ export function Search() {
   };
 
   const handleSubmit = () => {
-    return router.push(searchResults.at(selectedIndex)?.url);
+    const url = searchResults.at(selectedIndex)?.url;
+    if (url) {
+      return router.push(url);
+    }
   };
 
   const searchResults = routes
