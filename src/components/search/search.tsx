@@ -89,7 +89,7 @@ export function Search() {
         }
         rightAddon={
           <div className="flex gap-xxs mr-xs">
-            <Tag variant="neutral">CMD</Tag>
+            <Tag variant="neutral">⌘</Tag>
             <Tag variant="neutral">K</Tag>
           </div>
         }

@@ -1,62 +1,32 @@
-"use client";
-
-import { useEffect, useRef, useState } from "react";
-import { IconButton, colors, Tooltip } from "@dev-spendesk/grapes";
-import hljs from "highlight.js/lib/core";
-
-import ts from "highlight.js/lib/languages/typescript";
-import xml from "highlight.js/lib/languages/xml";
-import css from "highlight.js/lib/languages/css";
-import bash from "highlight.js/lib/languages/bash";
+import { codeToHtml, addClassToHast } from "shikiji";
+import { CopyButton } from "./copy-button";
 
 import "./code-block.css";
-
-hljs.registerLanguage("typescript", ts);
-hljs.registerLanguage("xml", xml);
-hljs.registerLanguage("css", css);
-hljs.registerLanguage("bash", bash);
 
 type Props = {
   language?: string;
   children: React.ReactNode;
 };
 
-export function CodeBlock({ language, children }: Props) {
-  const codeRef = useRef<HTMLElement | null>(null);
-  const [hasBeenCopied, setHasBeenCopied] = useState(false);
+export async function CodeBlock({ language, children }: Props) {
+  const code = children as string;
 
-  useEffect(() => {
-    if (codeRef.current) {
-      hljs.highlightElement(codeRef.current);
-    }
-  }, []);
+  const html = await codeToHtml(code, {
+    lang: language?.replace("language-", "") ?? "tsx",
+    theme: "github-dark",
+    transformers: [
+      {
+        pre(node) {
+          addClassToHast(node, "docs-pre");
+        },
+      },
+    ],
+  });
 
   return (
-    <pre className="docs-code">
-      <code ref={codeRef} className={`${language} rounded-xs`}>
-        {children}
-      </code>
-      <Tooltip
-        triggerAsChild
-        content="Copied"
-        isOpen={hasBeenCopied}
-        placement="left"
-      >
-        <IconButton
-          className="docs-cta-copy"
-          variant="borderless"
-          iconName={hasBeenCopied ? "success" : "copy"}
-          iconColor={hasBeenCopied ? colors.successLightest : colors.white}
-          aria-label={hasBeenCopied ? "Copied" : "Copy"}
-          onClick={() => {
-            setHasBeenCopied(true);
-            navigator.clipboard.writeText(children as string);
-            setTimeout(() => {
-              setHasBeenCopied(false);
-            }, 1_500);
-          }}
-        />
-      </Tooltip>
-    </pre>
+    <div className="docs-code">
+      <div dangerouslySetInnerHTML={{ __html: html }} />
+      <CopyButton content={code} />
+    </div>
   );
 }

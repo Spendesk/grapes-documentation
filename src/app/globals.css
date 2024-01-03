@@ -116,6 +116,7 @@
   --docs-background-header: rgb(255 255 255 / 0.8);
   --docs-background-filter: blur(8px);
   --docs-width: min(95vw, 1400px);
+  --docs-fs-body-s: 0.9rem;
   --docs-fs-body-m: 1rem;
   --docs-fs-title-m: 0.9rem;
   --docs-fs-title-l: 1rem;

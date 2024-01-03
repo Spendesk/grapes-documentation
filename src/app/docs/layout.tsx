@@ -4,7 +4,7 @@ import { SideBar } from "@/components/sidebar/sidebar";
 import { TableOfContents } from "@/components/table-of-contents/table-of-contents";
 import { DocsHeader } from "@/components/docs-header/docs-header";
 
-import "highlight.js/styles/github-dark.min.css";
+// import "highlight.js/styles/github-dark.min.css";
 
 import "./layout.css";
 

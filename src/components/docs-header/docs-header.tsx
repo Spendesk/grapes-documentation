@@ -13,7 +13,7 @@ export function DocsHeader() {
         <Link href="/" key="grapes" className="logo-grapes">
           <img src="/logo.svg" alt="Grapes homepage" className="img-grapes" />
         </Link>
-        <Search key="search" />
+        <Search />
         <LogoGithub />
       </div>
     </header>
