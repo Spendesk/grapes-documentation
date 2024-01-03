@@ -1,4 +1,4 @@
-import { Link as GrapesLink } from "@dev-spendesk/grapes";
+import { Callout, Link as GrapesLink } from "@dev-spendesk/grapes";
 import Link from "next/link";
 import { slug } from "github-slugger";
 
@@ -8,13 +8,18 @@ import { CodeBlock } from "@/components/code-block/code-block";
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
-    pre: ({ children }) => (
-      // @ts-ignore
-      <CodeBlock language={children.props.className}>
-        {/* @ts-ignore */}
-        {children.props.children}
-      </CodeBlock>
-    ),
+    pre: ({ children }) => {
+      return (
+        // @ts-ignore
+        <CodeBlock language={children.props.className}>
+          {/* @ts-ignore */}
+          {children.props.children}
+        </CodeBlock>
+      );
+    },
+    blockquote: ({ children }) => {
+      return <Callout title={children} />;
+    },
     code: ({ children }) => (
       <code className="bg-neutral-lighter text-s p-xxs rounded-xxs">
         {children}

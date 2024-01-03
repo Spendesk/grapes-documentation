@@ -8,16 +8,38 @@ type Props = {
   children: React.ReactNode;
 };
 
+function extractLanguage(attr = "") {
+  const result = /language-(\w+).*/.exec(attr);
+  return result ? result[1] : "tsx";
+}
+
+function extractLineToHighlight(attr = "") {
+  const result = /language-\w+{([\d,]+)}/.exec(attr);
+  if (!result) {
+    return [];
+  }
+  const match = result[1];
+  return match.split(",").map((str) => Number(str));
+}
+
 export async function CodeBlock({ language, children }: Props) {
   const code = children as string;
+  const lang = extractLanguage(language);
+  const lineToHighlight = extractLineToHighlight(language);
 
   const html = await codeToHtml(code, {
-    lang: language?.replace("language-", "") ?? "tsx",
+    lang,
     theme: "github-dark",
     transformers: [
       {
         pre(node) {
           addClassToHast(node, "docs-pre");
+        },
+        line(node, line) {
+          if (lineToHighlight.includes(line)) {
+            addClassToHast(node, "highlighted");
+          }
+          return node;
         },
       },
     ],

@@ -11,6 +11,8 @@ Grapes is designed to maintain uniformity across all Spendesk applications. Each
 **Customizing Grapes is discouraged** but our components do provide flexibility
 for adjusting layouts, spacing, and other elements to suit your needs.
 
+---
+
 ## CSS Cascade layer
 
 This section assumes that you're already familiar with CSS cascade layers.
@@ -19,15 +21,21 @@ All styles are contained within this layer.
 
 When you need to overwrite some styles from Grapes, your CSS need be defined either outside of any layer or inside a layer taking precedence over `grapes`.
 
+---
+
 ## className props
 
-All Grapes components should support the props `className`. This props is intended to set styling option such as layout, position, and spacing.
+Most Grapes components support the props `className`. This props is intended to set styling option such as layout, position, and spacing.
 Although not recommended, this props can also be used to override any style within a given component.
 
 <Callout variant="warning" title="Mind the order of your layer">
   If your className is defined in a layer, make sure your layer takes precedence
   over `grapes`.
 </Callout>
+
+> [warning] If your className is defined in a layer, make sure your layer takes precedence over `grapes`.
+
+---
 
 ## Theming
 
@@ -37,7 +45,7 @@ The recommended way to override the Grapes theme is to define a new CSS Cascade 
 
 ```css
 @layer marketing {
-  // rules
+  /** rules */
 }
 ```
 
@@ -54,7 +62,7 @@ To override any CSS variable use the pseudo-class `:root` :
 
 To take effect, **your layer should take precedence** over the layer `grapes`:
 
-```css
+```css{1}
 @layer grapes, marketing;
 
 @layer marketing {
