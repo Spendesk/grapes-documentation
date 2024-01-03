@@ -1,5 +1,6 @@
 import { Button } from "@dev-spendesk/grapes";
 import { MdxLayout } from "@/components/layout/layout";
+import { Preview } from "@/components/preview/preview";
 
 export const metadata = {
   title: "Button",
@@ -12,16 +13,16 @@ export default ({ children }) => (
 
 ## Variant
 
-The variant...
+The Button comes with six visual styles: primary (default), secondary, contrasted, warning, alert, and ghost.
 
-<div className="box flex flex-wrap gap-m">
+<Preview>
   <Button variant="primary" text="Primary" />
   <Button variant="secondary" text="Secondary" />
   <Button variant="contrasted" text="Contrasted" />
   <Button variant="warning" text="Warning" />
   <Button variant="alert" text="Alert" />
   <Button variant="ghost" text="Ghost" />
-</div>
+</Preview>
 
 ```tsx
 <>
@@ -34,18 +35,50 @@ The variant...
 </>
 ```
 
-## Fit
+## Size
 
-The `fit` prop...
+Use the `fit` props to control the size of the Button.
 
-<div className="box flex flex-wrap gap-m">
+<Preview>
   <Button fit="content" text="Content fit" />
   <Button fit="parent" text="Parent fit" />
-</div>
+</Preview>
 
 ```tsx
 <>
   <Button fit="content" text="Content fit" />
   <Button fit="parent" text="Parent fit" />
+</>
+```
+
+## With icons
+
+You can attach an Icon to the Button using `iconName` prop.
+
+Use `iconPosition` prop to set the position of the button, either left (default) or right
+
+<Preview>
+  <Button iconName="caret-left" text="Go back" />
+  <Button iconName="caret-right" iconPosition="right" text="Continue" />
+</Preview>
+
+```tsx
+<>
+  <Button iconName="caret-left" text="Go back" />
+  <Button iconName="caret-right" iconPosition="right" text="Continue" />
+</>
+```
+
+## Text size
+
+Use `maxTextWidth` prop to set a maximum size for the text. An ellipsis will automatically be created if the text overflow the given size.
+
+<Preview>
+  <Button maxTextWidth="10ch" text="This is a very long text" />
+</Preview>
+
+```tsx
+<>
+  <Button maxTextWidth="10ch" text="This is a very long text" />
 </>
 ```

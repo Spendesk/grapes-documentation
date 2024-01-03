@@ -41,7 +41,7 @@ export function TableOfContents() {
       <h3 id={titleId} className="title-m text-primary-dark m-xs">
         On this page
       </h3>
-      <ul aria-labelledby={titleId}>
+      <ul aria-labelledby={titleId} className="list-none">
         {headings.map((heading) => (
           <li key={heading.label}>
             <NavigationItem

@@ -14,3 +14,11 @@
     border-radius: var(--border-radius-xs);
   }
 }
+
+.docs-preview + .docs-code {
+  margin-block-start: 0;
+
+  .docs-pre {
+    border-radius: 0 0 var(--border-radius-xs) var(--border-radius-xs);
+  }
+}
