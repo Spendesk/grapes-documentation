@@ -57,6 +57,7 @@
     color: var(--color-complementary);
     font-weight: var(--fw-medium);
     margin-block: var(--spacing-m) var(--spacing-xs);
+    text-decoration: none;
   }
 
   :is(h2, h3) a:hover::before {
