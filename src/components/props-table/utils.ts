@@ -1,4 +1,6 @@
-export type PropsDoc = {
+import allProps from "../../../props.json";
+
+type PropsDoc = {
   name: string;
   description: string;
   required: boolean;
@@ -6,7 +8,7 @@ export type PropsDoc = {
   type: { name: string };
 };
 
-export function sortProps(props: PropsDoc[]) {
+function sortProps(props: PropsDoc[]) {
   return props.sort((a, b) => {
     if (a.required && !b.required) {
       return -1;
@@ -16,4 +18,12 @@ export function sortProps(props: PropsDoc[]) {
     }
     return a.name.localeCompare(b.name);
   });
+}
+
+export function getSortedProps(component: string): PropsDoc[] {
+  const filteredProps = allProps.props.find((d) => component === d.displayName);
+  if (!filteredProps) {
+    return [];
+  }
+  return sortProps(Object.values(filteredProps.props));
 }

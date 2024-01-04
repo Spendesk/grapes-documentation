@@ -1,5 +1,5 @@
 import { PropsTable } from "@/components/props-table/props-table";
 
 export default function Props() {
-  return <PropsTable component={[{{#each componentPropsList}} "{{this}}", {{/each}}]} />;
+  return <PropsTable components={[{{#each componentPropsList}} "{{this}}", {{/each}}]} />;
 }
