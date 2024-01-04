@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -11,7 +12,13 @@ export function DocsHeader() {
     <header className="docs-header">
       <div className="docs-header-wrapper">
         <Link href="/" key="grapes" className="logo-grapes">
-          <img src="/logo.svg" alt="Grapes homepage" className="img-grapes" />
+          <Image
+            height={32}
+            width={128}
+            src="/logo.svg"
+            alt="Grapes homepage"
+            className="img-grapes"
+          />
         </Link>
         <Search />
         <LogoGithub />

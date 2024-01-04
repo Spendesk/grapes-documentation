@@ -1,4 +1,5 @@
 import { Avatar, Icon } from "@dev-spendesk/grapes";
+import Image from "next/image";
 import Link from "next/link";
 import { LogoGithub } from "@/components/logo-github/logo-github";
 
@@ -9,7 +10,13 @@ export default function Home() {
     <div className="home-root">
       <header className="home-header">
         <div className="home-header-wrapper">
-          <img src="/logo.svg" alt="Grapes" className="img-grapes" />
+          <Image
+            width={160}
+            height={40}
+            src="/logo.svg"
+            alt="Grapes"
+            className="img-grapes"
+          />
           <LogoGithub />
         </div>
       </header>
@@ -57,7 +64,13 @@ export default function Home() {
                   odit est.
                 </p>
               </div>
-              <img src="/grapes.png" alt="grapes" className="illustration" />
+              <Image
+                width={150}
+                height={150}
+                src="/grapes.png"
+                alt="grapes"
+                className="illustration"
+              />
             </Link>
             <Link className="item" href="/docs/design/tokens" id="card2">
               <div>
@@ -66,10 +79,22 @@ export default function Home() {
                 </h3>
                 <p className="body-l mt-xs">Coming Soon</p>
               </div>
-              <img src="/grapes.png" alt="grapes" className="illustration" />
+              <Image
+                width={150}
+                height={150}
+                src="/grapes.png"
+                alt="grapes"
+                className="illustration"
+              />
             </Link>
             <Link className="expand item" href="/docs/components" id="card3">
-              <img src="/grapes.png" alt="grapes" className="illustration" />
+              <Image
+                width={150}
+                height={150}
+                src="/grapes.png"
+                alt="grapes"
+                className="illustration"
+              />
               <div>
                 <h3 className="body-xl">
                   Components <Icon name="external" />

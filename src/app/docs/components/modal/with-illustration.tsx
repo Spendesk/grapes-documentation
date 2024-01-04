@@ -1,6 +1,7 @@
 "use client";
 
 import { Button, Modal } from "@dev-spendesk/grapes";
+import Image from "next/image";
 import { useState } from "react";
 
 export function WithIllustration() {
@@ -13,7 +14,11 @@ export function WithIllustration() {
         isOpen={isOpen}
         onClose={() => setIsOpen(false)}
         title="Adopt a smooth transition"
-        illustration={<img src="/illustration-2.webp" alt="" />}
+        illustration={
+          <div className="w-full h-full relative">
+            <Image fill src="/illustration-2.webp" alt="" />
+          </div>
+        }
         actions={[
           <Button
             key="cancel"

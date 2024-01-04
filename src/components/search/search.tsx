@@ -39,7 +39,7 @@ export function Search() {
 
   useEffect(() => {
     highlight(value);
-  }, [value]);
+  }, [value, highlight]);
 
   const closeModal = () => {
     modalRef.current?.close();
