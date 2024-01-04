@@ -1,3 +1,5 @@
+"use client";
+
 import { routes, routeCategories } from "@/config/routes";
 import { usePathname } from "next/navigation";
 
@@ -7,7 +9,7 @@ export function SideBar() {
   const pathname = usePathname();
 
   return (
-    <nav className="pt-m">
+    <>
       <ul className="mb-l">
         {routeCategories.map((routeCategory) => (
           <SideBarLink
@@ -34,6 +36,6 @@ export function SideBar() {
           ))}
         </div>
       ))}
-    </nav>
+    </>
   );
 }

@@ -1,12 +1,4 @@
-import {
-  EmptyState,
-  Icon,
-  Tab,
-  TabList,
-  TabPanel,
-  TabPanels,
-  Tabs,
-} from "@dev-spendesk/grapes";
+import { Tab, TabList, TabPanel, TabPanels, Tabs } from "@dev-spendesk/grapes";
 import allProps from "../../../json/props.json";
 import { PropsTableComponent } from "./props-table-component";
 import { sortProps } from "./utils";

@@ -1,0 +1,33 @@
+.docs-code {
+  --_code-padding: var(--spacing-s);
+  position: relative;
+  margin-block: var(--spacing-s);
+  font-size: var(--docs-fs-body-s);
+
+  .docs-cta-copy {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+  }
+
+  .docs-pre {
+    padding: var(--_code-padding);
+    border-radius: var(--border-radius-xs);
+  }
+
+  .highlighted {
+    display: inline-block;
+    width: calc(100% + 2 * var(--_code-padding));
+    margin-inline: calc(-1 * var(--_code-padding));
+    padding-inline: var(--_code-padding);
+    background: color-mix(in srgb, var(--color-white) 20%, transparent);
+  }
+}
+
+.docs-preview + .docs-code {
+  margin-block-start: 0;
+
+  .docs-pre {
+    border-radius: 0 0 var(--border-radius-xs) var(--border-radius-xs);
+  }
+}

@@ -9,14 +9,12 @@ A quick tutorial to get you up and running with Grapes.
 Grapes is available as a [NPM package](https://www.npmjs.com/package/@dev-spendesk/grapes).
 
 ```bash
-// with npm
 npm install @dev-spendesk/grapes
-
-// with yarn
-yarn add @dev-spendesk/grapes
 ```
 
 Please note that `react` >= 18.2 and `react-dom` >= 18.2 are peer dependencies.
+
+---
 
 ## Usage
 
@@ -24,10 +22,10 @@ All Grapes applications start with a `GrapesProvider`. This provider specifies t
 
 Here is a quick example if you want to use Grapes components in your React app:
 
-```jsx
+```tsx
 import { SwitchField, GrapesProvider } from "@dev-spendesk/grapes";
 
-const MySwitchField = () => {
+export const MySwitchField = () => {
   return (
     <GrapesProvider
       locale="en-US"
@@ -64,7 +62,7 @@ Grapes exposes a preset that can be included into any existing Tailwind CSS proj
 To get started, you first need to make sure that you have a working Tailwind CSS project installed. More information about the installation can be found on Tailwind's documentation website: [https://tailwindcss.com/docs/installation](https://tailwindcss.com/docs/installation).
 Then, include the preset to your `tailwind.config.js` file:
 
-```js
+```ts{2}
 {
   presets: [require('@dev-spendesk/grapes/tailwind')],
 }
@@ -72,13 +70,15 @@ Then, include the preset to your `tailwind.config.js` file:
 
 ### Using the theme
 
-Here is a quick example if you want to use Grapes theme and design tokens in your SCSS:
+Here is a quick example if you want to use Grapes' design tokens in your CSS:
 
 ```css
 .MyComponent {
   margin-bottom: var(--spacing-s);
 }
 ```
+
+---
 
 ## Supported platforms
 

@@ -1,46 +1,31 @@
 "use client";
 
+import { useRouter } from "next/navigation";
+import { Icon, IconButton, Tag, TextInput, colors } from "@dev-spendesk/grapes";
 import { routes } from "@/config/routes";
-import {
-  DropdownItem,
-  Icon,
-  IconButton,
-  ModalBody,
-  ModalContent,
-  ModalOverlay,
-  Tag,
-  TextInput,
-  colors,
-} from "@dev-spendesk/grapes";
 import { useEffect, useRef, useState } from "react";
+import { Option } from "./option";
+import { useHighlight } from "./useHighlight";
+
+import "./search.css";
 
 export function Search() {
+  const modalRef = useRef<HTMLDialogElement | null>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
-  const modalInputRef = useRef<HTMLInputElement | null>(null);
-
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const listboxRef = useRef<HTMLUListElement | null>(null);
   const [value, setValue] = useState("");
-  const [searchResults, setSearchResults] = useState<
-    { label: string; url: string }[]
-  >([]);
-  const [previousKey, setPreviousKey] = useState<string | null>(null);
+  const router = useRouter();
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const highlight = useHighlight(listboxRef);
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       switch (event.key) {
-        case "Meta":
-          setPreviousKey(previousKey === "Meta" ? null : "Meta");
-          break;
         case "k":
         case "K":
-          if (previousKey === "Meta") {
-            setIsModalOpen(true);
-            setPreviousKey(null);
-          }
-          break;
-        case "Escape":
-          if (isModalOpen) {
-            closeModal();
+          if (event.metaKey) {
+            event.preventDefault(); // Prevent Firefox default behavior
+            modalRef.current?.showModal();
           }
           break;
       }
@@ -50,35 +35,50 @@ export function Search() {
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
     };
-  }, [isModalOpen, previousKey]);
+  }, []);
 
   useEffect(() => {
-    if (value.trim()) {
-      setSearchResults(
-        routes
-          .flatMap((route) => route.routes)
-          .filter((route) =>
-            route.label
-              .toLowerCase()
-              .includes(value.toLowerCase().replaceAll(" ", ""))
-          )
-          .slice(0, 5)
-      );
-    } else {
-      setSearchResults([]);
-    }
+    highlight(value);
   }, [value]);
 
-  useEffect(() => {
-    if (isModalOpen) {
-      modalInputRef.current?.focus();
-    }
-  }, [isModalOpen]);
+  const closeModal = () => {
+    modalRef.current?.close();
+  };
 
-  function closeModal() {
-    setIsModalOpen(false);
+  const handleClose = () => {
+    setSelectedIndex(0);
     setValue("");
-  }
+  };
+
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLFormElement>) => {
+    switch (event.key) {
+      case "ArrowDown":
+        return setSelectedIndex((index) =>
+          Math.max(Math.min(index + 1, searchResults.length - 1), 0)
+        );
+      case "ArrowUp":
+        return setSelectedIndex((index) => Math.max(index - 1, 0));
+    }
+  };
+
+  const handleSubmit = () => {
+    const url = searchResults.at(selectedIndex)?.url;
+    if (url) {
+      return router.push(url);
+    }
+  };
+
+  const searchResults = routes
+    .flatMap((route) => route.routes)
+    .filter((route) => {
+      if (value.trim().length < 1) {
+        return false;
+      }
+      return route.label
+        .toLowerCase()
+        .includes(value.toLowerCase().replaceAll(" ", ""));
+    })
+    .slice(0, 5);
 
   return (
     <>
@@ -89,57 +89,52 @@ export function Search() {
         }
         rightAddon={
           <div className="flex gap-xxs mr-xs">
-            <Tag variant="neutral">CMD</Tag>
+            <Tag variant="neutral">⌘</Tag>
             <Tag variant="neutral">K</Tag>
           </div>
         }
         onFocus={() => {
-          setIsModalOpen(true);
           inputRef.current?.blur();
+          modalRef.current?.showModal();
         }}
       />
-      <ModalOverlay isOpen={isModalOpen}>
-        <ModalContent onClose={closeModal}>
-          <ModalBody className="w-[80%] text-left">
-            <TextInput
-              ref={modalInputRef}
-              fit="parent"
+      <dialog ref={modalRef} className="search" onClose={handleClose}>
+        <form
+          method="dialog"
+          className="search-body"
+          onKeyDown={handleKeyDown}
+          onSubmit={handleSubmit}
+        >
+          <div className="seach-input-wrapper">
+            <Icon name="search" color={colors.neutralDark} size="m" />
+            <input
+              placeholder="Search documentation"
+              type="text"
               value={value}
-              leftAddon={
-                <Icon
-                  name="search"
-                  color={colors.neutralDark}
-                  className="ml-xs"
-                />
-              }
-              rightAddon={
-                value && (
-                  <IconButton
-                    iconName="cross"
-                    color={colors.neutralDark}
-                    onClick={() => {
-                      setValue("");
-                      modalInputRef.current?.focus();
-                    }}
-                  />
-                )
-              }
               onChange={(event) => {
                 setValue(event.target.value);
               }}
             />
-            {searchResults.length > 0 && (
-              <div className="flex flex-col gap-xs mt-s">
-                {searchResults.map((searchResult, index) => (
-                  <a key={index} href={searchResult.url}>
-                    <DropdownItem isHighlighted label={searchResult.label} />
-                  </a>
-                ))}
-              </div>
-            )}
-          </ModalBody>
-        </ModalContent>
-      </ModalOverlay>
+            <IconButton
+              iconName="cross"
+              iconColor={colors.neutralDark}
+              aria-label="Close"
+              onClick={closeModal}
+            />
+          </div>
+
+          <ul ref={listboxRef} className="search-list" role="listbox">
+            {searchResults.map((option, index) => (
+              <Option
+                key={option.label}
+                option={option}
+                isSelected={selectedIndex === index}
+                onOptionClick={closeModal}
+              />
+            ))}
+          </ul>
+        </form>
+      </dialog>
     </>
   );
 }

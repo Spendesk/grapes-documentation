@@ -10,19 +10,23 @@ export default ({ children }) => (
 );
 
 ```tsx
-const [selectedValue, setSelectedValue] = useState<string | null>(null);
-return (
-  <OptionGroup
-    options={[
-      { value: "daily", label: "Daily" },
-      { value: "weekly", label: "Weekly" },
-      { value: "yearly", label: "Yearly" },
-    ]}
-    value={selectedValue}
-    name="optionGroupField"
-    onChange={(event) => {
-      setSelectedValue(event.target.value);
-    }}
-  />
-);
+import { IconButton } from "@dev-spendesk/grapes";
+
+export const Component = () => {
+  const [selectedValue, setSelectedValue] = useState<string | null>(null);
+  return (
+    <OptionGroup
+      options={[
+        { value: "daily", label: "Daily" },
+        { value: "weekly", label: "Weekly" },
+        { value: "yearly", label: "Yearly" },
+      ]}
+      value={selectedValue}
+      name="optionGroupField"
+      onChange={(event) => {
+        setSelectedValue(event.target.value);
+      }}
+    />
+  );
+};
 ```

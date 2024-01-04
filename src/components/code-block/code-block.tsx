@@ -1,39 +1,54 @@
-"use client";
+import { codeToHtml, addClassToHast } from "shikiji";
+import { CopyButton } from "./copy-button";
 
-import { useEffect, useState } from "react";
-import { IconButton } from "@dev-spendesk/grapes";
-import hljs from "highlight.js";
+import "./code-block.css";
 
 type Props = {
   language?: string;
   children: React.ReactNode;
 };
 
-export function CodeBlock({ language, children }: Props) {
-  const [hasBeenCopied, setHasBeenCopied] = useState(false);
+function extractLanguage(attr = "") {
+  const result = /language-(\w+).*/.exec(attr);
+  return result ? result[1] : "tsx";
+}
 
-  useEffect(() => {
-    hljs.highlightAll();
-  }, []);
+function extractLineToHighlight(attr = "") {
+  const result = /language-\w+{([\d,]+)}/.exec(attr);
+  if (!result) {
+    return [];
+  }
+  const match = result[1];
+  return match.split(",").map((str) => Number(str));
+}
+
+export async function CodeBlock({ language, children }: Props) {
+  const code = children as string;
+  const lang = extractLanguage(language);
+  const lineToHighlight = extractLineToHighlight(language); // [2,3]
+
+  const html = await codeToHtml(code, {
+    lang,
+    theme: "github-dark",
+    transformers: [
+      {
+        pre(node) {
+          addClassToHast(node, "docs-pre");
+        },
+        line(node, line) {
+          if (lineToHighlight.includes(line)) {
+            addClassToHast(node, "highlighted");
+          }
+          return node;
+        },
+      },
+    ],
+  });
 
   return (
-    <div className="relative mt-s">
-      <pre>
-        <code className={`${language} rounded-xs body-s`}>{children}</code>
-      </pre>
-      <IconButton
-        className="absolute top-xs right-xs"
-        iconName="copy"
-        variant="border"
-        aria-label={hasBeenCopied ? "Copied" : "Copy"}
-        onClick={() => {
-          setHasBeenCopied(true);
-          navigator.clipboard.writeText(children as string);
-          setTimeout(() => {
-            setHasBeenCopied(false);
-          }, 3000);
-        }}
-      />
+    <div className="docs-code">
+      <div dangerouslySetInnerHTML={{ __html: html }} />
+      <CopyButton content={code} />
     </div>
   );
 }
