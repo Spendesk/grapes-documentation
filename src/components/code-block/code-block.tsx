@@ -25,7 +25,7 @@ function extractLineToHighlight(attr = "") {
 export async function CodeBlock({ language, children }: Props) {
   const code = children as string;
   const lang = extractLanguage(language);
-  const lineToHighlight = extractLineToHighlight(language);
+  const lineToHighlight = extractLineToHighlight(language); // [2,3]
 
   const html = await codeToHtml(code, {
     lang,
