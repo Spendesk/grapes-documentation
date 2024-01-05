@@ -2,6 +2,15 @@ name: Validate
 
 on: [push]
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
 env:
   NODE_VERSION: 20
   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -55,17 +64,13 @@ jobs:
         run: npm run build
 
   release:
+    if: ${{ contains('refs/heads/main', github.ref) }}
     needs: [main, build]
-    permissions:
-      contents: write
-      issues: write
-      pull-requests: write
     runs-on: ubuntu-latest
     environment:
       name: Documentation
       url: ${{ steps.deployment.outputs.page_url }}
     timeout-minutes: 30
-    if: ${{ contains('refs/heads/main', github.ref) }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -86,13 +91,13 @@ jobs:
         run: npm run build
 
       - name: Setup Pages
-        uses: actions/configure-pages@v3
+        uses: actions/configure-pages@v4
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v3
         with:
           path: "out/"
 
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v4
