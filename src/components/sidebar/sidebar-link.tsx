@@ -1,5 +1,3 @@
-"use client";
-
 import { Icon, IconName, NavigationItem } from "@dev-spendesk/grapes";
 import Link from "next/link";
 

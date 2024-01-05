@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { Icon, IconButton, Tag, TextInput, colors } from "@dev-spendesk/grapes";
-import { routes } from "@/config/routes";
+import { type Route, routes } from "@/config/routes";
 import { useEffect, useRef, useState } from "react";
 import { Option } from "./option";
 import { useHighlight } from "./useHighlight";
@@ -68,8 +68,10 @@ export function Search() {
     }
   };
 
-  const searchResults = routes
-    .flatMap((route) => route.routes)
+  const searchResults = Object.values(routes)
+    .flatMap((route) =>
+      route.reduce((acc, plop) => acc.concat(plop.routes), [] as Route[])
+    )
     .filter((route) => {
       if (value.trim().length < 1) {
         return false;

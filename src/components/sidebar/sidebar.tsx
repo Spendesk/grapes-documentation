@@ -1,40 +1,63 @@
 "use client";
 
-import { routes, routeCategories } from "@/config/routes";
+import React, { useId } from "react";
+import { routes, headerRoutes, type RouteConfig } from "@/config/routes";
 import { usePathname } from "next/navigation";
 
 import { SideBarLink } from "./sidebar-link";
 
-export function SideBar() {
+function NavigationList({ route }: { route: RouteConfig }) {
   const pathname = usePathname();
+  const listId = useId();
 
   return (
     <>
-      <ul className="mb-l">
-        {routeCategories.map((routeCategory) => (
-          <SideBarLink
-            key={routeCategory.category}
-            isActive={pathname.startsWith(routeCategory.url)}
-            url={routeCategory.url}
-            label={routeCategory.category}
-            iconName={routeCategory.iconName}
-          />
-        ))}
-      </ul>
-      {routes.map((route) => (
-        <div key={route.category}>
-          <div className="uppercase text-primary-dark title-m ml-xs my-xs">
-            {route.category}
-          </div>
-          {route.routes.map((subRoute) => (
+      <h3 id={listId} className="text-primary-dark title-m ml-xs mb-xs">
+        {route.category}
+      </h3>
+      <ul className="mb-l" aria-labelledby={listId}>
+        {route.routes.map((subRoute) => (
+          <li key={subRoute.label}>
             <SideBarLink
-              key={subRoute.label}
               isActive={pathname === subRoute.url}
               url={subRoute.url}
               label={subRoute.label}
             />
-          ))}
-        </div>
+          </li>
+        ))}
+      </ul>
+    </>
+  );
+}
+
+export function SideBar() {
+  const pathname = usePathname();
+
+  const currentHeaderRoute = headerRoutes.find((headerRoute) =>
+    pathname.startsWith(headerRoute.url)
+  );
+  const currentHeaderRouteId = currentHeaderRoute
+    ? currentHeaderRoute.id
+    : "components";
+
+  const activeSubRoute = routes[currentHeaderRouteId];
+
+  return (
+    <>
+      <ul className="mb-l">
+        {headerRoutes.map((headerRoute) => (
+          <li key={headerRoute.category}>
+            <SideBarLink
+              isActive={pathname.startsWith(headerRoute.url)}
+              url={headerRoute.url}
+              label={headerRoute.category}
+              iconName={headerRoute.iconName}
+            />
+          </li>
+        ))}
+      </ul>
+      {activeSubRoute.map((route) => (
+        <NavigationList key={route.category} route={route} />
       ))}
     </>
   );
