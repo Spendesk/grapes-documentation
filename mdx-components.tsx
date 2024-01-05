@@ -37,11 +37,14 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       </h3>
     ),
     p: ({ children }) => <p>{children}</p>,
-    a: ({ children, href }) => (
-      <GrapesLink as="a" href={href}>
-        {children}
-      </GrapesLink>
-    ),
+    a: ({ children, href }) =>
+      href?.startsWith("http") ? (
+        <GrapesLink as="a" href={href} isExternal>
+          {children}
+        </GrapesLink>
+      ) : (
+        <Link href={href ?? "#"}>{children}</Link>
+      ),
     strong: ({ children }) => (
       <strong className="font-medium">{children}</strong>
     ),
