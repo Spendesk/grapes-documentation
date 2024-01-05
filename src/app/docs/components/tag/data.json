@@ -1,0 +1,14 @@
+{
+  "name": "Tag",
+  "description": "Compact element that represent an attribute",
+  "links": [
+    {
+      "name": "github",
+      "link": "https://github.com/Spendesk/grapes/tree/master/src/components/Tag"
+    },
+    {
+      "name": "figma",
+      "link": "figma"
+    }
+  ]
+}
