@@ -1,4 +1,6 @@
 import { MdxLayout } from "@/components/layout/layout";
+import { IconButton } from "@dev-spendesk/grapes";
+import { Preview } from "@/components/preview/preview";
 
 export const metadata = {
   title: "IconButton",
@@ -9,24 +11,70 @@ export default ({ children }) => (
   <MdxLayout metadata={metadata}>{children}</MdxLayout>
 );
 
+## Variant
+
+The IconButton comes with 2 variants: border (default) and borderless
+
+<Preview>
+  <IconButton iconName="ellipsis" variant="border" />
+  <IconButton iconName="ellipsis" variant="borderless" />
+</Preview>
+
 ```tsx
+<IconButton iconName="ellipsis" variant="border" />
+<IconButton iconName="ellipsis" variant="borderless" />
+```
+
+## Margin on borderless variant
+
+Use the prop `hasNegativeMargins` to remove the margin around a borderless IconButton.
+This props doesn't have any impact on border IconButton.
+
+<Preview>
+  <IconButton iconName="ellipsis" variant="borderless" hasNegativeMargins />
+</Preview>
+
+```tsx
+<IconButton iconName="ellipsis" variant="borderless" hasNegativeMargins />
+```
+
+## Get element ref
+
+Create a ref using `useRef` and pass it using the `ref` prop.
+
+<Preview>
+  <IconButton iconName="ellipsis" variant="border" />
+</Preview>
+
+```tsx
+import { useRef } from "react";
 import { IconButton } from "@dev-spendesk/grapes";
 
-export const Component = () => {
-  const [selectedValue, setSelectedValue] = useState<string | null>(null);
-  return (
-    <OptionGroup
-      options={[
-        { value: "daily", label: "Daily" },
-        { value: "weekly", label: "Weekly" },
-        { value: "yearly", label: "Yearly" },
-      ]}
-      value={selectedValue}
-      name="optionGroupField"
-      onChange={(event) => {
-        setSelectedValue(event.target.value);
-      }}
-    />
-  );
-};
+export function Demo() {
+  const ref = useRef<HTMLButtonElement | null>(null);
+
+  return <IconButton ref={ref} iconName="ellipsis" variant="border" />;
+}
 ```
+
+---
+
+## Accessibility
+
+IconButton adheres to the [button role requirements](https://www.w3.org/TR/wai-aria-1.2/#button).
+
+An alternative text label must be provided to identify the control. This should be added using the `aria-label` prop.
+
+```tsx{2}
+<IconButton
+  aria-label="More option"
+  iconName="ellipsis"
+  variant="borderless"
+/>
+```
+
+## Keyboard Interaction
+
+- `Tab`: Moves focus on the element or outside
+- `Enter`: Triggers the component action
+- `Space`: Triggers the component action

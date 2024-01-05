@@ -9,6 +9,9 @@
   --gap-section: 10vh;
   background: var(--color-page-background);
   font-family: var(--ff-base);
+  a {
+    text-decoration: none;
+  }
 }
 
 .home-header {

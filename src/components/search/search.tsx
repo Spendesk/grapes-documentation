@@ -86,6 +86,7 @@ export function Search() {
     <>
       <TextInput
         ref={inputRef}
+        placeholder="Search the docs"
         leftAddon={
           <Icon name="search" color={colors.neutralDark} className="ml-xs" />
         }
@@ -110,7 +111,7 @@ export function Search() {
           <div className="seach-input-wrapper">
             <Icon name="search" color={colors.neutralDark} size="m" />
             <input
-              placeholder="Search documentation"
+              placeholder="Search the docs"
               type="text"
               value={value}
               onChange={(event) => {

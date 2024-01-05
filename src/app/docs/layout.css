@@ -82,6 +82,13 @@
     font-size: var(--docs-fs-title-l);
   }
 
+  ul {
+    margin-inline-start: var(--spacing-m);
+    li {
+      margin-block: var(--spacing-xs);
+    }
+  }
+
   :is(&, [role="tabpanel"]) > p {
     margin-block: var(--spacing-xs);
     font-size: var(--docs-fs-body-m);
