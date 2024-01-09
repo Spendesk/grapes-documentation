@@ -15,48 +15,53 @@ export function PropsTable({ components }: Props) {
   return (
     <div className="mt-s">
       {components.map((component, index) => (
-        <Table
-          key={index}
-          title={components.length > 0 ? component : undefined}
-          className={classNames(styles.table, components.length > 0 && "mt-m")}
-          columns={[
-            {
-              header: "Name",
-              id: "name",
-              width: "20%",
-              renderCell: ({ name, required }) => (
-                <>
-                  <span>{name}</span>{" "}
-                  <span className="text-alert font-bold">
-                    {required ? "*" : ""}
-                  </span>
-                </>
-              ),
-            },
-            {
-              header: "Type",
-              id: "type",
-              width: "20%",
-              renderCell: ({ type }) => type.name,
-            },
-            {
-              header: "Description",
-              id: "description",
-              width: "40%",
-              renderCell: ({ defaultValue, description }) => (
-                <div className="py-xs">
-                  <div>{description}</div>
-                  {defaultValue && (
-                    <Tag className="mt-xxs" variant="neutral">
-                      Default: {`${defaultValue.value}`}
-                    </Tag>
-                  )}
-                </div>
-              ),
-            },
-          ]}
-          data={getSortedProps(component)}
-        />
+        <>
+          {components.length > 1 && <h2 id={component}>{component}</h2>}
+          <Table
+            key={index}
+            className={classNames(
+              styles.table,
+              components.length > 0 && "mt-m"
+            )}
+            columns={[
+              {
+                header: "Name",
+                id: "name",
+                width: "20%",
+                renderCell: ({ name, required }) => (
+                  <>
+                    <span>{name}</span>{" "}
+                    <span className="text-alert font-bold">
+                      {required ? "*" : ""}
+                    </span>
+                  </>
+                ),
+              },
+              {
+                header: "Type",
+                id: "type",
+                width: "20%",
+                renderCell: ({ type }) => type.name,
+              },
+              {
+                header: "Description",
+                id: "description",
+                width: "40%",
+                renderCell: ({ defaultValue, description }) => (
+                  <div className="py-xs">
+                    <div>{description}</div>
+                    {defaultValue && (
+                      <Tag className="mt-xxs" variant="neutral">
+                        Default: {`${defaultValue.value}`}
+                      </Tag>
+                    )}
+                  </div>
+                ),
+              },
+            ]}
+            data={getSortedProps(component)}
+          />
+        </>
       ))}
     </div>
   );
