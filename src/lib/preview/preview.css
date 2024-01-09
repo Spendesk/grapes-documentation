@@ -1,0 +1,20 @@
+.docs-preview {
+  --fs-title-m: var(--bkp-fs-title-m);
+  --fs-body-m: var(--bkp-fs-body-m);
+  --ff-base: var(--bkp-ff-base);
+
+  display: flex;
+  gap: var(--spacing-m);
+  flex-wrap: wrap;
+  border: 1px solid var(--color-neutral-light);
+  background-color: var(--color-white);
+  border-radius: var(--border-radius-xs);
+  padding: var(--spacing-m);
+  margin-block: var(--spacing-m);
+}
+
+.docs-preview:has(+ .docs-code) {
+  border-bottom: none;
+  margin-block-end: 0;
+  border-radius: var(--border-radius-xs) var(--border-radius-xs) 0 0;
+}

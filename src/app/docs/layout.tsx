@@ -10,6 +10,14 @@ type Props = {
   children: ReactNode;
 };
 
+export const metadata = {
+  metadataBase: new URL("https://grapes.spendesk.design"),
+  title: {
+    template: "%s | Docs",
+    default: "Docs",
+  },
+};
+
 export default function Layout({ children }: Props) {
   return (
     <>
