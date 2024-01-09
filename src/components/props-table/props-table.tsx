@@ -1,52 +1,68 @@
 "use client";
 
-import { Tab, TabList, TabPanel, TabPanels, Tabs } from "@dev-spendesk/grapes";
-import allProps from "../../../props.json";
-import { PropsTableComponent } from "./props-table-component";
-import { sortProps } from "./utils";
+import { Table, Tag } from "@dev-spendesk/grapes";
+import { classNames } from "@/utils/classNames";
+
+import { getSortedProps } from "./utils";
 
 import styles from "./props-table.module.css";
 
 type Props = {
-  component: string | string[];
+  components: string[];
 };
 
-export function PropsTable({ component }: Props) {
-  const filteredProps = allProps.props.filter((d) =>
-    typeof component === "string"
-      ? component === d.displayName
-      : component.includes(d.displayName)
-  );
-  if (!filteredProps) {
-    return null;
-  }
-  const sortedProps = filteredProps.map(({ props }) =>
-    sortProps(Object.values(props))
-  );
-  if (sortedProps.length === 0) {
-    return null;
-  }
-
+export function PropsTable({ components }: Props) {
   return (
     <div className="mt-s">
-      {typeof component === "string" ? (
-        <PropsTableComponent props={sortedProps[0]} />
-      ) : (
-        <Tabs>
-          <TabList className={styles.tabList}>
-            {component.map((name) => (
-              <Tab key={name}>{name}</Tab>
-            ))}
-          </TabList>
-          <TabPanels>
-            {sortedProps.map((props, index) => (
-              <TabPanel key={index}>
-                <PropsTableComponent className={styles.table} props={props} />
-              </TabPanel>
-            ))}
-          </TabPanels>
-        </Tabs>
-      )}
+      {components.map((component, index) => (
+        <>
+          {components.length > 1 && <h2 id={component}>{component}</h2>}
+          <Table
+            key={index}
+            className={classNames(
+              styles.table,
+              components.length > 0 && "mt-m"
+            )}
+            columns={[
+              {
+                header: "Name",
+                id: "name",
+                width: "20%",
+                renderCell: ({ name, required }) => (
+                  <>
+                    <span>{name}</span>{" "}
+                    <span className="text-alert font-bold">
+                      {required ? "*" : ""}
+                    </span>
+                  </>
+                ),
+              },
+              {
+                header: "Type",
+                id: "type",
+                width: "20%",
+                renderCell: ({ type }) => type.name,
+              },
+              {
+                header: "Description",
+                id: "description",
+                width: "40%",
+                renderCell: ({ defaultValue, description }) => (
+                  <div className="py-xs">
+                    <div>{description}</div>
+                    {defaultValue && (
+                      <Tag className="mt-xxs" variant="neutral">
+                        Default: {`${defaultValue.value}`}
+                      </Tag>
+                    )}
+                  </div>
+                ),
+              },
+            ]}
+            data={getSortedProps(component)}
+          />
+        </>
+      ))}
     </div>
   );
 }
