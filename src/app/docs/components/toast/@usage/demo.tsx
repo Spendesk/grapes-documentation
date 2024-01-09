@@ -4,7 +4,7 @@ import { Toast } from "@dev-spendesk/grapes";
 
 export function DemoToast() {
   return (
-    <div className="box">
+    <div className="box [&>*]:animate-none">
       <Toast
         title="Your receipt has been uploaded"
         canExpire
