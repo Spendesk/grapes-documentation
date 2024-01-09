@@ -103,6 +103,8 @@
 
 @layer reset, grapes;
 
+@import "@dev-spendesk/grapes/tokens";
+
 :root {
   --docs-offset-header: 68px;
   --docs-background-header: rgb(255 255 255 / 0.8);
