@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { Suspense } from "react";
 
 import { Search } from "../search/search";
 import { LogoGithub } from "../logo-github/logo-github";
@@ -20,7 +20,9 @@ export function DocsHeader() {
             className="img-grapes"
           />
         </Link>
-        <Search />
+        <Suspense>
+          <Search />
+        </Suspense>
         <LogoGithub />
       </div>
     </header>
