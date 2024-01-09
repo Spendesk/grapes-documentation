@@ -1,8 +1,8 @@
 import React, { ReactNode } from "react";
 
-import { SideBar } from "@/components/sidebar/sidebar";
-import { TableOfContents } from "@/components/table-of-contents/table-of-contents";
-import { DocsHeader } from "@/components/docs-header/docs-header";
+import { SideBar } from "@/lib/sidebar/sidebar";
+import { TableOfContents } from "@/lib/table-of-contents/table-of-contents";
+import { DocsHeader } from "@/lib/docs-header/docs-header";
 
 import "./layout.css";
 

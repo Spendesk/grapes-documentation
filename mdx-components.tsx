@@ -4,7 +4,7 @@ import { slug } from "github-slugger";
 
 import type { MDXComponents } from "mdx/types";
 
-import { CodeBlock } from "@/components/code-block/code-block";
+import { CodeBlock } from "@/lib/code-block/code-block";
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {

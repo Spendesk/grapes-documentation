@@ -4,7 +4,7 @@
   "links": [
     {
       "name": "github",
-      "link": "https://github.com/Spendesk/grapes/tree/master/src/components/CollapsibleList"
+      "link": "https://github.com/Spendesk/grapes/tree/master/src/lib/CollapsibleList"
     },
     {
       "name": "figma",

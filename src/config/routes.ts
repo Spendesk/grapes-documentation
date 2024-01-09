@@ -44,15 +44,15 @@ const componentRoutes: RouteConfig[] = [
     routes: [
       {
         label: "Button",
-        url: "/docs/components/button",
+        url: "/docs/lib/button",
       },
       {
         label: "IconButton",
-        url: "/docs/components/icon-button",
+        url: "/docs/lib/icon-button",
       },
       {
         label: "Link",
-        url: "/docs/components/link",
+        url: "/docs/lib/link",
       },
     ],
   },
@@ -61,19 +61,19 @@ const componentRoutes: RouteConfig[] = [
     routes: [
       {
         label: "Modal",
-        url: "/docs/components/modal",
+        url: "/docs/lib/modal",
       },
       {
         label: "Tag",
-        url: "/docs/components/tag",
+        url: "/docs/lib/tag",
       },
       {
         label: "Toast",
-        url: "/docs/components/toast",
+        url: "/docs/lib/toast",
       },
       {
         label: "Tooltip",
-        url: "/docs/components/tooltip",
+        url: "/docs/lib/tooltip",
       },
     ],
   },
@@ -82,7 +82,7 @@ const componentRoutes: RouteConfig[] = [
     routes: [
       {
         label: "CollapsibleList",
-        url: "/docs/components/collapsible-list",
+        url: "/docs/lib/collapsible-list",
       },
     ],
   },

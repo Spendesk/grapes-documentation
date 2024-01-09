@@ -1,7 +1,7 @@
 import { Avatar, Icon } from "@dev-spendesk/grapes";
 import Image from "next/image";
 import Link from "next/link";
-import { LogoGithub } from "@/components/logo-github/logo-github";
+import { LogoGithub } from "@/lib/logo-github/logo-github";
 
 import "./homepage.css";
 

@@ -4,11 +4,11 @@
   "links": [
     {
       "name": "github",
-      "link": "https://github.com/Spendesk/grapes/tree/master/src/components/Button"
+      "link": "https://github.com/Spendesk/grapes/tree/master/src/lib/Button"
     },
     {
       "name": "figma",
-      "link": "https://github.com/Spendesk/grapes/tree/master/src/components/Button"
+      "link": "https://github.com/Spendesk/grapes/tree/master/src/lib/Button"
     }
   ]
 }

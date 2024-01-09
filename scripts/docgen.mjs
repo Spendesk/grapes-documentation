@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "node:path";
 import { parse } from "react-docgen-typescript";
 
-const grapesBasePath = "./node_modules/@dev-spendesk/grapes/src/components/";
+const grapesBasePath = "./node_modules/@dev-spendesk/grapes/src/lib/";
 
 const tsxFiles = fs
   .readdirSync(grapesBasePath, {

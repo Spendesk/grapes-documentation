@@ -1,4 +1,4 @@
-const kebabCase = require('lodash.kebabcase');
+const kebabCase = require("lodash.kebabcase");
 
 module.exports = (plop) => {
   plop.setGenerator("component", {
@@ -19,7 +19,8 @@ module.exports = (plop) => {
       {
         type: "input",
         name: "componentProps",
-        message: "Props to generate. Use ',' if multiples props needs to be generated",
+        message:
+          "Props to generate. Use ',' if multiples props needs to be generated",
         validate: (answer) => answer.length > 0,
       },
       {
@@ -42,26 +43,39 @@ module.exports = (plop) => {
         ],
       },
     ],
-    actions: ({ componentName, componentDescription, componentFigmaLink, componentProps }) => {
+    actions: ({
+      componentName,
+      componentDescription,
+      componentFigmaLink,
+      componentProps,
+    }) => {
       const folderName = kebabCase(componentName);
-      const componentGithubLink = `https://github.com/Spendesk/grapes/tree/master/src/components/${componentName}`;
-      const componentPropsList = componentProps.split(',').map(prop => prop.trim());
+      const componentGithubLink = `https://github.com/Spendesk/grapes/tree/master/src/lib/${componentName}`;
+      const componentPropsList = componentProps
+        .split(",")
+        .map((prop) => prop.trim());
 
       const actions = [
         {
           type: "addMany",
           templateFiles: "../plop-templates/component/**",
           base: "../plop-templates/component",
-          destination: `../src/app/docs/components/${folderName}`,
-          data: { componentName, componentDescription, componentGithubLink, componentFigmaLink, componentPropsList },
+          destination: `../src/app/docs/lib/${folderName}`,
+          data: {
+            componentName,
+            componentDescription,
+            componentGithubLink,
+            componentFigmaLink,
+            componentPropsList,
+          },
         },
-//         {
-//           type: "append",
-//           path: "../src/index.ts",
-//           pattern: /;$/m,
-//           template: `export { {{componentName}} } from './components/{{componentName}}';
-// export type { {{componentName}}Props } from './components/{{componentName}}';`,
-//         },
+        //         {
+        //           type: "append",
+        //           path: "../src/index.ts",
+        //           pattern: /;$/m,
+        //           template: `export { {{componentName}} } from './lib/{{componentName}}';
+        // export type { {{componentName}}Props } from './lib/{{componentName}}';`,
+        //         },
       ];
 
       return actions;
