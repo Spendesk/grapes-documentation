@@ -1,0 +1,13 @@
+.docs-hero-links {
+  display: flex;
+  gap: var(--spacing-m);
+  margin-block: var(--spacing-m);
+
+  a {
+    display: flex;
+    gap: var(--spacing-xxs);
+    align-items: baseline;
+    color: var(--color-complementary);
+    font-size: calc(var(--docs-fs-body-m));
+  }
+}

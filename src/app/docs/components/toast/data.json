@@ -1,0 +1,14 @@
+{
+  "name": "Toast",
+  "description": "Provide a brief notification",
+  "links": [
+    {
+      "name": "github",
+      "link": "https://github.com/Spendesk/grapes/tree/master/src/components/Toast"
+    },
+    {
+      "name": "figma",
+      "link": "figma"
+    }
+  ]
+}

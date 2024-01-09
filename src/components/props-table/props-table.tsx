@@ -1,3 +1,5 @@
+"use client";
+
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from "@dev-spendesk/grapes";
 import allProps from "../../../props.json";
 import { PropsTableComponent } from "./props-table-component";

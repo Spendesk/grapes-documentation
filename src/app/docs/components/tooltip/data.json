@@ -1,0 +1,14 @@
+{
+  "name": "Tooltip",
+  "description": "Display informative text when users hover an element",
+  "links": [
+    {
+      "name": "github",
+      "link": "https://github.com/Spendesk/grapes/tree/master/src/components/Tooltip"
+    },
+    {
+      "name": "figma",
+      "link": "figma"
+    }
+  ]
+}
