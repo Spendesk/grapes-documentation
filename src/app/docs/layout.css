@@ -86,7 +86,7 @@
     font-size: var(--docs-fs-title-l);
   }
 
-  ul {
+  ul:not([class^="_grapes"]) {
     margin-inline-start: var(--spacing-m);
     li {
       margin-block: var(--spacing-xs);
