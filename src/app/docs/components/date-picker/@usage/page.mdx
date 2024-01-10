@@ -1,0 +1,52 @@
+import { Preview } from "@/components/preview/preview";
+import { Demo } from './demo'
+
+## Basic usage
+
+<Preview>
+  <Demo value={new Date()}/>
+</Preview>
+```tsx
+export function MyDatePicker() {
+  const [date, setDate] = useState<Date | undefined>();
+
+  return (
+    <DatePicker value={date} onChange={setDate} />
+  );
+}
+```
+
+## Variant
+
+The DatePicker comes with two visual styles: default (default) and magicGradient.
+
+<Preview>
+  <Demo variant="magicGradient" value={new Date()} />
+</Preview>
+```tsx
+<DatePicker variant="magicGradient" {...otherProps} />
+```
+
+## Set a maximum and minimum date
+
+Use `minDate` to set the earlist date allowed by the input and `maxDate` for the oldest date allowed by the input.
+
+<Preview>
+  <Demo minDate={new Date(2020, 0, 4)} maxDate={new Date(2020, 0, 25)} value={new Date(2020, 0, 15)}/>
+</Preview>
+```tsx
+export function MyDatePicker() {
+  const minDate = new Date(2020, 0, 4);
+  const maxDate = new Date(2020, 0, 25);
+  const [date, setDate] = useState<Date | undefined>(new Date(2020, 0, 15));
+
+  return (
+    <DatePicker
+      value={date}
+      onChange={setDate}
+      minDate={minDate}
+      maxDate={maxDate}
+    />
+  );
+}
+```

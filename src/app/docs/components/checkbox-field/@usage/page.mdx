@@ -1,0 +1,44 @@
+import { CheckboxField } from "@dev-spendesk/grapes";
+import { Preview } from "@/components/preview/preview";
+import { Demo } from "./demo";
+
+## Basic usage
+
+<Preview>
+  <Demo />
+</Preview>
+```tsx
+export function MyCheckboxField() {
+  const [checked, setChecked] = useState(false);
+
+  return (
+    <CheckboxField
+      label="Include receipt"
+      isChecked={checked}
+      onChange={(event) => setChecked(event.target.checked)}
+    />
+  );
+}
+```
+
+## Indeterminate states
+
+Use `isIndeterminate` to set the checkbox into an indterminate state.
+
+<Preview>
+  <CheckboxField label="Include receipt" isIndeterminate />
+</Preview>
+```tsx
+<CheckboxField label="Include receipt" isIndeterminate />
+```
+
+---
+
+## Accessibility
+
+CheckboxField adhres to the [checkbox role requirements](https://www.w3.org/TR/wai-aria-1.2/#checkbox)
+
+### Keyboard Interaction
+
+- `tab`: Moves focus on the element or outside
+- `Space`: Toggles checkbox between checked and unchecked states
