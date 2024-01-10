@@ -19,7 +19,7 @@ import { DemoToast } from "./demo";
 
 ### Variant
 
-<div className="box flex flex-col gap-m pointer-events-none">
+<div className="box flex flex-col gap-m pointer-events-none [&>*]:animate-none">
   <Toast title="Your receipt has been uploaded" canExpire variant="success" />
   <Toast title="Your receipt has been uploaded" canExpire variant="alert" />
 </div>
@@ -31,7 +31,7 @@ import { DemoToast } from "./demo";
 
 ### With description
 
-<div className="box pointer-events-none">
+<div className="box pointer-events-none [&>*]:animate-none">
   <Toast title="Your receipt has been uploaded" canExpire variant="success">
     Description (optional)
   </Toast>
@@ -45,7 +45,7 @@ import { DemoToast } from "./demo";
 
 ### With action
 
-<div className="box pointer-events-none">
+<div className="box pointer-events-none [&>*]:animate-none">
   <Toast
     title="Your receipt has been uploaded"
     canExpire
@@ -71,7 +71,7 @@ import { DemoToast } from "./demo";
 
 Setting the `canExpire` prop to false will make the Toast component stay on the page.
 
-<div className="box pointer-events-none">
+<div className="box pointer-events-none [&>*]:animate-none">
   <Toast
     title="Your receipt has been uploaded"
     canExpire={false}
