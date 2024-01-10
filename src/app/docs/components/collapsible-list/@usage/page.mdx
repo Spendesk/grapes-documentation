@@ -1,39 +1,130 @@
-import { CollapsibleList } from "./collapsible-list";
+import { DemoCollapsibleList } from "./demo";
 
-<CollapsibleList />
+import { Preview } from "@/components/preview/preview";
+
+## Default
+
+<Preview>
+  <DemoCollapsibleList />
+</Preview>
 
 ```tsx
-(args) => {
-  const [activeListItem, setActiveListItem] = useState<number | null>(null);
+const [activeListItem, setActiveListItem] = useState<number | null>(null);
+const [selectedListItems, setSelectedListItems] = useState<number[]>([]);
 
-  return (
-    <div className="w-[360px]">
-      <CollapsibleList
-        {...args}
-        renderHeader={(toggle, isCollapsed) => (
-          <CollapsibleListItem
-            asHeader
-            isCollapsed={isCollapsed}
-            onClick={toggle}
-          >
-            Header
-          </CollapsibleListItem>
-        )}
+function onSelect(id: number) {
+  if (selectedListItems.includes(id)) {
+    setSelectedListItems(selectedListItems.filter((item) => item !== id));
+  } else {
+    setSelectedListItems([...selectedListItems, id]);
+  }
+}
+
+return (
+  <div className="w-[360px]">
+    <CollapsibleList
+      renderHeader={(toggle, isCollapsed) => (
+        <CollapsibleListItem
+          asHeader
+          isCollapsed={isCollapsed}
+          onClick={toggle}
+          isSelected={selectedListItems.length === 3}
+          isIndeterminate={
+            selectedListItems.length > 0 && selectedListItems.length < 3
+          }
+          onSelect={() => {
+            if (selectedListItems.length < 3) {
+              setSelectedListItems([0, 1, 2]);
+            } else {
+              setSelectedListItems([]);
+            }
+          }}
+        >
+          Header
+        </CollapsibleListItem>
+      )}
+    >
+      <CollapsibleListItem
+        isActive={activeListItem === 0}
+        onClick={() => setActiveListItem(0)}
+        isSelected={selectedListItems.includes(0)}
+        onSelect={() => onSelect(0)}
       >
-        <CollapsibleListItem
-          isActive={activeListItem === 0}
-          onClick={() => setActiveListItem(0)}
-        >
-          Item 1
-        </CollapsibleListItem>
-        <CollapsibleListItem
-          isActive={activeListItem === 1}
-          onClick={() => setActiveListItem(1)}
-        >
-          Item 2
-        </CollapsibleListItem>
-      </CollapsibleList>
-    </div>
-  );
-};
+        Item 1
+      </CollapsibleListItem>
+      <CollapsibleListItem
+        isActive={activeListItem === 1}
+        onClick={() => setActiveListItem(1)}
+        isSelected={selectedListItems.includes(1)}
+        onSelect={() => onSelect(1)}
+      >
+        Item 2
+      </CollapsibleListItem>
+      <CollapsibleListItem
+        isActive={activeListItem === 2}
+        onClick={() => setActiveListItem(2)}
+        isSelected={selectedListItems.includes(2)}
+        onSelect={() => onSelect(2)}
+      >
+        Item 3
+      </CollapsibleListItem>
+    </CollapsibleList>
+  </div>
+);
+```
+
+## Is initial open
+
+<Preview>
+  <DemoCollapsibleList isInitialOpen />
+</Preview>
+
+```tsx
+<CollapsibleList
+  isInitialCollapsed
+  renderHeader={(toggle, isCollapsed) => (
+    ...
+  )}
+>
+  ...
+</CollapsibleList>
+```
+
+## With footer
+
+<Preview>
+  <DemoCollapsibleList isInitialOpen withFooter />
+</Preview>
+
+```tsx
+<CollapsibleList
+  renderHeader={(toggle, isCollapsed) => (
+    ...
+  )}
+  footer={
+    withFooter && (
+      <Button
+        text="Load more"
+        variant="secondary"
+        onClick={() => console.log("Load more")}
+      />
+    )
+  }
+>
+  ...
+</CollapsibleList>
+```
+
+## With variant
+
+<Preview>
+  <DemoCollapsibleList isInitialOpen withVariant />
+</Preview>
+
+```tsx
+<CollapsibleList renderHeader={(toggle, isCollapsed) => ...}>
+  <CollapsibleListItem>Item 1</CollapsibleListItem>
+  <CollapsibleListItem variant="alert">Item 2</CollapsibleListItem>
+  <CollapsibleListItem>Item 3</CollapsibleListItem>
+</CollapsibleList>
 ```
