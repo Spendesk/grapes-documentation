@@ -17,7 +17,7 @@ export default function Layout(props: {
     <>
       {props.children}
       <Tabs onChange={setQueryParams} defaultTabIndex={defaultTabIndex}>
-        <TabList>
+        <TabList className="docs-tabs">
           <Tab>Usage</Tab>
           <Tab>Props</Tab>
         </TabList>

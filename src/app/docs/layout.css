@@ -26,6 +26,10 @@
     border: none;
     height: 1px;
   }
+
+  a + a {
+    margin-left: var(--spacing-s);
+  }
 }
 
 .docs-sidebar {
@@ -105,6 +109,10 @@
   grid-area: toc;
   position: sticky;
   top: var(--docs-offset-header);
+}
+
+.docs-tabs {
+  margin-top: var(--spacing-m);
 }
 
 @media (width <= 1300px) {
