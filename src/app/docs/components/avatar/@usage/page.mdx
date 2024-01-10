@@ -1,0 +1,119 @@
+import { Avatar } from "@dev-spendesk/grapes";
+import { Preview } from "@/components/preview/preview";
+
+## Variant
+
+<Preview>
+  <Avatar variant="circle" src="/aurelien.webp" text="Michael Murphy" />
+  <Avatar variant="square" src="/aurelien.webp" text="Michael Murphy" />
+</Preview>
+
+```tsx
+<>
+  <Avatar variant="circle" src="/aurelien.webp" text="Michael Murphy" />
+  <Avatar variant="square" src="/aurelien.webp" text="Michael Murphy" />
+</>
+```
+
+## Size
+
+<Preview>
+  <Avatar size="xs" src="/aurelien.webp" text="Michael Murphy" />
+  <Avatar size="s" src="/aurelien.webp" text="Michael Murphy" />
+  <Avatar size="m" src="/aurelien.webp" text="Michael Murphy" />
+  <Avatar size="l" src="/aurelien.webp" text="Michael Murphy" />
+</Preview>
+
+```tsx
+<>
+  <Avatar size="xs" src="/aurelien.webp" text="Michael Murphy" />
+  <Avatar size="s" src="/aurelien.webp" text="Michael Murphy" />
+  <Avatar size="m" src="/aurelien.webp" text="Michael Murphy" />
+  <Avatar size="l" src="/aurelien.webp" text="Michael Murphy" />
+</>
+```
+
+## Badge
+
+<Preview>
+  <Avatar
+    badgeProps={{
+      src: "/chloe.webp",
+      text: "Laura Lagarde",
+      variant: "square",
+    }}
+    size="m"
+    text="Michael Murphy"
+    variant="circle"
+  />
+  <Avatar
+    badgeProps={{
+      src: "/chloe.webp",
+      text: "Laura Lagarde",
+      variant: "circle",
+    }}
+    size="m"
+    text="Michael Murphy"
+    variant="square"
+  />
+</Preview>
+
+```tsx
+<>
+  <Avatar
+    badgeProps={{
+      src: "/chloe.webp",
+      text: "Laura Lagarde",
+      variant: "square",
+    }}
+    size="m"
+    text="Michael Murphy"
+    variant="circle"
+  />
+  <Avatar
+    badgeProps={{
+      src: "/chloe.webp",
+      text: "Laura Lagarde",
+      variant: "circle",
+    }}
+    size="m"
+    text="Michael Murphy"
+    variant="square"
+  />
+</>
+```
+
+## Fallback
+
+If there is an error loading the src of the avatar, there are 2 fallbacks:
+
+- If there's a `fallbackSrc` prop, we use it.
+- If there's no `fallbackSrc` prop, we use the text props to generate the initials and a random color for both the background and the text color.
+
+<Preview>
+  <Avatar
+    fallbackSrc="/supplier.svg"
+    size="m"
+    text="Spendesk"
+    variant="square"
+  />
+  <Avatar size="s" text="George Gray" />
+  <Avatar size="s" text="Lewis Barker" />
+  <Avatar size="s" text="Michael Murphy" />
+  <Avatar size="s" text="Nayden Lennart" />
+</Preview>
+
+```tsx
+<>
+  <Avatar
+    fallbackSrc="/supplier.svg"
+    size="m"
+    text="Spendesk"
+    variant="square"
+  />
+  <Avatar size="s" text="George Gray" />
+  <Avatar size="s" text="Lewis Barker" />
+  <Avatar size="s" text="Michael Murphy" />
+  <Avatar size="s" text="Nayden Lennart" />
+</>
+```
