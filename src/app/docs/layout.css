@@ -6,7 +6,7 @@
   position: relative;
   z-index: 0;
   display: grid;
-  grid-template: "sidebar content toc" / 1fr 3fr 1fr;
+  grid-template: "sidebar content toc" / 250px 1fr 250px;
   align-items: start;
   gap: var(--spacing-l);
   width: var(--docs-width);
@@ -117,7 +117,7 @@
 
 @media (width <= 1300px) {
   .docs-layout {
-    grid-template: "sidebar content" / 1fr 3fr;
+    grid-template: "sidebar content" / 250px 1fr;
   }
 
   .docs-toc {
