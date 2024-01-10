@@ -4,8 +4,9 @@ import { GrapesProvider } from "@dev-spendesk/grapes";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://grapes.spendesk.design"),
   title: {
-    template: "Grapes - %s",
+    template: "%s",
     default: "Grapes",
   },
 };
