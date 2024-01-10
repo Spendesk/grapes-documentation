@@ -1,3 +1,7 @@
 .table td {
   white-space: normal;
 }
+
+.table {
+  --fs-body-m: var(--docs-fs-body-s);
+}
