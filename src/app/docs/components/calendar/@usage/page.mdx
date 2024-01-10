@@ -1,0 +1,35 @@
+import { Calendar } from "@dev-spendesk/grapes";
+
+import { Preview } from "@/components/preview/preview";
+
+import { DemoCalendar } from "./demo";
+
+## Default
+
+<Preview>
+  <DemoCalendar />
+</Preview>
+
+```tsx
+const [value, setValue] = useState(new Date("2022-02-14T23:00:00.000Z"));
+
+return <Calendar value={value} onClick={setValue} />;
+```
+
+## With min and max date
+
+<Preview isInteractive={false}>
+  <Calendar
+    maxDate={new Date("2022-02-24T23:00:00.000Z")}
+    minDate={new Date("2022-02-04T23:00:00.000Z")}
+    value={new Date("2022-02-14T23:00:00.000Z")}
+  />
+</Preview>
+
+```tsx
+<Calendar
+  maxDate={new Date("2022-02-24T23:00:00.000Z")}
+  minDate={new Date("2022-02-04T23:00:00.000Z")}
+  value={new Date("2022-02-14T23:00:00.000Z")}
+/>
+```
