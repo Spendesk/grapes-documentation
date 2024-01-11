@@ -42,23 +42,7 @@ export function SideBar() {
 
   const activeSubRoute = routes[currentHeaderRouteId];
 
-  return (
-    <>
-      <ul className="mb-l">
-        {headerRoutes.map((headerRoute) => (
-          <li key={headerRoute.category}>
-            <SideBarLink
-              isActive={pathname.startsWith(headerRoute.url)}
-              url={headerRoute.url}
-              label={headerRoute.category}
-              iconName={headerRoute.iconName}
-            />
-          </li>
-        ))}
-      </ul>
-      {activeSubRoute.map((route) => (
-        <NavigationList key={route.category} route={route} />
-      ))}
-    </>
-  );
+  return activeSubRoute.map((route) => (
+    <NavigationList key={route.category} route={route} />
+  ));
 }

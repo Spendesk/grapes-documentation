@@ -9,7 +9,7 @@
 
   .docs-header-wrapper {
     display: grid;
-    grid-template-columns: 1fr min-content min-content;
+    grid-template-columns: min-content 1fr min-content min-content min-content;
     gap: var(--spacing-s);
     align-items: center;
     width: var(--docs-width);
@@ -53,5 +53,21 @@
   .logo-github {
     color: var(--color-neutral-darker);
     height: var(--sizing-m);
+  }
+
+  .grapes-version {
+    justify-self: start;
+  }
+
+  .docs-header-links {
+    display: flex;
+    gap: var(--spacing-xs);
+    list-style-type: none;
+  }
+
+  @media (width <= 900px) {
+    .docs-header-links {
+      display: none;
+    }
   }
 }
