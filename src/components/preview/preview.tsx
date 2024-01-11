@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 
 import "./preview.css";
 
@@ -7,5 +7,9 @@ type PreviewProps = {
 };
 
 export function Preview({ children }: PreviewProps) {
-  return <div className="docs-preview">{children}</div>;
+  return (
+    <div className="docs-preview">
+      <Suspense>{children}</Suspense>
+    </div>
+  );
 }

@@ -57,6 +57,23 @@ const componentRoutes: RouteConfig[] = [
     ],
   },
   {
+    category: "Form",
+    routes: [
+      {
+        label: "Autocomplete",
+        url: "/docs/components/autocomplete",
+      },
+      {
+        label: "AutocompleteMultiple",
+        url: "/docs/components/autocomplete-multiple",
+      },
+      {
+        label: "AutocompletePlace",
+        url: "/docs/components/autocomplete-place",
+      },
+    ],
+  },
+  {
     category: "Feedback",
     routes: [
       {
