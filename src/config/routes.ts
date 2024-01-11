@@ -108,6 +108,14 @@ export const componentRoutes: RouteConfig[] = [
         label: "RadioGroup",
         url: "/docs/components/radio-group",
       },
+      {
+        label: "MoneyInput",
+        url: "/docs/components/money-input",
+      },
+      {
+        label: "OptionGroup",
+        url: "/docs/components/option-group",
+      },
     ],
   },
   {
