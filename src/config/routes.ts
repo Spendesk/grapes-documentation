@@ -94,6 +94,10 @@ const componentRoutes: RouteConfig[] = [
         url: "/docs/components/modal",
       },
       {
+        label: "Skeleton",
+        url: "/docs/components/skeleton",
+      },
+      {
         label: "Tag",
         url: "/docs/components/tag",
       },
