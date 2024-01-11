@@ -4,14 +4,14 @@ import { Preview } from "@/components/preview/preview";
 
 import { DemoCalendar } from "./demo";
 
-## Default
+## Basic usage
 
 <Preview>
   <DemoCalendar />
 </Preview>
 
 ```tsx
-const [value, setValue] = useState(new Date("2022-02-14T23:00:00.000Z"));
+const [value, setValue] = useState(new Date("2022-02-14"));
 
 return <Calendar value={value} onClick={setValue} />;
 ```
@@ -22,16 +22,16 @@ When a minimum or maximum date is specified, these dates are grayed out and cann
 
 <Preview isInteractive={false}>
   <Calendar
-    maxDate={new Date("2022-02-24T23:00:00.000Z")}
-    minDate={new Date("2022-02-04T23:00:00.000Z")}
-    value={new Date("2022-02-14T23:00:00.000Z")}
+    maxDate={new Date("2022-02-24")}
+    minDate={new Date("2022-02-04")}
+    value={new Date("2022-02-15")}
   />
 </Preview>
 
 ```tsx
 <Calendar
-  maxDate={new Date("2022-02-24T23:00:00.000Z")}
-  minDate={new Date("2022-02-04T23:00:00.000Z")}
-  value={new Date("2022-02-14T23:00:00.000Z")}
+  maxDate={new Date("2022-02-24")}
+  minDate={new Date("2022-02-04")}
+  value={new Date("2022-02-15")}
 />
 ```

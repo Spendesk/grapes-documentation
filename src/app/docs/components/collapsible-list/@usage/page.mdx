@@ -2,7 +2,7 @@ import { DemoCollapsibleList } from "./demo";
 
 import { Preview } from "@/components/preview/preview";
 
-## Default
+## Basic usage
 
 <Preview>
   <DemoCollapsibleList />
@@ -73,9 +73,9 @@ return (
 );
 ```
 
-## Is initially open
+## Expanded by default
 
-The `isInitialCollapsed` prop allows you to specify whether the CollapsibleList should be initially open or closed.
+The `isInitialCollapsed` prop allows you to specify whether the CollapsibleList should be initially collapsed (default) or expanded. Pass `isInitialCollapsed={false}` to expand the CollapsibleList at the first render.
 
 <Preview>
   <DemoCollapsibleList isInitialOpen />
@@ -92,7 +92,7 @@ The `isInitialCollapsed` prop allows you to specify whether the CollapsibleList 
 </CollapsibleList>
 ```
 
-## With footer
+## Footer
 
 The `footer` prop allows you to add a footer to the CollapsibleList.
 
@@ -119,7 +119,7 @@ The `footer` prop allows you to add a footer to the CollapsibleList.
 </CollapsibleList>
 ```
 
-## With variant
+## Variant
 
 CollapsibleListItems can have an alert `variant`.
 
