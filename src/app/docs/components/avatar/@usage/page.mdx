@@ -3,6 +3,8 @@ import { Preview } from "@/components/preview/preview";
 
 ## Variant
 
+The Avatar comes with two visual styles: circle and square. You should use a `circle` avatar to represent a person, and a `square` avatar to represent an entity, such as a company.
+
 <Preview>
   <Avatar variant="circle" src="/aurelien.webp" text="Michael Murphy" />
   <Avatar variant="square" src="/aurelien.webp" text="Michael Murphy" />
@@ -16,6 +18,8 @@ import { Preview } from "@/components/preview/preview";
 ```
 
 ## Size
+
+The Avatar comes in four different sizes: xs, s, m, and l.
 
 <Preview>
   <Avatar size="xs" src="/aurelien.webp" text="Michael Murphy" />
@@ -34,6 +38,8 @@ import { Preview } from "@/components/preview/preview";
 ```
 
 ## Badge
+
+A badge can be used with an avatar to display additional information, such as a supplier in an expense claim situation.
 
 <Preview>
   <Avatar
@@ -85,7 +91,7 @@ import { Preview } from "@/components/preview/preview";
 
 ## Fallback
 
-If there is an error loading the src of the avatar, there are 2 fallbacks:
+If there is an error loading the src of the avatar or if the `src` has not been specified, there are 2 fallbacks:
 
 - If there's a `fallbackSrc` prop, we use it.
 - If there's no `fallbackSrc` prop, we use the text props to generate the initials and a random color for both the background and the text color.

@@ -73,7 +73,9 @@ return (
 );
 ```
 
-## Is initial open
+## Is initially open
+
+The `isInitialCollapsed` prop allows you to specify whether the CollapsibleList should be initially open or closed.
 
 <Preview>
   <DemoCollapsibleList isInitialOpen />
@@ -81,7 +83,7 @@ return (
 
 ```tsx
 <CollapsibleList
-  isInitialCollapsed
+  isInitialCollapsed={false}
   renderHeader={(toggle, isCollapsed) => (
     ...
   )}
@@ -91,6 +93,8 @@ return (
 ```
 
 ## With footer
+
+The `footer` prop allows you to add a footer to the CollapsibleList.
 
 <Preview>
   <DemoCollapsibleList isInitialOpen withFooter />
@@ -116,6 +120,8 @@ return (
 ```
 
 ## With variant
+
+CollapsibleListItems can have an alert `variant`.
 
 <Preview>
   <DemoCollapsibleList isInitialOpen withVariant />
