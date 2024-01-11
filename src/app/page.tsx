@@ -32,7 +32,10 @@ export default function Home() {
               platform and be delighted by the experience, feeling a sense of
               accomplishment and empowerment.
             </p>
-            <Link href="/docs/getting-started" className="primaryLink">
+            <Link
+              href="/docs/getting-started/installation"
+              className="primaryLink"
+            >
               <span className="initial">Get Started</span>
               <span className="hover">Let&apos;s go</span>
               <Icon name="arrow-right" className="arrow" />

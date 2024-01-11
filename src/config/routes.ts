@@ -22,13 +22,7 @@ export const headerRoutes: HeaderRoute[] = [
     id: "components",
     category: "Getting Started",
     iconName: "success",
-    url: "/docs/getting-started",
-  },
-  {
-    id: "components",
-    category: "Components",
-    iconName: "dashboard",
-    url: "/docs/components",
+    url: "/docs/getting-started/installation",
   },
   {
     id: "theme",
@@ -36,9 +30,28 @@ export const headerRoutes: HeaderRoute[] = [
     iconName: "sparkles",
     url: "/docs/theme",
   },
+  {
+    id: "components",
+    category: "Components",
+    iconName: "dashboard",
+    url: "/docs/components",
+  },
 ];
 
 const componentRoutes: RouteConfig[] = [
+  {
+    category: "Getting Started",
+    routes: [
+      {
+        label: "Installation",
+        url: "/docs/getting-started/installation",
+      },
+      {
+        label: "Supported Platforms",
+        url: "/docs/getting-started/supported-platforms",
+      },
+    ],
+  },
   {
     category: "Interaction",
     routes: [
