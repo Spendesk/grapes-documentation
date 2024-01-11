@@ -95,11 +95,27 @@ const componentRoutes: RouteConfig[] = [
     ],
   },
   {
-    category: "Navigation",
+    category: "Data display",
     routes: [
+      {
+        label: "Avatar",
+        url: "/docs/components/avatar",
+      },
+      {
+        label: "Calendar",
+        url: "/docs/components/calendar",
+      },
       {
         label: "CollapsibleList",
         url: "/docs/components/collapsible-list",
+      },
+      {
+        label: "InfoTip",
+        url: "/docs/components/info-tip",
+      },
+      {
+        label: "Timeline",
+        url: "/docs/components/timeline",
       },
     ],
   },

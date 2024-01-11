@@ -1,0 +1,125 @@
+import {
+  Timeline,
+  TimelineItem,
+  Preview as GrapesPreview,
+} from "@dev-spendesk/grapes";
+import { Preview } from "@/components/preview/preview";
+
+import { TimelineWithCustomDate } from "./custom-date";
+
+## Basic usage
+
+<Preview>
+  <Timeline>
+    <TimelineItem date={new Date("2020-12-22T21:29:00.000Z")}>
+      <section>
+        <div>New request created</div>
+        <div>Submitted by Roger Dupont</div>
+        <div>Amount requested: 39€</div>
+      </section>
+    </TimelineItem>
+    <TimelineItem date={new Date("2021-01-05T14:29:00.000Z")}>
+      <section>
+        <div>Approved by manager</div>
+        <div>Approver: Jean</div>
+      </section>
+    </TimelineItem>
+    <TimelineItem date={new Date("2021-01-08T08:24:00.000Z")}>
+      <GrapesPreview fit="parent" primaryText="Validated by Finance Team" />
+    </TimelineItem>
+  </Timeline>
+</Preview>
+
+```tsx
+<Timeline>
+  <TimelineItem date={new Date("2020-12-22T21:29:00.000Z")}>
+    <section>
+      <div>New request created</div>
+      <div>Submitted by Roger Dupont</div>
+      <div>Amount requested: 39€</div>
+    </section>
+  </TimelineItem>
+  <TimelineItem date={new Date("2021-01-05T14:29:00.000Z")}>
+    <section>
+      <div>Approved by manager</div>
+      <div>Approver: Jean</div>
+    </section>
+  </TimelineItem>
+  <TimelineItem date={new Date("2021-01-08T08:24:00.000Z")}>
+    <Preview fit="parent" primaryText="Validated by Finance Team" />
+  </TimelineItem>
+</Timeline>
+```
+
+## With custom render date
+
+The `renderDate` prop is used to render the date with a different format than the default one.
+
+<Preview>
+  <TimelineWithCustomDate />
+</Preview>
+
+```tsx
+<Timeline renderDate={(date, locale) => date.toLocaleString(locale)}>
+  <TimelineItem date={new Date("2020-12-22T21:29:00.000Z")}>
+    <section>
+      <div>New request created</div>
+      <div>Submitted by Roger Dupont</div>
+      <div>Amount requested: 39€</div>
+    </section>
+  </TimelineItem>
+  <TimelineItem date={new Date("2021-01-05T14:29:00.000Z")}>
+    <section>
+      <div>Approved by manager</div>
+      <div>Approver: Jean</div>
+    </section>
+  </TimelineItem>
+  <TimelineItem date={new Date("2021-01-08T08:24:00.000Z")}>
+    <Preview fit="parent" primaryText="Validated by Finance Team" />
+  </TimelineItem>
+</Timeline>
+```
+
+## With event status
+
+The `status` prop allows you to specify different states for TimelineItems.
+
+<Preview>
+  <Timeline>
+    <TimelineItem date={new Date("2020-12-22T21:29:00.000Z")} status="success">
+      <section>
+        <div>Success: Payment X paid</div>
+      </section>
+    </TimelineItem>
+    <TimelineItem date={new Date("2021-01-05T14:29:00.000Z")} status="alert">
+      <section>
+        <div>Alert: Payment Y failed</div>
+      </section>
+    </TimelineItem>
+    <TimelineItem date={new Date("2021-01-08T08:24:00.000Z")} status="pending">
+      <section>
+        <div>Pending: Payment Y pending</div>
+      </section>
+    </TimelineItem>
+  </Timeline>
+</Preview>
+
+```tsx
+<Timeline>
+  <TimelineItem date={new Date("2020-12-22T21:29:00.000Z")} status="success">
+    <section>
+      <div>Success: Payment X paid</div>
+    </section>
+  </TimelineItem>
+  <TimelineItem date={new Date("2021-01-05T14:29:00.000Z")} status="alert">
+    <section>
+      <div>Alert: Payment Y failed</div>
+    </section>
+  </TimelineItem>
+  <TimelineItem date={new Date("2021-01-08T08:24:00.000Z")} status="pending">
+    <section>
+      <div>Pending: Payment Y pending</div>
+    </section>
+  </TimelineItem>
+</Timeline>
+```
