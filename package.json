@@ -10,7 +10,7 @@
     "prepare": "husky install",
     "typecheck": "tsc --noEmit",
     "precommit": "lint-staged",
-    "docs:generate": "node ./scripts/docgen.mjs",
+    "generate:props": "node ./scripts/docgen.mjs",
     "create:component": "plop component --plopfile scripts/plopfile.js"
   },
   "dependencies": {

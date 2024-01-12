@@ -33,7 +33,7 @@ jobs:
         run: npm ci
 
       - name: Generate props
-        run: npm run docs:generate
+        run: npm run generate:props
 
       - name: Lint
         run: npm run lint -- --max-warnings 0
@@ -58,7 +58,7 @@ jobs:
         run: npm ci
 
       - name: Generate props
-        run: npm run docs:generate
+        run: npm run generate:props
 
       - name: Build
         run: npm run build
@@ -85,7 +85,7 @@ jobs:
         run: npm ci
 
       - name: Generate props
-        run: npm run docs:generate
+        run: npm run generate:props
 
       - name: Build
         run: npm run build
