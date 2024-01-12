@@ -144,6 +144,19 @@ const componentRoutes: RouteConfig[] = [
       },
     ],
   },
+  {
+    category: "Icons",
+    routes: [
+      {
+        label: "Icon",
+        url: "/docs/components/icon",
+      },
+      {
+        label: "HighlightIcon",
+        url: "/docs/components/highlight-icon",
+      },
+    ],
+  },
 ];
 
 const designTokensRoutes: RouteConfig[] = [

@@ -5,7 +5,7 @@ type PropsDoc = {
   description: string;
   required: boolean;
   defaultValue: { value: string | boolean } | null;
-  type: { name: string };
+  type: { name: string; raw?: string; value?: { value: string }[] };
 };
 
 function sortProps(props: PropsDoc[]) {
