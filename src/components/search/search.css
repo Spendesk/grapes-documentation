@@ -9,6 +9,10 @@
   &::backdrop {
     background: #17114eb3;
   }
+
+  a {
+    text-decoration: none;
+  }
 }
 
 .search-body {

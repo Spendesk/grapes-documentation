@@ -54,7 +54,7 @@ export function Search() {
     switch (event.key) {
       case "ArrowDown":
         return setSelectedIndex((index) =>
-          Math.max(Math.min(index + 1, searchResults.length - 1), 0)
+          Math.max(Math.min(index + 1, searchResults.length - 1), 0),
         );
       case "ArrowUp":
         return setSelectedIndex((index) => Math.max(index - 1, 0));
@@ -70,7 +70,7 @@ export function Search() {
 
   const searchResults = Object.values(routes)
     .flatMap((route) =>
-      route.reduce((acc, plop) => acc.concat(plop.routes), [] as Route[])
+      route.reduce((acc, item) => acc.concat(item.routes), [] as Route[]),
     )
     .filter((route) => {
       if (value.trim().length < 1) {
@@ -91,10 +91,9 @@ export function Search() {
           <Icon name="search" color={colors.neutralDark} className="ml-xs" />
         }
         rightAddon={
-          <div className="flex gap-xxs mr-xs">
-            <Tag variant="neutral">⌘</Tag>
-            <Tag variant="neutral">K</Tag>
-          </div>
+          <Tag className="mx-xs" variant="neutral">
+            ⌘K
+          </Tag>
         }
         onFocus={() => {
           inputRef.current?.blur();
@@ -116,6 +115,7 @@ export function Search() {
               value={value}
               onChange={(event) => {
                 setValue(event.target.value);
+                setSelectedIndex(0);
               }}
             />
             <IconButton
