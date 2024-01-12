@@ -50,15 +50,11 @@
     height: var(--sizing-l);
   }
 
-  .logo-github {
-    color: var(--color-neutral-darker);
-    height: var(--sizing-m);
-  }
-
   .grapes-version {
     justify-self: start;
   }
 
+  .global-header-logos,
   .global-header-links {
     display: flex;
     gap: var(--spacing-xs);

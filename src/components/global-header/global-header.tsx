@@ -5,7 +5,8 @@ import { NavigationItem, Tag } from "@dev-spendesk/grapes";
 import { headerRoutes } from "@/config/routes";
 
 import { Search } from "../search/search";
-import { LogoGithub } from "../logo-github/logo-github";
+import { LogoGithub } from "../logo/logo-github";
+import { LogoFigma } from "../logo/logo-figma";
 
 import grapesPackage from "../../../node_modules/@dev-spendesk/grapes/package.json";
 
@@ -42,7 +43,10 @@ export function GlobalHeader() {
         <Suspense>
           <Search />
         </Suspense>
-        <LogoGithub />
+        <div className="global-header-logos">
+          <LogoGithub />
+          <LogoFigma />
+        </div>
       </div>
     </header>
   );
