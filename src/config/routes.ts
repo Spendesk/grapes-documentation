@@ -84,6 +84,18 @@ const componentRoutes: RouteConfig[] = [
         label: "AutocompletePlace",
         url: "/docs/components/autocomplete-place",
       },
+      {
+        label: "FormField",
+        url: "/docs/components/form-field",
+      },
+      {
+        label: "CheckboxField",
+        url: "/docs/components/checkbox-field",
+      },
+      {
+        label: "DatePicker",
+        url: "/docs/components/date-picker",
+      },
     ],
   },
   {
