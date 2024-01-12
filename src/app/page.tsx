@@ -41,16 +41,14 @@ export default function Home() {
           device, feel native to the country and culture within which it is
           used.
         </p>
-
         <div className="grid">
-          <Link href="/docs/design" className="item" id="card1">
+          <Link className="item" href="/docs/tokens" id="card2">
             <div>
               <h3 className="body-xl">
-                Design Guidelines <Icon name="external" />
+                Design Tokens <Icon name="external" />
               </h3>
               <p className="body-l mt-xs">
-                Maiores quo qui dolorem qui. Culpa soluta ipsum voluptatem odit
-                est.
+                Explore our colors, spacing system and typography
               </p>
             </div>
             <Image
@@ -61,12 +59,12 @@ export default function Home() {
               className="illustration"
             />
           </Link>
-          <Link className="item" href="/docs/design/tokens" id="card2">
+          <Link href="#" className="item" id="card1">
             <div>
               <h3 className="body-xl">
-                Design Token <Icon name="external" />
+                Design Guidelines <Icon name="external" />
               </h3>
-              <p className="body-l mt-xs">Coming Soon</p>
+              <p className="body-l mt-xs">Coming soon</p>
             </div>
             <Image
               width={150}
@@ -89,7 +87,8 @@ export default function Home() {
                 Components <Icon name="external" />
               </h3>
               <p className="body-l mt-xs">
-                Amet nostrum expedita repellendus dignissimos tempore officiis.
+                Grapes provides React components to build your project faster
+                and more consistently
               </p>
             </div>
           </Link>

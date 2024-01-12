@@ -13,7 +13,7 @@ export function TypographyTokens({ tokens }: Props) {
   useEffect(() => {
     if (ref.current) {
       setFontSize(
-        window.getComputedStyle(ref.current).getPropertyValue("font-size")
+        window.getComputedStyle(ref.current).getPropertyValue("font-size"),
       );
     }
   }, []);

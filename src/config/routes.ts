@@ -28,7 +28,7 @@ export const headerRoutes: HeaderRoute[] = [
     id: "theme",
     category: "Design Tokens",
     iconName: "sparkles",
-    url: "/docs/theme",
+    url: "/docs/tokens",
   },
   {
     id: "components",
@@ -169,31 +169,31 @@ const designTokensRoutes: RouteConfig[] = [
     routes: [
       {
         label: "Animations",
-        url: "/docs/theme/animations",
+        url: "/docs/tokens/animations",
       },
       {
         label: "Border radius",
-        url: "/docs/theme/border-radius",
+        url: "/docs/tokens/border-radius",
       },
       {
         label: "Colors",
-        url: "/docs/theme/colors",
+        url: "/docs/tokens/colors",
       },
       {
         label: "Elevation",
-        url: "/docs/theme/elevation",
+        url: "/docs/tokens/elevation",
       },
       {
         label: "Sizings",
-        url: "/docs/theme/sizings",
+        url: "/docs/tokens/sizings",
       },
       {
         label: "Spacings",
-        url: "/docs/theme/spacings",
+        url: "/docs/tokens/spacings",
       },
       {
         label: "Typography",
-        url: "/docs/theme/typography",
+        url: "/docs/tokens/typography",
       },
     ],
   },
@@ -202,11 +202,11 @@ const designTokensRoutes: RouteConfig[] = [
     routes: [
       {
         label: "Box",
-        url: "/docs/theme/box",
+        url: "/docs/tokens/box",
       },
       {
         label: "Separator",
-        url: "/docs/theme/separator",
+        url: "/docs/tokens/separator",
       },
     ],
   },
