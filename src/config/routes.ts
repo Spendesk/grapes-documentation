@@ -38,7 +38,7 @@ export const headerRoutes: HeaderRoute[] = [
   },
 ];
 
-const componentRoutes: RouteConfig[] = [
+export const componentRoutes: RouteConfig[] = [
   {
     category: "Getting Started",
     routes: [
