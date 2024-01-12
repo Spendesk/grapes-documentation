@@ -6,17 +6,12 @@ import "./preview.css";
 
 type PreviewProps = {
   children: React.ReactNode;
-  isInteractive?: boolean;
+  className?: string;
 };
 
-export function Preview({ children, isInteractive = true }: PreviewProps) {
+export function Preview({ children, className }: PreviewProps) {
   return (
-    <div
-      className={classNames(
-        "docs-preview",
-        !isInteractive && "pointer-events-none"
-      )}
-    >
+    <div className={classNames("docs-preview", className)}>
       <Suspense>{children}</Suspense>
     </div>
   );

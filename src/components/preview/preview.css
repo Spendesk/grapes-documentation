@@ -3,14 +3,17 @@
   --fs-body-m: var(--bkp-fs-body-m);
   --ff-base: var(--bkp-ff-base);
 
-  display: flex;
-  gap: var(--spacing-m);
-  flex-wrap: wrap;
   border: 1px solid var(--color-neutral-light);
   background-color: var(--color-white);
   border-radius: var(--border-radius-xs);
   padding: var(--spacing-m);
   margin-block: var(--spacing-m);
+}
+
+:where(.docs-preview) {
+  display: flex;
+  gap: var(--spacing-m);
+  flex-wrap: wrap;
 }
 
 .docs-preview:has(+ .docs-code) {

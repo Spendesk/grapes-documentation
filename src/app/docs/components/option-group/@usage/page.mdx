@@ -3,7 +3,7 @@ import { Demo } from "./demo";
 
 ## Basic Usage
 
-<Preview>
+<Preview className="block">
   <Demo 
     options={[
       { value: 'daily', label: 'Daily' },
@@ -32,7 +32,7 @@ return (
 
 ## Number as value
 
-<Preview>
+<Preview className="block">
   <Demo 
     options={Array.from({ length: 10 }, (_, i) => {
       return { label: i + 1, value: i + 1 };
@@ -59,7 +59,7 @@ return (
 
 The OptionGroup supports Icon as label. Inside each option, use the attribute `iconName` to provide the name of the icon.
 
-<Preview>
+<Preview className="block">
   <Demo
     options={[
       {

@@ -20,7 +20,7 @@ return <Calendar value={value} onClick={setValue} />;
 
 When a minimum or maximum date is specified, these dates are grayed out and cannot be selected.
 
-<Preview isInteractive={false}>
+<Preview className="pointer-events-none">
   <Calendar
     maxDate={new Date("2022-02-24")}
     minDate={new Date("2022-02-04")}
