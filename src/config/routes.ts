@@ -143,6 +143,18 @@ export const componentRoutes: RouteConfig[] = [
         url: "/docs/components/info-tip",
       },
       {
+        label: "ListBox",
+        url: "/docs/components/list-box",
+      },
+      {
+        label: "ListView",
+        url: "/docs/components/list-view",
+      },
+      {
+        label: "Table",
+        url: "/docs/components/table",
+      },
+      {
         label: "Timeline",
         url: "/docs/components/timeline",
       },
