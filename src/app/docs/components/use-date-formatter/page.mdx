@@ -1,0 +1,59 @@
+---
+title: useDateFormatter
+---
+
+import { DateFormatterUsage } from "./usage";
+
+# useDateFormatter
+
+`useDateFormatter` is a hook providing localized date for the current locale. It is built around the native Intl.DateTimeFormat API with predefined date formats but can also be used using the same API.
+
+See the [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat) docs for full details on how to use the API.
+
+`useDateFormatter` is built on top of the function `dateFormatter`. This function can also be used to format a date.
+
+## Format Output
+
+<DateFormatterUsage />
+
+## Example
+
+```tsx
+import { useDateFormatter, DATE_FORMAT } from "@dev-spendesk/grapes";
+
+export default function ProductPage() {
+  const dateFormatter = useDateFormatter();
+
+  return <p>{dateFormatter(new Date(), DATE_FORMAT.MEDIUM)}</p>;
+}
+```
+
+## Example with Intl.DateTimeFormat options
+
+```tsx
+import { useDateFormatter, DATE_FORMAT } from "@dev-spendesk/grapes";
+
+export default function ProductPage() {
+  const dateFormatter = useDateFormatter();
+
+  return (
+    <p>
+      {dateFormatter(new Date(), DATE_FORMAT.CUSTOM, {
+        day: "2-digit",
+        month: "2-digit",
+      })}
+    </p>
+  );
+}
+```
+
+## Example using only dateFormatter
+
+```tsx
+import { dateFormatter } from "@dev-spendesk/grapes";
+
+export function localeFormat(locale) {
+  const formattedDate = dateFormatter(locale, new Date(), DATE_FORMAT.MEDIUM);
+  return formattedDate;
+}
+```
