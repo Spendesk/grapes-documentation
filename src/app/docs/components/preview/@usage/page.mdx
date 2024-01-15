@@ -51,16 +51,11 @@ The `secondaryText` prop allows you to specify a secondary text to display. You 
     primaryText="€400.00"
     secondaryText="From your bank"
     rightAddon={
-      <>
-        <Tag variant="success" className="mr-xs">
-          Pending
-        </Tag>
-        <Icon
-          aria-hidden="true"
-          color="var(--color-neutral)"
-          name="caret-right"
-        />
-      </>
+      <Icon
+        aria-hidden="true"
+        color="var(--color-neutral)"
+        name="caret-right"
+      />
     }
   />
 </Preview>
@@ -78,7 +73,7 @@ If the `fit` prop is set to `parent` and the content in the secondary text overf
     <GrapesPreview
       fit="parent"
       primaryText="Main text"
-      secondaryText="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      secondaryText="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
     />
   </div>
 </Preview>
@@ -87,7 +82,7 @@ If the `fit` prop is set to `parent` and the content in the secondary text overf
 <div className="w-[360px]">
   <Preview
     fit="parent"
-    secondaryText="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    secondaryText="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
     {...otherProps}
   />
 </div>
