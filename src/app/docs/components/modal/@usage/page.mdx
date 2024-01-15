@@ -1,9 +1,8 @@
-
 import { DemoModal } from "./demo";
 import { WithIllustration } from "./with-illustration";
 import { WithLowerLevelConstructModal } from "./with-lower-level-construct";
 
-Dialogs are windows containing contextual information, tasks, or workflows that appear over the user interface. Content behind a modal dialog is **inert**, meaning that users cannot interact with it.
+## Import
 
 Grapes exposes 7 components to help you create any dialog.
 
@@ -18,7 +17,9 @@ The following are lower-level construct that is leveraged by `Modal` or `ModalSl
 - **ModalBody**: The wrapper that contains the modal's main content.
 - **ModalFooter**: The footer that contains the modal actions.
 
-## Demo
+---
+
+## Basic usage
 
 <DemoModal />
 
@@ -57,9 +58,9 @@ The following are lower-level construct that is leveraged by `Modal` or `ModalSl
 };
 ```
 
-## Usage
+## Use an illustration
 
-### With Illustration
+Instead of an icon, use `illustration` prop to provide an illustration.
 
 <WithIllustration />
 
@@ -88,7 +89,10 @@ The following are lower-level construct that is leveraged by `Modal` or `ModalSl
 </Modal>
 ```
 
-### With lower-level construct
+## Lower-level construct
+
+At times, you may need to build complex flows using Modals, or for specific use cases, you might require a highly customized Modal header or Modal footer.
+In such scenarios, Grapes provides a set of lower-level constructs, allowing you to build any Modal while adhering to the design-system rules.
 
 <WithLowerLevelConstructModal />
 
@@ -119,6 +123,8 @@ The following are lower-level construct that is leveraged by `Modal` or `ModalSl
   </ModalContent>
 </ModalOverlay>
 ```
+
+---
 
 ## Accessibility
 

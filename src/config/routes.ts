@@ -106,6 +106,10 @@ export const componentRoutes: RouteConfig[] = [
         url: "/docs/components/modal",
       },
       {
+        label: "ModalSlideshow",
+        url: "/docs/components/modal-slideshow",
+      },
+      {
         label: "Skeleton",
         url: "/docs/components/skeleton",
       },

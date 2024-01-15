@@ -1,10 +1,11 @@
 import { Button, Callout, Tooltip } from "@dev-spendesk/grapes";
+import { Preview } from "@/components/preview/preview";
 
 import { VisibleOnClick } from "./visible-on-click";
 
-## Demo
+## Basic usage
 
-<div className="box">
+<Preview>
   <Tooltip
     content="This is some useful information in a tooltip"
     placement="top"
@@ -12,7 +13,7 @@ import { VisibleOnClick } from "./visible-on-click";
   >
     <Button variant="primary" isDisabled text="Top tooltip" />
   </Tooltip>
-</div>
+</Preview>
 
 ```tsx
 <Tooltip content="This is some useful information in a tooltip">
@@ -20,11 +21,11 @@ import { VisibleOnClick } from "./visible-on-click";
 </Tooltip>
 ```
 
-## Usage
+## Placement
 
-### Placement
+Use the `placement` prop to specifies where the tooltip should be positioned.
 
-<div className="box flex flex-wrap gap-l">
+<Preview>
   <Tooltip
     content="This is some useful information in a tooltip"
     placement="top"
@@ -49,17 +50,40 @@ import { VisibleOnClick } from "./visible-on-click";
   >
     <Button variant="primary" isDisabled text="Right tooltip" />
   </Tooltip>
-</div>
+</Preview>
+```tsx
+<Tooltip content="This is some useful information in a tooltip" placement="top">
+  <Button variant="primary" isDisabled text="Top tooltip" />
+</Tooltip>
+<Tooltip
+  content="This is some useful information in a tooltip"
+  placement="bottom"
+>
+  <Button variant="primary" isDisabled text="Bottom tooltip" />
+</Tooltip>
+<Tooltip
+  content="This is some useful information in a tooltip"
+  placement="left"
+>
+  <Button variant="primary" isDisabled text="Left tooltip" />
+</Tooltip>
+<Tooltip
+  content="This is some useful information in a tooltip"
+  placement="right"
+>
+  <Button variant="primary" isDisabled text="Right tooltip" />
+</Tooltip>
+```
 
-### Disabled
+## Disabled
 
 If the `isDisabled` prop is set to `true`, the tooltip will never appear.
 
-<div className="box">
+<Preview>
   <Tooltip content="This is some useful information in a tooltip" isDisabled>
     <Button variant="primary" isDisabled text="Tooltip" />
   </Tooltip>
-</div>
+</Preview>
 
 ```tsx
 <Tooltip content="This is some useful information in a tooltip" isDisabled>
@@ -67,29 +91,11 @@ If the `isDisabled` prop is set to `true`, the tooltip will never appear.
 </Tooltip>
 ```
 
-### Visible
+## Always visible
 
-If the `isVisible` prop is set to `true`, the tooltip will appear.
+## Controlled Tooltip
 
-<div className="box">
-  <Tooltip
-    content="This is some useful information in a tooltip"
-    isVisible
-    triggerAsChild
-  >
-    <Button variant="primary" isDisabled text="Tooltip" />
-  </Tooltip>
-</div>
-
-```tsx
-<Tooltip
-  content="This is some useful information in a tooltip"
-  isVisible
-  triggerAsChild
->
-  <Button variant="primary" isDisabled text="Tooltip" />
-</Tooltip>
-```
+The tooltip can be controlled using the `isOpen` prop.
 
 ### Visible on click
 
@@ -115,9 +121,35 @@ If the `isVisible` prop is set to `true`, the tooltip will appear.
 };
 ```
 
+### Always visible
+
+If the `isOpen` prop is set to `true`, the tooltip will appear.
+
+<Preview>
+  <Tooltip
+    content="This is some useful information in a tooltip"
+    isOpen
+    placement="right"
+    triggerAsChild
+  >
+    <Button variant="primary" isDisabled text="Tooltip" />
+  </Tooltip>
+</Preview>
+
+```tsx
+<Tooltip
+  content="This is some useful information in a tooltip"
+  isOpen
+  triggerAsChild
+>
+  <Button variant="primary" isDisabled text="Tooltip" />
+</Tooltip>
+```
+
 ## triggerAsChild and forwardRef
 
-To use any component as the trigger (the component around which the tooltip will go), a `div` has been added around it. To avoid having this div around the trigger (this can be useful for ellipsis for example), you can use the `triggerAsChild` prop to do so. This will remove the div but you will need to add `forwardRef` to your custom component.
+To use any component as the trigger (the component around which the tooltip will go), a `div` is added around it.
+To avoid having this div around the trigger (this can be useful for ellipsis for example), you can use the `triggerAsChild` prop to do so. This will remove the div but you will need to add `forwardRef` to your custom component.
 
 At least the Grapes `Button`, `Icon`, `IconButton`, and `HighlightIcon` components have a forwardRef, and this will be added to more components in the future.
 

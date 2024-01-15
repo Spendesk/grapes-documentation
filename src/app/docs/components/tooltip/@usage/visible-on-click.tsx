@@ -1,12 +1,13 @@
 "use client";
 
+import { Preview } from "@/components/preview/preview";
 import { Button, Tooltip } from "@dev-spendesk/grapes";
 import { useState } from "react";
 
 export function VisibleOnClick() {
   const [isVisible, setIsVisible] = useState(false);
   return (
-    <div className="box">
+    <Preview>
       <Tooltip content="Copied" isOpen={isVisible} triggerAsChild>
         <Button
           variant="primary"
@@ -19,7 +20,7 @@ export function VisibleOnClick() {
           }}
         />
       </Tooltip>
-    </div>
+    </Preview>
   );
 }
 ``;

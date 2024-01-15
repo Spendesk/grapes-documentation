@@ -1,35 +1,36 @@
 import { Avatar, Tag } from "@dev-spendesk/grapes";
+import { Preview } from "@/components/preview/preview";
 
-## Demo
+## Variant
 
-<div className="box">
-  <Tag variant="success">My tag</Tag>
-</div>
+The Tag comes with six visual styles: alert, info (default), neutral, primary, success, and warning.
 
-```tsx
-<Tag variant="success">My tag</Tag>
-```
-
-## Usage
-
-### Variant
-
-<div className="box flex flex-wrap gap-m">
+<Preview>
   <Tag variant="alert">Alert</Tag>
   <Tag variant="info">Info</Tag>
   <Tag variant="neutral">Neutral</Tag>
   <Tag variant="primary">Primary</Tag>
   <Tag variant="success">Success</Tag>
   <Tag variant="warning">Warning</Tag>
-</div>
+</Preview>
+```tsx
+<Tag variant="alert">Alert tag</Tag>
+<Tag variant="info">Info tag</Tag>
+<Tag variant="neutral">Neutral tag</Tag>
+<Tag variant="primary">Primary tag</Tag>
+<Tag variant="success">Success tag</Tag>
+<Tag variant="warning">Warning tag</Tag>
+```
 
-### With icon
+## Use an icon
 
-<div className="box">
+Use the `iconName` prop to set a icon on the left side of the Tag.
+
+<Preview>
   <Tag variant="primary" iconName="airplane">
     My tag
   </Tag>
-</div>
+</Preview>
 
 ```tsx
 <Tag variant="primary" iconName="airplane">
@@ -37,14 +38,16 @@ import { Avatar, Tag } from "@dev-spendesk/grapes";
 </Tag>
 ```
 
-### With an avatar
+## Rounded tag
 
-<div className="box">
+Use the `isRounded` prop to round the tag.
+
+<Preview>
   <Tag variant="neutral" isRounded>
     <Avatar variant="circle" src="/aurelien.webp" size="xs" text="aurelien" />
     <span className="ml-xs">Alex Smith</span>
   </Tag>
-</div>
+</Preview>
 
 ```tsx
 <Tag variant="neutral" isRounded>
