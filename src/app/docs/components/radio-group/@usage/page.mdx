@@ -1,0 +1,57 @@
+import { Preview } from "@/components/preview/preview";
+import { DemoRadioGroup } from "./demo";
+
+## Basic usage
+
+<Preview>
+  <DemoRadioGroup />
+</Preview>
+
+```tsx
+const options: {
+  value: string;
+  label: string;
+  isDisabled?: boolean;
+}[] = [
+  { value: "daily", label: "Daily" },
+  { value: "weekly", label: "Weekly" },
+  { value: "yearly", label: "Yearly" },
+];
+
+export function MyRadioGroup() {
+  const [selectedValue, setSelectedValue] = useState<string | null>(null);
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setSelectedValue(event.target.value);
+  };
+
+  return (
+    <RadioGroup
+      name="myRadioGroup"
+      value={selectedValue}
+      onChange={handleChange}
+      direction="row"
+    >
+      {options.map((props) => (
+        <RadioField {...props} key={props.value} />
+      ))}
+    </RadioGroup>
+  );
+}
+```
+
+## Column
+
+The `direction` prop is used to specify the axis the radio buttons should align with.
+
+<Preview>
+  <DemoRadioGroup isColumn />
+</Preview>
+
+```tsx
+<RadioGroup direction="column" {...otherProps} />
+```
+
+## Accessibility
+
+Adheres to the [`radiogroup` role requirements](https://www.w3.org/TR/wai-aria-1.2/#radiogroup).

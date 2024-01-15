@@ -1,0 +1,33 @@
+import { Preview } from "@/components/preview/preview";
+import { DemoRadioField } from "./demo";
+
+## Basic usage
+
+<Preview>
+  <DemoRadioField />
+</Preview>
+
+```tsx
+const [isChecked, setIsChecked] = useState(false);
+
+return (
+  <RadioField
+    name="approval"
+    value="approval-needed"
+    label="Approval Needed"
+    isChecked={isChecked}
+    onChange={(e) => {
+      setIsChecked(true);
+    }}
+  />
+);
+```
+
+## Accessibility
+
+Adheres to the [`radio` role requirements](https://www.w3.org/TR/wai-aria-1.2/#radio).
+
+### Keyboard interactions
+
+- `tab`: Moves focus on the element or outside
+- `space`: Checks the focused radio button

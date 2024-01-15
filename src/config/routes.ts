@@ -96,6 +96,18 @@ export const componentRoutes: RouteConfig[] = [
         label: "DatePicker",
         url: "/docs/components/date-picker",
       },
+      {
+        label: "RadioBox",
+        url: "/docs/components/radio-box",
+      },
+      {
+        label: "RadioField",
+        url: "/docs/components/radio-field",
+      },
+      {
+        label: "RadioGroup",
+        url: "/docs/components/radio-group",
+      },
     ],
   },
   {
