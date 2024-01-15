@@ -1,0 +1,45 @@
+.docs-icon-set {
+  list-style: none;
+  margin-inline-start: 0;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: var(--spacing-s);
+  margin-block-start: var(--spacing-m);
+}
+
+.docs-icon-item {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  font-size: var(--docs-fs-body-s);
+}
+
+.docs-icon-box {
+  position: relative;
+  background: var(--color-white);
+  border: 1px solid var(--color-neutral-lighter);
+  border-radius: var(--border-radius-xs);
+  width: 100%;
+  aspect-ratio: 1;
+  display: inline flex;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  color: var(--color-complementary);
+
+  &:hover .docs-cta-stack {
+    gap: var(--spacing-xxs);
+  }
+}
+
+.docs-cta-stack {
+  position: absolute;
+  display: grid;
+  flex-direction: column;
+  gap: 100%;
+  width: calc(100% - var(--spacing-xs));
+  height: calc(100% - var(--spacing-xs));
+  transition: gap 0.1s var(--transition-timing-function);
+  --fs-body-m: var(--docs-fs-body-s);
+}

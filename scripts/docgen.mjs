@@ -13,7 +13,9 @@ const tsxFiles = fs
   .filter((file) => !file.name.includes(".test."))
   .map((file) => path.join(file.path, file.name));
 
-const documentation = parse(tsxFiles);
+const documentation = parse(tsxFiles, {
+  shouldExtractLiteralValuesFromEnum: true,
+});
 
 fs.writeFile(
   "props.json",

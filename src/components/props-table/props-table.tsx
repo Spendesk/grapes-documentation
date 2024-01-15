@@ -21,7 +21,7 @@ export function PropsTable({ components }: Props) {
           <Table
             className={classNames(
               styles.table,
-              components.length > 0 && "mt-m"
+              components.length > 0 && "mt-m",
             )}
             columns={[
               {
@@ -41,7 +41,7 @@ export function PropsTable({ components }: Props) {
                 header: "Type",
                 id: "type",
                 width: "20%",
-                renderCell: ({ type }) => type.name,
+                renderCell: ({ type }) => type.raw ?? type.name,
               },
               {
                 header: "Description",
