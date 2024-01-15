@@ -8,8 +8,6 @@ import {
 } from "@dev-spendesk/grapes";
 import { useState } from "react";
 
-import styles from "./demo.module.css";
-
 type Option = {
   avatar: string;
   birthDate: string;
@@ -174,14 +172,11 @@ export function DemoListBox({
       {...optionalProps}
     >
       {(option, titleId) => (
-        <div className={styles.grid}>
+        <div className="flex gap-s items-center">
           <Avatar variant="circle" src={option.avatar} text={option.name} />
-          <div>
-            <div className="flex justify-between">
-              <span className="title-m" id={titleId}>
-                {option.name}
-              </span>
-              <span>{option.birthDate}</span>
+          <div className="flex-grow">
+            <div className="title-m" id={titleId}>
+              {option.name}
             </div>
             {!isCompact && (
               <div className="body-m text-neutral-dark mt-xxs">
@@ -189,6 +184,7 @@ export function DemoListBox({
               </div>
             )}
           </div>
+          <span>{option.birthDate}</span>
         </div>
       )}
     </ListBox>
