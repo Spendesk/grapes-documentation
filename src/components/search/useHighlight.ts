@@ -20,7 +20,7 @@ export function useHighlight(root: MutableRefObject<HTMLUListElement | null>) {
       const textNodes = [];
       const treeWalker = document.createTreeWalker(
         root.current,
-        NodeFilter.SHOW_TEXT
+        NodeFilter.SHOW_TEXT,
       );
       while (treeWalker.nextNode()) {
         textNodes.push(treeWalker.currentNode);
@@ -56,6 +56,5 @@ export function useHighlight(root: MutableRefObject<HTMLUListElement | null>) {
     };
   }
 
-  console.warn("Custom Highlight API not supported");
   return () => void 0;
 }
