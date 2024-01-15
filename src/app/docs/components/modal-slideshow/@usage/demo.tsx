@@ -1,4 +1,7 @@
 "use client";
+
+/* eslint-disable @next/next/no-img-element */
+
 import { Button, ModalSlideshow } from "@dev-spendesk/grapes";
 import { useState } from "react";
 
