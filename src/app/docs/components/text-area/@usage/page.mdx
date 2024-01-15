@@ -1,0 +1,26 @@
+import { TextArea } from "@dev-spendesk/grapes";
+import { Preview } from "@/components/preview/preview";
+
+## Basic usage
+
+<Preview>
+  <TextArea className="w-[360px]" placeholder="Describe your expense" />
+</Preview>
+
+```tsx
+const [value, setValue] = useState("");
+
+return (
+  <TextArea
+    placeholder="Describe your expense"
+    value={value}
+    onChange={(event) => {
+      setValue(event.target.value);
+    }}
+  />
+);
+```
+
+## Accessibility
+
+Adheres to the [`textbox` role requirements](https://www.w3.org/TR/wai-aria-1.2/#textbox).
