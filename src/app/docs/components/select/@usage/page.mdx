@@ -1,0 +1,87 @@
+import { Preview } from "@/components/preview/preview";
+import { DemoSelect } from "./demo";
+
+## Basic usage
+
+<Preview>
+  <DemoSelect />
+</Preview>
+
+```tsx
+type Option = { key: string; label: string };
+
+const costCenters: (Option & { owner: string })[] = [
+  {
+    key: "marketing",
+    label: "Marketing",
+    owner: "Michael Murphy",
+  },
+  ...
+];
+
+const [selectedOption, setSelectedOption] = useState<Option>();
+
+return (
+  <Select
+    fit="parent"
+    placeholder="Select a cost center"
+    options={costCenters}
+    value={selectedOption}
+    onSelect={setSelectedOption}
+  />
+);
+```
+
+## Placement
+
+Use the placement prop to move the list of options above or below the Select.
+
+<Preview>
+  <DemoSelect placement="bottom-start" placeholder="bottom-start placement" />
+  <DemoSelect placement="top-start" placeholder="top-start placement" />
+</Preview>
+
+```tsx
+<>
+  <Select placement="bottom-start" {...otherProps} />
+  <Select placement="top-start" {...otherProps} />
+</>
+```
+
+## Customization
+
+### Max height
+
+The `dropdownContentMaxHeight` prop is used to define a maximum height for the select's dropdown content. It defaults to 168px.
+
+<Preview>
+  <DemoSelect withMaxHeight />
+</Preview>
+
+```tsx
+<Select dropdownContentMaxHeight="264px" {...otherProps} />
+```
+
+### Customized option
+
+Use the `renderOption` prop to customize how options are rendered.
+
+<Preview>
+  <DemoSelect withRenderOption />
+</Preview>
+
+```tsx
+<Select
+  renderOption={(option: CostCenter, optionState) => (
+    <DropdownItem
+      label={
+        <>
+          {option.label} ({option.owner})
+        </>
+      }
+      {...optionState}
+    />
+  )}
+  {...otherProps}
+/>
+```

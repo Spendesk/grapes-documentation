@@ -1,0 +1,71 @@
+import { Preview } from "@/components/preview/preview";
+import { DemoUpload } from "./demo";
+
+## Basic usage
+
+<Preview>
+  <DemoUpload />
+</Preview>
+
+```tsx
+const [selectedFile, setSelectedFile] = useState<File>();
+
+return selectedFile ? (
+  <div className="flex items-center gap-xxs">
+    <Preview
+      fit="parent"
+      iconName="receipt-checked"
+      variant="success"
+      primaryText={selectedFile.name}
+    />
+    <IconButton
+      variant="border"
+      iconName="trash"
+      color="var(--color-neutral-dark)"
+      onClick={() => setSelectedFile(undefined)}
+    />
+  </div>
+) : (
+  <Upload
+    content={
+      <span>
+        Drag & drop file(s) here <br />
+        or <u className="text-complementary font-medium">
+          import them from your computer
+        </u>
+      </span>
+    }
+    activeDragContent="Upload file(s)"
+    onUpload={async (filesToUpload) => {
+      setSelectedFile(filesToUpload?.[0]);
+    }}
+  />
+);
+```
+
+## Illustration
+
+You can display an illustration instead of the default icon with the `illustration` prop.
+
+<Preview>
+  <DemoUpload withIllustration />
+</Preview>
+
+```tsx
+<Upload
+  illustration={<img src="/illustration.webp" alt="" />}
+  {...otherProps}
+/>
+```
+
+## Accept specific file types
+
+The `accept` prop is used to allow one or more unique file types.
+
+<Preview>
+  <DemoUpload withAccept />
+</Preview>
+
+```tsx
+<Upload accept="image/*" {...otherProps} />
+```
