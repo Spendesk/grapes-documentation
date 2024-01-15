@@ -104,7 +104,7 @@
   }
 }
 
-@layer reset, grapes, layout;
+@layer reset, layout, grapes;
 
 @import "@dev-spendesk/grapes/tokens";
 
