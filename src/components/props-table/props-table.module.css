@@ -5,3 +5,8 @@
 .table {
   --fs-body-m: var(--docs-fs-body-s);
 }
+
+.required::after {
+  content: "*";
+  color: var(--color-alert);
+}
