@@ -151,12 +151,24 @@ export const componentRoutes: RouteConfig[] = [
         url: "/docs/components/list-view",
       },
       {
+        label: "Panel",
+        url: "/docs/components/panel",
+      },
+      {
+        label: "Preview",
+        url: "/docs/components/preview",
+      },
+      {
         label: "Table",
         url: "/docs/components/table",
       },
       {
         label: "Timeline",
         url: "/docs/components/timeline",
+      },
+      {
+        label: "useDateFormatter",
+        url: "/docs/components/use-date-formatter",
       },
     ],
   },
