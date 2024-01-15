@@ -8,6 +8,7 @@ export function LogoGithub() {
       href="https://github.com/Spendesk/Grapes"
       className="logo"
       rel="noopener noreferrer"
+      target="_blank"
     >
       <span className="sr-only">Grapes on Github</span>
       <svg
