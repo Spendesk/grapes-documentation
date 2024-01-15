@@ -1,0 +1,299 @@
+import { Preview } from "@/components/preview/preview";
+import { DemoTable } from "./demo";
+
+## Basic usage
+
+<Preview>
+  <DemoTable />
+</Preview>
+
+```tsx
+type DataRow = {
+  id: number;
+  accountPayable: string;
+  supplierName: string;
+  amount: string;
+};
+
+const data: DataRow[] = [
+  {
+    id: 0,
+    accountPayable: "401AIRBNB",
+    supplierName: "Airbnb",
+    amount: "2€",
+  },
+  {
+    id: 1,
+    accountPayable: "401DELOITTE",
+    supplierName: "Deloitte",
+    amount: "324$",
+  },
+  {
+    id: 2,
+    accountPayable: "401MAILCHIMP",
+    supplierName: "Mailchimp",
+    amount: "13.29€",
+  },
+  {
+    id: 3,
+    accountPayable: "401APPLE",
+    supplierName: "Apple",
+    amount: "0€",
+  },
+];
+
+const columns: TableColumn<DataRow>[] = [
+  {
+    id: "accountPayable",
+    header: "Account payable",
+    renderCell: ({ accountPayable }) => accountPayable,
+  },
+  {
+    id: "supplierName",
+    header: "Supplier name",
+    renderCell: ({ supplierName }) => supplierName,
+  },
+  {
+    id: "amount",
+    header: "Amount",
+    align: "right",
+    width: "20%",
+    renderCell(row) {
+      return <span style={{ fontWeight: 500 }}>{row.amount}</span>;
+    },
+  },
+];
+
+export function DemoTable() {
+  const [activeRow, setActiveRow] = useState<number>();
+
+  return (
+    <Table
+      data={data}
+      columns={columns}
+      getRowId={(row: DataRow) => String(row.id)}
+      onRowClick={(row) => setActiveRow(row.id)}
+      getIsRowActive={(row) => row.id === activeRow}
+    />
+  );
+}
+```
+
+## Empty state
+
+If no data has been provided, the table's empty state will appear. The title is mandatory, and the subtitle is optional.
+
+<Preview>
+  <DemoTable isTableEmpty />
+</Preview>
+
+```tsx
+<Table
+  data={[]}
+  emptyState={{
+    title: "There are no payables in this example",
+    subtitle: "Try looking in another example",
+  }}
+  {...optionalProps}
+/>
+```
+
+## Row height
+
+The Table component has two variants: `normal` and `compact`. The compact mode makes the rows smaller.
+
+<Preview>
+  <DemoTable isCompact />
+</Preview>
+
+```tsx
+<Table rowHeight="compact" {...optionalProps} />
+```
+
+## Column separator
+
+The `columnSeparator` prop adds a line between each column.
+
+<Preview>
+  <DemoTable withColumnSeparator />
+</Preview>
+
+```tsx
+<Table hasColumnSeparator {...optionalProps} />
+```
+
+## Footer
+
+The `footer` prop allows you to add a footer to the Table, to load more data for example.
+
+<Preview>
+  <DemoTable withFooter />
+</Preview>
+
+```tsx
+<Table
+  footer={<Button variant="secondary" text="Load more" />}
+  {...optionalProps}
+/>
+```
+
+## Disabled rows
+
+The `getIsRowDisabled` prop allows you to disable rows in the table. These options will be neither clickable nor selectable.
+
+<Preview>
+  <DemoTable withDisabledRows />
+</Preview>
+
+```tsx
+<Table
+  getIsRowDisabled={(row: DataRow) => row.id === 0 || row.id === 2}
+  {...optionalProps}
+/>
+```
+
+## Sort
+
+To make a table sortable, you will need to add the `getSortValue` function to the corresponding columns. You can make only specific columns sortable.
+
+<Preview>
+  <DemoTable isSortable />
+</Preview>
+
+```tsx
+<Table
+  columns={[
+    {
+      id: "accountPayable",
+      header: "Account payable",
+      renderCell: ({ accountPayable }) => accountPayable,
+      getSortValue: (item) => item.accountPayable,
+    },
+    {
+      id: "supplierName",
+      header: "Supplier name",
+      renderCell: ({ supplierName }) => supplierName,
+    },
+    {
+      id: "amount",
+      header: "Amount",
+      align: "right",
+      width: "20%",
+      renderCell(row) {
+        return <span style={{ fontWeight: 500 }}>{row.amount}</span>;
+      },
+      getSortValue: (item) => parseInt(item.amount),
+    },
+  ]}
+  {...optionalProps}
+/>
+```
+
+## Selectable
+
+If you want to make a Table component selectable, you will need to specify the following props: `onAllRowsSelectionChange`, `onRowSelectionChange`, and `selectedRowIds`. Rows that have been disabled with `getIsRowDisabled` are not selectable.
+
+<Preview>
+  <DemoTable isSelectable withDisabledRows />
+</Preview>
+
+```tsx
+const [selectedRowIds, setSelectedRowsIds] = useState<string[]>([]);
+
+return (
+  <Table
+    selectedRowIds={selectedRowIds}
+    onRowSelectionChange={(_, id, checked) => {
+      setSelectedRowsIds((options) => {
+        if (checked) {
+          return options.concat(id);
+        }
+        return options.filter((optionId) => optionId !== id);
+      });
+    }}
+    onAllRowsSelectionChange={(_, ids, checked) => {
+      setSelectedRowsIds(checked ? ids : []);
+    }}
+    {...otherProps}
+  />
+);
+```
+
+## Max height
+
+The `maxHeight` prop allows you to specify a maximum height for the table. You will then be able to scroll through the elements.
+
+<Preview>
+  <DemoTable withMaxHeight />
+</Preview>
+
+```tsx
+<Table maxHeight={160} {...optionalProps} />
+```
+
+## Row variant
+
+The `getRowVariant` prop allows you to specify a variant (`info` or `warning`) for the different rows.
+
+<Preview>
+  <DemoTable withRowVariant />
+</Preview>
+
+```tsx
+<Table
+  getRowVariant={({ supplierName }) => {
+    if (supplierName === "Airbnb") return "warning";
+    if (supplierName === "Mailchimp") return "info";
+    return undefined;
+  }}
+  {...optionalProps}
+/>
+```
+
+## Cell variant
+
+The `getCellVariant` prop allows you to specify a variant for each cell when necessary. This function should be used in the `columns` prop.
+
+<Preview>
+  <DemoTable withCellVariant withColumnSeparator />
+</Preview>
+
+```tsx
+<Table
+  columns={[
+    {
+      id: "accountPayable",
+      header: "Account payable",
+      renderCell: ({ accountPayable }) => accountPayable,
+      getCellVariant: ({ accountPayable }) =>
+        accountPayable === "401AIRBNB" ? "success" : undefined,
+    },
+    {
+      id: "supplierName",
+      header: "Supplier name",
+      renderCell: (row) => {
+        const { supplierName } = row;
+        return (
+          <>
+            <span style={{ display: "inline-block", marginRight: "12px" }}>
+              {getCellVariant(row) === "alert" ? "❌" : "👌"}
+            </span>
+            {supplierName}
+          </>
+        );
+      },
+      getCellVariant,
+    },
+    {
+      id: "amount",
+      header: "Amount",
+      align: "right",
+      width: "20%",
+      renderCell({ amount }) {
+        return <span style={{ fontWeight: 500 }}>{amount}</span>;
+      },
+    },
+  ]}
+  {...otherProps}
+/>
+```
