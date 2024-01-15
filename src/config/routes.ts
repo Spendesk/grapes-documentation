@@ -122,6 +122,22 @@ export const componentRoutes: RouteConfig[] = [
     category: "Feedback",
     routes: [
       {
+        label: "Badge",
+        url: "/docs/components/badge",
+      },
+      {
+        label: "Banner",
+        url: "/docs/components/banner",
+      },
+      {
+        label: "Callout",
+        url: "/docs/components/callout",
+      },
+      {
+        label: "EmptyState",
+        url: "/docs/components/empty-state",
+      },
+      {
         label: "Modal",
         url: "/docs/components/modal",
       },
