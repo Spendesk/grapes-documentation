@@ -1,12 +1,12 @@
 import React from "react";
 
-import "./logo-github.css";
+import "./logo.css";
 
 export function LogoGithub() {
   return (
     <a
       href="https://github.com/Spendesk/Grapes"
-      className="logo-github"
+      className="logo"
       rel="noopener noreferrer"
     >
       <span className="sr-only">Grapes on Github</span>

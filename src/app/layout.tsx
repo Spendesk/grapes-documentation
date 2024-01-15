@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import { GrapesProvider } from "@dev-spendesk/grapes";
+import { GlobalHeader } from "@/components/global-header/global-header";
 
 import "./globals.css";
 
@@ -35,6 +36,7 @@ export default function RootLayout({
             },
           }}
         >
+          <GlobalHeader />
           {children}
         </GrapesProvider>
       </body>
