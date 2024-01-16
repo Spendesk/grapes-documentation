@@ -1,0 +1,124 @@
+import { Preview } from "@/components/preview/preview";
+import { Demo } from "./demo";
+
+## Basic Usage
+
+<Preview className="block">
+  <Demo 
+    options={[
+      { value: 'daily', label: 'Daily' },
+      { value: 'weekly', label: 'Weekly' },
+      { value: 'yearly', label: 'Yearly' },
+    ]}
+  />
+</Preview>
+```tsx
+const [selectedValue, setSelectedValue] = useState<string | null>(null);
+return (
+  <OptionGroup
+    name="optionGroupField"
+    options={[
+      { value: "daily", label: "Daily" },
+      { value: "weekly", label: "Weekly" },
+      { value: "yearly", label: "Yearly" },
+    ]}
+    value={selectedValue}
+    onChange={(event) => {
+      setSelectedValue(event.target.value);
+    }}
+  />
+);
+```
+
+## Number as value
+
+<Preview className="block">
+  <Demo 
+    options={Array.from({ length: 10 }, (_, i) => {
+      return { label: i + 1, value: i + 1 };
+    })}
+  />
+</Preview>
+```tsx
+const [selectedValue, setSelectedValue] = useState<string | null>(null);
+return (
+  <OptionGroup
+    name="nps"
+    options={Array.from({ length: 10 }, (_, i) => {
+      return { label: i + 1, value: i + 1 };
+    })}
+    value={selectedValue}
+    onChange={(event) => {
+      setSelectedValue(event.target.value);
+    }}
+  />
+);
+```
+
+## Icon as label
+
+The OptionGroup supports Icon as label. Inside each option, use the attribute `iconName` to provide the name of the icon.
+
+<Preview className="block">
+  <Demo
+    options={[
+      {
+        iconName: "airplane",
+        label: "airplane",
+        value: "airplane",
+      },
+      {
+        iconName: "car",
+        label: "car",
+        value: "car",
+      },
+      {
+        iconName: "bike",
+        label: "bike",
+        value: "bike",
+      },
+    ]}
+  />
+</Preview>
+```tsx
+const [selectedValue, setSelectedValue] = useState<string | null>(null);
+return (
+  <OptionGroup
+    name="transport"
+    options={[
+      {
+        iconName: "airplane",
+        label: "airplane",
+        value: "airplane",
+      },
+      {
+        iconName: "car",
+        label: "car",
+        value: "car",
+      },
+      {
+        iconName: "bike",
+        label: "bike",
+        value: "bike",
+      },
+    ]}
+    value={selectedValue}
+    onChange={(event) => {
+      setSelectedValue(event.target.value);
+    }}
+  />
+);
+```
+
+---
+
+## Accessibility
+
+OptionGroup adheres to the [radiogroup role requirements](https://www.w3.org/TR/wai-aria-1.2/#radiogroup).
+
+### Keyboard Interaction
+
+- `Tab`: Moves focus to the checked radio button in the radiogroup or outside
+- `Space`: Checks the focused item
+- `Arrow left`: Moves focus to and checks the previous radio button in the group. If focus is on the first radio button, focus moves to and checks the last radio button. The state of the previously checked radio button is changed to unchecked.
+- `Arrow right`: Moves focus to and checks the next radio button in the group. If focus is on the last radio button, focus moves to the first radio button. The state of the previously checked radio button is changed to unchecked.

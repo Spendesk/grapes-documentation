@@ -1,0 +1,97 @@
+import { Icon } from "@dev-spendesk/grapes";
+import { Preview } from "@/components/preview/preview";
+import { Demo, DemoWithMultipleCurrencies } from "./demo";
+
+## Basic Usage
+
+<Preview>
+  <Demo />
+</Preview>
+
+```tsx
+const [selectedValue, setSelectedValue] = useState<number | null>(null);
+
+return (
+  <MoneyInput
+    currency={{ key: "EUR", label: "€ - Euro" }}
+    value={selectedValue}
+    onChange={(event) => {
+      setSelectedValue(event.target.valueAsNumber);
+    }}
+  />
+);
+```
+
+## Variant
+
+Use the `inputVariant` prop to control the visual style of the Autocomplete.
+The Autocomplete comes with two visual styles: default (default) and magicGradient.
+
+<Preview>
+  <Demo variant="magicGradient" />
+</Preview>
+
+```tsx
+<MoneyInput variant="magicGradient" {...otherProps} />
+```
+
+## Multiple currencies
+
+The MoneyInput supports multiple currencies using `currencies` prop.
+`onSelectCurrency` also needs to be provided to catch the event when the user updates the currency.
+If both are provided, a dropdown will be displayed with the predefined currencies.
+
+<Preview>
+  <DemoWithMultipleCurrencies />
+</Preview>
+
+```tsx
+<MoneyInput
+  currencies={currencies}
+  onSelectCurrency={(selectedCurrency) => {
+    setCurrency(selectedCurrency);
+  }}
+  currency={currentCurrency}
+  value={selectedValue}
+  onChange={(event) => {
+    setSelectedValue(event.target.valueAsNumber);
+  }}
+/>
+```
+
+## Allow negative value
+
+By default, the MoneyInput doesn't allow negative values. Use `hasNegativeValueAllowed` to allow negative values.
+
+<Preview>
+  <Demo hasNegativeValueAllowed defaultValue={-1234} />
+</Preview>
+
+```tsx
+<MoneyInput hasNegativeValueAllowed {...otherProps} />
+```
+
+## Customize input
+
+Use the `leftAddon` prop to add a ReactNode on the left side of the input.
+
+<Preview>
+  <Demo
+    leftAddon={
+      <div style={{ marginLeft: "var(--spacing-xs)" }}>
+        <Icon name="robot-smile" />
+      </div>
+    }
+  />
+</Preview>
+
+```tsx
+<MoneyInput
+  leftAddon={
+    <div style={{ marginLeft: "var(--spacing-xs)" }}>
+      <Icon name="robot-smile" />
+    </div>
+  }
+  {...otherProps}
+/>
+```
