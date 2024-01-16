@@ -125,6 +125,10 @@ export const componentRoutes: RouteConfig[] = [
         url: "/docs/components/radio-group",
       },
       {
+        label: "Select",
+        url: "/docs/components/select",
+      },
+      {
         label: "SwitchField",
         url: "/docs/components/switch-field",
       },
@@ -135,6 +139,14 @@ export const componentRoutes: RouteConfig[] = [
       {
         label: "TextInput",
         url: "/docs/components/text-input",
+      },
+      {
+        label: "Upload (Dropzone)",
+        url: "/docs/components/upload",
+      },
+      {
+        label: "UploadButton",
+        url: "/docs/components/upload-button",
       },
     ],
   },
