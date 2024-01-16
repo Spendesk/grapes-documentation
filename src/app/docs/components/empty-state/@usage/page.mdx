@@ -1,0 +1,78 @@
+import { EmptyState, Button } from "@dev-spendesk/grapes";
+import { Preview } from "@/components/preview/preview";
+
+## Use an Icon
+
+Use the `iconName` prop to set the icon.
+
+<Preview>
+  <EmptyState
+    actions={<Button text="Discover" variant="contrasted" />}
+    iconName="sparkles"
+    subtitle="You can split your transaction across several  expense accounts and VAT lines to best prepare your export."
+    title="Split your payable into multiple lines."
+  />
+</Preview>
+
+```tsx
+<EmptyState
+  actions={<Button text="Discover" variant="contrasted" />}
+  iconName="sparkles"
+  subtitle={`You can split your transaction
+across several expense accounts and VAT lines to best 
+prepare your export.`}
+  title="Split your payable into multiple lines."
+/>
+```
+
+### Icon Variant
+
+Use the `iconVariant` to change the variant of the prop `iconName`.
+`iconVariant` comes with six visual styles: primary, alert, warning, info (default), success, and neutral.
+
+<Preview>
+  <EmptyState
+    actions={<Button text="Discover" variant="contrasted" />}
+    iconName="warning"
+    iconVariant="warning"
+    subtitle="You can split your transaction across several  expense accounts and VAT lines to best prepare your export."
+    title="Split your payable into multiple lines."
+  />
+</Preview>
+
+```tsx
+<EmptyState
+  actions={<Button text="Discover" variant="contrasted" />}
+  iconName="warning"
+  iconVariant="warning"
+  subtitle={`You can split your transaction
+across several expense accounts and VAT lines to best 
+prepare your export.`}
+  title="Split your payable into multiple lines."
+/>
+```
+
+## Use an Illustration
+
+Use the `illustration` to set an illustration instead of an Icon.
+`illustration` accepts a `ReactNode` to let you customize and use any node.
+
+<Preview>
+  <EmptyState
+    actions={<Button text="Discover" variant="contrasted" />}
+    illustration={<img alt="" src="/grapes.png" />}
+    subtitle="You can split your transaction across several  expense accounts and VAT lines to best prepare your export."
+    title="Split your payable into multiple lines."
+  />
+</Preview>
+
+```tsx
+<EmptyState
+  actions={<Button text="Discover" variant="contrasted" />}
+  illustration={<img alt="" src="/grapes.png" />}
+  subtitle={`You can split your transaction
+across several expense accounts and VAT lines to best 
+prepare your export.`}
+  title="Split your payable into multiple lines."
+/>
+```
