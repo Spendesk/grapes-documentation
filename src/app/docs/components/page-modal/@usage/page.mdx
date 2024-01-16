@@ -1,0 +1,27 @@
+import { Preview } from "@/components/preview/preview";
+import { Demo } from "./demo.tsx";
+
+## Basic usage
+
+<Preview>
+  <Demo />
+</Preview>
+```tsx 
+export function Demo() {
+  const [isOpen, setIsOpen] = useState(false);
+  return (
+    <>
+      <Button
+        variant="primary"
+        text="Open the modal"
+        onClick={() => setIsOpen(true)}
+      />
+      <PageModal isOpen={isOpen} onClose={() => setIsOpen(false)}>
+        <div>
+          <p>This is a page modal.</p>
+        </div>
+      </PageModal>
+    </>
+  );
+}
+```
