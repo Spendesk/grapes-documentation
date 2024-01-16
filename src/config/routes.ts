@@ -257,6 +257,23 @@ export const componentRoutes: RouteConfig[] = [
       },
     ],
   },
+  {
+    category: "Navigation",
+    routes: [
+      {
+        label: "Navigation",
+        url: "/docs/components/navigation",
+      },
+      {
+        label: "NavigationItem",
+        url: "/docs/components/navigation-item",
+      },
+      {
+        label: "SideNavigation",
+        url: "/docs/components/side-navigation",
+      },
+    ],
+  },
 ];
 
 const designTokensRoutes: RouteConfig[] = [

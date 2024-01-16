@@ -1,0 +1,67 @@
+import { Preview } from "@/components/preview/preview";
+import { DemoNavigation } from "./demo";
+
+## Basic usage
+
+The navigation presents a list of navigation items at the top to help the user navigate between pages. Please refer to the <a href="/docs/components/navigation-item">NavigationItem</a> docs for more information on how to create the different links (emphasized, with divider, with icon, etc.).
+
+The `leftNavigationItems` and `rightNavigationItems` props are used to display the items on each side of the navigation menu.
+
+<Preview>
+  <DemoNavigation />
+</Preview>
+
+```tsx
+const [activeIndex, setActiveIndex] = useState(1);
+
+return (
+  <Navigation
+    leftNavigationItems={[
+      <NavigationItem
+        key="1"
+        text="Link 1"
+        isActive={activeIndex === 1}
+        onClick={() => setActiveIndex(1)}
+      />,
+      <NavigationItem
+        key="2"
+        text="Link 2"
+        isActive={activeIndex === 2}
+        onClick={() => setActiveIndex(2)}
+      />,
+      <NavigationItem
+        key="3"
+        text="Link 3"
+        isActive={activeIndex === 3}
+        onClick={() => setActiveIndex(3)}
+      />,
+    ]}
+    rightNavigationItems={[
+      <NavigationItem
+        key="4"
+        text="Link 4"
+        isActive={activeIndex === 4}
+        onClick={() => setActiveIndex(4)}
+      />,
+      <NavigationItem
+        key="5"
+        text="Link 5"
+        isActive={activeIndex === 5}
+        onClick={() => setActiveIndex(5)}
+      />,
+    ]}
+  />
+);
+```
+
+## Sub navigation
+
+You can set the `variant` prop to `subNavigation` to create a secondary navigation menu.
+
+<Preview>
+  <DemoNavigation isSubNavigation />
+</Preview>
+
+```tsx
+<Navigation variant="subNavigation" {...otherProps} />
+```

@@ -1,0 +1,42 @@
+import { Preview } from "@/components/preview/preview";
+import { DemoSideNavigation } from "./demo";
+
+## Basic usage
+
+The side navigation presents a list of navigation items on the side to help the user navigate between pages. Please refer to the <a href="/docs/components/navigation-item">NavigationItem</a> docs for more information on how to create the different links (emphasized, with divider, with icon, etc.).
+
+<Preview>
+  <DemoSideNavigation />
+</Preview>
+
+```tsx
+const accountingNavigation = [
+  {
+    label: "Accounting integration",
+    key: "accounting-integration",
+  },
+  ...
+];
+
+export function MySideNavigation() {
+  const [activeKey, setActiveKey] = useState("accounting-integration");
+
+  return (
+    <SideNavigation>
+      {accountingNavigation.map((book) => (
+        <NavigationItem
+          key={book.key}
+          text={book.label}
+          isActive={book.key === activeKey}
+          isEmphasized={[
+            "accounting-integration",
+            "bank-accounts",
+            "expense-accounts",
+          ].includes(book.key)}
+          onClick={() => setActiveKey(book.key)}
+        />
+      ))}
+    </SideNavigation>
+  );
+}
+```
