@@ -5,14 +5,22 @@
    viewBox="0 0 79.726936 80.9795"
    fill="none"
    version="1.1"
-   id="svg12"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:svg="http://www.w3.org/2000/svg">
-  <defs
-     id="defs12" />
+   xmlns="http://www.w3.org/2000/svg">
+   <style>
+   circle {
+    fill: #5d21d2;
+   }
+   path {
+    fill: #41d9cc;
+   }
+    @media (prefers-color-scheme: dark) {
+      circle {
+        fill: #fff;
+      }
+    }
+   </style>
   <path
      d="m 1.1299512,27.910761 c 4.8194,-6.2015 17.2896998,-14.8495 28.6152998,0.1703 -3.0754,4.5088 -13.1039,10.787 -28.6152998,-0.1703 z"
-     fill="#41d9cc"
      stroke="#040222"
      stroke-width="2.26"
      stroke-linecap="round"
@@ -20,7 +28,6 @@
      id="path1" />
   <path
      d="m 26.560751,1.1299606 c 7.1183,3.3189 18.3241,13.5526004 6.2005,27.9360004 -5.08,-1.9951 -13.4321,-10.3755 -6.2005,-27.9360004 z"
-     fill="#41d9cc"
      stroke="#040222"
      stroke-width="2.26"
      stroke-linecap="round"
@@ -37,7 +44,6 @@
   <circle
      r="11.878804"
      transform="matrix(-0.93969271,-0.34201989,-0.34201989,0.93969271,0,0)"
-     fill="#5d21d2"
      stroke="#040222"
      stroke-width="2.26"
      stroke-linecap="round"
@@ -48,7 +54,6 @@
   <circle
      r="11.878804"
      transform="matrix(-0.93969271,-0.34201989,-0.34201989,0.93969271,0,0)"
-     fill="#5d21d2"
      stroke="#040222"
      stroke-width="2.26"
      stroke-linecap="round"
@@ -59,7 +64,6 @@
   <circle
      r="11.878804"
      transform="matrix(-0.93969271,-0.34201989,-0.34201989,0.93969271,0,0)"
-     fill="#5d21d2"
      stroke="#040222"
      stroke-width="2.26"
      stroke-linecap="round"
@@ -70,7 +74,6 @@
   <circle
      r="11.878804"
      transform="matrix(-0.93969271,-0.34201989,-0.34201989,0.93969271,0,0)"
-     fill="#5d21d2"
      stroke="#040222"
      stroke-width="2.26"
      stroke-linecap="round"
@@ -81,7 +84,6 @@
   <circle
      r="11.878804"
      transform="matrix(-0.93969271,-0.34201989,-0.34201989,0.93969271,0,0)"
-     fill="#5d21d2"
      stroke="#040222"
      stroke-width="2.26"
      stroke-linecap="round"
@@ -92,7 +94,6 @@
   <circle
      r="11.878804"
      transform="matrix(-0.93969271,-0.34201989,-0.34201989,0.93969271,0,0)"
-     fill="#5d21d2"
      stroke="#040222"
      stroke-width="2.26"
      stroke-linecap="round"
@@ -103,7 +104,6 @@
   <circle
      r="11.878804"
      transform="matrix(-0.93969271,-0.34201989,-0.34201989,0.93969271,0,0)"
-     fill="#5d21d2"
      stroke="#040222"
      stroke-width="2.26"
      stroke-linecap="round"
@@ -114,7 +114,6 @@
   <circle
      r="11.878804"
      transform="matrix(-0.93969271,-0.34201989,-0.34201989,0.93969271,0,0)"
-     fill="#5d21d2"
      stroke="#040222"
      stroke-width="2.26"
      stroke-linecap="round"
@@ -125,7 +124,6 @@
   <circle
      r="11.878804"
      transform="matrix(-0.93969271,-0.34201989,-0.34201989,0.93969271,0,0)"
-     fill="#5d21d2"
      stroke="#040222"
      stroke-width="2.26"
      stroke-linecap="round"
@@ -136,7 +134,6 @@
   <circle
      r="11.878804"
      transform="matrix(-0.93969271,-0.34201989,-0.34201989,0.93969271,0,0)"
-     fill="#5d21d2"
      stroke="#040222"
      stroke-width="2.26"
      stroke-linecap="round"
