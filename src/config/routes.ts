@@ -270,12 +270,24 @@ export const componentRoutes: RouteConfig[] = [
     category: "Navigation",
     routes: [
       {
+        label: "DropdownItem",
+        url: "/docs/components/dropdown-item",
+      },
+      {
+        label: "DropdownMenu",
+        url: "/docs/components/dropdown-menu",
+      },
+      {
         label: "Navigation",
         url: "/docs/components/navigation",
       },
       {
         label: "NavigationItem",
         url: "/docs/components/navigation-item",
+      },
+      {
+        label: "Popover",
+        url: "/docs/components/popover",
       },
       {
         label: "SideNavigation",

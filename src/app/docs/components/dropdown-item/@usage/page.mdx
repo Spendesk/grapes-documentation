@@ -1,0 +1,86 @@
+import { Avatar, Callout, DropdownItem } from "@dev-spendesk/grapes";
+import { Preview } from "@/components/preview/preview";
+
+<Callout className="mt-m" variant="warning" title="Usage">
+  The DropdownItem component shouldn't be used as is, but in a DropdownMenu,
+  Autocomplete, AutocompleteMultiple, Select, etc.
+</Callout>
+
+## Usage
+
+<Callout title="Word break">
+  To prevent overflow, any word may be broken at any point if there are no
+  acceptable break point. If you like to change this behavior, please use the
+  className props. For instance, you can revert to the default behavior by
+  passing the TailwindCSS class break-normal.
+</Callout>
+
+<Preview>
+  <DropdownItem label="Michael Murphy" />
+</Preview>
+
+```tsx
+<DropdownItem label="Michael Murphy" />
+```
+
+## Description
+
+The `helpText` prop is used to add a description to the DropdownItem.
+
+<Preview>
+  <DropdownItem label="Michael Murphy" helpText="Growth team" />
+</Preview>
+
+```tsx
+<DropdownItem helpText="Growth team" {...otherProps} />
+```
+
+## Highlighted
+
+The `isHighlighted` prop is used to highlight the DropdownItem.
+
+<Preview>
+  <DropdownItem label="Michael Murphy" isHighlighted />
+</Preview>
+
+```tsx
+<DropdownItem isHighlighted {...otherProps} />
+```
+
+## Selected
+
+The `isSelected` prop is used to display the DropdownItem as selected.
+
+<Preview>
+  <DropdownItem label="Michael Murphy" isSelected />
+</Preview>
+
+```tsx
+<DropdownItem isSelected {...otherProps} />
+```
+
+## Prefix and suffix
+
+Items can be added inside a DropdownItem with the `prefix` and `suffix` props.
+
+<Preview>
+  <DropdownItem
+    label="Michael Murphy"
+    prefix={
+      <Avatar variant="square" size="s" src="/aurelien.webp" text="Aurelien" />
+    }
+  />
+  <DropdownItem label="Michael Murphy" suffix={<span>24€</span>} />
+</Preview>
+
+```tsx
+<>
+  <DropdownItem
+    prefix={
+      <Avatar variant="square" size="s" src="/aurelien.webp" text="Aurelien" />
+    }
+    {...otherProps}
+  />
+  <DropdownItem suffix={<span>24€</span>} {...otherProps} />
+</>
+```

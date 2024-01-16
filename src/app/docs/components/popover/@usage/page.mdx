@@ -1,0 +1,58 @@
+import { Callout } from "@dev-spendesk/grapes";
+
+import { Preview } from "@/components/preview/preview";
+import { DemoPopover } from "./demo";
+
+<Callout className="mt-m" title="Usage" variant="warning">
+  The Popover component should only be used in cases where the{" "}
+  <a href="/docs/components/dropdown-menu">DropdownMenu</a>
+  cannot be used.
+</Callout>
+
+## Basic usage
+
+<Preview>
+  <DemoPopover />
+</Preview>
+
+```tsx
+<Popover
+  renderTrigger={(triggerProps) => (
+    <Button {...triggerProps} text="Show me a dropdown" variant="primary" />
+  )}
+>
+  {(closeDropdown) => (
+    <div className="body-m p-s text-center min-w-[400px]">
+      Hey there!
+      <br />
+      <div>Look at me, I&apos;m a dropdown.</div>
+      <Button
+        className="mt-s"
+        variant="primary"
+        text="Close me"
+        onClick={closeDropdown}
+      />
+    </div>
+  )}
+</Popover>
+```
+
+## Placement
+
+The `placement` prop lets you decide where the dropdown content should appear.
+
+<Preview>
+  <DemoPopover placement="bottom-start" />
+  <DemoPopover placement="bottom-end" />
+  <DemoPopover placement="top-start" />
+  <DemoPopover placement="top-end" />
+</Preview>
+
+```tsx
+<>
+  <Popover placement="bottom-start" {...otherProps} />
+  <Popover placement="bottom-end" {...otherProps} />
+  <Popover placement="top-start" {...otherProps} />
+  <Popover placement="top-end" {...otherProps} />
+</>
+```
