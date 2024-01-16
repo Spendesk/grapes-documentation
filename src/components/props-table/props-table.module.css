@@ -1,7 +1,9 @@
-.table td {
-  white-space: normal;
+.listItem {
+  padding-block: var(--spacing-s);
+  font-size: var(--docs-fs-body-xs);
 }
 
-.table {
-  --fs-body-m: var(--docs-fs-body-s);
+.required::after {
+  content: "*";
+  color: var(--color-alert);
 }

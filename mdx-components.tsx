@@ -20,11 +20,6 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     blockquote: ({ children }) => {
       return <Callout title={children} />;
     },
-    code: ({ children }) => (
-      <code className="bg-neutral-lighter text-s p-xxs rounded-xxs">
-        {children}
-      </code>
-    ),
     h1: ({ children }) => <h1 id={slug(children as string)}>{children}</h1>,
     h2: ({ children }) => (
       <h2 id={slug(children as string)}>

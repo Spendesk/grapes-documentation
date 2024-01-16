@@ -2,7 +2,7 @@
   .docs-layout {
     --fs-body-m: var(--docs-fs-body-m);
     --fs-title-m: var(--docs-fs-title-m);
-    --ff-base: var(--docs-ff);
+    --ff-base: var(--docs-ff-base);
 
     position: relative;
     z-index: 0;
@@ -12,25 +12,7 @@
     gap: var(--spacing-l);
     width: var(--docs-width);
     margin: 0 auto;
-    font: var(--fw-regular) var(--docs-fs-body-m) var(--docs-ff);
-
-    h2[id],
-    h3[id] {
-      scroll-margin-block-start: calc(
-        var(--docs-offset-header) + var(--spacing-m)
-      );
-    }
-
-    hr {
-      background-color: var(--color-neutral-light);
-      margin-block: var(--spacing-xl);
-      border: none;
-      height: 1px;
-    }
-
-    a + a {
-      margin-inline-start: var(--spacing-s);
-    }
+    font: var(--fw-regular) var(--docs-fs-body-m) var(--docs-ff-base);
   }
 
   .docs-sidebar {
@@ -63,6 +45,9 @@
       font-weight: var(--fw-medium);
       margin-block: var(--spacing-m) var(--spacing-xs);
       text-decoration: none;
+      scroll-margin-block-start: calc(
+        var(--docs-offset-header) + var(--spacing-m)
+      );
     }
 
     :is(h2, h3) a:hover::before {
@@ -97,6 +82,26 @@
     :is(&, [role="tabpanel"]) > p {
       margin-block: var(--spacing-xs);
       font-size: var(--docs-fs-body-m);
+    }
+
+    hr {
+      background-color: var(--color-neutral-light);
+      margin-block: var(--spacing-xl);
+      border: none;
+      height: 1px;
+    }
+
+    a + a {
+      margin-inline-start: var(--spacing-s);
+    }
+
+    :not(pre) > code {
+      background: var(--color-neutral-lighter);
+      padding: var(--spacing-xxs);
+      border-radius: var(--border-radius-xxs);
+      color: var(--color-primary-light);
+      font-family: var(--docs-ff-mono);
+      font-size: var(--docs-fs-body-s);
     }
 
     .box {

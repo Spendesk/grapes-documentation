@@ -113,13 +113,16 @@
   --docs-background-header: rgb(255 255 255 / 0.8);
   --docs-background-filter: blur(8px);
   --docs-width: min(95vw, 1400px);
+  --docs-fs-body-xs: 0.85rem;
   --docs-fs-body-s: 0.9rem;
   --docs-fs-body-m: 1rem;
   --docs-fs-title-m: 0.9rem;
   --docs-fs-title-l: 1rem;
   --docs-fs-title-xl: 1.3rem;
   --docs-fs-title-xxl: 2rem;
-  --docs-ff: system-ui;
+  --docs-ff-base: system-ui;
+  --docs-ff-mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas,
+    monospace;
 
   --bkp-fs-title-m: var(--fs-title-m);
   --bkp-fs-body-m: var(--fs-body-m);
