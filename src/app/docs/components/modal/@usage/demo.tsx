@@ -1,5 +1,6 @@
 "use client";
 
+import { Preview } from "@/components/preview/preview";
 import { Button, Modal } from "@dev-spendesk/grapes";
 import { useState } from "react";
 
@@ -7,7 +8,7 @@ export function DemoModal() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="box">
+    <Preview>
       <Button text="Open the modal" onClick={() => setIsOpen(true)} />
       <Modal
         isOpen={isOpen}
@@ -32,6 +33,6 @@ export function DemoModal() {
       >
         We recommend closing first before switching.
       </Modal>
-    </div>
+    </Preview>
   );
 }

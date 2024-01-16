@@ -1,5 +1,6 @@
 "use client";
 
+import { Preview } from "@/components/preview/preview";
 import {
   Button,
   ModalBody,
@@ -14,7 +15,7 @@ export function WithLowerLevelConstructModal() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="box">
+    <Preview>
       <Button text="Open the modal" onClick={() => setIsOpen(true)} />
       <ModalOverlay isOpen={isOpen}>
         <ModalContent
@@ -44,6 +45,6 @@ export function WithLowerLevelConstructModal() {
           </ModalFooter>
         </ModalContent>
       </ModalOverlay>
-    </div>
+    </Preview>
   );
 }
