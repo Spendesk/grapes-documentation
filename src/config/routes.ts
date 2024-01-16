@@ -272,6 +272,10 @@ export const componentRoutes: RouteConfig[] = [
         label: "SideNavigation",
         url: "/docs/components/side-navigation",
       },
+      {
+        label: "Tabs",
+        url: "/docs/components/tabs",
+      },
     ],
   },
 ];
