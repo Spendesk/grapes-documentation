@@ -109,6 +109,10 @@ export const componentRoutes: RouteConfig[] = [
         url: "/docs/components/password-input",
       },
       {
+        label: "PhoneInput",
+        url: "/docs/components/phone-input",
+      },
+      {
         label: "RadioBox",
         url: "/docs/components/radio-box",
       },
