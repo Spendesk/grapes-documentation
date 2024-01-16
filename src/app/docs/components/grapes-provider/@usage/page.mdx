@@ -1,0 +1,35 @@
+## Basic usage
+
+```tsx
+import { GrapesProvider } from "@dev-spendesk/grapes";
+
+const RootApp = ({ children }) => {
+  return (
+    <GrapesProvider
+      locale="en-US" // Locale of the user
+      localesDefinition={{
+        fallbackLocale: "en-US", // Fallback if locale isn't defined in locales
+        locales: {
+          "en-US": {
+            cancel: "Cancel",
+            close: "Close",
+            nextMonth: "Next month",
+            previousMonth: "Previous month",
+            openCalendar: "Open calendar",
+            show: "show",
+            hide: "hide",
+          },
+        },
+      }}
+    >
+      {children}
+    </GrapesProvider>
+  );
+};
+```
+
+## Internationalization
+
+While many components offer props for labels, titles, and descriptions, certain complex components require translations specifically for accessibility purposes. Those translations are common and shared between multiple components, that's why we decided to define it here, in the GrapesProvider.
+
+To prevent bundling all localization strings for every language, Grapes allows you to define those keys directly from the GrapesProvider using the props `localesDefinition`.
