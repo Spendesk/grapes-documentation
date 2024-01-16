@@ -90,7 +90,7 @@
       font-size: 70px;
       line-height: 80px;
       font-weight: 700;
-      font-family: var(--docs-ff);
+      font-family: var(--docs-ff-base);
 
       span {
         display: block;
