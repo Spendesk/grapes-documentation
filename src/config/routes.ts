@@ -85,16 +85,28 @@ export const componentRoutes: RouteConfig[] = [
         url: "/docs/components/autocomplete-place",
       },
       {
-        label: "FormField",
-        url: "/docs/components/form-field",
-      },
-      {
         label: "CheckboxField",
         url: "/docs/components/checkbox-field",
       },
       {
         label: "DatePicker",
         url: "/docs/components/date-picker",
+      },
+      {
+        label: "FormField",
+        url: "/docs/components/form-field",
+      },
+      {
+        label: "MoneyInput",
+        url: "/docs/components/money-input",
+      },
+      {
+        label: "OptionGroup",
+        url: "/docs/components/option-group",
+      },
+      {
+        label: "PasswordInput",
+        url: "/docs/components/password-input",
       },
       {
         label: "RadioBox",
@@ -109,12 +121,16 @@ export const componentRoutes: RouteConfig[] = [
         url: "/docs/components/radio-group",
       },
       {
-        label: "MoneyInput",
-        url: "/docs/components/money-input",
+        label: "SwitchField",
+        url: "/docs/components/switch-field",
       },
       {
-        label: "OptionGroup",
-        url: "/docs/components/option-group",
+        label: "TextArea",
+        url: "/docs/components/text-area",
+      },
+      {
+        label: "TextInput",
+        url: "/docs/components/text-input",
       },
     ],
   },

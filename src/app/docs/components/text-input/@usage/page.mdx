@@ -1,0 +1,76 @@
+import { Button, Icon, TextInput } from "@dev-spendesk/grapes";
+import { Preview } from "@/components/preview/preview";
+
+## Basic usage
+
+<Preview>
+  <TextInput className="w-[360px]" placeholder="Enter account number" />
+</Preview>
+
+```tsx
+const [value, setValue] = useState("");
+
+return (
+  <TextInput
+    placeholder="Enter account number"
+    value={value}
+    onChange={(event) => {
+      setValue(event.target.value);
+    }}
+  />
+);
+```
+
+## Variant
+
+Use the `inputVariant` prop to control the visual style of the TextInput. The TextInput comes with two visual styles: default (default) and magicGradient.
+
+<Preview>
+  <TextInput
+    variant="magicGradient"
+    className="w-[360px]"
+    placeholder="Enter account number"
+  />
+</Preview>
+
+```tsx
+<TextInput variant="magicGradient" {...otherProps} />
+```
+
+## Addon
+
+The `leftAddon` and `rightAddon` props allow you to add a component at the beginning or end of the TextInput.
+
+<Preview>
+  <TextInput
+    className="w-[360px]"
+    placeholder="Enter account number"
+    leftAddon={
+      <Icon color="var(--color-primary)" name="robot-smile" className="ml-xs" />
+    }
+  />
+  <TextInput
+    className="w-[360px]"
+    placeholder="Enter account number"
+    rightAddon={<Button variant="ghost" text="OK" />}
+  />
+</Preview>
+
+```tsx
+<>
+  <TextInput
+    leftAddon={
+      <Icon color="var(--color-primary)" name="robot-smile" className="ml-xs" />
+    }
+    {...otherProps}
+  />
+  <TextInput
+    rightAddon={<Button variant="ghost" text="OK" />}
+    {...otherProps}
+  />
+</>
+```
+
+## Accessibility
+
+Adheres to the [`textbox` role requirements](https://www.w3.org/TR/wai-aria-1.2/#textbox).

@@ -1,0 +1,44 @@
+import { Preview } from "@/components/preview/preview";
+
+import { DemoSwitchField } from "./demo";
+
+## Basic usage
+
+<Preview>
+  <DemoSwitchField />
+</Preview>
+
+```tsx
+const [isChecked, setChecked] = useState(false);
+return (
+  <SwitchField
+    label="Use a default account"
+    isChecked={isChecked}
+    onChange={(event) => {
+      setChecked(event.target.checked);
+    }}
+  />
+);
+```
+
+## Help text
+
+The `helpText` prop lets you add more information about the switch field.
+
+<Preview>
+  <DemoSwitchField withHelpText />
+</Preview>
+
+```tsx
+<SwitchField
+  helpText="This default account will be used for all employees without dedicated accounts."
+  {...otherProps}
+/>
+```
+
+## Accessibility
+
+Adheres to the [`switch` role requirements](https://www.w3.org/TR/wai-aria-1.2/#switch).
+
+- `tab`: Moves focus on the element or outside
+- `space`: Triggers the component action
