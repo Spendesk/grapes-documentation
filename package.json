@@ -25,6 +25,7 @@
     "libphonenumber-js": "^1.10.53",
     "next": "^14.0.4",
     "react": "^18",
+    "react-canvas-confetti": "^2.0.5",
     "react-docgen": "^7.0.3",
     "react-docgen-typescript": "^2.2.2",
     "react-dom": "^18",

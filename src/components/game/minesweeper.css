@@ -1,0 +1,26 @@
+.cell {
+  cursor: pointer;
+  height: var(--sizing-l);
+  width: var(--sizing-l);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-neutral-dark);
+}
+
+.bomb:is(.visible) {
+  background-color: var(--color-neutral-light);
+  background-image: url("/grapes.png");
+  background-size: cover;
+}
+
+.empty:is(.visible) {
+  background-color: var(--color-neutral-light);
+}
+
+.cell-flag {
+  background-image: url("/flag.svg");
+  background-size: var(--sizing-m);
+  background-repeat: no-repeat;
+  background-position: center;
+}
