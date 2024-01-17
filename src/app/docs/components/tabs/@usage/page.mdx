@@ -1,0 +1,217 @@
+import {
+  Icon,
+  Tabs,
+  TabList,
+  Tab,
+  TabPanels,
+  TabPanel,
+  Tag,
+} from "@dev-spendesk/grapes";
+
+import { Preview } from "@/components/preview/preview";
+import { DemoControlledTabs } from "./demo";
+
+## Basic usage
+
+<Preview className="block body-m">
+  <Tabs>
+    <TabList className="mb-s">
+      <Tab>Information</Tab>
+      <Tab>Roles</Tab>
+      <Tab>Settings & Policies</Tab>
+    </TabList>
+    <TabPanels>
+      <TabPanel>First panel</TabPanel>
+      <TabPanel>Second panel</TabPanel>
+      <TabPanel>Third panel</TabPanel>
+    </TabPanels>
+  </Tabs>
+</Preview>
+
+```tsx
+<Tabs>
+  <TabList className="mb-s">
+    <Tab>Information</Tab>
+    <Tab>Roles</Tab>
+    <Tab>Settings & Policies</Tab>
+  </TabList>
+  <TabPanels>
+    <TabPanel>First panel</TabPanel>
+    <TabPanel>Second panel</TabPanel>
+    <TabPanel>Third panel</TabPanel>
+  </TabPanels>
+</Tabs>
+```
+
+## Fitted
+
+Use the `isFitted` prop on the TabList component to make the tabs fit their container.
+
+<Preview className="block body-m">
+  <Tabs>
+    <TabList isFitted className="mb-s">
+      <Tab>Information</Tab>
+      <Tab>Roles</Tab>
+      <Tab>Settings & Policies</Tab>
+    </TabList>
+    <TabPanels>
+      <TabPanel>First panel</TabPanel>
+      <TabPanel>Second panel</TabPanel>
+      <TabPanel>Third panel</TabPanel>
+    </TabPanels>
+  </Tabs>
+</Preview>
+
+```tsx
+<Tabs>
+  <TabList isFitted className="mb-s">
+  ...
+</Tabs>
+```
+
+## Default tab index
+
+Use the `defaultTabIndex` prop to make a tab initially active.
+
+<Preview className="block body-m">
+  <Tabs defaultTabIndex={2}>
+    <TabList className="mb-s">
+      <Tab>Information</Tab>
+      <Tab>Roles</Tab>
+      <Tab>Settings & Policies</Tab>
+    </TabList>
+    <TabPanels>
+      <TabPanel>First panel</TabPanel>
+      <TabPanel>Second panel</TabPanel>
+      <TabPanel>Third panel</TabPanel>
+    </TabPanels>
+  </Tabs>
+</Preview>
+
+```tsx
+<Tabs defaultTabIndex={2}>...</Tabs>
+```
+
+## Customized
+
+The Tab accepts any kind of content, it can be customized as needed.
+
+<Preview className="block body-m">
+  <Tabs>
+    <TabList className="mb-s">
+      <Tab>Information</Tab>
+      <Tab>
+        Roles
+        <Tag className="ml-xs" variant="primary">
+          3
+        </Tag>
+      </Tab>
+      <Tab>
+        <Icon className="mr-xs" color="var(--color-warning)" name="warning" />
+        Settings & Policies
+      </Tab>
+    </TabList>
+    <TabPanels>
+      <TabPanel>First panel</TabPanel>
+      <TabPanel>Second panel</TabPanel>
+      <TabPanel>Third panel</TabPanel>
+    </TabPanels>
+  </Tabs>
+</Preview>
+
+```tsx
+<Tabs>
+  <TabList className="mb-s">
+    <Tab>Information</Tab>
+    <Tab>
+      Roles
+      <Tag className="ml-xs" variant="primary">
+        3
+      </Tag>
+    </Tab>
+    <Tab>
+      <Icon className="mr-xs" color="var(--color-warning)" name="warning" />
+      Settings & Policies
+    </Tab>
+  </TabList>
+  ...
+</Tabs>
+```
+
+## Variant
+
+The Tab comes with three visual styles: primary (default), warning, and alert.
+
+<Preview className="block body-m">
+  <Tabs>
+    <TabList className="mb-s">
+      <Tab variant="primary">Primary</Tab>
+      <Tab variant="warning">Warning</Tab>
+      <Tab variant="alert">Alert</Tab>
+    </TabList>
+    <TabPanels>
+      <TabPanel>First panel</TabPanel>
+      <TabPanel>Second panel</TabPanel>
+      <TabPanel>Third panel</TabPanel>
+    </TabPanels>
+  </Tabs>
+</Preview>
+
+```tsx
+<Tabs>
+  <TabList className="mb-s">
+    <Tab variant="primary">Primary</Tab>
+    <Tab variant="warning">Warning</Tab>
+    <Tab variant="alert">Alert</Tab>
+  </TabList>
+  ...
+</Tabs>
+```
+
+## Controlled
+
+A tab's state can be controlled. Make sure to include the `tabIndex` and `onChange` props.
+
+<Preview className="block body-m">
+  <DemoControlledTabs />
+</Preview>
+
+```tsx
+const [value, setValue] = useState(2);
+
+return (
+  <>
+    <input
+      className="appearance-auto"
+      type="range"
+      min="0"
+      max="2"
+      step="1"
+      value={value}
+      onChange={(e) => setValue(Number(e.target.value))}
+    />
+    <Tabs tabIndex={value} onChange={setValue}>
+      <TabList>
+        <Tab>Tab One</Tab>
+        <Tab>Tab Two</Tab>
+        <Tab>Tab Three</Tab>
+      </TabList>
+      <TabPanels>
+        <TabPanel>First panel</TabPanel>
+        <TabPanel>Second panel</TabPanel>
+        <TabPanel>Third panel</TabPanel>
+      </TabPanels>
+    </Tabs>
+  </>
+);
+```
+
+## Accessibility
+
+Adheres to the [`tab` role requirements](https://www.w3.org/TR/wai-aria-1.2/#tab).
+
+### Keyboard Interaction
+
+- `tab`: Moves focus on the active tab element
+- `arrow left`: Moves focus to the previous tab. If focus is on the first tab, moves focus to the last tab.
+- `arrow right`: Moves focus to the next tab. If focus is on the last tab, moves focus to the first tab.
