@@ -14,7 +14,7 @@ export function Demo() {
       />
       <PageModal isOpen={isOpen} onClose={() => setIsOpen(false)}>
         <div>
-          <p>This is a page modal.</p>
+          <p className="body-m text-neutral-dark">This is a page modal.</p>
         </div>
       </PageModal>
     </>
