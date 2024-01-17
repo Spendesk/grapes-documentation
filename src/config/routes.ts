@@ -70,6 +70,19 @@ export const componentRoutes: RouteConfig[] = [
     ],
   },
   {
+    category: "Icons",
+    routes: [
+      {
+        label: "Icon",
+        url: "/docs/components/icon",
+      },
+      {
+        label: "HighlightIcon",
+        url: "/docs/components/highlight-icon",
+      },
+    ],
+  },
+  {
     category: "Form",
     routes: [
       {
@@ -241,19 +254,6 @@ export const componentRoutes: RouteConfig[] = [
       {
         label: "useDateFormatter",
         url: "/docs/components/use-date-formatter",
-      },
-    ],
-  },
-  {
-    category: "Icons",
-    routes: [
-      {
-        label: "Icon",
-        url: "/docs/components/icon",
-      },
-      {
-        label: "HighlightIcon",
-        url: "/docs/components/highlight-icon",
       },
     ],
   },
