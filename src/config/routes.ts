@@ -53,6 +53,15 @@ export const componentRoutes: RouteConfig[] = [
     ],
   },
   {
+    category: "Applications",
+    routes: [
+      {
+        label: "GrapesProvider",
+        url: "/docs/components/grapes-provider",
+      },
+    ],
+  },
+  {
     category: "Interaction",
     routes: [
       {
