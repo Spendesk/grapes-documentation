@@ -15,6 +15,8 @@ const config: Config = {
     backgroundOpacity: false,
     borderOpacity: false,
     textOpacity: false,
+    container: false,
+    filter: false,
   },
   presets: [require("@dev-spendesk/grapes/tailwind")],
   variants: {},
