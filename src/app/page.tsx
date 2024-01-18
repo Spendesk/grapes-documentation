@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <main className="home-content">
       <div className="hero">
-        <div className="text">
+        <div className="hero-wrapper">
           <h1>
             A bunch of <span>grapes</span>
           </h1>
@@ -18,16 +18,13 @@ export default function Home() {
             and be delighted by the experience, feeling a sense of
             accomplishment and empowerment.
           </p>
-          <Link
-            href="/docs/getting-started/installation"
-            className="primaryLink"
-          >
+          <Link href="/docs/getting-started/installation" className="hero-cta">
             <span className="initial">Get Started</span>
             <span className="hover">Let&apos;s go</span>
             <Icon name="arrow-right" className="arrow" />
           </Link>
         </div>
-        <div className="side"></div>
+        <div className="hero-bg"></div>
       </div>
 
       <section>
@@ -41,8 +38,8 @@ export default function Home() {
           device, feel native to the country and culture within which it is
           used.
         </p>
-        <div className="grid">
-          <Link className="item" href="/docs/tokens" id="card2">
+        <div className="features">
+          <Link className="feature-item" href="/docs/tokens" id="card2">
             <div>
               <h3 className="body-xl">
                 Design Tokens <Icon name="external" />
@@ -59,7 +56,7 @@ export default function Home() {
               className="illustration"
             />
           </Link>
-          <Link href="#" className="item" id="card1">
+          <Link href="#" className="feature-item" id="card1">
             <div>
               <h3 className="body-xl">
                 Design Guidelines <Icon name="external" />
@@ -74,7 +71,11 @@ export default function Home() {
               className="illustration"
             />
           </Link>
-          <Link className="expand item" href="/docs/components" id="card3">
+          <Link
+            className="expand feature-item"
+            href="/docs/components"
+            id="card3"
+          >
             <Image
               width={150}
               height={150}
