@@ -1,7 +1,7 @@
 "use client";
 
-import { colors } from "@dev-spendesk/grapes";
-import { Fragment } from "react";
+import { Tooltip, colors } from "@dev-spendesk/grapes";
+import { Fragment, useEffect, useState } from "react";
 
 type ColorSection =
   | "primary"
@@ -12,39 +12,55 @@ type ColorSection =
   | "alert"
   | "structure";
 
-const tokens: { [key in ColorSection]: string[] } = {
-  primary: [
-    colors.primaryDark,
-    colors.primary,
-    colors.primaryLight,
-    colors.primaryLighter,
-    colors.primaryLightest,
-  ],
+type Color = {
+  name: string;
+  value: string;
+};
+const tokens: { [key in ColorSection]: Color[] } = {
   neutral: [
-    colors.neutralDarker,
-    colors.neutralDark,
-    colors.neutral,
-    colors.neutralLight,
-    colors.neutralLighter,
-    colors.neutralLightest,
+    { name: "darker", value: colors.neutralDarker },
+    { name: "dark", value: colors.neutralDark },
+    { name: "default", value: colors.neutral },
+    { name: "light", value: colors.neutralLight },
+    { name: "lighter", value: colors.neutralLighter },
+    { name: "lightest", value: colors.neutralLightest },
   ],
-  info: [colors.info, colors.infoLighter, colors.infoLightest],
-  success: [colors.success, colors.successLighter, colors.successLightest],
+  primary: [
+    { name: "dark", value: colors.primaryDark },
+    { name: "default", value: colors.primary },
+    { name: "light", value: colors.primaryLight },
+    { name: "lighter", value: colors.primaryLighter },
+    { name: "lightest", value: colors.primaryLightest },
+  ],
   warning: [
-    colors.warningDark,
-    colors.warning,
-    colors.warningLight,
-    colors.warningLighter,
-    colors.warningLightest,
+    { name: "dark", value: colors.warningDark },
+    { name: "default", value: colors.warning },
+    { name: "light", value: colors.warningLight },
+    { name: "lighter", value: colors.warningLighter },
+    { name: "lightest", value: colors.warningLightest },
   ],
   alert: [
-    colors.alertDark,
-    colors.alert,
-    colors.alertLight,
-    colors.alertLighter,
-    colors.alertLightest,
+    { name: "dark", value: colors.alertDark },
+    { name: "default", value: colors.alert },
+    { name: "light", value: colors.alertLight },
+    { name: "lighter", value: colors.alertLighter },
+    { name: "lightest", value: colors.alertLightest },
   ],
-  structure: [colors.complementary, colors.pageBackground, colors.white],
+  success: [
+    { name: "default", value: colors.success },
+    { name: "lighter", value: colors.successLighter },
+    { name: "lightest", value: colors.successLightest },
+  ],
+  info: [
+    { name: "default", value: colors.info },
+    { name: "lighter", value: colors.infoLighter },
+    { name: "lightest", value: colors.infoLightest },
+  ],
+  structure: [
+    { name: "complementary", value: colors.complementary },
+    { name: "background", value: colors.pageBackground },
+    { name: "white", value: colors.white },
+  ],
 };
 
 function getSectionName(section: ColorSection): string {
@@ -67,41 +83,60 @@ function getSectionName(section: ColorSection): string {
 }
 
 export function ColorTokens() {
-  const regExp = /\(([^]+)\)/;
-  if (typeof window === "undefined") {
-    return null;
-  }
-
-  const style = window.getComputedStyle(document.body);
-
   return (
-    <div className="box">
-      {Object.entries(tokens).map(([key, values], index) => (
+    <div>
+      {Object.entries(tokens).map(([key, values]) => (
         <Fragment key={key}>
-          <div className={`w-[150px] my-s title-m ${index === 0 && "mt-0"}`}>
-            {getSectionName(key as ColorSection)}
-          </div>
-          <div className="grid grid-cols-3 gap-s">
-            {values.map((color, index) => {
-              const colorVariable = regExp.exec(color)?.[1];
-              return (
-                <div key={index} className="flex gap-xs items-center">
-                  <div
-                    style={{ backgroundColor: color }}
-                    className="h-xxl w-xxl rounded-xs border border-solid border-neutral-lighter elevation-10"
-                  ></div>
-                  <div>
-                    <div className="font-medium">{color}</div>
-                    {colorVariable && (
-                      <div>{style.getPropertyValue(colorVariable)}</div>
-                    )}
-                  </div>
-                </div>
-              );
-            })}
+          <h2 id={key}>{getSectionName(key as ColorSection)}</h2>
+          <div className="grid grid-cols-6 gap-s">
+            {values.map((color) => (
+              <ColorBox color={color} key={color.name} />
+            ))}
           </div>
         </Fragment>
       ))}
+    </div>
+  );
+}
+
+function ColorBox({ color }: { color: Color }) {
+  const [hasBeenCopied, setHasBeenCopied] = useState(false);
+  const [hexa, setHexa] = useState("");
+
+  // Use Effect to avoid hydration errors
+  // @see https://nextjs.org/docs/messages/react-hydration-error
+  useEffect(() => {
+    const regExp = /\(([^]+)\)/;
+    const colorVariable = regExp.exec(color.value)?.[1];
+    if (typeof window === "undefined" || !colorVariable) {
+      return;
+    }
+    const style = window.getComputedStyle(document.body);
+    setHexa(style.getPropertyValue(colorVariable));
+  }, [color.value]);
+
+  function handleClick() {
+    setHasBeenCopied(true);
+    navigator.clipboard.writeText(`${color.value}`);
+    setTimeout(() => {
+      setHasBeenCopied(false);
+    }, 1_500);
+  }
+
+  return (
+    <div>
+      <Tooltip content="Copied" triggerAsChild isOpen={hasBeenCopied}>
+        <button
+          style={{ backgroundColor: color.value }}
+          aria-label={`Copy ${color.value}`}
+          className="h-3xl rounded-xs w-full border-none transition-all cursor-pointer elevation-20 hover:scale-105"
+          onClick={handleClick}
+        ></button>
+      </Tooltip>
+      <div>
+        <p className="font-medium text-complementary mt-xxs">{color.name}</p>
+        <small className="text-neutral-dark">{hexa}</small>
+      </div>
     </div>
   );
 }
