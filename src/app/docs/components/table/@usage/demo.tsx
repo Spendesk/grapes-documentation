@@ -59,7 +59,7 @@ const columns: TableColumn<DataRow>[] = [
     align: "right",
     width: "20%",
     renderCell(row) {
-      return <span style={{ fontWeight: 500 }}>{row.amount}</span>;
+      return <span className="font-medium">{row.amount}</span>;
     },
   },
 ];
@@ -82,7 +82,7 @@ const columnsWithCellVariant: TableColumn<DataRow>[] = [
       const { supplierName } = row;
       return (
         <>
-          <span style={{ display: "inline-block", marginRight: "12px" }}>
+          <span className="inline-block mr-xs">
             {getCellVariant(row) === "alert" ? "❌" : "👌"}
           </span>
           {supplierName}
@@ -97,7 +97,7 @@ const columnsWithCellVariant: TableColumn<DataRow>[] = [
     align: "right",
     width: "20%",
     renderCell({ amount }) {
-      return <span style={{ fontWeight: 500 }}>{amount}</span>;
+      return <span className="font-medium">{amount}</span>;
     },
   },
 ];
@@ -120,7 +120,7 @@ const columnsWithSort: TableColumn<DataRow>[] = [
     align: "right",
     width: "20%",
     renderCell(row) {
-      return <span style={{ fontWeight: 500 }}>{row.amount}</span>;
+      return <span className="font-medium">{row.amount}</span>;
     },
     getSortValue: (item) => parseInt(item.amount),
   },

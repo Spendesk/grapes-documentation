@@ -29,7 +29,7 @@ export function DemoPhoneInput() {
   const [value, setValue] = useState<string | null>(null);
   const [country, setCountry] = useState<CountryCode>("FR");
   return (
-    <div style={{ width: "360px" }}>
+    <div className="w-[360px]">
       <PhoneInput
         formatPhoneNumber={formatPhoneNumber}
         value={value}
