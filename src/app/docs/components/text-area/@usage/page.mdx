@@ -21,6 +21,22 @@ return (
 );
 ```
 
+## Rows
+
+The `rows` prop allows you to specify how many rows the textarea should have. Its default value is 3.
+
+<Preview>
+  <TextArea
+    className="w-[360px]"
+    placeholder="Describe your expense"
+    rows={10}
+  />
+</Preview>
+
+```tsx
+<TextArea rows={10} />
+```
+
 ## Accessibility
 
 Adheres to the [textbox role requirements](https://www.w3.org/TR/wai-aria-1.2/#textbox).
