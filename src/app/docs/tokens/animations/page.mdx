@@ -9,12 +9,7 @@ export const renderAnimationsToken = (animationToken) => {
     animationToken
   );
   return (
-    <div
-      key={animationToken}
-      style={{
-        textAlign: "center",
-      }}
-    >
+    <div key={animationToken} className="text-center">
       <div className={styles.title}>{animationToken}</div>
       <div className={styles.body}>{value}</div>
     </div>
