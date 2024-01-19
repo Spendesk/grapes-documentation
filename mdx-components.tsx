@@ -23,12 +23,12 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     h1: ({ children }) => <h1 id={slug(children as string)}>{children}</h1>,
     h2: ({ children }) => (
       <h2 id={slug(children as string)}>
-        <Link href={`#${slug(children as string)}`}>{children}</Link>
+        <a href={`#${slug(children as string)}`}>{children}</a>
       </h2>
     ),
     h3: ({ children }) => (
       <h3 id={slug(children as string)}>
-        <Link href={`#${slug(children as string)}`}>{children}</Link>
+        <a href={`#${slug(children as string)}`}>{children}</a>
       </h3>
     ),
     p: ({ children }) => <p>{children}</p>,

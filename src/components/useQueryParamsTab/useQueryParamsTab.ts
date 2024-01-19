@@ -3,7 +3,7 @@ import { useCallback } from "react";
 
 export function useQueryParamsTab(
   tabs: string[],
-  defaultFallback: string
+  defaultFallback: string,
 ): [number, (index: number) => void] {
   const router = useRouter();
   const pathname = usePathname();
@@ -13,9 +13,12 @@ export function useQueryParamsTab(
 
   const setQueryParams = useCallback(
     (index: number) => {
-      router.replace(`${pathname}?tab=${tabs[index]}`);
+      // Skip when search tab is already set
+      if (tabs[index] !== tab) {
+        router.replace(`${pathname}?tab=${tabs[index]}`);
+      }
     },
-    [pathname, router, tabs]
+    [pathname, router, tabs, tab],
   );
 
   return [defaultTabIndex, setQueryParams];

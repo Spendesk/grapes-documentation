@@ -30,18 +30,24 @@ type DemoProps = Partial<{
   withCustomPrefix: boolean;
 }>;
 
-export const Demo = (props: DemoProps) => {
+export const Demo = ({
+  defaultValueIndex,
+  withCustomPrefix,
+  withCustomRenderOption,
+  ...props
+}: DemoProps) => {
   const [options, setOptions] = useState(unfilteredOptions);
-  const [selectedOption, setSelectedOption] = useState<Option | undefined>(() =>
-    props.defaultValueIndex !== undefined
-      ? unfilteredOptions[props.defaultValueIndex]
-      : undefined
+  const [selectedOption, setSelectedOption] = useState<Option | undefined>(
+    () =>
+      defaultValueIndex !== undefined
+        ? unfilteredOptions[defaultValueIndex]
+        : undefined,
   );
 
-  const renderOption = props.withCustomRenderOption
+  const renderOption = withCustomRenderOption
     ? (
         option: Option,
-        state: { isSelected: boolean; isHighlighted: boolean }
+        state: { isSelected: boolean; isHighlighted: boolean },
       ) => (
         <DropdownItem
           {...state}
@@ -52,7 +58,7 @@ export const Demo = (props: DemoProps) => {
     : undefined;
 
   const renderPrefix =
-    props.withCustomPrefix && selectedOption !== undefined
+    withCustomPrefix && selectedOption !== undefined
       ? () => (
           <Avatar size="s" text={selectedOption.label ?? ""} variant="square" />
         )
@@ -77,8 +83,8 @@ export const Demo = (props: DemoProps) => {
         }
         setOptions(
           unfilteredOptions.filter((option) =>
-            option.label.toLowerCase().includes(value.toLowerCase())
-          )
+            option.label.toLowerCase().includes(value.toLowerCase()),
+          ),
         );
       }}
       onSelect={setSelectedOption}

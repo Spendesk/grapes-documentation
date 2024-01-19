@@ -3,13 +3,14 @@
 import { useQueryParamsTab } from "@/components/useQueryParamsTab/useQueryParamsTab";
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from "@dev-spendesk/grapes";
 
+const TABS = ["usage", "props"];
 export default function Layout(props: {
   children: React.ReactNode;
   props: React.ReactNode;
   usage: React.ReactNode;
 }) {
   const [defaultTabIndex, setQueryParams] = useQueryParamsTab(
-    ["usage", "props"],
+    TABS,
     "usage"
   );
 
