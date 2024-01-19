@@ -1,6 +1,8 @@
 import { Button, Icon, TextInput } from "@dev-spendesk/grapes";
 import { Preview } from "@/components/preview/preview";
 
+import { DemoTextInput } from "./demo";
+
 ## Basic usage
 
 <Preview>
@@ -69,6 +71,31 @@ The `leftAddon` and `rightAddon` props allow you to add a component at the begin
     {...otherProps}
   />
 </>
+```
+
+## Pattern validation
+
+The `pattern` prop lets you specify a pattern that the input should follow. The [Constraint validation API](https://developer.mozilla.org/en-US/docs/Web/HTML/Constraint_validation) makes it possible to check that the input's value corresponds to the pattern.
+
+You can try it out with the input below, which only accepts digits and up to 8 characters.
+
+<Preview>
+  <DemoTextInput />
+</Preview>
+
+```tsx
+const [value, setValue] = useState("");
+return (
+  <TextInput
+    value={value}
+    pattern="\d{0,8}"
+    onChange={(event) => {
+      if (event.target.checkValidity()) {
+        setValue(event.target.value);
+      }
+    }}
+  />
+);
 ```
 
 ## Accessibility
