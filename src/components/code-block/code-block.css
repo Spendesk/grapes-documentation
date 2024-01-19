@@ -3,6 +3,8 @@
   position: relative;
   margin-block: var(--spacing-s);
   font-size: var(--docs-fs-body-s);
+  font-family: var(--docs-ff-mono);
+  line-height: 1.3;
 
   .docs-cta-copy {
     position: absolute;
