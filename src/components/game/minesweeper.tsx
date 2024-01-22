@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Fireworks from "react-canvas-confetti/dist/presets/fireworks";
-import { Button, IconButton } from "@dev-spendesk/grapes";
+import { Button, Icon, SwitchField } from "@dev-spendesk/grapes";
 
 import { classNames } from "@/utils/classNames";
 
@@ -216,12 +216,16 @@ export function Minesweeper() {
           </div>
         ))}
       </div>
-      <div className="flex gap-xs mt-xs items-center justify-center">
-        <IconButton
-          variant="border"
-          className={classNames(isSettingFlag && "bg-primary-lighter")}
-          iconName="racing-flag"
-          onClick={() => setIsSettingFlag(!isSettingFlag)}
+      <div className="flex gap-xs mt-xs items-center justify-between">
+        <SwitchField
+          isChecked={isSettingFlag}
+          onChange={() => setIsSettingFlag(!isSettingFlag)}
+          label={
+            <div className="flex gap-xxs items-center">
+              <Icon name="racing-flag" />
+              Flag
+            </div>
+          }
         />
         <Button id="restart" variant="ghost" onClick={reset} text="Restart" />
       </div>
