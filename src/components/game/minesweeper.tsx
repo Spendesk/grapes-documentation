@@ -1,10 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Fireworks from "react-canvas-confetti/dist/presets/fireworks";
 import { Button, Icon, SwitchField } from "@dev-spendesk/grapes";
 
 import { classNames } from "@/utils/classNames";
+
+import { Confetti } from "./confetti";
 
 import "./minesweeper.css";
 
@@ -196,14 +197,14 @@ export function Minesweeper() {
               return (
                 <div
                   className={classNames(
-                    `cell font-medium text-neutral-darker bg-neutral-lighter`,
+                    "cell",
                     grid[x][y] === -1 && "bomb",
                     grid[x][y] === 0 && "empty",
                     isCellVisible && "visible",
-                    isCellVisible && grid[x][y] === 1 && "!bg-info-lighter",
-                    isCellVisible && grid[x][y] === 2 && "!bg-success-lighter",
-                    isCellVisible && grid[x][y] === 3 && "!bg-alert-lighter",
-                    isCellVisible && grid[x][y] === 4 && "!bg-primary-lighter",
+                    isCellVisible && grid[x][y] === 1 && "bg-info-lighter",
+                    isCellVisible && grid[x][y] === 2 && "bg-success-lighter",
+                    isCellVisible && grid[x][y] === 3 && "bg-alert-lighter",
+                    isCellVisible && grid[x][y] === 4 && "bg-primary-lighter",
                     !isCellVisible && flags.has(cellNumber) && "cell-flag",
                   )}
                   key={`${x}${y}`}
@@ -229,7 +230,7 @@ export function Minesweeper() {
         />
         <Button id="restart" variant="ghost" onClick={reset} text="Restart" />
       </div>
-      {status === "won" && <Fireworks autorun={{ speed: 3 }} />}
+      {status === "won" && <Confetti />}
     </div>
   );
 }
