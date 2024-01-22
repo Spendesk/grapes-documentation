@@ -9,8 +9,12 @@ import { Suspense } from "react";
 export const metadata: Metadata = {
   metadataBase: new URL("https://grapes.spendesk.design"),
   title: {
-    template: "%s",
+    template: "%s | Grapes",
     default: "Grapes",
+  },
+  openGraph: {
+    // Globally enable openGraph
+    siteName: "Grapes",
   },
 };
 

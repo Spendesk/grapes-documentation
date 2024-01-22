@@ -18,9 +18,6 @@ const withMDX = createMDX({
       [remarkMdxFrontmatter, { name: "metadata", parsers: "yaml" }],
     ],
   },
-  experimental: {
-    mdxRs: true,
-  },
 });
 
 export default withMDX(nextConfig);
