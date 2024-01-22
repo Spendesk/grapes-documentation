@@ -13,7 +13,15 @@ export default function NotFound() {
       illustration={<Minesweeper />}
       className="not-found"
       title="There's no page at this address"
-      subtitle="Check the URL and try again, or use the search field to find what you need. You can also stay on this page and enjoy the minesweeper!"
+      subtitle={
+        <>
+          <p>
+            Check the URL and try again, or use the search field to find what
+            you need.
+          </p>
+          <p>You can also stay on this page and enjoy the minesweeper!</p>
+        </>
+      }
     />
   );
 }

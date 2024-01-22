@@ -9,14 +9,15 @@ import { Confetti } from "./confetti";
 
 import "./minesweeper.css";
 
-const SIZE = 10;
+const SIZE = 9;
 const NUMBER_OF_BOMBS = 10;
 
-function generateBombs(): Set<number> {
-  const randomNumberArray = new Set<number>();
+function generateBombs(): Set<string> {
+  const randomNumberArray = new Set<string>();
   do {
-    const randomNumber = Math.floor(SIZE ** 2 * Math.random());
-    randomNumberArray.add(randomNumber);
+    const randomX = Math.floor(SIZE * Math.random());
+    const randomY = Math.floor(SIZE * Math.random());
+    randomNumberArray.add(`${randomX}|${randomY}`);
   } while (randomNumberArray.size < NUMBER_OF_BOMBS);
   return randomNumberArray;
 }
@@ -60,9 +61,8 @@ function generateGrid(): number[][] {
   }
   const bombs = generateBombs();
   bombs.forEach((bomb) => {
-    const x = bomb % SIZE;
-    const y = Math.floor(bomb / SIZE);
-    grid[x][y] = -1;
+    const [x, y] = bomb.split("|");
+    grid[+x][+y] = -1;
   });
   for (let x = 0; x < SIZE; x++) {
     for (let y = 0; y < SIZE; y++) {
@@ -75,12 +75,12 @@ function generateGrid(): number[][] {
 }
 
 function displayEmptyCells(
-  visibleCells: Set<number>,
+  visibleCells: Set<string>,
   grid: number[][],
   x: number,
   y: number,
 ) {
-  const cellNumber = Number(`${x}${y}`);
+  const cellNumber = `${x}|${y}`;
   if (!visibleCells.has(cellNumber)) {
     visibleCells.add(cellNumber);
     if (grid[x][y] === 0) {
@@ -90,7 +90,7 @@ function displayEmptyCells(
 }
 
 function displayEmptyCellsRecursive(
-  visibleCells: Set<number>,
+  visibleCells: Set<string>,
   grid: number[][],
   x: number,
   y: number,
@@ -123,11 +123,11 @@ function displayEmptyCellsRecursive(
 }
 
 export function Minesweeper() {
-  const [grid, setGrid] = useState<number[][]>([[]]);
+  const [grid, setGrid] = useState<number[][]>(generateGrid());
   const [isSettingFlag, setIsSettingFlag] = useState(false);
-  const [flags, setFlags] = useState<Set<number>>(new Set<number>());
-  const [visibleCells, setVisibleCells] = useState<Set<number>>(
-    new Set<number>(),
+  const [flags, setFlags] = useState<Set<string>>(new Set<string>());
+  const [visibleCells, setVisibleCells] = useState<Set<string>>(
+    new Set<string>(),
   );
   const [areAllCellsVisible, setAreAllCellsVisible] = useState(false);
   const [status, setStatus] = useState<"won" | "lost">();
@@ -144,7 +144,7 @@ export function Minesweeper() {
   }, [visibleCells]);
 
   function handleOnCellClick(x: number, y: number, isCellVisible: boolean) {
-    const cellNumber = Number(`${x}${y}`);
+    const cellNumber = `${x}|${y}`;
     if (isSettingFlag && !isCellVisible) {
       setFlags((previous) => {
         const newSet = new Set(previous);
@@ -179,8 +179,8 @@ export function Minesweeper() {
 
   function reset() {
     setGrid(generateGrid());
-    setVisibleCells(new Set<number>());
-    setFlags(new Set<number>());
+    setVisibleCells(new Set<string>());
+    setFlags(new Set<string>());
     setAreAllCellsVisible(false);
     setStatus(undefined);
   }
@@ -191,7 +191,7 @@ export function Minesweeper() {
         {grid.map((row, x) => (
           <div className="flex" key={x}>
             {row.map((_, y) => {
-              const cellNumber = Number(`${x}${y}`);
+              const cellNumber = `${x}|${y}`;
               const isCellVisible =
                 areAllCellsVisible || visibleCells.has(cellNumber);
               return (
@@ -207,7 +207,7 @@ export function Minesweeper() {
                     isCellVisible && grid[x][y] === 4 && "bg-primary-lighter",
                     !isCellVisible && flags.has(cellNumber) && "cell-flag",
                   )}
-                  key={`${x}${y}`}
+                  key={`${x}|${y}`}
                   onClick={() => handleOnCellClick(x, y, isCellVisible)}
                 >
                   {grid[x][y] > 0 && isCellVisible && grid[x][y]}
