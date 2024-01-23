@@ -17,7 +17,7 @@ export function TypographyTokens({ tokens }: Props) {
 }
 
 function TypographyBox({ token }: { token: string }) {
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement | null>(null);
   const [fontSize, setFontSize] = useState("");
 
   useEffect(() => {

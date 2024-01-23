@@ -14,7 +14,7 @@ export function SizingTokens() {
 }
 
 function SizingBox({ token }: { token: string }) {
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement | null>(null);
   const [sizing, setSizing] = useState("");
 
   useEffect(() => {

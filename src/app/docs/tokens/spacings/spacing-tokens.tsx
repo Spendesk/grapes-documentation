@@ -14,7 +14,7 @@ export function SpacingTokens() {
 }
 
 function SpacingBox({ token }: { token: string }) {
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement | null>(null);
   const [spacing, setSpacing] = useState("");
 
   useEffect(() => {

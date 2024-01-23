@@ -14,7 +14,7 @@ export function BorderRadiusTokens() {
 }
 
 function BorderRadiusBox({ token }: { token: string }) {
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement | null>(null);
   const [borderRadius, setBorderRadius] = useState("");
 
   useEffect(() => {
