@@ -225,6 +225,10 @@ export const componentRoutes: RouteConfig[] = [
     category: "Data display",
     routes: [
       {
+        label: "Accordion",
+        url: "/docs/components/accordion",
+      },
+      {
         label: "Avatar",
         url: "/docs/components/avatar",
       },
