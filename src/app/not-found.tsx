@@ -15,11 +15,10 @@ export default function NotFound() {
       title="There's no page at this address"
       subtitle={
         <>
-          <p>
-            Check the URL and try again, or use the search field to find what
-            you need.
-          </p>
-          <p>You can also stay on this page and enjoy the minesweeper!</p>
+          Check the URL and try again, or use the search field to find what you
+          need.
+          <br />
+          You can also stay on this page and enjoy the minesweeper!
         </>
       }
     />
