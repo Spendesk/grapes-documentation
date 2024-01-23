@@ -6,8 +6,6 @@ import {
   AccordionItem,
   Button,
 } from "@dev-spendesk/grapes";
-
-import styles from "./demo.module.css";
 import { useRef } from "react";
 
 const accordionItems = [
@@ -57,7 +55,7 @@ export function DemoAccordion({
         defaultAccordionItemIndexes={
           withDefaultOpenItems ? new Set([0, 2]) : undefined
         }
-        className={styles.accordion}
+        className="w-full overflow-hidden"
       >
         {accordionItems.map((accordionItem) => (
           <AccordionItem
