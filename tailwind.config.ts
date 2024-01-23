@@ -20,5 +20,8 @@ const config: Config = {
   },
   presets: [require("@dev-spendesk/grapes/tailwind")],
   variants: {},
+  // These classes are added dynamically and need to be safelisted.
+  // @see https://tailwindcss.com/docs/content-configuration#safelisting-classes
+  safelist: ["title-s", "title-xl", "body-xxl"],
 };
 export default config;
