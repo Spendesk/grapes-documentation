@@ -18,13 +18,8 @@ export function TypographyTokens({ tokens }: Props) {
     }
   }, []);
 
-  if (typeof window === "undefined") {
-    return null;
-  }
-
-  const style = window.getComputedStyle(document.documentElement);
   return (
-    <div className="box flex flex-col gap-m">
+    <div className="box flex flex-col gap-m body-m">
       {tokens.map((token) => (
         <div className="flex items-center" key={token}>
           <div className="w-[80px] shrink-0">
