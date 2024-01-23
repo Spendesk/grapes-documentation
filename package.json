@@ -31,8 +31,8 @@
     "react-dom": "^18",
     "remark-frontmatter": "^5.0.0",
     "remark-mdx-frontmatter": "^4.0.0",
-    "shikiji": "^0.9.17",
-    "shikiji-transformers": "^0.10.0-beta.4"
+    "shikiji": "^0.10.0",
+    "shikiji-transformers": "^0.10.0"
   },
   "devDependencies": {
     "@types/node": "^20.11.5",
