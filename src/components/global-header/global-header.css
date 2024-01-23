@@ -62,7 +62,17 @@
   }
 
   @media (width <= 900px) {
-    .global-header-links {
+    .global-header-wrapper {
+      grid-template-columns: 1fr 200px;
+    }
+    .global-header-links,
+    .grapes-version {
+      display: none;
+    }
+  }
+
+  @media (width <= 1000px) {
+    .global-header-logos {
       display: none;
     }
   }
