@@ -34,7 +34,7 @@ export function SideBar() {
   const pathname = usePathname();
 
   const currentHeaderRoute = headerRoutes.find((headerRoute) =>
-    pathname.startsWith(headerRoute.url)
+    pathname.startsWith(headerRoute.url),
   );
   const currentHeaderRouteId = currentHeaderRoute
     ? currentHeaderRoute.id
