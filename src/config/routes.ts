@@ -1,7 +1,7 @@
 import { IconName } from "@dev-spendesk/grapes";
 
 type HeaderRoute = {
-  id: "theme" | "components";
+  id: "getting-started" | "theme" | "components";
   category: string;
   iconName: IconName;
   url: string;
@@ -19,10 +19,10 @@ export type Route = {
 
 export const headerRoutes: HeaderRoute[] = [
   {
-    id: "components",
+    id: "getting-started",
     category: "Getting Started",
     iconName: "success",
-    url: "/docs/getting-started/installation",
+    url: "/docs/getting-started",
   },
   {
     id: "theme",
@@ -38,13 +38,13 @@ export const headerRoutes: HeaderRoute[] = [
   },
 ];
 
-export const componentRoutes: RouteConfig[] = [
+export const gettingStartedRoutes: RouteConfig[] = [
   {
     category: "Getting Started",
     routes: [
       {
         label: "Installation",
-        url: "/docs/getting-started/installation",
+        url: "/docs/getting-started",
       },
       {
         label: "Supported Platforms",
@@ -57,10 +57,13 @@ export const componentRoutes: RouteConfig[] = [
     routes: [
       {
         label: "GrapesProvider",
-        url: "/docs/components/grapes-provider",
+        url: "/docs/getting-started/grapes-provider",
       },
     ],
   },
+];
+
+export const componentRoutes: RouteConfig[] = [
   {
     category: "Interaction",
     routes: [
@@ -359,6 +362,7 @@ const designTokensRoutes: RouteConfig[] = [
 ];
 
 export const routes = {
+  "getting-started": gettingStartedRoutes,
   components: componentRoutes,
   theme: designTokensRoutes,
 };
