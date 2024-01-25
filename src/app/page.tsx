@@ -18,7 +18,7 @@ export default function Home() {
             and be delighted by the experience, feeling a sense of
             accomplishment and empowerment.
           </p>
-          <Link href="/docs/getting-started/installation" className="hero-cta">
+          <Link href="/docs/getting-started" className="hero-cta">
             <span className="initial">Get Started</span>
             <span className="hover">Let&apos;s go</span>
             <Icon name="arrow-right" className="arrow" />
