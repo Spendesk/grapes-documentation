@@ -22,7 +22,6 @@ function generateBombs(cellNumber: string): Set<string> {
       randomNumberArray.add(`${randomX}|${randomY}`);
     }
   } while (randomNumberArray.size < NUMBER_OF_BOMBS);
-  console.log(cellNumber, randomNumberArray);
   return randomNumberArray;
 }
 
@@ -139,7 +138,6 @@ export function Minesweeper() {
   );
   const [areAllCellsVisible, setAreAllCellsVisible] = useState(false);
   const [status, setStatus] = useState<"won" | "lost">();
-  const [isFirstClick, setIsFirstClick] = useState(true);
 
   useEffect(() => {
     if (visibleCells.size === SIZE ** 2 - NUMBER_OF_BOMBS) {
@@ -151,9 +149,8 @@ export function Minesweeper() {
   function handleOnCellClick(x: number, y: number, isCellVisible: boolean) {
     const cellNumber = `${x}|${y}`;
 
-    if (isFirstClick) {
+    if (visibleCells.size === 0) {
       setGrid(generateGrid(grid, cellNumber));
-      setIsFirstClick(false);
     }
 
     if (isSettingFlag && !isCellVisible) {
@@ -190,7 +187,6 @@ export function Minesweeper() {
 
   function reset() {
     setGrid(initializeGrid());
-    setIsFirstClick(true);
     setVisibleCells(new Set<string>());
     setFlags(new Set<string>());
     setAreAllCellsVisible(false);
