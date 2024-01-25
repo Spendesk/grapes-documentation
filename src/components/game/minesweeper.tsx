@@ -12,13 +12,17 @@ import "./minesweeper.css";
 const SIZE = 9;
 const NUMBER_OF_BOMBS = 10;
 
-function generateBombs(): Set<string> {
+function generateBombs(cellNumber: string): Set<string> {
   const randomNumberArray = new Set<string>();
   do {
     const randomX = Math.floor(SIZE * Math.random());
     const randomY = Math.floor(SIZE * Math.random());
-    randomNumberArray.add(`${randomX}|${randomY}`);
+    const bombCellNumber = `${randomX}|${randomY}`;
+    if (bombCellNumber !== cellNumber) {
+      randomNumberArray.add(`${randomX}|${randomY}`);
+    }
   } while (randomNumberArray.size < NUMBER_OF_BOMBS);
+  console.log(cellNumber, randomNumberArray);
   return randomNumberArray;
 }
 
@@ -54,12 +58,16 @@ function generateCellContent(grid: number[][], x: number, y: number): number {
   return sum;
 }
 
-function generateGrid(): number[][] {
+function initializeGrid() {
   const grid: number[][] = Array.from({ length: SIZE }, () => []);
   for (let i in grid) {
     grid[i] = Array.from({ length: SIZE }, () => 0);
   }
-  const bombs = generateBombs();
+  return grid;
+}
+
+function generateGrid(grid: number[][], cellNumber: string): number[][] {
+  const bombs = generateBombs(cellNumber);
   bombs.forEach((bomb) => {
     const [x, y] = bomb.split("|");
     grid[+x][+y] = -1;
@@ -123,7 +131,7 @@ function displayEmptyCellsRecursive(
 }
 
 export function Minesweeper() {
-  const [grid, setGrid] = useState<number[][]>(generateGrid());
+  const [grid, setGrid] = useState<number[][]>(initializeGrid());
   const [isSettingFlag, setIsSettingFlag] = useState(false);
   const [flags, setFlags] = useState<Set<string>>(new Set<string>());
   const [visibleCells, setVisibleCells] = useState<Set<string>>(
@@ -131,10 +139,7 @@ export function Minesweeper() {
   );
   const [areAllCellsVisible, setAreAllCellsVisible] = useState(false);
   const [status, setStatus] = useState<"won" | "lost">();
-
-  useEffect(() => {
-    setGrid(generateGrid());
-  }, []);
+  const [isFirstClick, setIsFirstClick] = useState(true);
 
   useEffect(() => {
     if (visibleCells.size === SIZE ** 2 - NUMBER_OF_BOMBS) {
@@ -145,6 +150,12 @@ export function Minesweeper() {
 
   function handleOnCellClick(x: number, y: number, isCellVisible: boolean) {
     const cellNumber = `${x}|${y}`;
+
+    if (isFirstClick) {
+      setGrid(generateGrid(grid, cellNumber));
+      setIsFirstClick(false);
+    }
+
     if (isSettingFlag && !isCellVisible) {
       setFlags((previous) => {
         const newSet = new Set(previous);
@@ -178,7 +189,8 @@ export function Minesweeper() {
   }
 
   function reset() {
-    setGrid(generateGrid());
+    setGrid(initializeGrid());
+    setIsFirstClick(true);
     setVisibleCells(new Set<string>());
     setFlags(new Set<string>());
     setAreAllCellsVisible(false);
