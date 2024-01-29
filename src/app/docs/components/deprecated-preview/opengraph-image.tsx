@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 
 import OgImage, { fetchFonts } from "@/components/og-image/ogImage";
 
-export const alt = "Component: Preview";
+export const alt = "Component: DeprecatedPreview";
 export const size = {
   width: 1200,
   height: 630,
@@ -12,8 +12,11 @@ export const contentType = "image/png";
 
 export default async function Image() {
   const fonts = await fetchFonts();
-  return new ImageResponse(<OgImage title="Preview" subtitle="Component" />, {
-    ...size,
-    fonts,
-  });
+  return new ImageResponse(
+    <OgImage title="DeprecatedPreview" subtitle="Component" />,
+    {
+      ...size,
+      fonts,
+    },
+  );
 }

@@ -260,8 +260,8 @@ export const componentRoutes: RouteConfig[] = [
         url: "/docs/components/panel",
       },
       {
-        label: "Preview",
-        url: "/docs/components/preview",
+        label: "DeprecatedPreview",
+        url: "/docs/components/deprecated-preview",
       },
       {
         label: "Table",

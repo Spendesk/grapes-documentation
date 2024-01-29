@@ -1,6 +1,10 @@
 "use client";
 
-import { Preview, Timeline, TimelineItem } from "@dev-spendesk/grapes";
+import {
+  DeprecatedPreview,
+  Timeline,
+  TimelineItem,
+} from "@dev-spendesk/grapes";
 
 export function TimelineWithCustomDate() {
   return (
@@ -19,7 +23,10 @@ export function TimelineWithCustomDate() {
         </section>
       </TimelineItem>
       <TimelineItem date={new Date("2021-01-08T08:24:00.000Z")}>
-        <Preview fit="parent" primaryText="Validated by Finance Team" />
+        <DeprecatedPreview
+          fit="parent"
+          primaryText="Validated by Finance Team"
+        />
       </TimelineItem>
     </Timeline>
   );
