@@ -1,9 +1,9 @@
-import { Preview as GrapesPreview, Icon, Tag } from "@dev-spendesk/grapes";
+import { DeprecatedPreview as GrapesPreview, Icon } from "@dev-spendesk/grapes";
 import { Preview } from "@/components/preview/preview";
 
 ## Basic usage
 
-The `rightAddon` prop is used to add a component on the right of the `Preview` component. To add a callback to the component, for example to open a modal or redirect to another page, you can use the `onClick` prop.
+The `rightAddon` prop is used to add a component on the right of the `DeprecatedPreview` component. To add a callback to the component, for example to open a modal or redirect to another page, you can use the `onClick` prop.
 
 <Preview>
   <GrapesPreview
@@ -15,7 +15,7 @@ The `rightAddon` prop is used to add a component on the right of the `Preview` c
 </Preview>
 
 ```tsx
-<Preview
+<DeprecatedPreview
   primaryText="Uploaded on November 4, 2020"
   rightAddon={
     <Icon aria-hidden="true" color="var(--color-neutral)" name="search" />
@@ -39,7 +39,7 @@ The `iconName` prop is used to add a `HighlightIcon` component to the left of th
 </Preview>
 
 ```tsx
-<Preview iconName="receipt-checked" {...otherProps} />
+<DeprecatedPreview iconName="receipt-checked" {...otherProps} />
 ```
 
 ## Secondary text
@@ -61,7 +61,11 @@ The `secondaryText` prop allows you to specify a secondary text to display. You 
 </Preview>
 
 ```tsx
-<Preview primaryText="€400.00" secondaryText="From your bank" {...otherProps} />
+<DeprecatedPreview
+  primaryText="€400.00"
+  secondaryText="From your bank"
+  {...otherProps}
+/>
 ```
 
 ## Overflowing secondary text
@@ -80,7 +84,7 @@ If the `fit` prop is set to `parent` and the content in the secondary text overf
 
 ```tsx
 <div className="w-[360px]">
-  <Preview
+  <DeprecatedPreview
     fit="parent"
     secondaryText="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
     {...otherProps}
@@ -104,5 +108,5 @@ The `isHighlighted` prop lets you specify whether the `Preview` component should
 </Preview>
 
 ```tsx
-<Preview isHighlighted {...otherProps} />
+<DeprecatedPreview isHighlighted {...otherProps} />
 ```

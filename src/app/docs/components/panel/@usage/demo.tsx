@@ -7,7 +7,7 @@ import {
   Icon,
   Panel,
   PanelSection,
-  Preview,
+  DeprecatedPreview,
   TextInput,
 } from "@dev-spendesk/grapes";
 import { useState } from "react";
@@ -80,7 +80,7 @@ export function DemoPanel() {
         </div>
       </PanelSection>
       <PanelSection title="Proof of bank details" isEditable={false}>
-        <Preview
+        <DeprecatedPreview
           fit="parent"
           iconName="receipt-checked"
           primaryText="Uploaded on November 4, 2020"

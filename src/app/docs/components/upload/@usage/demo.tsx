@@ -2,7 +2,7 @@
 
 "use client";
 
-import { IconButton, Preview, Upload } from "@dev-spendesk/grapes";
+import { IconButton, DeprecatedPreview, Upload } from "@dev-spendesk/grapes";
 import { useState } from "react";
 
 type Props = {
@@ -17,7 +17,7 @@ export function DemoUpload({ withIllustration, withAccept }: Props) {
     <div className="w-[360px]">
       {selectedFile ? (
         <div className="flex items-center gap-xxs">
-          <Preview
+          <DeprecatedPreview
             fit="parent"
             iconName="receipt-checked"
             variant="success"
