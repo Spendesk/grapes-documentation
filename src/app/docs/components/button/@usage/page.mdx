@@ -45,7 +45,7 @@ Use the `fit` props to control the size of the Button.
 
 You can attach an Icon to the Button using `iconName` prop.
 
-Use `iconPosition` prop to set the position of the button, either left (default) or right
+Use the `iconPosition` prop to set the position of the button, either left (default) or right
 
 <Preview>
   <Button iconName="caret-left" text="Go back" />
@@ -61,7 +61,7 @@ Use `iconPosition` prop to set the position of the button, either left (default)
 
 ## Text size
 
-Use `maxTextWidth` prop to set a maximum size for the text. An ellipsis will automatically be created if the text overflow the given size.
+Use the `maxTextWidth` prop to set a maximum size for the text. An ellipsis will automatically be created if the text overflows the given size.
 
 <Preview>
   <Button maxTextWidth="10ch" text="This is a very long text" />
@@ -70,5 +70,33 @@ Use `maxTextWidth` prop to set a maximum size for the text. An ellipsis will aut
 ```tsx
 <>
   <Button maxTextWidth="10ch" text="This is a very long text" />
+</>
+```
+
+## Loading state
+
+There are two ways to set the Button's state as loading:
+
+- The `isLoading` prop
+- The asynchronous `onClick` function
+
+<Preview>
+  <Button isLoading variant="primary" text="Primary" />
+  <Button isLoading variant="secondary" text="Secondary" />
+  <Button isLoading variant="contrasted" text="Contrasted" />
+  <Button isLoading variant="warning" text="Warning" />
+  <Button isLoading variant="alert" text="Alert" />
+  <Button isLoading variant="ghost" text="Ghost" />
+</Preview>
+
+```tsx
+<>
+  <Button isLoading {...otherProps} />
+  <Button
+    onClick={async (event) => {
+      await submitForm(event);
+    }}
+    {...otherProps}
+  />
 </>
 ```
