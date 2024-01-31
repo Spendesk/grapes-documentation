@@ -15,7 +15,7 @@ type DataRow = {
   amount: string;
 };
 
-const data: DataRow[] = [
+const initialData: DataRow[] = [
   {
     id: 0,
     accountPayable: "401AIRBNB",
@@ -39,6 +39,33 @@ const data: DataRow[] = [
     accountPayable: "401APPLE",
     supplierName: "Apple",
     amount: "0€",
+  },
+];
+
+const additionalData: DataRow[] = [
+  {
+    id: 4,
+    accountPayable: "401MONOP",
+    supplierName: "Monoprix",
+    amount: "15€",
+  },
+  {
+    id: 5,
+    accountPayable: "401SLACK",
+    supplierName: "Slack",
+    amount: "310€",
+  },
+  {
+    id: 6,
+    accountPayable: "401AMAZON",
+    supplierName: "Amazon",
+    amount: "200€",
+  },
+  {
+    id: 7,
+    accountPayable: "40115FIVE",
+    supplierName: "15Five",
+    amount: "155€",
   },
 ];
 
@@ -151,6 +178,7 @@ export function DemoTable({
   withDisabledRows,
   withMaxHeight,
 }: Props) {
+  const [data, setData] = useState(!isTableEmpty ? initialData : []);
   const [activeRow, setActiveRow] = useState<number>();
   const [selectedRowIds, setSelectedRowsIds] = useState<string[]>([]);
 
@@ -167,9 +195,18 @@ export function DemoTable({
   > = {
     ...(isCompact && { rowHeight: "compact" }),
     ...(withColumnSeparator && { hasColumnSeparator: true }),
-    ...(withFooter && {
-      footer: <Button variant="secondary" text="Load more" />,
-    }),
+    ...(withFooter &&
+      data.length < initialData.length + additionalData.length && {
+        footer: (
+          <Button
+            variant="secondary"
+            text="Load more"
+            onClick={() => {
+              setData([...data, ...additionalData]);
+            }}
+          />
+        ),
+      }),
     ...(withDisabledRows && {
       getIsRowDisabled: (row: DataRow) => row.id === 0 || row.id === 2,
     }),
@@ -202,7 +239,7 @@ export function DemoTable({
   return (
     // @ts-ignore
     <Table
-      data={!isTableEmpty ? data : []}
+      data={data}
       columns={columns}
       getRowId={(row: DataRow) => String(row.id)}
       onRowClick={(row) => setActiveRow(row.id)}
