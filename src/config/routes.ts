@@ -50,6 +50,10 @@ export const gettingStartedRoutes: RouteConfig[] = [
         label: "Supported Platforms",
         url: "/docs/getting-started/supported-platforms",
       },
+      {
+        label: "Contributing",
+        url: "/docs/getting-started/contributing",
+      },
     ],
   },
   {
