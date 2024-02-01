@@ -20,7 +20,7 @@
     "@mdx-js/react": "^3.0.0",
     "@next/mdx": "^14.0.4",
     "@react-docgen/cli": "^2.0.3",
-    "@types/mdx": "^2.0.10",
+    "@types/mdx": "^2.0.11",
     "github-slugger": "^2.0.0",
     "libphonenumber-js": "^1.10.54",
     "next": "^14.0.4",
