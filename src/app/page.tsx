@@ -8,6 +8,7 @@ export default function Home() {
   return (
     <main className="home-content">
       <div className="hero">
+        <div className="hero-bg"></div>
         <div className="hero-wrapper">
           <h1>
             A bunch of <span>grapes</span>
@@ -24,7 +25,6 @@ export default function Home() {
             <Icon name="arrow-right" className="arrow" />
           </Link>
         </div>
-        <div className="hero-bg"></div>
       </div>
 
       <section>
@@ -51,7 +51,7 @@ export default function Home() {
             <Image
               width={150}
               height={150}
-              src="/grapes.png"
+              src="/icon.svg"
               alt="grapes"
               className="illustration"
             />
@@ -66,7 +66,7 @@ export default function Home() {
             <Image
               width={150}
               height={150}
-              src="/grapes.png"
+              src="/icon.svg"
               alt="grapes"
               className="illustration"
             />
@@ -76,13 +76,6 @@ export default function Home() {
             href="/docs/components"
             id="card3"
           >
-            <Image
-              width={150}
-              height={150}
-              src="/grapes.png"
-              alt="grapes"
-              className="illustration"
-            />
             <div>
               <h3 className="body-xl">
                 Components <Icon name="external" />
@@ -92,6 +85,13 @@ export default function Home() {
                 and more consistently
               </p>
             </div>
+            <Image
+              width={150}
+              height={150}
+              src="/icon.svg"
+              alt="grapes"
+              className="illustration"
+            />
           </Link>
         </div>
       </section>
