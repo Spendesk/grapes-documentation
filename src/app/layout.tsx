@@ -12,6 +12,7 @@ export const metadata: Metadata = {
     template: "%s | Grapes",
     default: "Grapes",
   },
+  description: "Spendesk Design System",
   openGraph: {
     // Globally enable openGraph
     siteName: "Grapes",
