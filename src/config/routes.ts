@@ -102,6 +102,10 @@ export const componentRoutes: RouteConfig[] = [
     category: "Form",
     routes: [
       {
+        label: "AmountInput",
+        url: "/docs/components/amount-input",
+      },
+      {
         label: "Autocomplete",
         url: "/docs/components/autocomplete",
       },
@@ -124,10 +128,6 @@ export const componentRoutes: RouteConfig[] = [
       {
         label: "FormField",
         url: "/docs/components/form-field",
-      },
-      {
-        label: "MoneyInput",
-        url: "/docs/components/money-input",
       },
       {
         label: "OptionGroup",

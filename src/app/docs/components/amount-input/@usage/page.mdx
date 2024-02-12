@@ -12,7 +12,7 @@ import { Demo, DemoWithMultipleCurrencies } from "./demo";
 const [selectedValue, setSelectedValue] = useState<number | null>(null);
 
 return (
-  <MoneyInput
+  <AmountInput
     currency={{ key: "EUR", label: "€ - Euro" }}
     value={selectedValue}
     onChange={(event) => {
@@ -32,12 +32,12 @@ The Autocomplete comes with two visual styles: default (default) and magicGradie
 </Preview>
 
 ```tsx
-<MoneyInput variant="magicGradient" {...otherProps} />
+<AmountInput variant="magicGradient" {...otherProps} />
 ```
 
 ## Multiple currencies
 
-The MoneyInput supports multiple currencies using `currencies` prop.
+The AmountInput supports multiple currencies using `currencies` prop.
 `onSelectCurrency` also needs to be provided to catch the event when the user updates the currency.
 If both are provided, a dropdown will be displayed with the predefined currencies.
 
@@ -46,7 +46,7 @@ If both are provided, a dropdown will be displayed with the predefined currencie
 </Preview>
 
 ```tsx
-<MoneyInput
+<AmountInput
   currencies={currencies}
   onSelectCurrency={(selectedCurrency) => {
     setCurrency(selectedCurrency);
@@ -61,14 +61,14 @@ If both are provided, a dropdown will be displayed with the predefined currencie
 
 ## Allow negative value
 
-By default, the MoneyInput doesn't allow negative values. Use `hasNegativeValueAllowed` to allow negative values.
+By default, the AmountInput doesn't allow negative values. Use `hasNegativeValueAllowed` to allow negative values.
 
 <Preview>
   <Demo hasNegativeValueAllowed defaultValue={-1234} />
 </Preview>
 
 ```tsx
-<MoneyInput hasNegativeValueAllowed {...otherProps} />
+<AmountInput hasNegativeValueAllowed {...otherProps} />
 ```
 
 ## Customize input
@@ -86,7 +86,7 @@ Use the `leftAddon` prop to add a ReactNode on the left side of the input.
 </Preview>
 
 ```tsx
-<MoneyInput
+<AmountInput
   leftAddon={
     <div className="ml-xs">
       <Icon name="robot-smile" />
