@@ -1,6 +1,6 @@
 "use client";
 
-import { MoneyInput, MoneyInputProps } from "@dev-spendesk/grapes";
+import { AmountInput, AmountInputProps } from "@dev-spendesk/grapes";
 import { useState } from "react";
 
 const currencies = [
@@ -16,13 +16,13 @@ const currencies = [
   { key: "JPY", label: "¥ - Yen" },
 ];
 
-export function Demo(props: MoneyInputProps & { defaultValue: number }) {
+export function Demo(props: AmountInputProps & { defaultValue: number }) {
   const [selectedValue, setSelectedValue] = useState<number | null>(
-    props.defaultValue ?? null
+    props.defaultValue ?? null,
   );
 
   return (
-    <MoneyInput
+    <AmountInput
       {...props}
       currency={{ key: "EUR", label: "€ - Euro" }}
       value={selectedValue}
@@ -38,7 +38,7 @@ export function DemoWithMultipleCurrencies() {
   const [currency, setCurrency] = useState(currencies[0]);
 
   return (
-    <MoneyInput
+    <AmountInput
       currencies={currencies}
       onSelectCurrency={(selectedCurrency) => {
         setCurrency(selectedCurrency);
