@@ -1,4 +1,4 @@
-import { codeToHtml, addClassToHast } from "shikiji";
+import { codeToHtml, addClassToHast } from "shiki";
 
 type Props = {
   code: string;
