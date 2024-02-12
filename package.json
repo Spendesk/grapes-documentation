@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.23.9",
-    "@dev-spendesk/grapes": "^0.267.0",
+    "@dev-spendesk/grapes": "^0.267.2",
     "@mdx-js/loader": "^3.0.0",
     "@mdx-js/react": "^3.0.0",
     "@next/mdx": "^14.0.4",
