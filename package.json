@@ -20,6 +20,7 @@
     "@mdx-js/react": "^3.0.0",
     "@next/mdx": "^14.0.4",
     "@react-docgen/cli": "^2.0.3",
+    "@shikijs/transformers": "^1.1.1",
     "@types/mdx": "^2.0.11",
     "github-slugger": "^2.0.0",
     "libphonenumber-js": "^1.10.55",
@@ -31,8 +32,7 @@
     "react-dom": "^18",
     "remark-frontmatter": "^5.0.0",
     "remark-mdx-frontmatter": "^4.0.0",
-    "shikiji": "^0.10.0",
-    "shikiji-transformers": "^0.10.2"
+    "shiki": "^1.1.1"
   },
   "devDependencies": {
     "@types/node": "^20.11.16",

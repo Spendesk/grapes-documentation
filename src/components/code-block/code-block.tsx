@@ -1,5 +1,5 @@
-import { codeToHtml, addClassToHast } from "shikiji";
-import { transformerNotationHighlight } from "shikiji-transformers";
+import { codeToHtml, addClassToHast } from "shiki";
+import { transformerNotationHighlight } from "@shikijs/transformers";
 import { CopyButton } from "./copy-button";
 
 import "./code-block.css";
