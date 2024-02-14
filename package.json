@@ -40,7 +40,7 @@
     "@types/react-dom": "^18.2.19",
     "eslint": "^8.56.0",
     "eslint-config-next": "^14.0.4",
-    "husky": "^9.0.10",
+    "husky": "^9.0.11",
     "lint-staged": "^15.2.2",
     "lodash.kebabcase": "^4.1.1",
     "plop": "^4.0.1",
