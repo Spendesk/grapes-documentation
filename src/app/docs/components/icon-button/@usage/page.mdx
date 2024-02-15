@@ -11,8 +11,10 @@ The IconButton comes with 2 variants: border (default) and borderless
 </Preview>
 
 ```tsx
-<IconButton iconName="ellipsis" variant="border" />
-<IconButton iconName="ellipsis" variant="borderless" />
+<>
+  <IconButton iconName="ellipsis" variant="border" />
+  <IconButton iconName="ellipsis" variant="borderless" />
+</>
 ```
 
 ## Margin on borderless variant
@@ -37,10 +39,7 @@ Create a ref using `useRef` and pass it using the `ref` prop.
 </Preview>
 
 ```tsx
-import { useRef } from "react";
-import { IconButton } from "@dev-spendesk/grapes";
-
-export function Demo() {
+function Demo() {
   const ref = useRef<HTMLButtonElement | null>(null);
 
   return <IconButton ref={ref} iconName="ellipsis" variant="border" />;
@@ -57,7 +56,7 @@ An alternative text label must be provided to identify the control. This should 
 
 ```tsx
 <IconButton
-  aria-label="More option" // [!code highlight]
+  aria-label="More options" // [!code highlight]
   iconName="ellipsis"
   variant="borderless"
 />

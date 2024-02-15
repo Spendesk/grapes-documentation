@@ -30,6 +30,7 @@
     "react-docgen": "^7.0.3",
     "react-docgen-typescript": "^2.2.2",
     "react-dom": "^18",
+    "react-live": "^4.1.6",
     "remark-frontmatter": "^5.0.0",
     "remark-mdx-frontmatter": "^4.0.0",
     "shiki": "^1.1.6"
