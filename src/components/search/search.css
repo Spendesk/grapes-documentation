@@ -1,10 +1,22 @@
+.search[open] {
+  translate: 0 5vh;
+  opacity: 1;
+}
+
 .search {
-  margin: 5vh auto;
   width: min(80vw, 500px);
+  margin: 0 auto;
   border: none;
   border-radius: var(--border-radius-xs);
   background: var(--color-white);
   font: var(--fw-regular) var(--docs-fs-body-m) var(--docs-ff-base);
+  opacity: 0;
+  translate: 0 0;
+  transition:
+    opacity var(--transition-duration),
+    translate var(--transition-duration),
+    display var(--transition-duration) allow-discrete,
+    overlay var(--transition-duration) allow-discrete;
 
   &::backdrop {
     background: #17114eb3;
@@ -12,6 +24,14 @@
 
   a {
     text-decoration: none;
+  }
+}
+
+/* Order matter, should be placed after .search[open] and .search  */
+@starting-style {
+  .search[open] {
+    translate: 0 0;
+    opacity: 0;
   }
 }
 
