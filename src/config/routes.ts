@@ -54,6 +54,10 @@ export const gettingStartedRoutes: RouteConfig[] = [
         label: "Contributing",
         url: "/docs/getting-started/contributing",
       },
+      {
+        label: "Codemods",
+        url: "/docs/getting-started/codemods",
+      },
     ],
   },
   {
