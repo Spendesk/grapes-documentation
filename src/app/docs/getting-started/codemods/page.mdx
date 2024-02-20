@@ -1,0 +1,54 @@
+# Codemods
+
+Codemods are transformations that run on your codebase programmatically. This allows a large number of changes to be programmatically applied without having to manually go through every file.
+
+Grapes provides codemod transformations to help upgrade your Grapes application when a component is updated.
+
+---
+
+## Usage
+
+In your terminal, navigate into your project and run:
+
+```bash
+npx @dev-spendesk/grapes-codemod <transform> <path>
+```
+
+Replacing `<transform>` and `<path>` with appropriate values.
+
+- `transform` - name of transform
+- `path` - files or directory to transform
+
+---
+
+## Transformations
+
+### 0.268.0
+
+**Migrate MoneyInput**
+
+This codemod renames the component MoneyInput into AmountInput.
+
+```bash
+npx @dev-spendesk/grapes-codemod moneyinput-rename-amountinput ./src/**/*.{ts,js,tsx,jsx}
+```
+
+### 0.266.0
+
+**Migrate FormField**
+
+This codemod renames the FormField prop `infoText` in `infoTipContent`.
+
+```bash
+npx @dev-spendesk/grapes-codemod formfield-rename-infoText ./src/**/*.{ts,js,tsx,jsx}
+```
+
+### 0.264.0
+
+**Migrate FormField**
+
+This codemod removes the FormField prop `fit.
+
+```bash
+npx @dev-spendesk/grapes-codemod formfield-remove-fit ./src/**/*.{ts,js,tsx,jsx}
+```
