@@ -12,8 +12,8 @@ export function DemoFileCard({ withDelete }: Props) {
       title="Filename.pdf"
       description="Uploaded on November 4, 2020"
       mimeType="application/pdf"
-      onClick={() => console.log("onClick")}
-      onDelete={withDelete ? () => console.log("onDelete") : undefined}
+      onClick={() => {}}
+      onDelete={withDelete ? () => {} : undefined}
     />
   );
 }
