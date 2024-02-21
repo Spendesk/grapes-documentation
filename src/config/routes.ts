@@ -252,6 +252,10 @@ export const componentRoutes: RouteConfig[] = [
         url: "/docs/components/collapsible-list",
       },
       {
+        label: "FileCard",
+        url: "/docs/components/file-card",
+      },
+      {
         label: "InfoTip",
         url: "/docs/components/info-tip",
       },
