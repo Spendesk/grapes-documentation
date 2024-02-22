@@ -9,6 +9,10 @@ import { useHighlight } from "./useHighlight";
 
 import "./search.css";
 
+function extractToken(pattern: string): string[] {
+  return pattern.split(" ").filter((token) => token.length > 0);
+}
+
 export function Search() {
   const modalRef = useRef<HTMLDialogElement | null>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
@@ -38,7 +42,7 @@ export function Search() {
   }, []);
 
   useEffect(() => {
-    highlight(value);
+    highlight(extractToken(value));
   }, [value, highlight]);
 
   const closeModal = () => {
@@ -72,15 +76,27 @@ export function Search() {
     .flatMap((route) =>
       route.reduce((acc, item) => acc.concat(item.routes), [] as Route[]),
     )
+    .flatMap((route) => {
+      if (route.url.includes("components")) {
+        return [
+          route,
+          { label: `${route.label} - Props`, url: `${route.url}?tab=props` },
+        ];
+      }
+      return route;
+    })
     .filter((route) => {
       if (value.trim().length < 1) {
         return false;
       }
-      return route.label
-        .toLowerCase()
-        .includes(value.toLowerCase().replaceAll(" ", ""));
+      const tokens = extractToken(value);
+
+      return tokens.every((token) => {
+        const reg = new RegExp(token, "i");
+        return reg.test(route.label);
+      });
     })
-    .slice(0, 5);
+    .slice(0, 8);
 
   return (
     <>
