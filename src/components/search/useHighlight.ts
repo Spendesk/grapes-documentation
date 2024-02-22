@@ -53,7 +53,7 @@ export function useHighlight(root: MutableRefObject<HTMLUListElement | null>) {
           });
         })
         .forEach((ranges) => {
-          ranges?.forEach((range) => {
+          ranges.forEach((range) => {
             if (range) {
               colorHighlight.add(range);
             }
