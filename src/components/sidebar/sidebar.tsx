@@ -11,27 +11,25 @@ function NavigationList({ route }: { route: RouteConfig }) {
   const listId = useId();
 
   return (
-    <>
-      <details className="mb-l" open>
-        <summary
-          id={listId}
-          className="title-m mb-xs text-primary-dark cursor-pointer"
-        >
-          {route.category}
-        </summary>
-        <ul className="ml-xxs" aria-labelledby={listId}>
-          {route.routes.map((subRoute) => (
-            <li key={subRoute.label}>
-              <SideBarLink
-                isActive={pathname === subRoute.url}
-                url={subRoute.url}
-                label={subRoute.label}
-              />
-            </li>
-          ))}
-        </ul>
-      </details>
-    </>
+    <details className="mb-l" open>
+      <summary
+        id={listId}
+        className="title-m mb-xs text-primary-dark cursor-pointer"
+      >
+        {route.category}
+      </summary>
+      <ul className="ml-xxs" aria-labelledby={listId}>
+        {route.routes.map((subRoute) => (
+          <li key={subRoute.label}>
+            <SideBarLink
+              isActive={pathname === subRoute.url}
+              url={subRoute.url}
+              label={subRoute.label}
+            />
+          </li>
+        ))}
+      </ul>
+    </details>
   );
 }
 
