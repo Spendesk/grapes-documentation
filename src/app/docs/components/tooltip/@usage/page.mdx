@@ -91,13 +91,9 @@ If the `isDisabled` prop is set to `true`, the tooltip will never appear.
 </Tooltip>
 ```
 
-## Always visible
-
 ## Controlled Tooltip
 
 The tooltip can be controlled using the `isOpen` prop.
-
-### Visible on click
 
 <VisibleOnClick />
 
@@ -119,31 +115,6 @@ The tooltip can be controlled using the `isOpen` prop.
     </Tooltip>
   );
 };
-```
-
-### Always visible
-
-If the `isOpen` prop is set to `true`, the tooltip will appear.
-
-<Preview>
-  <Tooltip
-    content="This is some useful information in a tooltip"
-    isOpen
-    placement="right"
-    triggerAsChild
-  >
-    <Button variant="primary" isDisabled text="Tooltip" />
-  </Tooltip>
-</Preview>
-
-```tsx
-<Tooltip
-  content="This is some useful information in a tooltip"
-  isOpen
-  triggerAsChild
->
-  <Button variant="primary" isDisabled text="Tooltip" />
-</Tooltip>
 ```
 
 ## triggerAsChild and forwardRef
