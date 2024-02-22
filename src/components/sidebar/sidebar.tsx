@@ -12,20 +12,25 @@ function NavigationList({ route }: { route: RouteConfig }) {
 
   return (
     <>
-      <h3 id={listId} className="text-primary-dark title-m ml-xs mb-xs">
-        {route.category}
-      </h3>
-      <ul className="mb-l" aria-labelledby={listId}>
-        {route.routes.map((subRoute) => (
-          <li key={subRoute.label}>
-            <SideBarLink
-              isActive={pathname === subRoute.url}
-              url={subRoute.url}
-              label={subRoute.label}
-            />
-          </li>
-        ))}
-      </ul>
+      <details className="mb-l" open>
+        <summary
+          id={listId}
+          className="title-m mb-xs text-primary-dark cursor-pointer"
+        >
+          {route.category}
+        </summary>
+        <ul className="ml-xxs" aria-labelledby={listId}>
+          {route.routes.map((subRoute) => (
+            <li key={subRoute.label}>
+              <SideBarLink
+                isActive={pathname === subRoute.url}
+                url={subRoute.url}
+                label={subRoute.label}
+              />
+            </li>
+          ))}
+        </ul>
+      </details>
     </>
   );
 }
