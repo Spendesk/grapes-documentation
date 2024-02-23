@@ -7,38 +7,9 @@ import { LiveProvider, LiveError, LivePreview } from "react-live";
 import { classNames } from "@/utils/classNames";
 import { CodeEditor } from "./CodeEditor";
 import { CopyButton } from "../copy-button/copy-button";
+import { examples, initialCode } from "./examples";
 
 import styles from "./CodeLive.module.css";
-
-const initialCode = `const Demo = () => {
-  const [isOpen, setIsOpen] = React.useState(false);
-
-  return (
-    <>
-      <Button
-        variant="primary"
-        text="Click me!"
-        onClick={() => setIsOpen(true)}
-      />
-      <Modal
-        isOpen={isOpen}
-        title="It's a modal"
-        iconName="sparkles"
-        actions={[
-          <Button
-            key="certified"
-            variant="primary"
-            text="Thank you :)"
-            onClick={() => setIsOpen(false)}
-          />,
-        ]}
-      />
-    </>
-  );
-};
-
-render(<Demo />);
-`;
 
 export function CodeLive() {
   const [code, setCode] = useState(initialCode);
@@ -48,11 +19,31 @@ export function CodeLive() {
       <div className={styles.codeLiveToolbar}>
         <div className={styles.codeLiveToolbarItem}>
           <GrapesImports.Tag variant="info">Code</GrapesImports.Tag>
-          <GrapesImports.Button
-            iconName="magic-wand"
-            text="Format"
-            variant="secondary"
-          />
+          <div className="flex items-center gap-s">
+            <GrapesImports.DropdownMenu
+              options={examples}
+              renderButton={(getToggleButtonProps) => (
+                <GrapesImports.Button
+                  {...getToggleButtonProps()}
+                  variant="secondary"
+                  text="Load an example"
+                />
+              )}
+              renderOption={(option) => (
+                <GrapesImports.DropdownItem label={option.label} />
+              )}
+              onSelect={(option) => {
+                if (option) {
+                  setCode(option.code);
+                }
+              }}
+            />
+            <GrapesImports.Button
+              iconName="magic-wand"
+              text="Format"
+              variant="secondary"
+            />
+          </div>
         </div>
         <div className={styles.codeLiveToolbarItem}>
           <GrapesImports.Tag variant="info">Preview</GrapesImports.Tag>
