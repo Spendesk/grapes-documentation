@@ -1,0 +1,4 @@
+.containerItem {
+  flex: 1 1 50%;
+  padding: var(--sizing-s);
+}
