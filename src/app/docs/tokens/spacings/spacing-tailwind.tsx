@@ -2,6 +2,7 @@
 
 import { Table } from "@dev-spendesk/grapes";
 import { spacingTokens } from "./types";
+import { CopyCell } from "@/components/copy-cell/copy-cell";
 
 export function SpacingTailwind() {
   return (
@@ -10,13 +11,12 @@ export function SpacingTailwind() {
         {
           header: "TailwindCSS className",
           id: "tailwind",
-          renderCell: ({ tailwind }) => tailwind,
+          renderCell: ({ tailwind }) => <CopyCell content={tailwind} />,
         },
         {
           header: "CSS equivalent",
           id: "css",
-          align: "right",
-          renderCell: ({ css }) => css,
+          renderCell: ({ css }) => <CopyCell content={css} />,
         },
       ]}
       rowHeight="compact"

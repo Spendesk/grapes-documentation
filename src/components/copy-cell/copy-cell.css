@@ -1,0 +1,6 @@
+.docs-cell-copy {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  gap: var(--spacing-xxs);
+}

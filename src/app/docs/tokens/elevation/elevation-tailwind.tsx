@@ -1,6 +1,7 @@
 "use client";
 
 import { Table } from "@dev-spendesk/grapes";
+import { CopyCell } from "@/components/copy-cell/copy-cell";
 import { elevationTokens } from "./types";
 
 export function ElevationTailwind() {
@@ -10,13 +11,12 @@ export function ElevationTailwind() {
         {
           header: "TailwindCSS className",
           id: "tailwind",
-          renderCell: ({ tailwind }) => tailwind,
+          renderCell: ({ tailwind }) => <CopyCell content={tailwind} />,
         },
         {
           header: "CSS equivalent",
           id: "css",
-          align: "right",
-          renderCell: ({ css }) => css,
+          renderCell: ({ css }) => <CopyCell content={css} />,
         },
       ]}
       rowHeight="compact"

@@ -1,6 +1,6 @@
 import { codeToHtml, addClassToHast } from "shiki";
 import { transformerNotationHighlight } from "@shikijs/transformers";
-import { CopyButton } from "./copy-button";
+import { CopyButton } from "@/components/copy-button/copy-button";
 
 import "./code-block.css";
 
@@ -34,7 +34,7 @@ export async function CodeBlock({ language, children }: Props) {
   return (
     <div className="docs-code">
       <div dangerouslySetInnerHTML={{ __html: html }} />
-      <CopyButton content={code} />
+      <CopyButton content={code} className="docs-cta-copy" />
     </div>
   );
 }

@@ -2,6 +2,7 @@
 
 import { Table } from "@dev-spendesk/grapes";
 import { bodyTokens, titleTokens } from "./types";
+import { CopyCell } from "@/components/copy-cell/copy-cell";
 
 export function TypographyTailwind() {
   return (
@@ -10,7 +11,7 @@ export function TypographyTailwind() {
         {
           header: "TailwindCSS className",
           id: "tailwind",
-          renderCell: ({ tailwind }) => tailwind,
+          renderCell: ({ tailwind }) => <CopyCell content={tailwind} />,
         },
       ]}
       rowHeight="compact"
