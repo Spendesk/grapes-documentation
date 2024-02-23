@@ -5,22 +5,32 @@ import { useState } from "react";
 
 type CopyButtonProps = {
   content: string;
+  className?: string;
+  colorScheme?: "light" | "dark";
 };
-export function CopyButton({ content }: CopyButtonProps) {
+export function CopyButton({
+  content,
+  className,
+  colorScheme = "light",
+}: CopyButtonProps) {
   const [hasBeenCopied, setHasBeenCopied] = useState(false);
+  const defaultColor =
+    colorScheme === "light" ? colors.white : colors.neutralDark;
+  const successColor =
+    colorScheme === "light" ? colors.successLightest : colors.success;
 
   return (
     <Tooltip
       triggerAsChild
       content="Copied"
       isOpen={hasBeenCopied}
-      placement="left"
+      placement="top"
     >
       <IconButton
-        className="docs-cta-copy"
+        className={className}
         variant="borderless"
         iconName={hasBeenCopied ? "success" : "copy"}
-        iconColor={hasBeenCopied ? colors.successLightest : colors.white}
+        iconColor={hasBeenCopied ? successColor : defaultColor}
         aria-label={hasBeenCopied ? "Copied" : "Copy"}
         onClick={() => {
           setHasBeenCopied(true);

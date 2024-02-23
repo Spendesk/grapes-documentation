@@ -1,6 +1,7 @@
 "use client";
 
 import { Table, colors } from "@dev-spendesk/grapes";
+import { CopyCell } from "@/components/copy-cell/copy-cell";
 
 export function ColorTailwind() {
   return (
@@ -9,12 +10,11 @@ export function ColorTailwind() {
         {
           header: "TailwindCSS className",
           id: "tailwind",
-          renderCell: ({ tailwind }) => tailwind,
+          renderCell: ({ tailwind }) => <CopyCell content={tailwind} />,
         },
         {
           header: "CSS equivalent",
           id: "css",
-          align: "right",
           renderCell: ({ css }) => <div style={{ color: css }}>Aa</div>,
         },
       ]}
