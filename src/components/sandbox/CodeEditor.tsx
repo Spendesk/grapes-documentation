@@ -2,6 +2,8 @@
 
 import { useCodeEditor } from "./hooks/useCodeEditor";
 
+import "./CodeEditor.css";
+
 type Props = {
   value: string;
   onChange: (value: string) => void;
@@ -10,5 +12,5 @@ type Props = {
 export function CodeEditor({ value, onChange }: Props) {
   const ref = useCodeEditor({ value, onChange });
 
-  return <div ref={ref} />;
+  return <div className="h-full" ref={ref} />;
 }
