@@ -4,6 +4,7 @@
   top: 0;
   background: var(--docs-background-header);
   backdrop-filter: var(--docs-background-filter);
+  -webkit-backdrop-filter: var(--docs-background-filter);
   border-block-end: 1px solid var(--color-neutral-lighter);
   height: var(--docs-offset-header);
 
