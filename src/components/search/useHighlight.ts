@@ -11,7 +11,7 @@ export function useHighlight(root: MutableRefObject<HTMLUListElement | null>) {
     // @ts-ignore
     CSS.highlights.set("primary", colorHighlight);
 
-    return (searchPattern: string) => {
+    return (tokens: string[]) => {
       if (root.current === null) {
         return;
       }
@@ -29,29 +29,35 @@ export function useHighlight(root: MutableRefObject<HTMLUListElement | null>) {
       textNodes
         .map((node) => {
           const text = node.textContent;
-          const lowerCaseSearchPattern = searchPattern.toLowerCase();
 
           if (text === null) {
-            return;
+            return [];
           }
 
-          const startIndex = text.toLowerCase().indexOf(lowerCaseSearchPattern);
-          const endIndex = startIndex + lowerCaseSearchPattern.length;
+          return tokens.map((token) => {
+            const lowerCaseSearchPattern = token.toLowerCase();
+            const startIndex = text
+              .toLowerCase()
+              .indexOf(lowerCaseSearchPattern);
+            const endIndex = startIndex + lowerCaseSearchPattern.length;
 
-          if (startIndex === -1) {
-            return;
-          }
+            if (startIndex === -1) {
+              return;
+            }
 
-          const range = new Range();
-          range.setStart(node, startIndex);
-          range.setEnd(node, endIndex);
+            const range = new Range();
+            range.setStart(node, startIndex);
+            range.setEnd(node, endIndex);
 
-          return range;
+            return range;
+          });
         })
-        .forEach((range) => {
-          if (range !== undefined) {
-            colorHighlight.add(range);
-          }
+        .forEach((ranges) => {
+          ranges.forEach((range) => {
+            if (range) {
+              colorHighlight.add(range);
+            }
+          });
         });
     };
   }
