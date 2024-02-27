@@ -46,6 +46,8 @@ export function useCodeMirror(onChange: (value: string) => void) {
       view.destroy();
       setView(undefined);
     };
+    // FIXME: Adding onChange here causes a bug in the editor, onChange removes the focus
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return { ref, view };
