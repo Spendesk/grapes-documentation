@@ -3,6 +3,9 @@
 import { useState } from "react";
 import * as GrapesImports from "@dev-spendesk/grapes";
 import { LiveProvider, LiveError, LivePreview } from "react-live";
+import * as prettier from "prettier";
+import parserBabel from "prettier/plugins/babel";
+import * as prettierPluginEstree from "prettier/plugins/estree";
 
 import { classNames } from "@/utils/classNames";
 import { CodeEditor } from "./CodeEditor";
@@ -42,6 +45,13 @@ export function CodeLive() {
               iconName="magic-wand"
               text="Format"
               variant="secondary"
+              onClick={async () => {
+                const formattedCode = await prettier.format(code, {
+                  parser: "babel",
+                  plugins: [parserBabel, prettierPluginEstree],
+                });
+                setCode(formattedCode);
+              }}
             />
           </div>
         </div>
