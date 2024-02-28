@@ -22,7 +22,7 @@ export default function Home() {
           <Link href="/docs/getting-started" className="hero-cta">
             <span className="initial">Get Started</span>
             <span className="hover">Let&apos;s go</span>
-            <Icon name="arrow-right" className="arrow" />
+            <Icon name="arrow-right" className="arrow" aria-hidden="true" />
           </Link>
         </div>
       </div>
@@ -42,7 +42,7 @@ export default function Home() {
           <Link className="feature-item" href="/docs/tokens" id="card2">
             <div>
               <h3 className="body-xl">
-                Design Tokens <Icon name="external" />
+                Design Tokens <Icon name="external" aria-hidden="true" />
               </h3>
               <p className="body-l mt-xs">
                 Explore our colors, spacing system and typography
@@ -59,7 +59,7 @@ export default function Home() {
           <Link href="#" className="feature-item" id="card1">
             <div>
               <h3 className="body-xl">
-                Design Guidelines <Icon name="external" />
+                Design Guidelines <Icon name="external" aria-hidden="true" />
               </h3>
               <p className="body-l mt-xs">Coming soon</p>
             </div>
@@ -78,7 +78,7 @@ export default function Home() {
           >
             <div>
               <h3 className="body-xl">
-                Components <Icon name="external" />
+                Components <Icon name="external" aria-hidden="true" />
               </h3>
               <p className="body-l mt-xs">
                 Grapes provides React components to build your project faster

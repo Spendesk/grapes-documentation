@@ -41,7 +41,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
           className="inline-flex gap-xxs items-center"
         >
           {children}
-          <Icon name="external" size="s" />
+          <Icon name="external" size="s" aria-hidden="true" />
         </GrapesLink>
       ) : (
         <Link href={href ?? "#"}>{children}</Link>

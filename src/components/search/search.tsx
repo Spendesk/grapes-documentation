@@ -104,7 +104,12 @@ export function Search() {
         ref={inputRef}
         placeholder="Search the docs"
         leftAddon={
-          <Icon name="search" color={colors.neutralDark} className="ml-xs" />
+          <Icon
+            name="search"
+            color={colors.neutralDark}
+            className="ml-xs"
+            aria-hidden="true"
+          />
         }
         rightAddon={
           <Tag className="mx-xs" variant="neutral">
