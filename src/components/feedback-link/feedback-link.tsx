@@ -18,7 +18,7 @@ export function FeedbackLink() {
       className="inline-flex gap-xxs items-center"
     >
       Leave feedback
-      <Icon name="external" size="s" />
+      <Icon name="external" size="s" aria-hidden="true" />
     </Link>
   );
 }
