@@ -248,6 +248,10 @@ export const componentRoutes: RouteConfig[] = [
         url: "/docs/components/calendar",
       },
       {
+        label: "CalendarRange",
+        url: "/docs/components/calendar-range",
+      },
+      {
         label: "CollapsibleList",
         url: "/docs/components/collapsible-list",
       },
