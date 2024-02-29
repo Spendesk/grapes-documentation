@@ -26,12 +26,11 @@ export function GlobalHeader() {
           />
         </Link>
         <Link
+          className="grapes-version"
           target="_blank"
           href={`https://github.com/Spendesk/grapes/releases/tag/v${grapesPackage.version}`}
         >
-          <Tag className="grapes-version" variant="neutral">
-            {grapesPackage.version}
-          </Tag>
+          <Tag variant="neutral">{grapesPackage.version}</Tag>
         </Link>
         <ul className="global-header-links">
           {headerRoutes.map((headerRoute) => (
