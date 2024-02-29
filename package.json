@@ -14,7 +14,7 @@
     "create:component": "plop component --plopfile scripts/plopfile.js"
   },
   "dependencies": {
-    "@babel/runtime": "^7.23.9",
+    "@babel/runtime": "^7.24.0",
     "@dev-spendesk/grapes": "^0.271.0",
     "@mdx-js/loader": "^3.0.1",
     "@mdx-js/react": "^3.0.1",
