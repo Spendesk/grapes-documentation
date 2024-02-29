@@ -120,6 +120,34 @@
       --fs-body-m: var(--bkp-fs-body-m);
       --ff-base: var(--bkp-ff-base);
     }
+
+    table:not([class^="_grapes"]) {
+      width: 100%;
+      border: 1px solid var(--color-neutral-light);
+      border-radius: var(--border-radius-xs);
+      background-color: var(--color-white);
+      border-spacing: 0;
+
+      td,
+      th {
+        padding: var(--spacing-xs) var(--spacing-s);
+        border-bottom: 1px solid var(--color-neutral-light);
+        font-size: var(--fs-body-m);
+        font-weight: var(--fw-regular);
+        font-family: var(--ff-base);
+      }
+
+      tr:last-of-type td {
+        border-bottom: none;
+      }
+
+      th {
+        color: var(--color-neutral-dark);
+      }
+      td {
+        color: var(--color-complementary);
+      }
+    }
   }
 
   .docs-toc {
