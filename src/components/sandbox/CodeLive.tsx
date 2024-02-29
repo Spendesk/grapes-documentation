@@ -7,6 +7,7 @@ import * as prettier from "prettier";
 import parserBabel from "prettier/plugins/babel";
 import * as prettierPluginEstree from "prettier/plugins/estree";
 import lzString from "lz-string";
+import { usePathname, useRouter } from "next/navigation";
 
 import { classNames } from "@/utils/classNames";
 import { CodeEditor } from "./CodeEditor";
@@ -21,6 +22,8 @@ type Props = {
 
 export function CodeLive({ decompressedCode }: Props) {
   const [code, setCode] = useState(decompressedCode ?? initialCode);
+  const pathname = usePathname();
+  const router = useRouter();
 
   return (
     <div className={styles.codeLive}>
@@ -62,13 +65,9 @@ export function CodeLive({ decompressedCode }: Props) {
               iconName="link"
               text="Share"
               variant="secondary"
-              onClick={async () => {
-                const currentUrl = window.location;
-                const compressedCode =
-                  lzString.compressToEncodedURIComponent(code);
-                console.log("compressed code", compressedCode);
-                const sharedUrl = `${currentUrl}?code=${compressedCode}`;
-                navigator.clipboard.writeText(sharedUrl);
+              onClick={() => {
+                const currentUrl = window.location.href;
+                navigator.clipboard.writeText(currentUrl);
               }}
             />
           </div>
@@ -89,6 +88,9 @@ export function CodeLive({ decompressedCode }: Props) {
             value={code}
             onChange={(newCode) => {
               setCode(newCode);
+              const compressedCode =
+                lzString.compressToEncodedURIComponent(newCode);
+              router.replace(`${pathname}?code=${compressedCode}`);
             }}
           />
           <CopyButton content={code} className="absolute top-0 right-0" />
