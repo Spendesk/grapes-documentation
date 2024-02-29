@@ -6,6 +6,7 @@ import { LiveProvider, LiveError, LivePreview } from "react-live";
 import * as prettier from "prettier";
 import parserBabel from "prettier/plugins/babel";
 import * as prettierPluginEstree from "prettier/plugins/estree";
+import lzString from "lz-string";
 
 import { classNames } from "@/utils/classNames";
 import { CodeEditor } from "./CodeEditor";
@@ -14,8 +15,12 @@ import { examples, initialCode } from "./examples";
 
 import styles from "./CodeLive.module.css";
 
-export function CodeLive() {
-  const [code, setCode] = useState(initialCode);
+type Props = {
+  decompressedCode?: string;
+};
+
+export function CodeLive({ decompressedCode }: Props) {
+  const [code, setCode] = useState(decompressedCode ?? initialCode);
 
   return (
     <div className={styles.codeLive}>
@@ -51,6 +56,19 @@ export function CodeLive() {
                   plugins: [parserBabel, prettierPluginEstree],
                 });
                 setCode(formattedCode);
+              }}
+            />
+            <GrapesImports.Button
+              iconName="link"
+              text="Share"
+              variant="secondary"
+              onClick={async () => {
+                const currentUrl = window.location;
+                const compressedCode =
+                  lzString.compressToEncodedURIComponent(code);
+                console.log("compressed code", compressedCode);
+                const sharedUrl = `${currentUrl}?code=${compressedCode}`;
+                navigator.clipboard.writeText(sharedUrl);
               }}
             />
           </div>
