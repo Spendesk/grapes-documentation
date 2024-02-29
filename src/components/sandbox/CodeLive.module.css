@@ -6,45 +6,43 @@
   margin: var(--sizing-s);
   height: calc(100vh - 68px - 32px) !important;
   width: calc(100vw - 32px) !important;
+  display: flex;
 }
 
 .codeLiveToolbar {
   border-bottom: 1px solid var(--color-neutral-light);
+  border-right: 1px solid var(--color-neutral-light);
   background-color: var(--color-white);
   display: flex;
   height: var(--toolbarHeight);
-}
-
-.codeLiveToolbarItem {
-  flex: 1 1 50%;
-  padding: 0 var(--spacing-s);
-  display: flex;
-  gap: var(--spacing-s);
+  padding: 0 var(--spacing-xs);
   align-items: center;
   justify-content: space-between;
-}
-
-.codeLiveToolbarItem:first-of-type {
-  border-right: 1px solid var(--color-neutral-light);
-}
-
-.codeLiveContainer {
-  display: flex;
-  height: calc(100% - var(--toolbarHeight)) !important;
 }
 
 .codeLiveItem {
   flex: 1 1 50%;
   overflow: auto;
+  position: relative;
 }
 
 .codeLiveItem:last-of-type {
   background-color: var(--color-white);
-  padding: var(--sizing-s);
+  padding: var(--sizing-m);
 }
 
 .codeLiveItem:last-of-type:has(pre) {
   background-color: var(--color-alert-dark);
   color: var(--color-white);
   padding: var(--sizing-s);
+}
+
+.codeLiveEditor {
+  height: calc(100% - var(--toolbarHeight));
+}
+
+.copyButton {
+  position: absolute;
+  top: var(--toolbarHeight);
+  right: 0;
 }

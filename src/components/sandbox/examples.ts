@@ -1,5 +1,5 @@
 export const initialCode = `const Demo = () => {
-  const [isOpen, setIsOpen] = React.useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>

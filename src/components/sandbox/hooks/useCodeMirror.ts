@@ -3,7 +3,7 @@ import { EditorView, basicSetup } from "codemirror";
 import { ViewUpdate, keymap } from "@codemirror/view";
 import { indentWithTab } from "@codemirror/commands";
 import { javascript } from "@codemirror/lang-javascript";
-import { cobalt } from "thememirror";
+import { dracula } from "thememirror";
 
 type OnChange = (value: string, viewUpdate: ViewUpdate) => void;
 
@@ -29,7 +29,7 @@ export function useCodeMirror(onChange: (value: string) => void) {
     const view = new EditorView({
       extensions: [
         basicSetup,
-        cobalt,
+        dracula,
         keymap.of([indentWithTab]),
         javascript({
           jsx: true,
