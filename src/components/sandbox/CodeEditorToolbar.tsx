@@ -1,12 +1,20 @@
-import { Button, DropdownItem, DropdownMenu } from "@dev-spendesk/grapes";
+import {
+  Button,
+  DropdownItem,
+  DropdownMenu,
+  Tooltip,
+} from "@dev-spendesk/grapes";
 import * as prettier from "prettier";
 import parserBabel from "prettier/plugins/babel";
 import parserTypeScript from "prettier/plugins/typescript";
 import * as prettierPluginEstree from "prettier/plugins/estree";
+import lzString from "lz-string";
+import { usePathname, useRouter } from "next/navigation";
 
 import { examples } from "./examples";
 
 import styles from "./CodeLive.module.css";
+import { useState } from "react";
 
 type Props = {
   code: string;
@@ -14,6 +22,10 @@ type Props = {
 };
 
 export const CodeEditorToolbar = ({ code, setCode }: Props) => {
+  const pathname = usePathname();
+  const router = useRouter();
+  const [isSaved, setIsSaved] = useState(false);
+
   return (
     <div className={styles.codeLiveToolbar}>
       <DropdownMenu
@@ -45,15 +57,22 @@ export const CodeEditorToolbar = ({ code, setCode }: Props) => {
             setCode(formattedCode);
           }}
         />
-        <Button
-          iconName="link"
-          text="Share"
-          variant="ghost"
-          onClick={() => {
-            const currentUrl = window.location.href;
-            navigator.clipboard.writeText(currentUrl);
-          }}
-        />
+        <Tooltip content="Saved" isOpen={isSaved}>
+          <Button
+            iconName="thunder"
+            text="Save"
+            variant="ghost"
+            onClick={() => {
+              const compressedCode =
+                lzString.compressToEncodedURIComponent(code);
+              router.replace(`${pathname}?code=${compressedCode}`);
+              setIsSaved(true);
+              setTimeout(() => {
+                setIsSaved(false);
+              }, 1_500);
+            }}
+          />
+        </Tooltip>
       </div>
     </div>
   );

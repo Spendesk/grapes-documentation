@@ -3,8 +3,6 @@
 import React, { useState } from "react";
 import * as GrapesImports from "@dev-spendesk/grapes";
 import { LiveProvider, LiveError, LivePreview } from "react-live";
-import lzString from "lz-string";
-import { usePathname, useRouter } from "next/navigation";
 
 import { CodeEditor } from "./CodeEditor";
 import { CodeEditorToolbar } from "./CodeEditorToolbar";
@@ -19,8 +17,6 @@ type Props = {
 
 export function CodeLive({ decompressedCode }: Props) {
   const [code, setCode] = useState(decompressedCode ?? initialCode);
-  const pathname = usePathname();
-  const router = useRouter();
 
   return (
     <div className={styles.codeLive}>
@@ -31,9 +27,6 @@ export function CodeLive({ decompressedCode }: Props) {
           value={code}
           onChange={(newCode) => {
             setCode(newCode);
-            const compressedCode =
-              lzString.compressToEncodedURIComponent(newCode);
-            router.replace(`${pathname}?code=${compressedCode}`);
           }}
         />
         <CopyButton content={code} className={styles.copyButton} />
