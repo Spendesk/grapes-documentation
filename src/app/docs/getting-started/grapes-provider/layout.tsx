@@ -2,9 +2,10 @@
 
 import { useQueryParamsTab } from "@/components/useQueryParamsTab/useQueryParamsTab";
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from "@dev-spendesk/grapes";
+import { Suspense } from "react";
 
 const TABS = ["usage", "props"];
-export default function Layout(props: {
+function Container(props: {
   children: React.ReactNode;
   props: React.ReactNode;
   usage: React.ReactNode;
@@ -25,5 +26,17 @@ export default function Layout(props: {
         </TabPanels>
       </Tabs>
     </>
+  );
+}
+
+export default function Layout(props: {
+  children: React.ReactNode;
+  props: React.ReactNode;
+  usage: React.ReactNode;
+}) {
+  return (
+    <Suspense>
+      <Container {...props} />
+    </Suspense>
   );
 }
