@@ -9,7 +9,7 @@ export function Demo() {
   return (
     <CheckboxBox
       label="Administrator"
-      description="An admin can set-up the account: invite new members, edit approval policies and team compositions"
+      description="An admin can set up the account: invite new members, edit approval policies and team composition"
       isChecked={isAdministrator}
       onChange={(e) => setAdministrator(e.target.checked)}
     />
