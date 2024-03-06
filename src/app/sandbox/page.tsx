@@ -4,8 +4,9 @@ import { useSearchParams } from "next/navigation";
 import lzString from "lz-string";
 
 import { CodeLive } from "../../components/sandbox/CodeLive";
+import { Suspense } from "react";
 
-export default function Sandbox() {
+function Container() {
   const searchParams = useSearchParams();
   const code = searchParams.get("code");
 
@@ -14,4 +15,12 @@ export default function Sandbox() {
     : undefined;
 
   return <CodeLive decompressedCode={decompressedCode} />;
+}
+
+export default function Sandbox() {
+  return (
+    <Suspense>
+      <Container />
+    </Suspense>
+  );
 }
