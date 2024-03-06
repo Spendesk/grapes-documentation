@@ -128,6 +128,10 @@ export const componentRoutes: RouteConfig[] = [
         url: "/docs/components/autocomplete-place",
       },
       {
+        label: "CheckboxBox",
+        url: "/docs/components/checkbox-box",
+      },
+      {
         label: "CheckboxField",
         url: "/docs/components/checkbox-field",
       },
