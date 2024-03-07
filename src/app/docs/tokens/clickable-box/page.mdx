@@ -1,0 +1,42 @@
+---
+title: Clickable Box
+---
+
+import { Icon } from "@dev-spendesk/grapes";
+import { Preview } from "@/components/preview/preview";
+
+# Clickable Box
+
+Style for the clickable block element.
+
+## Example
+
+<Preview>
+  <button type="button" className="clickableBox justify-between max-w-[300px]">
+    <div className="flex items-center gap-xs">
+      <span>€100.00</span>
+      <span className="text-neutral-dark">|</span>
+      <span className="text-neutral-dark">19/01/2023</span>
+    </div>
+    <Icon name="caret-right" />
+  </button>
+</Preview>
+
+```tsx
+<button type="button" className="clickableBox justify-between max-w-[300px]">
+  <div className="flex items-center gap-xs">
+    <span>€100.00</span>
+    <span className="text-neutral-dark">|</span>
+    <span className="text-neutral-dark">19/01/2023</span>
+  </div>
+  <Icon name="caret-right" />
+</button>
+```
+
+## Usage in TailwindCSS
+
+Whenever you want to apply this style to a clickable block element, you can use the `clickableBox` className.
+
+```tsx
+<MyComponent className="clickableBox" />
+```
