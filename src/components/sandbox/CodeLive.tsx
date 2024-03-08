@@ -9,6 +9,7 @@ import { classNames } from "@/utils/classNames";
 import { CodeEditor } from "./CodeEditor";
 import { CodeEditorToolbar } from "./CodeEditorToolbar";
 import { CopyButton } from "../copy-button/copy-button";
+import { FeedbackLink } from "../feedback-link/feedback-link";
 import { initialCode } from "./examples";
 
 import styles from "./CodeLive.module.css";
@@ -42,12 +43,10 @@ export function CodeLive({ decompressedCode }: Props) {
           <LiveError />
           <LivePreview />
         </LiveProvider>
-        <GrapesImports.Tag
-          className="absolute bottom-xs right-xs"
-          variant="info"
-        >
-          Beta
-        </GrapesImports.Tag>
+        <div className="absolute bottom-xs right-xs flex items-center gap-xs">
+          <GrapesImports.Tag variant="info">Beta</GrapesImports.Tag>
+          <FeedbackLink />
+        </div>
       </div>
     </div>
   );
