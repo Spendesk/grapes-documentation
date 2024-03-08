@@ -1,3 +1,4 @@
+import { useCallback, useEffect, useState } from "react";
 import {
   Button,
   DropdownItem,
@@ -14,7 +15,6 @@ import { usePathname, useRouter } from "next/navigation";
 import { examples } from "./examples";
 
 import styles from "./CodeLive.module.css";
-import { useState } from "react";
 
 type Props = {
   code: string;
@@ -25,6 +25,33 @@ export const CodeEditorToolbar = ({ code, setCode }: Props) => {
   const pathname = usePathname();
   const router = useRouter();
   const [isSaved, setIsSaved] = useState(false);
+
+  const handleSave = useCallback(() => {
+    const compressedCode = lzString.compressToEncodedURIComponent(code);
+    router.replace(`${pathname}?code=${compressedCode}`);
+    setIsSaved(true);
+    setTimeout(() => {
+      setIsSaved(false);
+    }, 1_500);
+  }, [code, pathname, router]);
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      switch (event.key) {
+        case "s":
+          if (event.metaKey) {
+            event.preventDefault(); // Prevent Firefox default behavior
+            handleSave();
+          }
+          break;
+      }
+    };
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [handleSave]);
 
   return (
     <div className={styles.codeLiveToolbar}>
@@ -62,15 +89,7 @@ export const CodeEditorToolbar = ({ code, setCode }: Props) => {
             iconName="thunder"
             text="Save"
             variant="ghost"
-            onClick={() => {
-              const compressedCode =
-                lzString.compressToEncodedURIComponent(code);
-              router.replace(`${pathname}?code=${compressedCode}`);
-              setIsSaved(true);
-              setTimeout(() => {
-                setIsSaved(false);
-              }, 1_500);
-            }}
+            onClick={handleSave}
           />
         </Tooltip>
       </div>
