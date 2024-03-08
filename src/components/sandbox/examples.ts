@@ -103,7 +103,7 @@ const Demo = () => {
             gap: "var(--spacing-xs)",
           }}
         >
-          <Avatar src="https://logo.clearbit.com/google.com" />
+          <Avatar src="https://logo.clearbit.com/google.com" text="Google" />
           Google
         </div>
       }
