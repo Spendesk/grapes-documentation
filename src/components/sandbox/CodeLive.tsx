@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import * as GrapesImports from "@dev-spendesk/grapes";
 import { LiveProvider, LiveError, LivePreview } from "react-live";
 
+import { classNames } from "@/utils/classNames";
+
 import { CodeEditor } from "./CodeEditor";
 import { CodeEditorToolbar } from "./CodeEditorToolbar";
 import { CopyButton } from "../copy-button/copy-button";
@@ -19,7 +21,7 @@ export function CodeLive({ decompressedCode }: Props) {
   const [code, setCode] = useState(decompressedCode ?? initialCode);
 
   return (
-    <div className={styles.codeLive}>
+    <div className={classNames(styles.codeLive, "body-m")}>
       <div className={styles.codeLiveItem}>
         <CodeEditorToolbar code={code} setCode={setCode} />
         <CodeEditor
