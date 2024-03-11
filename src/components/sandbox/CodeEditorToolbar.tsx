@@ -1,10 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import {
-  Button,
-  DropdownItem,
-  DropdownMenu,
-  Tooltip,
-} from "@dev-spendesk/grapes";
+import { Button, DropdownItem, DropdownMenu } from "@dev-spendesk/grapes";
 import * as prettier from "prettier";
 import parserBabel from "prettier/plugins/babel";
 import parserTypeScript from "prettier/plugins/typescript";
@@ -24,15 +19,15 @@ type Props = {
 export const CodeEditorToolbar = ({ code, setCode }: Props) => {
   const pathname = usePathname();
   const router = useRouter();
-  const [isSaved, setIsSaved] = useState(false);
+  const [isSaving, setIsSaving] = useState(false);
 
   const handleSave = useCallback(() => {
     const compressedCode = lzString.compressToEncodedURIComponent(code);
     router.replace(`${pathname}?code=${compressedCode}`);
-    setIsSaved(true);
+    setIsSaving(true);
     setTimeout(() => {
-      setIsSaved(false);
-    }, 1_500);
+      setIsSaving(false);
+    }, 1_000);
   }, [code, pathname, router]);
 
   useEffect(() => {
@@ -51,7 +46,7 @@ export const CodeEditorToolbar = ({ code, setCode }: Props) => {
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
     };
-  }, [handleSave]);
+  }, [handleSave, code]);
 
   return (
     <div className={styles.codeLiveToolbar}>
@@ -84,14 +79,12 @@ export const CodeEditorToolbar = ({ code, setCode }: Props) => {
             setCode(formattedCode);
           }}
         />
-        <Tooltip content="Saved" isOpen={isSaved}>
-          <Button
-            iconName="thunder"
-            text="Save"
-            variant="ghost"
-            onClick={handleSave}
-          />
-        </Tooltip>
+        <Button
+          iconName="thunder"
+          text={isSaving ? "Saving" : "Save"}
+          variant="ghost"
+          onClick={() => handleSave()}
+        />
       </div>
     </div>
   );
