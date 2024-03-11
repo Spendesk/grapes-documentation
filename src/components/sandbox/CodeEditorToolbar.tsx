@@ -1,9 +1,5 @@
-import {
-  Button,
-  DropdownItem,
-  DropdownMenu,
-  Tooltip,
-} from "@dev-spendesk/grapes";
+import { useCallback, useEffect, useState } from "react";
+import { Button, DropdownItem, DropdownMenu } from "@dev-spendesk/grapes";
 import * as prettier from "prettier";
 import parserBabel from "prettier/plugins/babel";
 import parserTypeScript from "prettier/plugins/typescript";
@@ -14,7 +10,6 @@ import { usePathname, useRouter } from "next/navigation";
 import { examples } from "./examples";
 
 import styles from "./CodeLive.module.css";
-import { useState } from "react";
 
 type Props = {
   code: string;
@@ -24,7 +19,34 @@ type Props = {
 export const CodeEditorToolbar = ({ code, setCode }: Props) => {
   const pathname = usePathname();
   const router = useRouter();
-  const [isSaved, setIsSaved] = useState(false);
+  const [isSaving, setIsSaving] = useState(false);
+
+  const handleSave = useCallback(() => {
+    const compressedCode = lzString.compressToEncodedURIComponent(code);
+    router.replace(`${pathname}?code=${compressedCode}`);
+    setIsSaving(true);
+    setTimeout(() => {
+      setIsSaving(false);
+    }, 1_000);
+  }, [code, pathname, router]);
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      switch (event.key) {
+        case "s":
+          if (event.metaKey) {
+            event.preventDefault(); // Prevent Firefox default behavior
+            handleSave();
+          }
+          break;
+      }
+    };
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [handleSave, code]);
 
   return (
     <div className={styles.codeLiveToolbar}>
@@ -57,22 +79,12 @@ export const CodeEditorToolbar = ({ code, setCode }: Props) => {
             setCode(formattedCode);
           }}
         />
-        <Tooltip content="Saved" isOpen={isSaved}>
-          <Button
-            iconName="thunder"
-            text="Save"
-            variant="ghost"
-            onClick={() => {
-              const compressedCode =
-                lzString.compressToEncodedURIComponent(code);
-              router.replace(`${pathname}?code=${compressedCode}`);
-              setIsSaved(true);
-              setTimeout(() => {
-                setIsSaved(false);
-              }, 1_500);
-            }}
-          />
-        </Tooltip>
+        <Button
+          iconName="thunder"
+          text={isSaving ? "Saving" : "Save"}
+          variant="ghost"
+          onClick={() => handleSave()}
+        />
       </div>
     </div>
   );
