@@ -89,12 +89,7 @@ The `isInitialCollapsed` prop allows you to specify whether the CollapsibleList 
 </Preview>
 
 ```tsx
-<CollapsibleList
-  isInitialCollapsed={false}
-  renderHeader={(toggle, isCollapsed) => (
-    ...
-  )}
->
+<CollapsibleList isInitialCollapsed={false} {...otherProps}>
   ...
 </CollapsibleList>
 ```
@@ -109,9 +104,6 @@ The `footer` prop allows you to add a footer to the CollapsibleList.
 
 ```tsx
 <CollapsibleList
-  renderHeader={(toggle, isCollapsed) => (
-    ...
-  )}
   footer={
     withFooter && (
       <Button
@@ -121,6 +113,7 @@ The `footer` prop allows you to add a footer to the CollapsibleList.
       />
     )
   }
+  {...otherProps}
 >
   ...
 </CollapsibleList>
@@ -135,7 +128,7 @@ CollapsibleListItems can have an alert `variant`.
 </Preview>
 
 ```tsx
-<CollapsibleList renderHeader={(toggle, isCollapsed) => ...}>
+<CollapsibleList {...otherProps}>
   <CollapsibleListItem>Item 1</CollapsibleListItem>
   <CollapsibleListItem variant="alert">Item 2</CollapsibleListItem>
   <CollapsibleListItem>Item 3</CollapsibleListItem>

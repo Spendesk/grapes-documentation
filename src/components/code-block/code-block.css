@@ -13,6 +13,12 @@
     right: 0px;
   }
 
+  .docs-cta-open {
+    position: absolute;
+    top: 0;
+    right: 30px;
+  }
+
   .docs-pre {
     padding: var(--_code-padding);
     border-radius: var(--border-radius-xs);

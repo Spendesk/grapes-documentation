@@ -28,7 +28,7 @@ const [tmpLegalName, setTmpLegalName] = useState("");
 return (
   <Panel
     title="Supplier details"
-    onClose={onClose}
+    onClose={() => {}}
     header={
       <>
         <Avatar src="/supplier.svg" text="supplier" variant="square" />
@@ -82,7 +82,7 @@ return (
       <div>-</div>
     </PanelSection>
     <PanelSection title="Proof of bank details" isEditable={false}>
-      <Preview
+      <DeprecatedPreview
         fit="parent"
         iconName="receipt-checked"
         primaryText="Uploaded on November 4, 2020"

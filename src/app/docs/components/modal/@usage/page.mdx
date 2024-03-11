@@ -24,38 +24,36 @@ The following are lower-level construct that is leveraged by `Modal` or `ModalSl
 <DemoModal />
 
 ```tsx
-() => {
-  const [isOpen, setIsOpen] = useState(false);
+const [isOpen, setIsOpen] = useState(false);
 
-  return (
-    <>
-      <Button text="Open the modal" onClick={() => setIsOpen(true)} />
-      <Modal
-        isOpen={isOpen}
-        onClose={() => setIsOpen(false)}
-        title="Adopt a smooth transition"
-        iconName="swap"
-        iconVariant="info"
-        actions={[
-          <Button
-            key="cancel"
-            variant="secondary"
-            text="Cancel"
-            onClick={() => setIsOpen(false)}
-          />,
-          <Button
-            key="switch"
-            variant="primary"
-            text="Switch"
-            onClick={() => setIsOpen(false)}
-          />,
-        ]}
-      >
-        We recommend closing first before switching.
-      </Modal>
-    </>
-  );
-};
+return (
+  <>
+    <Button text="Open the modal" onClick={() => setIsOpen(true)} />
+    <Modal
+      isOpen={isOpen}
+      onClose={() => setIsOpen(false)}
+      title="Adopt a smooth transition"
+      iconName="swap"
+      iconVariant="info"
+      actions={[
+        <Button
+          key="cancel"
+          variant="secondary"
+          text="Cancel"
+          onClick={() => setIsOpen(false)}
+        />,
+        <Button
+          key="switch"
+          variant="primary"
+          text="Switch"
+          onClick={() => setIsOpen(false)}
+        />,
+      ]}
+    >
+      We recommend closing first before switching.
+    </Modal>
+  </>
+);
 ```
 
 ## Use an illustration
@@ -65,28 +63,35 @@ Instead of an icon, use `illustration` prop to provide an illustration.
 <WithIllustration />
 
 ```tsx
-<Modal
-  isOpen={isOpen}
-  onClose={() => setIsOpen(false)}
-  title="Adopt a smooth transition"
-  illustration={<img src="/illustration-2.webp" alt="" />}
-  actions={[
-    <Button
-      key="cancel"
-      variant="secondary"
-      text="Cancel"
-      onClick={() => setIsOpen(false)}
-    />,
-    <Button
-      key="switch"
-      variant="primary"
-      text="Switch"
-      onClick={() => setIsOpen(false)}
-    />,
-  ]}
->
-  We recommend closing first before switching.
-</Modal>
+const [isOpen, setIsOpen] = useState(false);
+
+return (
+  <>
+    <Button text="Open the modal" onClick={() => setIsOpen(true)} />
+    <Modal
+      isOpen={isOpen}
+      onClose={() => setIsOpen(false)}
+      title="Adopt a smooth transition"
+      illustration={<img src="/illustration-2.webp" alt="" />}
+      actions={[
+        <Button
+          key="cancel"
+          variant="secondary"
+          text="Cancel"
+          onClick={() => setIsOpen(false)}
+        />,
+        <Button
+          key="switch"
+          variant="primary"
+          text="Switch"
+          onClick={() => setIsOpen(false)}
+        />,
+      ]}
+    >
+      We recommend closing first before switching.
+    </Modal>
+  </>
+);
 ```
 
 ## Lower-level construct
@@ -97,31 +102,41 @@ In such scenarios, Grapes provides a set of lower-level constructs, allowing you
 <WithLowerLevelConstructModal />
 
 ```tsx
-<ModalOverlay isOpen={isOpen}>
-  <ModalContent aria-labelledby="grapes-id" onClose={handleClose}>
-    <ModalHeaderWithIcon
-      title="Adopt a smooth transition"
-      iconName="swap"
-      iconVariant="info"
-      titleId="grapes-id"
-    />
-    <ModalBody>We recommend closing first before switching.</ModalBody>
-    <ModalFooter>
-      <Button
-        key="cancel"
-        variant="secondary"
-        text="Cancel"
-        onClick={() => setIsOpen(false)}
-      />
-      <Button
-        key="switch"
-        variant="primary"
-        text="Switch"
-        onClick={() => setIsOpen(false)}
-      />
-    </ModalFooter>
-  </ModalContent>
-</ModalOverlay>
+const [isOpen, setIsOpen] = useState(false);
+
+return (
+  <>
+    <Button text="Open the modal" onClick={() => setIsOpen(true)} />
+    <ModalOverlay isOpen={isOpen}>
+      <ModalContent
+        aria-labelledby="grapes-id"
+        onClose={() => setIsOpen(false)}
+      >
+        <ModalHeaderWithIcon
+          title="Adopt a smooth transition"
+          iconName="swap"
+          iconVariant="info"
+          titleId="grapes-id"
+        />
+        <ModalBody>We recommend closing first before switching.</ModalBody>
+        <ModalFooter>
+          <Button
+            key="cancel"
+            variant="secondary"
+            text="Cancel"
+            onClick={() => setIsOpen(false)}
+          />
+          <Button
+            key="switch"
+            variant="primary"
+            text="Switch"
+            onClick={() => setIsOpen(false)}
+          />
+        </ModalFooter>
+      </ModalContent>
+    </ModalOverlay>
+  </>
+);
 ```
 
 ---

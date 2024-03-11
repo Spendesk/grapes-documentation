@@ -52,10 +52,7 @@ If both are provided, a dropdown will be displayed with the predefined currencie
     setCurrency(selectedCurrency);
   }}
   currency={currentCurrency}
-  value={selectedValue}
-  onChange={(event) => {
-    setSelectedValue(event.target.valueAsNumber);
-  }}
+  {...otherProps}
 />
 ```
 

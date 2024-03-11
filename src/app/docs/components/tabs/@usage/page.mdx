@@ -73,7 +73,7 @@ Use the `isFitted` prop on the TabList component to make the tabs fit their cont
 </Preview>
 
 ```tsx
-<Tabs>
+<Tabs {...otherProps}>
   <TabList isFitted className="mb-s">
   ...
 </Tabs>
@@ -99,7 +99,9 @@ Use the `defaultTabIndex` prop to make a tab initially active.
 </Preview>
 
 ```tsx
-<Tabs defaultTabIndex={2}>...</Tabs>
+<Tabs defaultTabIndex={2} {...otherProps}>
+  ...
+</Tabs>
 ```
 
 ## Customized
@@ -144,7 +146,6 @@ The Tab accepts any kind of content, it can be customized as needed.
       Settings & Policies
     </Tab>
   </TabList>
-  ...
 </Tabs>
 ```
 
@@ -174,7 +175,6 @@ The Tab comes with three visual styles: primary (default), warning, and alert.
     <Tab variant="warning">Warning</Tab>
     <Tab variant="alert">Alert</Tab>
   </TabList>
-  ...
 </Tabs>
 ```
 

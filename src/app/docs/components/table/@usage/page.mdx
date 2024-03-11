@@ -64,7 +64,7 @@ const columns: TableColumn<DataRow>[] = [
   },
 ];
 
-export function DemoTable() {
+function Demo() {
   const [activeRow, setActiveRow] = useState<number>();
 
   return (
@@ -94,7 +94,7 @@ If no data has been provided, the table's empty state will appear. The title is 
     title: "There are no payables in this example",
     subtitle: "Try looking in another example",
   }}
-  {...optionalProps}
+  {...otherProps}
 />
 ```
 
@@ -107,7 +107,7 @@ The Table component has two variants: `normal` and `compact`. The compact mode m
 </Preview>
 
 ```tsx
-<Table rowHeight="compact" {...optionalProps} />
+<Table rowHeight="compact" {...otherProps} />
 ```
 
 ## Column separator
@@ -119,7 +119,7 @@ The `columnSeparator` prop adds a line between each column.
 </Preview>
 
 ```tsx
-<Table hasColumnSeparator {...optionalProps} />
+<Table hasColumnSeparator {...otherProps} />
 ```
 
 ## Footer
@@ -133,7 +133,7 @@ The `footer` prop allows you to add a footer to the Table, to load more data for
 ```tsx
 <Table
   footer={<Button variant="secondary" text="Load more" />}
-  {...optionalProps}
+  {...otherProps}
 />
 ```
 
@@ -148,7 +148,7 @@ The `getIsRowDisabled` prop allows you to disable rows in the table. These optio
 ```tsx
 <Table
   getIsRowDisabled={(row: DataRow) => row.id === 0 || row.id === 2}
-  {...optionalProps}
+  {...otherProps}
 />
 ```
 
@@ -185,7 +185,7 @@ To make a table sortable, you will need to add the `getSortValue` function to th
       getSortValue: (item) => parseInt(item.amount),
     },
   ]}
-  {...optionalProps}
+  {...otherProps}
 />
 ```
 
@@ -228,7 +228,7 @@ The `maxHeight` prop allows you to specify a maximum height for the table. You w
 </Preview>
 
 ```tsx
-<Table maxHeight={160} {...optionalProps} />
+<Table maxHeight={160} {...otherProps} />
 ```
 
 ## Row variant
@@ -246,7 +246,7 @@ The `getRowVariant` prop allows you to specify a variant (`info` or `warning`) f
     if (supplierName === "Mailchimp") return "info";
     return undefined;
   }}
-  {...optionalProps}
+  {...otherProps}
 />
 ```
 

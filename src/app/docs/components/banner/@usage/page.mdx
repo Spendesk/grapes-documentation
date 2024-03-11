@@ -36,33 +36,35 @@ The Badge comes with three visual styles: primary (default), warning and info.
 </Preview>
 
 ```tsx
-<Banner
-  variant="primary"
-  actionText="Set up sub-budgets"
-  illustration={<img src="/user-infinite.webp" />}
-  title="Primary variant"
->
-  You can now track sub-budgets based on expense categories. It will help you
-  track your budgets with more granularity and precision.
-</Banner>
-<Banner
-  variant="info"
-  actionText="Set up sub-budgets"
-  illustration={<img src="/user-infinite.webp" />}
-  title="Info variant"
->
-  You can now track sub-budgets based on expense categories. It will help you
-  track your budgets with more granularity and precision.
-</Banner>
-<Banner
-  variant="warning"
-  actionText="Set up sub-budgets"
-  illustration={<img src="/user-infinite.webp" />}
-  title="Warning variant"
->
-  You can now track sub-budgets based on expense categories. It will help you
-  track your budgets with more granularity and precision.
-</Banner>
+<>
+  <Banner
+    variant="primary"
+    actionText="Set up sub-budgets"
+    illustration={<img src="/user-infinite.webp" />}
+    title="Primary variant"
+  >
+    You can now track sub-budgets based on expense categories. It will help you
+    track your budgets with more granularity and precision.
+  </Banner>
+  <Banner
+    variant="info"
+    actionText="Set up sub-budgets"
+    illustration={<img src="/user-infinite.webp" />}
+    title="Info variant"
+  >
+    You can now track sub-budgets based on expense categories. It will help you
+    track your budgets with more granularity and precision.
+  </Banner>
+  <Banner
+    variant="warning"
+    actionText="Set up sub-budgets"
+    illustration={<img src="/user-infinite.webp" />}
+    title="Warning variant"
+  >
+    You can now track sub-budgets based on expense categories. It will help you
+    track your budgets with more granularity and precision.
+  </Banner>
+</>
 ```
 
 ## Button position

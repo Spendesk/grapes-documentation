@@ -28,7 +28,7 @@ const unfilteredOptions = [
 ];
 type Option = (typeof unfilteredOptions)[number];
 
-const MyComponent = () => {
+const Demo = () => {
   const [options, setOptions] = useState(unfilteredOptions);
   const [selectedOptions, setSelectedOptions] = useState<Option[]>([]);
 

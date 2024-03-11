@@ -21,16 +21,18 @@ The Toast comes with two visual styles: success (default) and alert.
 </Preview>
 
 ```tsx
-<Toast
-  title="Your receipt has been uploaded"
-  variant="success"
-  onClose={() => closeToast()}
-/>
-<Toast
-  title="Your receipt has been uploaded"
-  variant="alert"
-  onClose={() => closeToast()}
-/>
+<>
+  <Toast
+    title="Your receipt has been uploaded"
+    variant="success"
+    onClose={() => closeToast()}
+  />
+  <Toast
+    title="Your receipt has been uploaded"
+    variant="alert"
+    onClose={() => closeToast()}
+  />
+</>
 ```
 
 ## Content

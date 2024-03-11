@@ -18,7 +18,7 @@ const options: {
   { value: "yearly", label: "Yearly" },
 ];
 
-export function MyRadioGroup() {
+function Demo() {
   const [selectedValue, setSelectedValue] = useState<string | null>(null);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {

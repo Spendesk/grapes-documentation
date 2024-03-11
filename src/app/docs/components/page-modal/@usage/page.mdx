@@ -6,9 +6,11 @@ import { Demo } from "./demo.tsx";
 <Preview>
   <Demo />
 </Preview>
-```tsx 
-export function Demo() {
+
+```tsx
+function Demo() {
   const [isOpen, setIsOpen] = useState(false);
+
   return (
     <>
       <Button
