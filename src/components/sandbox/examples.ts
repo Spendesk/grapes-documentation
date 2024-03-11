@@ -28,7 +28,7 @@ export const initialCode = `const Demo = () => {
 render(<Demo />);
 `;
 
-export const examples = [
+export const examples: { key: string; label: string; code: string }[] = [
   {
     key: "0",
     label: "Panel with form",
@@ -191,5 +191,96 @@ const Demo = () => {
 
 render(<Demo />);
     `,
+  },
+  {
+    key: "1",
+    label: "Table",
+    code: `type DataRow = {
+  id: number;
+  accountPayable: string;
+  supplierName: string;
+  amount: string;
+};
+
+const data: DataRow[] = [
+  {
+    id: 0,
+    accountPayable: "401AIRBNB",
+    supplierName: "Airbnb",
+    amount: "2€",
+  },
+  {
+    id: 1,
+    accountPayable: "401DELOITTE",
+    supplierName: "Deloitte",
+    amount: "324$",
+  },
+  {
+    id: 2,
+    accountPayable: "401MAILCHIMP",
+    supplierName: "Mailchimp",
+    amount: "13.29€",
+  },
+  {
+    id: 3,
+    accountPayable: "401APPLE",
+    supplierName: "Apple",
+    amount: "0€",
+  },
+];
+
+const columns: TableColumn<DataRow>[] = [
+  {
+    id: "accountPayable",
+    header: "Account payable",
+    renderCell: ({ accountPayable }) => accountPayable,
+    getSortValue: (item) => item.accountPayable,
+  },
+  {
+    id: "supplierName",
+    header: "Supplier name",
+    renderCell: ({ supplierName }) => supplierName,
+  },
+  {
+    id: "amount",
+    header: "Amount",
+    align: "right",
+    width: "20%",
+    renderCell(row) {
+      return <span className="font-medium">{row.amount}</span>;
+    },
+    getSortValue: (item) => parseInt(item.amount),
+  },
+];
+
+const Demo = () => {
+  const [activeRow, setActiveRow] = useState<number>();
+  const [selectedRowIds, setSelectedRowsIds] = useState<string[]>([]);
+
+  return (
+    <Table
+      data={data}
+      columns={columns}
+      selectedRowIds={selectedRowIds}
+      onRowSelectionChange={(_, id, checked) => {
+        setSelectedRowsIds((options) => {
+          if (checked) {
+            return options.concat(id);
+          }
+          return options.filter((optionId) => optionId !== id);
+        });
+      }}
+      onAllRowsSelectionChange={(_, ids, checked) => {
+        setSelectedRowsIds(checked ? ids : []);
+      }}
+      getRowId={(row: DataRow) => String(row.id)}
+      onRowClick={(row) => setActiveRow(row.id)}
+      getIsRowActive={(row) => row.id === activeRow}
+    />
+  );
+};
+
+render(<Demo />);
+`,
   },
 ];
