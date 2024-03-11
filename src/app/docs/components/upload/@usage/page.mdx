@@ -11,20 +11,11 @@ import { DemoUpload } from "./demo";
 const [selectedFile, setSelectedFile] = useState<File>();
 
 return selectedFile ? (
-  <div className="flex items-center gap-xxs">
-    <Preview
-      fit="parent"
-      iconName="receipt-checked"
-      variant="success"
-      primaryText={selectedFile.name}
-    />
-    <IconButton
-      variant="border"
-      iconName="trash"
-      color="var(--color-neutral-dark)"
-      onClick={() => setSelectedFile(undefined)}
-    />
-  </div>
+  <FileCard
+    title={selectedFile.name}
+    mimeType={selectedFile.type}
+    onDelete={() => setSelectedFile(undefined)}
+  />
 ) : (
   <Upload
     content={
