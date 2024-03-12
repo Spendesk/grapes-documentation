@@ -1,8 +1,9 @@
 "use client";
 
-import { getSortedProps } from "@/components/props-table/utils";
-import { Icon, Input, Button, type IconName } from "@dev-spendesk/grapes";
 import { useState } from "react";
+import { useSearchParams } from "next/navigation";
+import { Icon, Input, Button, type IconName } from "@dev-spendesk/grapes";
+import { getSortedProps } from "@/components/props-table/utils";
 
 import "./iconSet.css";
 
@@ -13,18 +14,24 @@ const icons = nameProp?.type.value?.map((name) =>
 ) as IconName[];
 
 export function IconSet() {
-  const [search, setSearch] = useState("");
+  const searchParams = useSearchParams();
+  const [search, setSearch] = useState<string>(
+    () => searchParams.get("search") ?? "",
+  );
 
   return (
     <div>
-      <Input
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-        placeholder="Search icon"
-        fit="parent"
-        type="search"
-        leftAddon={<Icon name="search" className="ml-xs" />}
-      />
+      <form method="GET">
+        <Input
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          placeholder="Search icon"
+          fit="parent"
+          type="search"
+          name="search"
+          leftAddon={<Icon name="search" className="ml-xs" />}
+        />
+      </form>
 
       <ul className="docs-icon-set">
         {icons
