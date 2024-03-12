@@ -39,7 +39,9 @@ export function OpenInSandboxButton({ code }: Props) {
   const pathname = usePathname();
 
   if (
+    // Display the button only for component examples
     !pathname.includes("components") ||
+    // TODO: add directive [disable-sandbox] in MDX
     code.includes("otherProps") ||
     code.includes("import {")
   ) {
@@ -53,9 +55,7 @@ export function OpenInSandboxButton({ code }: Props) {
         className="docs-cta-open"
         iconColor={colors.white}
         onClick={() => {
-          const parsedCode = makeCodeForSandbox(
-            code.replace("// [!code highlight]", ""),
-          );
+          const parsedCode = makeCodeForSandbox(code);
           const compressedCode =
             lzString.compressToEncodedURIComponent(parsedCode);
           router.push(`/sandbox?code=${compressedCode}`);
