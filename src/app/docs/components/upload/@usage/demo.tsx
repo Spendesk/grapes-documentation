@@ -2,7 +2,7 @@
 
 "use client";
 
-import { IconButton, DeprecatedPreview, Upload } from "@dev-spendesk/grapes";
+import { FileCard, Upload } from "@dev-spendesk/grapes";
 import { useState } from "react";
 
 type Props = {
@@ -16,20 +16,11 @@ export function DemoUpload({ withIllustration, withAccept }: Props) {
   return (
     <div className="w-[360px]">
       {selectedFile ? (
-        <div className="flex items-center gap-xxs">
-          <DeprecatedPreview
-            fit="parent"
-            iconName="receipt-checked"
-            variant="success"
-            primaryText={selectedFile.name}
-          />
-          <IconButton
-            variant="border"
-            iconName="trash"
-            color="var(--color-neutral-dark)"
-            onClick={() => setSelectedFile(undefined)}
-          />
-        </div>
+        <FileCard
+          title={selectedFile.name}
+          mimeType={selectedFile.type}
+          onDelete={() => setSelectedFile(undefined)}
+        />
       ) : (
         <Upload
           content={
