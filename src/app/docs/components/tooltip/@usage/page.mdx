@@ -108,22 +108,24 @@ The tooltip can be controlled using the `isOpen` prop.
 <VisibleOnClick />
 
 ```tsx
-const [isVisible, setIsVisible] = useState(false);
+const Demo = () => {
+  const [isVisible, setIsVisible] = useState(false);
 
-return (
-  <Tooltip content="Copied" isOpen={isVisible} triggerAsChild>
-    <Button
-      variant="primary"
-      text="Click to copy"
-      onClick={() => {
-        setIsVisible(true);
-        setTimeout(() => {
-          setIsVisible(false);
-        }, 2000);
-      }}
-    />
-  </Tooltip>
-);
+  return (
+    <Tooltip content="Copied" isOpen={isVisible} triggerAsChild>
+      <Button
+        variant="primary"
+        text="Click to copy"
+        onClick={() => {
+          setIsVisible(true);
+          setTimeout(() => {
+            setIsVisible(false);
+          }, 2000);
+        }}
+      />
+    </Tooltip>
+  );
+};
 ```
 
 ## triggerAsChild and forwardRef

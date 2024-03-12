@@ -27,7 +27,7 @@ const accountingNavigation = [
   { label: "Bookkeeping date", key: "bookkeeping-date" },
 ];
 
-function Demo() {
+const Demo = () => {
   const [activeKey, setActiveKey] = useState("accounting-integration");
 
   return (
@@ -47,5 +47,5 @@ function Demo() {
       ))}
     </SideNavigation>
   );
-}
+};
 ```

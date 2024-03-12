@@ -9,7 +9,7 @@ import { Demo } from "./demo";
 </Preview>
 
 ```tsx
-function Demo() {
+const Demo = () => {
   const [checked, setChecked] = useState(false);
 
   return (
@@ -19,7 +19,7 @@ function Demo() {
       onChange={(event) => setChecked(event.target.checked)}
     />
   );
-}
+};
 ```
 
 ## Indeterminate state

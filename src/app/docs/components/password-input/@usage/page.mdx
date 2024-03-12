@@ -39,7 +39,7 @@ const getConfirmPasswordRule = (password: string | null): PasswordRule => {
   };
 };
 
-function Demo() {
+const Demo = () => {
   const [password, setPassword] = useState<string | null>(null);
   const [confirmPassword, setConfirmPassword] = useState<string | null>(null);
 
@@ -64,5 +64,5 @@ function Demo() {
       />
     </div>
   );
-}
+};
 ```

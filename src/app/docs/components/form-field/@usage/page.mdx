@@ -8,18 +8,20 @@ import { Demo } from "./demo";
 </Preview>
 
 ```tsx
-const [value, setValue] = useState("");
+const Demo = () => {
+  const [value, setValue] = useState("");
 
-return (
-  <FormField label="Your name">
-    <TextInput
-      value={value}
-      onChange={(event) => {
-        setValue(event.target.value);
-      }}
-    />
-  </FormField>
-);
+  return (
+    <FormField label="Your name">
+      <TextInput
+        value={value}
+        onChange={(event) => {
+          setValue(event.target.value);
+        }}
+      />
+    </FormField>
+  );
+};
 ```
 
 ## Description

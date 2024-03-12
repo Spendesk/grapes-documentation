@@ -187,33 +187,35 @@ A tab's state can be controlled. Make sure to include the `tabIndex` and `onChan
 </Preview>
 
 ```tsx
-const [value, setValue] = useState(2);
+const Demo = () => {
+  const [value, setValue] = useState(2);
 
-return (
-  <>
-    <input
-      className="appearance-auto"
-      type="range"
-      min="0"
-      max="2"
-      step="1"
-      value={value}
-      onChange={(e) => setValue(Number(e.target.value))}
-    />
-    <Tabs tabIndex={value} onChange={setValue}>
-      <TabList>
-        <Tab>Tab One</Tab>
-        <Tab>Tab Two</Tab>
-        <Tab>Tab Three</Tab>
-      </TabList>
-      <TabPanels>
-        <TabPanel>First panel</TabPanel>
-        <TabPanel>Second panel</TabPanel>
-        <TabPanel>Third panel</TabPanel>
-      </TabPanels>
-    </Tabs>
-  </>
-);
+  return (
+    <>
+      <input
+        className="appearance-auto"
+        type="range"
+        min="0"
+        max="2"
+        step="1"
+        value={value}
+        onChange={(e) => setValue(Number(e.target.value))}
+      />
+      <Tabs tabIndex={value} onChange={setValue}>
+        <TabList>
+          <Tab>Tab One</Tab>
+          <Tab>Tab Two</Tab>
+          <Tab>Tab Three</Tab>
+        </TabList>
+        <TabPanels>
+          <TabPanel>First panel</TabPanel>
+          <TabPanel>Second panel</TabPanel>
+          <TabPanel>Third panel</TabPanel>
+        </TabPanels>
+      </Tabs>
+    </>
+  );
+};
 ```
 
 ## Accessibility

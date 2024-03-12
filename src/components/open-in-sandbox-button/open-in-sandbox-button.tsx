@@ -9,15 +9,6 @@ type Props = {
 };
 
 function makeCodeForSandbox(code: string) {
-  if (!code.includes("Demo") && code.includes("return")) {
-    return `const Demo = () => {
-  ${code}
-}
-
-render(<Demo />);
-`;
-  }
-
   if (!code.includes("Demo")) {
     return `const Demo = () => {
   return (

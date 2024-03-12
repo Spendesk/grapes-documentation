@@ -10,17 +10,19 @@ import { DemoTextInput } from "./demo";
 </Preview>
 
 ```tsx
-const [value, setValue] = useState("");
+const Demo = () => {
+  const [value, setValue] = useState("");
 
-return (
-  <TextInput
-    placeholder="Enter account number"
-    value={value}
-    onChange={(event) => {
-      setValue(event.target.value);
-    }}
-  />
-);
+  return (
+    <TextInput
+      placeholder="Enter account number"
+      value={value}
+      onChange={(event) => {
+        setValue(event.target.value);
+      }}
+    />
+  );
+};
 ```
 
 ## Variant

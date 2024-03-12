@@ -15,23 +15,25 @@ import { DemoUploadButton } from "./demo";
 </Preview>
 
 ```tsx
-const [selectedFile, setSelectedFile] = useState<File>();
+const Demo = () => {
+  const [selectedFile, setSelectedFile] = useState<File>();
 
-return selectedFile ? (
-  <FileCard
-    title={selectedFile.name}
-    mimeType={selectedFile.type}
-    onDelete={() => setSelectedFile(undefined)}
-  />
-) : (
-  <UploadButton
-    onUpload={async (filesToUpload) => {
-      setSelectedFile(filesToUpload?.[0]);
-    }}
-    text="Add a document"
-    variant="ghost"
-  />
-);
+  return selectedFile ? (
+    <FileCard
+      title={selectedFile.name}
+      mimeType={selectedFile.type}
+      onDelete={() => setSelectedFile(undefined)}
+    />
+  ) : (
+    <UploadButton
+      onUpload={async (filesToUpload) => {
+        setSelectedFile(filesToUpload?.[0]);
+      }}
+      text="Add a document"
+      variant="ghost"
+    />
+  );
+};
 ```
 
 ## Accept specific file types

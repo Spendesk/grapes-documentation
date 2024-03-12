@@ -39,11 +39,11 @@ Create a ref using `useRef` and pass it using the `ref` prop.
 </Preview>
 
 ```tsx
-function Demo() {
+const Demo = () => {
   const ref = useRef<HTMLButtonElement | null>(null);
 
   return <IconButton ref={ref} iconName="ellipsis" variant="border" />;
-}
+};
 ```
 
 ---

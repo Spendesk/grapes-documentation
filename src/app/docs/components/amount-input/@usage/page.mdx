@@ -9,17 +9,19 @@ import { Demo, DemoWithMultipleCurrencies } from "./demo";
 </Preview>
 
 ```tsx
-const [selectedValue, setSelectedValue] = useState<number | null>(null);
+const Demo = () => {
+  const [selectedValue, setSelectedValue] = useState<number | null>(null);
 
-return (
-  <AmountInput
-    currency={{ key: "EUR", label: "€ - Euro" }}
-    value={selectedValue}
-    onChange={(event) => {
-      setSelectedValue(event.target.valueAsNumber);
-    }}
-  />
-);
+  return (
+    <AmountInput
+      currency={{ key: "EUR", label: "€ - Euro" }}
+      value={selectedValue}
+      onChange={(event) => {
+        setSelectedValue(event.target.valueAsNumber);
+      }}
+    />
+  );
+};
 ```
 
 ## Variant

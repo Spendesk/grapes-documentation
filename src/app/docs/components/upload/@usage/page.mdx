@@ -8,30 +8,32 @@ import { DemoUpload } from "./demo";
 </Preview>
 
 ```tsx
-const [selectedFile, setSelectedFile] = useState<File>();
+const Demo = () => {
+  const [selectedFile, setSelectedFile] = useState<File>();
 
-return selectedFile ? (
-  <FileCard
-    title={selectedFile.name}
-    mimeType={selectedFile.type}
-    onDelete={() => setSelectedFile(undefined)}
-  />
-) : (
-  <Upload
-    content={
-      <span>
-        Drag & drop file(s) here <br />
-        or <u className="text-complementary font-medium">
-          import them from your computer
-        </u>
-      </span>
-    }
-    activeDragContent="Upload file(s)"
-    onUpload={async (filesToUpload) => {
-      setSelectedFile(filesToUpload?.[0]);
-    }}
-  />
-);
+  return selectedFile ? (
+    <FileCard
+      title={selectedFile.name}
+      mimeType={selectedFile.type}
+      onDelete={() => setSelectedFile(undefined)}
+    />
+  ) : (
+    <Upload
+      content={
+        <span>
+          Drag & drop file(s) here <br />
+          or <u className="text-complementary font-medium">
+            import them from your computer
+          </u>
+        </span>
+      }
+      activeDragContent="Upload file(s)"
+      onUpload={async (filesToUpload) => {
+        setSelectedFile(filesToUpload?.[0]);
+      }}
+    />
+  );
+};
 ```
 
 ## Illustration

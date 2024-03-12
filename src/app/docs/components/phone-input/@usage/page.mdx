@@ -41,7 +41,7 @@ const formatPhoneNumber = (value: string | null, country: string) => {
   return formattedPhoneNumber.replace(`+${callingCode} `, "");
 };
 
-export function MyPhoneInput() {
+const Demo = () => {
   const [value, setValue] = useState<string | null>(null);
   const [country, setCountry] = useState<CountryCode>("FR");
   return (
@@ -65,5 +65,5 @@ export function MyPhoneInput() {
       }}
     />
   );
-}
+};
 ```

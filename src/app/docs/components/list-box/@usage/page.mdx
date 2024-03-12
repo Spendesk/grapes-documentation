@@ -19,31 +19,33 @@ const options = [
   // other options
 ];
 
-const [activeOption, setActiveOption] = useState<string | undefined>();
+const Demo = () => {
+  const [activeOption, setActiveOption] = useState<string | undefined>();
 
-return (
-  <ListBox
-    getOptionId={(option) => option.id}
-    options={options}
-    getIsOptionActive={(option) => option.id === activeOption}
-    onOptionClick={(option) => {
-      setActiveOption(option.id);
-    }}
-    aria-label="Employees"
-  >
-    {(option, titleId) => (
-      <div className="flex gap-s items-center">
-        <Avatar variant="circle" src={option.avatar} text={option.name} />
-        <div className="flex-grow">
-          <div className="title-m" id={titleId}>
-            {option.name}
+  return (
+    <ListBox
+      getOptionId={(option) => option.id}
+      options={options}
+      getIsOptionActive={(option) => option.id === activeOption}
+      onOptionClick={(option) => {
+        setActiveOption(option.id);
+      }}
+      aria-label="Employees"
+    >
+      {(option, titleId) => (
+        <div className="flex gap-s items-center">
+          <Avatar variant="circle" src={option.avatar} text={option.name} />
+          <div className="flex-grow">
+            <div className="title-m" id={titleId}>
+              {option.name}
+            </div>
           </div>
+          <span>{option.birthDate}</span>
         </div>
-        <span>{option.birthDate}</span>
-      </div>
-    )}
-  </ListBox>
-);
+      )}
+    </ListBox>
+  );
+};
 ```
 
 ## Empty state

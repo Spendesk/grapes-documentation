@@ -24,7 +24,7 @@ const costCenters = [
   { key: "recruitment", label: "Recruitment" },
 ];
 
-function Demo() {
+const Demo = () => {
   const [selectedOption, setSelectedOption] = useState<string | undefined>();
 
   return (
@@ -50,7 +50,7 @@ function Demo() {
       }}
     />
   );
-}
+};
 ```
 
 ## Placement
@@ -110,7 +110,7 @@ const costCenters = [
   { key: "recruitment", label: "Recruitment" },
 ];
 
-function Demo() {
+const Demo = () => {
   const [selectedOptions, setSelectedOptions] = useState<string[] | undefined>(
     undefined
   );
@@ -156,5 +156,5 @@ function Demo() {
       }}
     />
   );
-}
+};
 ```
