@@ -15,12 +15,14 @@ The Callout comes with six visual styles: primary, alert, warning, info (default
 </Preview>
 
 ```tsx
-<Callout title="Primary callout title" variant="primary" />
-<Callout title="Alert callout title" variant="alert" />
-<Callout title="Warning callout title" variant="warning" />
-<Callout title="Info callout title" variant="info" />
-<Callout title="Success callout title" variant="success" />
-<Callout title="Neutral callout title" variant="neutral" />
+<>
+  <Callout title="Primary callout title" variant="primary" />
+  <Callout title="Alert callout title" variant="alert" />
+  <Callout title="Warning callout title" variant="warning" />
+  <Callout title="Info callout title" variant="info" />
+  <Callout title="Success callout title" variant="success" />
+  <Callout title="Neutral callout title" variant="neutral" />
+</>
 ```
 
 ## Content
@@ -30,14 +32,14 @@ Use the `children` prop to add any content to the callout.
 <Preview className="grid">
   <Callout title="Callout title">
     On the budget, the amount of the invoice will be proportionally reflected
-    over the period
+    over the period.
   </Callout>
 </Preview>
 
 ```tsx
 <Callout title="Callout title">
   On the budget, the amount of the invoice will be proportionally reflected over
-  the period
+  the period.
 </Callout>
 ```
 

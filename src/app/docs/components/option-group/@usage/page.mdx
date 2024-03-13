@@ -4,55 +4,62 @@ import { Demo } from "./demo";
 ## Basic Usage
 
 <Preview className="block">
-  <Demo 
-    options={[
-      { value: 'daily', label: 'Daily' },
-      { value: 'weekly', label: 'Weekly' },
-      { value: 'yearly', label: 'Yearly' },
-    ]}
-  />
-</Preview>
-```tsx
-const [selectedValue, setSelectedValue] = useState<string | null>(null);
-return (
-  <OptionGroup
-    name="optionGroupField"
+  <Demo
     options={[
       { value: "daily", label: "Daily" },
       { value: "weekly", label: "Weekly" },
       { value: "yearly", label: "Yearly" },
     ]}
-    value={selectedValue}
-    onChange={(event) => {
-      setSelectedValue(event.target.value);
-    }}
   />
-);
+</Preview>
+
+```tsx
+const Demo = () => {
+  const [selectedValue, setSelectedValue] = useState<string | null>(null);
+
+  return (
+    <OptionGroup
+      name="optionGroupField"
+      options={[
+        { value: "daily", label: "Daily" },
+        { value: "weekly", label: "Weekly" },
+        { value: "yearly", label: "Yearly" },
+      ]}
+      value={selectedValue}
+      onChange={(event) => {
+        setSelectedValue(event.target.value);
+      }}
+    />
+  );
+};
 ```
 
 ## Number as value
 
 <Preview className="block">
-  <Demo 
+  <Demo
     options={Array.from({ length: 10 }, (_, i) => {
       return { label: i + 1, value: i + 1 };
     })}
   />
 </Preview>
+
 ```tsx
-const [selectedValue, setSelectedValue] = useState<string | null>(null);
-return (
-  <OptionGroup
-    name="nps"
-    options={Array.from({ length: 10 }, (_, i) => {
-      return { label: i + 1, value: i + 1 };
-    })}
-    value={selectedValue}
-    onChange={(event) => {
-      setSelectedValue(event.target.value);
-    }}
-  />
-);
+const Demo = () => {
+  const [selectedValue, setSelectedValue] = useState<string | null>(null);
+  return (
+    <OptionGroup
+      name="nps"
+      options={Array.from({ length: 10 }, (_, i) => {
+        return { label: i + 1, value: i + 1 };
+      })}
+      value={selectedValue}
+      onChange={(event) => {
+        setSelectedValue(event.target.value);
+      }}
+    />
+  );
+};
 ```
 
 ## Icon as label
@@ -80,34 +87,38 @@ The OptionGroup supports Icon as label. Inside each option, use the attribute `i
     ]}
   />
 </Preview>
+
 ```tsx
-const [selectedValue, setSelectedValue] = useState<string | null>(null);
-return (
-  <OptionGroup
-    name="transport"
-    options={[
-      {
-        iconName: "airplane",
-        label: "airplane",
-        value: "airplane",
-      },
-      {
-        iconName: "car",
-        label: "car",
-        value: "car",
-      },
-      {
-        iconName: "bike",
-        label: "bike",
-        value: "bike",
-      },
-    ]}
-    value={selectedValue}
-    onChange={(event) => {
-      setSelectedValue(event.target.value);
-    }}
-  />
-);
+const Demo = () => {
+  const [selectedValue, setSelectedValue] = useState<string | null>(null);
+
+  return (
+    <OptionGroup
+      name="transport"
+      options={[
+        {
+          iconName: "airplane",
+          label: "airplane",
+          value: "airplane",
+        },
+        {
+          iconName: "car",
+          label: "car",
+          value: "car",
+        },
+        {
+          iconName: "bike",
+          label: "bike",
+          value: "bike",
+        },
+      ]}
+      value={selectedValue}
+      onChange={(event) => {
+        setSelectedValue(event.target.value);
+      }}
+    />
+  );
+};
 ```
 
 ---

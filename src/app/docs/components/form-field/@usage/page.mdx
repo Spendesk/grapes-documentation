@@ -1,15 +1,27 @@
 import { Preview } from "@/components/preview/preview";
-import { Demo } from './demo'
+import { Demo } from "./demo";
 
 ## Basic usage
 
 <Preview>
   <Demo label="Your name" />
 </Preview>
+
 ```tsx
-<FormField label="Your name">
-  <TextInput {...textInputProps} />
-</FormField>
+const Demo = () => {
+  const [value, setValue] = useState("");
+
+  return (
+    <FormField label="Your name">
+      <TextInput
+        value={value}
+        onChange={(event) => {
+          setValue(event.target.value);
+        }}
+      />
+    </FormField>
+  );
+};
 ```
 
 ## Description
@@ -17,13 +29,11 @@ import { Demo } from './demo'
 Use the `description` prop to add a description to the field.
 
 <Preview>
-  <Demo label="Your name" description="This is an optional description."/>
+  <Demo label="Your name" description="This is an optional description." />
 </Preview>
+
 ```tsx
-<FormField
-  label="Your name"
-  description="This is an optional description."
->
+<FormField label="Your name" description="This is an optional description.">
   <TextInput {...textInputProps} />
 </FormField>
 ```
@@ -33,8 +43,12 @@ Use the `description` prop to add a description to the field.
 Use the `infoTipContent` prop to create a Tooltip on the right side of the label.
 
 <Preview>
-  <Demo label="Your name" infoText="Some useful information to make your life easier."/>
+  <Demo
+    label="Your name"
+    infoText="Some useful information to make your life easier."
+  />
 </Preview>
+
 ```tsx
 <FormField
   label="Your name"
@@ -49,14 +63,14 @@ Use the `infoTipContent` prop to create a Tooltip on the right side of the label
 Use the `hint` prop to display a hint on the right side of the field.
 
 <Preview>
-  <Demo label="Your name" hint="Optional"/>
+  <Demo label="Your name" hint="Optional" />
 </Preview>
+
 ```tsx
 <FormField label="Your name" hint="Optional">
   <TextInput {...textInputProps} />
 </FormField>
 ```
-
 
 ## Error message
 
@@ -64,8 +78,9 @@ Use the `alertMessage` props to display an alert message below the field.
 When given, the FormField will also make any input children invalid and set the right html and aria attributs to it.
 
 <Preview>
-  <Demo label="Your name" alertMessage="This information is required."/>
+  <Demo label="Your name" alertMessage="This information is required." />
 </Preview>
+
 ```tsx
 <FormField label="Your name" alertMessage="This information is required.">
   <TextInput {...textInputProps} />
@@ -77,27 +92,33 @@ When given, the FormField will also make any input children invalid and set the 
 Use the `warningMessage` props to display a warning message below the field.
 
 <Preview>
-  <Demo label="Your name" warningMessage="It looks like this is not your real name."/>
+  <Demo
+    label="Your name"
+    warningMessage="It looks like this is not your real name."
+  />
 </Preview>
+
 ```tsx
-<FormField label="Your name" warningMessage="It looks like this is not your real name.">
+<FormField
+  label="Your name"
+  warningMessage="It looks like this is not your real name."
+>
   <TextInput {...textInputProps} />
 </FormField>
 ```
 
---- 
+---
 
 ## Best practices
 
 In situations where you need to use a FormField without a label, we recommend that you still give a label but add the prop `visuallyHideLabel`.
-By doing so, your input will be labelled by your label, making your app more accessible and easier to test. 
+By doing so, your input will be labelled by your label, making your app more accessible and easier to test.
 
 ```tsx
-<FormField 
+<FormField
   label="Your name"
   visuallyHideLabel // [!code highlight]
 >
   <TextInput {...textInputProps} />
 </FormField>
 ```
-

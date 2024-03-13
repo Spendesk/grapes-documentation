@@ -8,12 +8,14 @@ import { DemoCalendarRange } from "./demo";
 </Preview>
 
 ```tsx
-const [value, setValue] = useState<DateRange>([
-  new Date("2022-02-13"),
-  new Date("2022-02-21"),
-]);
+const Demo = () => {
+  const [value, setValue] = useState<DateRange>([
+    new Date("2022-02-13"),
+    new Date("2022-02-21"),
+  ]);
 
-return <CalendarRange value={value} onClick={setValue} />;
+  return <CalendarRange value={value} onClick={setValue} />;
+};
 ```
 
 ## With min and max date
@@ -28,17 +30,19 @@ When a minimum or maximum date is specified, these dates are grayed out and cann
 </Preview>
 
 ```tsx
-const [value, setValue] = useState<DateRange>([
-  new Date("2022-02-13"),
-  new Date("2022-02-21"),
-]);
+const Demo = () => {
+  const [value, setValue] = useState<DateRange>([
+    new Date("2022-02-13"),
+    new Date("2022-02-21"),
+  ]);
 
-return (
-  <CalendarRange
-    maxDate={new Date("2022-02-24")}
-    minDate={new Date("2022-02-04")}
-    value={value}
-    onClick={setValue}
-  />
-);
+  return (
+    <CalendarRange
+      maxDate={new Date("2022-02-24")}
+      minDate={new Date("2022-02-04")}
+      value={value}
+      onClick={setValue}
+    />
+  );
+};
 ```

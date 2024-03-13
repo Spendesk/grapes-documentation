@@ -9,7 +9,7 @@ import { DemoPasswordInput } from "./demo";
 </Preview>
 
 ```tsx
-export const passwordRules: PasswordRule[] = [
+const passwordRules: PasswordRule[] = [
   {
     label: "characters",
     required: 12,
@@ -32,16 +32,14 @@ export const passwordRules: PasswordRule[] = [
   },
 ];
 
-export const getConfirmPasswordRule = (
-  password: string | null
-): PasswordRule => {
+const getConfirmPasswordRule = (password: string | null): PasswordRule => {
   return {
     label: "Passwords match",
     validate: (value) => Boolean(password && value && value === password),
   };
 };
 
-export function MyPasswordInput() {
+const Demo = () => {
   const [password, setPassword] = useState<string | null>(null);
   const [confirmPassword, setConfirmPassword] = useState<string | null>(null);
 
@@ -66,5 +64,5 @@ export function MyPasswordInput() {
       />
     </div>
   );
-}
+};
 ```

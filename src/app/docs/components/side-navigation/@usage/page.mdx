@@ -18,14 +18,16 @@ The side navigation presents a list of navigation items on the side to help the 
 
 ```tsx
 const accountingNavigation = [
-  {
-    label: "Accounting integration",
-    key: "accounting-integration",
-  },
-  ...
+  { label: "Accounting integration", key: "accounting-integration" },
+  { label: "Bank accounts", key: "bank-accounts" },
+  { label: "Expense accounts", key: "expense-accounts" },
+  { label: "VAT Accounts", key: "vat-accounts" },
+  { label: "Supplier accounts", key: "supplier-accounts" },
+  { label: "Employee accounts", key: "employee-accounts" },
+  { label: "Bookkeeping date", key: "bookkeeping-date" },
 ];
 
-export function MySideNavigation() {
+const Demo = () => {
   const [activeKey, setActiveKey] = useState("accounting-integration");
 
   return (
@@ -45,5 +47,5 @@ export function MySideNavigation() {
       ))}
     </SideNavigation>
   );
-}
+};
 ```

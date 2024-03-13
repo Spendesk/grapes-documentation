@@ -23,20 +23,22 @@ const costCenters: (Option & { owner: string })[] = [
     label: "Marketing",
     owner: "Michael Murphy",
   },
-  ...
+  // ...
 ];
 
-const [selectedOption, setSelectedOption] = useState<Option>();
+const Demo = () => {
+  const [selectedOption, setSelectedOption] = useState<Option>();
 
-return (
-  <Select
-    fit="parent"
-    placeholder="Select a cost center"
-    options={costCenters}
-    value={selectedOption}
-    onSelect={setSelectedOption}
-  />
-);
+  return (
+    <Select
+      fit="parent"
+      placeholder="Select a cost center"
+      options={costCenters}
+      value={selectedOption}
+      onSelect={setSelectedOption}
+    />
+  );
+};
 ```
 
 ## Placement

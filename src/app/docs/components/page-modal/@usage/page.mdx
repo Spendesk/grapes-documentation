@@ -6,9 +6,11 @@ import { Demo } from "./demo.tsx";
 <Preview>
   <Demo />
 </Preview>
-```tsx 
-export function Demo() {
+
+```tsx
+const Demo = () => {
   const [isOpen, setIsOpen] = useState(false);
+
   return (
     <>
       <Button
@@ -23,5 +25,5 @@ export function Demo() {
       </PageModal>
     </>
   );
-}
+};
 ```

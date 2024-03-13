@@ -8,17 +8,19 @@ import { Preview } from "@/components/preview/preview";
 </Preview>
 
 ```tsx
-const [value, setValue] = useState("");
+const Demo = () => {
+  const [value, setValue] = useState("");
 
-return (
-  <TextArea
-    placeholder="Describe your expense"
-    value={value}
-    onChange={(event) => {
-      setValue(event.target.value);
-    }}
-  />
-);
+  return (
+    <TextArea
+      placeholder="Describe your expense"
+      value={value}
+      onChange={(event) => {
+        setValue(event.target.value);
+      }}
+    />
+  );
+};
 ```
 
 ## Size

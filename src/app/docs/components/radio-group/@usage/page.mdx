@@ -18,7 +18,7 @@ const options: {
   { value: "yearly", label: "Yearly" },
 ];
 
-export function MyRadioGroup() {
+const Demo = () => {
   const [selectedValue, setSelectedValue] = useState<string | null>(null);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -37,7 +37,7 @@ export function MyRadioGroup() {
       ))}
     </RadioGroup>
   );
-}
+};
 ```
 
 ## Column

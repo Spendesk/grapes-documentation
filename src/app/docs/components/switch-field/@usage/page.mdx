@@ -9,16 +9,19 @@ import { DemoSwitchField } from "./demo";
 </Preview>
 
 ```tsx
-const [isChecked, setChecked] = useState(false);
-return (
-  <SwitchField
-    label="Use a default account"
-    isChecked={isChecked}
-    onChange={(event) => {
-      setChecked(event.target.checked);
-    }}
-  />
-);
+const Demo = () => {
+  const [isChecked, setChecked] = useState(false);
+
+  return (
+    <SwitchField
+      label="Use a default account"
+      isChecked={isChecked}
+      onChange={(event) => {
+        setChecked(event.target.checked);
+      }}
+    />
+  );
+};
 ```
 
 ## Help text

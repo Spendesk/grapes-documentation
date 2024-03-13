@@ -29,25 +29,25 @@ The `as` prop is used to support a custom component, such as a react-router or N
 ```tsx
 import { Link as NextLink } from "next/link";
 
-export function MyLink() {
+const Demo = () => {
   return (
     <Link as={NextLink} href="/docs/components/button">
       Button
     </Link>
   );
-}
+};
 ```
 
 ```tsx
 import { Link as ReactRouterLink } from "react-router-dom";
 
-export function MyLink() {
+const Demo = () => {
   return (
     <Link as={ReactRouterLink} to="/help">
       Click Me
     </Link>
   );
-}
+};
 ```
 
 ## Inside a Callout
