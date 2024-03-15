@@ -25,18 +25,14 @@ export default function Components() {
                   )
                   .map((item) => {
                     return (
-                      <Link
-                        href={item.url}
-                        key={item.label}
-                        className="h-[250px]"
-                      >
+                      <Link href={item.url} key={item.label}>
                         {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img
-                          className="w-full h-[190px] object-cover"
+                          className="w-full object-cover"
                           src={`/static/images/components/${item.label}.svg`}
                           alt="grapes"
                         />
-                        <p className="m-s">{item.label}</p>
+                        <p className="p-s shrink-0">{item.label}</p>
                       </Link>
                     );
                   })}

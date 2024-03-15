@@ -1,7 +1,7 @@
 .docs-component-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: 250px;
+  grid-auto-rows: auto;
   list-style: none;
   margin-inline: 0;
   gap: var(--spacing-m);
