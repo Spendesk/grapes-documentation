@@ -16,19 +16,26 @@ export default function Components() {
             <React.Fragment key={route.category}>
               <h2 id={slug(route.category)}>{route.category}</h2>
               <div className="docs-component-grid">
-                {route.routes.map((item) => {
-                  return (
-                    <Link href={item.url} key={item.label}>
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
-                        className="w-full h-full object-cover"
-                        src="/bg.avif"
-                        alt="grapes"
-                      />
-                      <p className="m-s">{item.label}</p>
-                    </Link>
-                  );
-                })}
+                {route.routes
+                  .filter(
+                    (r) =>
+                      !["DeprecatedPreview", "useDateFormatter"].includes(
+                        r.label,
+                      ),
+                  )
+                  .map((item) => {
+                    return (
+                      <Link href={item.url} key={item.label}>
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          className="w-full object-cover"
+                          src={`/static/images/components/${item.label}.svg`}
+                          alt="grapes"
+                        />
+                        <p className="p-s shrink-0 bg-white">{item.label}</p>
+                      </Link>
+                    );
+                  })}
               </div>
             </React.Fragment>
           );

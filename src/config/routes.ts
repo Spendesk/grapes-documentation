@@ -184,7 +184,7 @@ export const componentRoutes: RouteConfig[] = [
         url: "/docs/components/text-input",
       },
       {
-        label: "Upload (Dropzone)",
+        label: "Upload",
         url: "/docs/components/upload",
       },
       {
