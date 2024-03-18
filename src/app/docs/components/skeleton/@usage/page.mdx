@@ -1,5 +1,4 @@
 import {
-  Callout,
   Skeleton,
   SkeletonAvatar,
   SkeletonButton,
@@ -12,17 +11,17 @@ import { Preview } from "@/components/preview/preview";
 
 ## Skeleton
 
-<Callout variant="warning" title="Usage">
-  Predefined skeleton components are available, such as Avatar, Button, Table,
-  etc. You should only use this generic skeleton if none of the other components
-  fit your design.
-</Callout>
+:::warning{title="Usage"}
+Predefined skeleton components are available, such as Avatar, Button, Table,
+etc. You should only use this generic skeleton if none of the other components
+fit your design.
+:::
 
 <Preview>
   <Skeleton height="24px" width="360px" />
 </Preview>
 
-```tsx
+```tsx sandbox
 <Skeleton height="24px" width="360px" />
 ```
 
@@ -39,7 +38,7 @@ This component provides a placeholder for the Avatar component.
   <SkeletonAvatar size="l" variant="circle" />
 </Preview>
 
-```tsx
+```tsx sandbox
 <>
   <SkeletonAvatar size="s" variant="square" />
   <SkeletonAvatar size="m" variant="square" />
@@ -59,7 +58,7 @@ This component provides a placeholder for the Button component. The ButtonSkelet
   <SkeletonButton width="360px" />
 </Preview>
 
-```tsx
+```tsx sandbox
 <>
   <SkeletonButton />
   <SkeletonButton width="360px" />
@@ -74,7 +73,7 @@ This component provides a placeholder for the Checkbox component. The height and
   <SkeletonCheckbox />
 </Preview>
 
-```tsx
+```tsx sandbox
 <SkeletonCheckbox />
 ```
 
@@ -110,7 +109,7 @@ This component provides a placeholder for the Table component. Like the Table co
   />
 </Preview>
 
-```tsx
+```tsx sandbox
 <SkeletonTable
   numberOfRows={5}
   columns={[
@@ -142,7 +141,7 @@ This component provides a placeholder for the Tag component. The TagSkeleton can
   <SkeletonTag width="360px" />
 </Preview>
 
-```tsx
+```tsx sandbox
 <>
   <SkeletonTag />
   <SkeletonTag width="360px" />
@@ -161,7 +160,7 @@ This component provides a placeholder for the Text component. Five different siz
   <SkeletonText size="xxl" />
 </Preview>
 
-```tsx
+```tsx sandbox
 <>
   <SkeletonText size="s" />
   <SkeletonText size="m" />

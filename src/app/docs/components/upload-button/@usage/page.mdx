@@ -1,20 +1,18 @@
-import { Callout } from "@dev-spendesk/grapes";
-
 import { Preview } from "@/components/preview/preview";
 import { DemoUploadButton } from "./demo";
 
 ## Basic usage
 
-<Callout title="This component is a button">
-  Please refer to [Button](/docs/components/button) documentation for more
-  information.
-</Callout>
+:::info{title="This component is a button"}
+Please refer to [Button](/docs/components/button) documentation for more
+information.
+:::
 
 <Preview>
   <DemoUploadButton />
 </Preview>
 
-```tsx
+```tsx sandbox
 const Demo = () => {
   const [selectedFile, setSelectedFile] = useState<File>();
 

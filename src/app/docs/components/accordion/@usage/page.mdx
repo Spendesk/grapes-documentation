@@ -9,7 +9,7 @@ The Accordion is highly customizable and has few styles from the start.
   <DemoAccordion />
 </Preview>
 
-```tsx
+```tsx sandbox
 const accordionItems = [
   "Invite team members",
   "Make a first payment",
@@ -44,9 +44,7 @@ The `withMultipleOpenItems` props allows the user to expand multiple accordion i
 </Preview>
 
 ```tsx
-<Accordion allowMultipleOpenItems {...otherProps}>
-  ...
-</Accordion>
+<Accordion allowMultipleOpenItems>...</Accordion>
 ```
 
 ## Default expanded items
@@ -58,9 +56,7 @@ The `defaultAccordionItemIndexes` lets you select which items should be expanded
 </Preview>
 
 ```tsx
-<Accordion defaultAccordionItemIndexes={new Set([0, 2])} {...otherProps}>
-  ...
-</Accordion>
+<Accordion defaultAccordionItemIndexes={new Set([0, 2])}>...</Accordion>
 ```
 
 ## Open / Close accordion

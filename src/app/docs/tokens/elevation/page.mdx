@@ -2,7 +2,6 @@
 title: Elevation
 ---
 
-import { Callout } from "@dev-spendesk/grapes";
 import { ElevationTokens } from "./elevation-tokens";
 import { ElevationTailwind } from "./elevation-tailwind";
 
@@ -28,14 +27,10 @@ Whenever you want to use an elevation from Grapes with TailwindCSS, you can use 
 
 <ElevationTailwind />
 
-<Callout
-  className="mt-s"
-  title="elevation-XX is an alias for shadow-XX from tailwindcss. You can use both elevation-XX or shadow-XX"
-  variant="info"
->
-  Please note that elevation-XX doesn't compose gracefully with ring-X
-  utilities. If you need to use ring-X with an elevation, it's recommended to
-  use shadow-XX instead.
-</Callout>
-
 See documentation from TailwindCSS: [https://tailwindcss.com/docs/box-shadow](https://tailwindcss.com/docs/box-shadow).
+
+:::info{title="elevation-XX is an alias for shadow-XX from tailwindcss. You can use both elevation-XX or shadow-XX"}
+Please note that elevation-XX doesn't compose gracefully with ring-X
+utilities. If you need to use ring-X with an elevation, it's recommended to
+use shadow-XX instead.
+:::

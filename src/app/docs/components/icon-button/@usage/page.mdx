@@ -10,7 +10,7 @@ The IconButton comes with 2 variants: border (default) and borderless
   <IconButton iconName="ellipsis" variant="borderless" />
 </Preview>
 
-```tsx
+```tsx sandbox
 <>
   <IconButton iconName="ellipsis" variant="border" />
   <IconButton iconName="ellipsis" variant="borderless" />
@@ -26,7 +26,7 @@ This props doesn't have any impact on border IconButton.
   <IconButton iconName="ellipsis" variant="borderless" hasNegativeMargins />
 </Preview>
 
-```tsx
+```tsx sandbox
 <IconButton iconName="ellipsis" variant="borderless" hasNegativeMargins />
 ```
 
@@ -38,7 +38,7 @@ Create a ref using `useRef` and pass it using the `ref` prop.
   <IconButton iconName="ellipsis" variant="border" />
 </Preview>
 
-```tsx
+```tsx sandbox
 const Demo = () => {
   const ref = useRef<HTMLButtonElement | null>(null);
 

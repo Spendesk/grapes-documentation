@@ -37,7 +37,7 @@ import { TimelineWithCustomDate } from "./custom-date";
   </Timeline>
 </Preview>
 
-```tsx
+```tsx sandbox
 <Timeline>
   <TimelineItem date={new Date("2020-12-22T21:29:00.000Z")}>
     <section>
@@ -66,7 +66,7 @@ The `renderDate` prop is used to render the date with a different format than th
   <TimelineWithCustomDate />
 </Preview>
 
-```tsx
+```tsx sandbox
 <Timeline renderDate={(date, locale) => date.toLocaleString(locale)}>
   <TimelineItem date={new Date("2020-12-22T21:29:00.000Z")}>
     <section>

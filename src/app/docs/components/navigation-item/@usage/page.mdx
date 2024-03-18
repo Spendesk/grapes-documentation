@@ -2,7 +2,12 @@ import { Badge, Callout, NavigationItem } from "@dev-spendesk/grapes";
 import { Preview } from "@/components/preview/preview";
 
 <Callout title="Usage" className="mt-m">
-  The NavigationItem component should only be used in the <a href="/docs/components/navigation">Navigation</a> and <a className="ml-0" href="/docs/components/side-navigation">SideNavigation</a> components.
+  The NavigationItem component should only be used in the{" "}
+  <a href="/docs/components/navigation">Navigation</a> and{" "}
+  <a className="ml-0" href="/docs/components/side-navigation">
+    SideNavigation
+  </a>{" "}
+  components.
 </Callout>
 
 ## Variant
@@ -17,7 +22,7 @@ The navigation item comes with three visual styles: `mainNavigation`, `subNaviga
   <NavigationItem text="Side navigation item" variant="sideNavigation" />
 </Preview>
 
-```tsx
+```tsx sandbox
 <>
   <NavigationItem text="Main navigation item" variant="mainNavigation" />
   <NavigationItem text="Sub navigation item" variant="subNavigation" />

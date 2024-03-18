@@ -1,4 +1,4 @@
-import { TextArea, Callout } from "@dev-spendesk/grapes";
+import { TextArea } from "@dev-spendesk/grapes";
 import { Preview } from "@/components/preview/preview";
 
 ## Basic usage
@@ -7,7 +7,7 @@ import { Preview } from "@/components/preview/preview";
   <TextArea className="w-[360px]" placeholder="Describe your expense" />
 </Preview>
 
-```tsx
+```tsx sandbox
 const Demo = () => {
   const [value, setValue] = useState("");
 
@@ -35,18 +35,18 @@ The `rows` prop allows you to specify how many rows the textarea should have. It
   />
 </Preview>
 
-```tsx
+```tsx sandbox
 <TextArea rows={10} />
 ```
 
-<Callout variant="info" title="Autosize TextArea">
-  For browsers compatible with the field-sizing property, the height of the
-  TextArea is determined by its content rather than the specified number of
-  rows. It means that the prop `rows` has no impact. The TextArea's minimum
-  height is set to 3 rows while the maximum height is set to 400px. Should the
-  content exceed 3 rows, the TextArea will dynamically adjust its height based
-  on the content.
-</Callout>
+:::info{title="Autosize TextArea"}
+For browsers compatible with the field-sizing property, the height of the
+TextArea is determined by its content rather than the specified number of
+rows. It means that the prop `rows` has no impact. The TextArea's minimum
+height is set to 3 rows while the maximum height is set to 400px. Should the
+content exceed 3 rows, the TextArea will dynamically adjust its height based
+on the content.
+:::
 
 ## Accessibility
 

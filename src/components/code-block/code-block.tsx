@@ -7,6 +7,7 @@ import "./code-block.css";
 
 type Props = {
   language?: string;
+  displaySandboxButton?: boolean;
   children: React.ReactNode;
 };
 
@@ -15,7 +16,11 @@ function extractLanguage(attr = "") {
   return result ? result[1] : "tsx";
 }
 
-export async function CodeBlock({ language, children }: Props) {
+export async function CodeBlock({
+  language,
+  children,
+  displaySandboxButton = false,
+}: Props) {
   const code = children as string;
   const lang = extractLanguage(language);
 
@@ -36,7 +41,7 @@ export async function CodeBlock({ language, children }: Props) {
     <div className="docs-code">
       <div dangerouslySetInnerHTML={{ __html: html }} />
       <CopyButton content={code} className="docs-cta-copy" />
-      <OpenInSandboxButton code={code} />
+      {displaySandboxButton && <OpenInSandboxButton code={code} />}
     </div>
   );
 }
