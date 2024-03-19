@@ -1,4 +1,4 @@
-import { Button, Callout, Tooltip } from "@dev-spendesk/grapes";
+import { Button, Tooltip } from "@dev-spendesk/grapes";
 import { Preview } from "@/components/preview/preview";
 
 import { VisibleOnClick } from "./visible-on-click";
@@ -15,7 +15,7 @@ import { VisibleOnClick } from "./visible-on-click";
   </Tooltip>
 </Preview>
 
-```tsx
+```tsx sandbox
 <Tooltip content="This is some useful information in a tooltip" triggerAsChild>
   <Button variant="primary" isDisabled text="Top tooltip" />
 </Tooltip>
@@ -52,7 +52,7 @@ Use the `placement` prop to specify where the tooltip should be positioned.
   </Tooltip>
 </Preview>
 
-```tsx
+```tsx sandbox
 <>
   <Tooltip
     content="This is some useful information in a tooltip"
@@ -95,7 +95,7 @@ If the `isDisabled` prop is set to `true`, the tooltip will never appear.
   </Tooltip>
 </Preview>
 
-```tsx
+```tsx sandbox
 <Tooltip content="This is some useful information in a tooltip" isDisabled>
   <Button variant="primary" isDisabled text="Tooltip" />
 </Tooltip>
@@ -107,7 +107,7 @@ The tooltip can be controlled using the `isOpen` prop.
 
 <VisibleOnClick />
 
-```tsx
+```tsx sandbox
 const Demo = () => {
   const [isVisible, setIsVisible] = useState(false);
 
@@ -135,8 +135,8 @@ To avoid having this div around the trigger (this can be useful for ellipsis for
 
 At least the Grapes `Button`, `Icon`, `IconButton`, and `HighlightIcon` components have a forwardRef, and this will be added to more components in the future.
 
-<Callout variant="alert" title="Disabled elements">
-  The `triggerAsChild` prop will not work with disabled elements. Since disabled
-  elements do not send events, it is for now necessary to have the surrounding
-  div to add a tooltip around it.
-</Callout>
+:::alert{title="Disabled elements"}
+The `triggerAsChild` prop will not work with disabled elements. Since disabled
+elements do not send events, it is for now necessary to have the surrounding
+div to add a tooltip around it.
+:::

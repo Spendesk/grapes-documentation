@@ -38,7 +38,7 @@ import { DemoControlledTabs } from "./demo";
   </Tabs>
 </Preview>
 
-```tsx
+```tsx sandbox
 <Tabs>
   <TabList className="mb-s">
     <Tab>Information</Tab>
@@ -72,10 +72,18 @@ Use the `isFitted` prop on the TabList component to make the tabs fit their cont
   </Tabs>
 </Preview>
 
-```tsx
-<Tabs {...otherProps}>
+```tsx sandbox
+<Tabs>
   <TabList isFitted className="mb-s">
-  ...
+    <Tab>Information</Tab>
+    <Tab>Roles</Tab>
+    <Tab>Settings & Policies</Tab>
+  </TabList>
+  <TabPanels>
+    <TabPanel>First panel</TabPanel>
+    <TabPanel>Second panel</TabPanel>
+    <TabPanel>Third panel</TabPanel>
+  </TabPanels>
 </Tabs>
 ```
 
@@ -99,9 +107,7 @@ Use the `defaultTabIndex` prop to make a tab initially active.
 </Preview>
 
 ```tsx
-<Tabs defaultTabIndex={2} {...otherProps}>
-  ...
-</Tabs>
+<Tabs defaultTabIndex={2}>...</Tabs>
 ```
 
 ## Customized
@@ -131,7 +137,7 @@ The Tab accepts any kind of content, it can be customized as needed.
   </Tabs>
 </Preview>
 
-```tsx
+```tsx sandbox
 <Tabs>
   <TabList className="mb-s">
     <Tab>Information</Tab>
@@ -168,7 +174,7 @@ The Tab comes with three visual styles: primary (default), warning, and alert.
   </Tabs>
 </Preview>
 
-```tsx
+```tsx sandbox
 <Tabs>
   <TabList className="mb-s">
     <Tab variant="primary">Primary</Tab>
@@ -186,7 +192,7 @@ A tab's state can be controlled. Make sure to include the `tabIndex` and `onChan
   <DemoControlledTabs />
 </Preview>
 
-```tsx
+```tsx sandbox
 const Demo = () => {
   const [value, setValue] = useState(2);
 

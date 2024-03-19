@@ -2,7 +2,7 @@
 
 import { IconButton, Tooltip, colors } from "@dev-spendesk/grapes";
 import lzString from "lz-string";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 type Props = {
   code: string;
@@ -27,23 +27,13 @@ render(<Demo />);`;
 
 export function OpenInSandboxButton({ code }: Props) {
   const router = useRouter();
-  const pathname = usePathname();
-
-  if (
-    // Display the button only for component examples
-    !pathname.includes("components") ||
-    // TODO: add directive [disable-sandbox] in MDX
-    code.includes("otherProps") ||
-    code.includes("import {")
-  ) {
-    return null;
-  }
 
   return (
     <Tooltip content="Open in Sandbox" triggerAsChild>
       <IconButton
         iconName="external"
         className="docs-cta-open"
+        aria-label="Open in Sandbox"
         iconColor={colors.white}
         onClick={() => {
           const parsedCode = makeCodeForSandbox(code);

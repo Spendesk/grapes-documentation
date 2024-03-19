@@ -10,8 +10,12 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
     pre: ({ children }) => {
       return (
-        // @ts-ignore
-        <CodeBlock language={children.props.className}>
+        <CodeBlock
+          // @ts-ignore
+          language={children.props.className}
+          // @ts-ignore
+          displaySandboxButton={children.props.sandbox}
+        >
           {/* @ts-ignore */}
           {children.props.children}
         </CodeBlock>
@@ -49,6 +53,13 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     strong: ({ children }) => (
       <strong className="font-medium">{children}</strong>
     ),
+    callout: ({ children, title, variant }) => {
+      return (
+        <Callout title={title} variant={variant}>
+          {children}
+        </Callout>
+      );
+    },
     ...components,
   };
 }
