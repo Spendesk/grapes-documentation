@@ -3,7 +3,7 @@
 import { useSearchParams } from "next/navigation";
 import lzString from "lz-string";
 
-import { CodeLive } from "../../components/sandbox/CodeLive";
+import { CodeLive } from "@/lib/sandbox/CodeLive";
 import { Suspense } from "react";
 
 function Container() {
