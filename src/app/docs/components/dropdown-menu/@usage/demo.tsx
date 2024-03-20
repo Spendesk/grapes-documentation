@@ -8,7 +8,7 @@ import {
 } from "@dev-spendesk/grapes";
 import { useState } from "react";
 
-import { classNames } from "@/utils/classNames";
+import { classNames } from "@/lib/classNames";
 
 const costCenters = [
   { key: "marketing", label: "Marketing" },

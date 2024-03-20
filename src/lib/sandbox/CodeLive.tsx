@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import * as GrapesImports from "@dev-spendesk/grapes";
 import { LiveProvider, LiveError, LivePreview } from "react-live";
 
-import { classNames } from "@/utils/classNames";
+import { classNames } from "@/lib/classNames";
 
 import { CodeEditor } from "./CodeEditor";
 import { CodeEditorToolbar } from "./CodeEditorToolbar";

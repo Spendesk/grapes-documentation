@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { Icon, IconButton, Tag, TextInput, colors } from "@dev-spendesk/grapes";
-import { type Route, routes } from "@/config/routes";
+import { type Route, routes } from "@/app/routes";
 import { useEffect, useRef, useState } from "react";
 import { Option } from "./option";
 import { useHighlight } from "./useHighlight";

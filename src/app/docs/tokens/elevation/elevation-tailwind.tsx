@@ -1,7 +1,7 @@
 "use client";
 
 import { Table } from "@dev-spendesk/grapes";
-import { CopyCell } from "@/components/copy-cell/copy-cell";
+import { CopyCell } from "@/lib/copy-cell/copy-cell";
 import { elevationTokens } from "./types";
 
 export function ElevationTailwind() {

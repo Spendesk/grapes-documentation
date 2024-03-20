@@ -1,7 +1,7 @@
 "use client";
 
 import { Table, colors } from "@dev-spendesk/grapes";
-import { CopyCell } from "@/components/copy-cell/copy-cell";
+import { CopyCell } from "@/lib/copy-cell/copy-cell";
 
 export function ColorTailwind() {
   return (

@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { Button, Icon, SwitchField } from "@dev-spendesk/grapes";
 
-import { classNames } from "@/utils/classNames";
+import { classNames } from "@/lib/classNames";
 
 import { Confetti } from "./confetti";
 

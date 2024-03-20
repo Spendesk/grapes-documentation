@@ -1,5 +1,5 @@
 import { Button, Icon, TextInput } from "@dev-spendesk/grapes";
-import { Preview } from "@/components/preview/preview";
+import { Preview } from "@/lib/preview/preview";
 
 import { DemoTextInput } from "./demo";
 
@@ -30,7 +30,11 @@ const Demo = () => {
 Use the `variant` prop to control the visual style of the TextInput. The TextInput comes with two visual styles: default (default) and magicGradient.
 
 <Preview>
-  <TextInput variant="magicGradient" className="w-[360px]" placeholder="Enter account number" />
+  <TextInput
+    variant="magicGradient"
+    className="w-[360px]"
+    placeholder="Enter account number"
+  />
 </Preview>
 
 ```tsx
@@ -42,14 +46,32 @@ Use the `variant` prop to control the visual style of the TextInput. The TextInp
 The `leftAddon` and `rightAddon` props allow you to add a component at the beginning or end of the TextInput.
 
 <Preview>
-  <TextInput className="w-[360px]" placeholder="Enter account number" leftAddon={<Icon color="var(--color-primary)" name="robot" className="ml-xs" />} />
-  <TextInput className="w-[360px]" placeholder="Enter account number" rightAddon={<Button variant="ghost" text="OK" />} />
+  <TextInput
+    className="w-[360px]"
+    placeholder="Enter account number"
+    leftAddon={
+      <Icon color="var(--color-primary)" name="robot" className="ml-xs" />
+    }
+  />
+  <TextInput
+    className="w-[360px]"
+    placeholder="Enter account number"
+    rightAddon={<Button variant="ghost" text="OK" />}
+  />
 </Preview>
 
 ```tsx
 <>
-  <TextInput leftAddon={<Icon color="var(--color-primary)" name="robot" className="ml-xs" />} {...otherProps} />
-  <TextInput rightAddon={<Button variant="ghost" text="OK" />} {...otherProps} />
+  <TextInput
+    leftAddon={
+      <Icon color="var(--color-primary)" name="robot" className="ml-xs" />
+    }
+    {...otherProps}
+  />
+  <TextInput
+    rightAddon={<Button variant="ghost" text="OK" />}
+    {...otherProps}
+  />
 </>
 ```
 

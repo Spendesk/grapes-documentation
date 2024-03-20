@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
 
-import { classNames } from "@/utils/classNames";
+import { classNames } from "@/lib/classNames";
 
 import "./preview.css";
 

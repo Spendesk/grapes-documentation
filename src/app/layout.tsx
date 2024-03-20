@@ -1,9 +1,9 @@
 import { Metadata } from "next";
 import { GrapesProvider } from "@dev-spendesk/grapes";
-import { GlobalHeader } from "@/components/global-header/global-header";
+import { GlobalHeader } from "@/lib/global-header/global-header";
 
 import "./globals.css";
-import { Tracking } from "@/components/tracking/tracking";
+import { Tracking } from "@/lib/tracking/tracking";
 import { Suspense } from "react";
 
 export const metadata: Metadata = {

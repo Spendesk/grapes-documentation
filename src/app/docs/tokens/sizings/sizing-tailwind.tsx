@@ -2,7 +2,7 @@
 
 import { Table } from "@dev-spendesk/grapes";
 import { sizingTokens } from "./types";
-import { CopyCell } from "@/components/copy-cell/copy-cell";
+import { CopyCell } from "@/lib/copy-cell/copy-cell";
 
 export function SizingTailwind() {
   return (

@@ -28,7 +28,7 @@ export function TableOfContents() {
           id: heading.id,
           label: heading.textContent ?? "",
           type: heading.nodeName,
-        }))
+        })),
     );
   }, [pathname, searchParams]);
 
