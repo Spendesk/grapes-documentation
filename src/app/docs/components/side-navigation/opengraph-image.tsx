@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-import OgImage, { fetchFonts } from "@/components/og-image/ogImage";
+import OgImage, { fetchFonts } from "@/lib/og-image/ogImage";
 
 export const alt = "Component: SideNavigation";
 export const size = {

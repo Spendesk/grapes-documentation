@@ -1,6 +1,6 @@
 "use client";
 
-import { CopyButton } from "@/components/copy-button/copy-button";
+import { CopyButton } from "@/lib/copy-button/copy-button";
 import "./copy-cell.css";
 
 type Props = {

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useId } from "react";
-import { routes, headerRoutes, type RouteConfig } from "@/config/routes";
+import { routes, headerRoutes, type RouteConfig } from "@/app/routes";
 import { usePathname } from "next/navigation";
 
 import { SideBarLink } from "./sidebar-link";

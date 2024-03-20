@@ -15,7 +15,7 @@ export function useHeadsObserver(pathname: string | null) {
       },
       {
         rootMargin: "-20% 0% -35% 0px",
-      }
+      },
     );
 
     const elements = document.querySelectorAll("h2, h3");

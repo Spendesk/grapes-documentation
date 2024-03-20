@@ -1,5 +1,5 @@
 import { EmptyState } from "@dev-spendesk/grapes";
-import { Minesweeper } from "@/components/game/minesweeper";
+import { Minesweeper } from "@/lib/game/minesweeper";
 
 import "./not-found.css";
 

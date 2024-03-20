@@ -1,4 +1,4 @@
-import { componentRoutes } from "@/config/routes";
+import { componentRoutes } from "@/app/routes";
 import Link from "next/link";
 import React from "react";
 import { slug } from "github-slugger";

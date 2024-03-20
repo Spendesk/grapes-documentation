@@ -1,7 +1,7 @@
 import { codeToHtml, addClassToHast } from "shiki";
 import { transformerNotationHighlight } from "@shikijs/transformers";
-import { CopyButton } from "@/components/copy-button/copy-button";
-import { OpenInSandboxButton } from "@/components/open-in-sandbox-button/open-in-sandbox-button";
+import { CopyButton } from "@/lib/copy-button/copy-button";
+import { OpenInSandboxButton } from "@/lib/open-in-sandbox-button/open-in-sandbox-button";
 
 import "./code-block.css";
 

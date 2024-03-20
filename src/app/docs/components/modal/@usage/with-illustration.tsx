@@ -1,6 +1,6 @@
 "use client";
 
-import { Preview } from "@/components/preview/preview";
+import { Preview } from "@/lib/preview/preview";
 import { Button, Modal } from "@dev-spendesk/grapes";
 import Image from "next/image";
 import { useState } from "react";

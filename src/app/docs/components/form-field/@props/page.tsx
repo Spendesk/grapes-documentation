@@ -1,5 +1,5 @@
-import { PropsTable } from "@/components/props-table/props-table";
+import { PropsTable } from "@/lib/props-table/props-table";
 
 export default function Props() {
-  return <PropsTable components={[ "FormField", ]} />;
+  return <PropsTable components={["FormField"]} />;
 }

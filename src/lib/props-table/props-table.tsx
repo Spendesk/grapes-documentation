@@ -1,7 +1,7 @@
 import { ListView, ListItem, Tag } from "@dev-spendesk/grapes";
 import Link from "next/link";
 import { Fragment } from "react";
-import { classNames } from "@/utils/classNames";
+import { classNames } from "@/lib/classNames";
 
 import { getSortedProps } from "./utils";
 import { InlineBlock } from "./inline-code";

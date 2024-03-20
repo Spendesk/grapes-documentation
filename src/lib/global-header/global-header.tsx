@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { Suspense } from "react";
 import { NavigationItem, Tag } from "@dev-spendesk/grapes";
-import { headerRoutes } from "@/config/routes";
+import { headerRoutes } from "@/app/routes";
 
 import { Search } from "../search/search";
 import { LogoGithub } from "../logo/logo-github";

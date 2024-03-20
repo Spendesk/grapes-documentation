@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { Icon, Input, Button, type IconName } from "@dev-spendesk/grapes";
-import { getSortedProps } from "@/components/props-table/utils";
+import { getSortedProps } from "@/lib/props-table/utils";
 
 import "./iconSet.css";
 

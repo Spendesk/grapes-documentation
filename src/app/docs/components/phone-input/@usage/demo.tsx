@@ -8,7 +8,7 @@ import {
 } from "libphonenumber-js";
 import { useState } from "react";
 
-import { COUNTRIES } from "@/utils/country";
+import { COUNTRIES } from "@/lib/country";
 
 const formatPhoneNumber = (value: string | null, country: string) => {
   if (!value) {

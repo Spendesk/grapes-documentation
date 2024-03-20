@@ -1,6 +1,6 @@
 "use client";
 
-import { useQueryParamsTab } from "@/components/useQueryParamsTab/useQueryParamsTab";
+import { useQueryParamsTab } from "@/lib/useQueryParamsTab/useQueryParamsTab";
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from "@dev-spendesk/grapes";
 
 const TABS = ["usage", "props", "accessibility"];
