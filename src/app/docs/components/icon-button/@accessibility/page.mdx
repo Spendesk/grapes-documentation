@@ -1,0 +1,25 @@
+## Summary
+
+| Specification      | Value             |
+| :----------------- | :---------------- |
+| Aria Role          | `button`          |
+| Accessibility name | prop `aria-label` |
+
+:::info{title="Info"}
+An alternative text label must be provided to identify the control. This should be added using the `aria-label` prop.
+:::
+
+```tsx
+<IconButton
+  aria-label="More option" // [!code highlight]
+  iconName="ellipsis"
+  variant="borderless"
+/>
+```
+
+## Keyboard Interaction
+
+| Key     | Action          |
+| :------ | :-------------- |
+| `Space` | Activate button |
+| `Enter` | Activate button |

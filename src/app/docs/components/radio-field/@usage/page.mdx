@@ -1,16 +1,10 @@
-import { Callout } from "@dev-spendesk/grapes";
-
 import { Preview } from "@/lib/preview/preview";
 import { DemoRadioField } from "./demo";
 
-<Callout
-  className="mt-m"
-  variant="warning"
-  title="The RadioField should only be used within a RadioGroup"
->
-  The RadioField component should be wrapped inside a RadioGroup. Learn more
-  about the RadioGroup [here](/docs/components/radio-group).
-</Callout>
+:::warning{title="The RadioField should only be used within a RadioGroup"}
+The RadioField component should be wrapped inside a RadioGroup. Learn more
+about the RadioGroup [here](/docs/components/radio-group).
+:::
 
 ## Basic usage
 
@@ -35,12 +29,3 @@ const Demo = () => {
   );
 };
 ```
-
-## Accessibility
-
-Adheres to the [radio role requirements](https://www.w3.org/TR/wai-aria-1.2/#radio).
-
-### Keyboard interactions
-
-- `tab`: Moves focus on the element or outside
-- `space`: Checks the focused radio button

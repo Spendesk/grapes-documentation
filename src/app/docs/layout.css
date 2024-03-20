@@ -148,6 +148,10 @@
         color: var(--color-complementary);
       }
     }
+
+    aside:not(.docs-preview > aside) {
+      margin-block: var(--spacing-s);
+    }
   }
 
   .docs-toc {

@@ -4,6 +4,7 @@ export default function Props() {
   return (
     <PropsTable
       components={[
+        "Modal",
         "ModalOverlay",
         "ModalContent",
         "ModalHeaderWithIcon",
