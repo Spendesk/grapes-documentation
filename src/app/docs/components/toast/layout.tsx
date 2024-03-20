@@ -24,7 +24,7 @@ export default function Layout(props: {
         <TabPanels>
           <TabPanel>{props.usage}</TabPanel>
           <TabPanel>{props.props}</TabPanel>
-          <TabPanel>{proPps.accessibility}</TabPanel>
+          <TabPanel>{props.accessibility}</TabPanel>
         </TabPanels>
       </Tabs>
     </>
