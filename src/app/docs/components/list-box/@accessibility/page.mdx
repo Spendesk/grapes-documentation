@@ -1,0 +1,24 @@
+## Summary
+
+| Specification      | Value             |
+| :----------------- | :---------------- |
+| Aria Role          | `listbox`         |
+| Accessibility name | prop `aria-label` |
+
+:::info{title="Info"}
+An alternative text label must be provided to identify the listbox. This should be added using the `aria-label` prop.
+:::
+
+#### Option
+
+- Each option container has role `option`
+- Each option has an accessible name given when parameter `titleId` is assigned
+
+## Keyboard Interaction
+
+| Key          | Action                             |
+| :----------- | :--------------------------------- |
+| `Down Arrow` | Moves focus to the next option     |
+| `Up Arrow`   | Moves focus to the previous option |
+| `Home`       | Moves focus to first option        |
+| `End`        | Moves focus to last option         |

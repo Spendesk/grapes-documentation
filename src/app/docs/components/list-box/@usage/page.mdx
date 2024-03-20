@@ -39,6 +39,9 @@ const Demo = () => {
             <div className="title-m" id={titleId}>
               {option.name}
             </div>
+            <div className="body-m text-neutral-dark mt-xxs">
+              {option.description}
+            </div>
           </div>
           <span>{option.birthDate}</span>
         </div>
@@ -196,7 +199,3 @@ The `getOptionVariant` prop allows you to specify a variant (`alert` or `warning
   {...otherProps}
 />
 ```
-
-## Accessibility
-
-Adheres to the [listbox role requirements](https://www.w3.org/TR/wai-aria-1.2/#listbox).

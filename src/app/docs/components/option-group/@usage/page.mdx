@@ -66,6 +66,10 @@ const Demo = () => {
 
 The OptionGroup supports Icon as label. Inside each option, use the attribute `iconName` to provide the name of the icon.
 
+:::info{title="Info"}
+`label` prop is still mandatory to label the icon inside each radio button
+:::
+
 <Preview className="block">
   <Demo
     options={[
@@ -120,16 +124,3 @@ const Demo = () => {
   );
 };
 ```
-
----
-
-## Accessibility
-
-OptionGroup adheres to the [radiogroup role requirements](https://www.w3.org/TR/wai-aria-1.2/#radiogroup).
-
-### Keyboard Interaction
-
-- `Tab`: Moves focus to the checked radio button in the radiogroup or outside
-- `Space`: Checks the focused item
-- `Arrow left`: Moves focus to and checks the previous radio button in the group. If focus is on the first radio button, focus moves to and checks the last radio button. The state of the previously checked radio button is changed to unchecked.
-- `Arrow right`: Moves focus to and checks the next radio button in the group. If focus is on the last radio button, focus moves to the first radio button. The state of the previously checked radio button is changed to unchecked.

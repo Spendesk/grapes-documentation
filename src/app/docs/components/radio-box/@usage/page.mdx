@@ -1,5 +1,3 @@
-import { Callout } from "@dev-spendesk/grapes";
-
 import { Preview } from "@/lib/preview/preview";
 import {
   DemoRadioBox,
@@ -7,14 +5,10 @@ import {
   DemoVerticalRadioBox,
 } from "./demo";
 
-<Callout
-  className="mt-m"
-  variant="warning"
-  title="The RadioBox only works within a RadioGroup"
->
-  The RadioBox component should be wrapped inside a RadioGroup in order to work.
-  Learn more about the RadioGroup [here](/docs/components/radio-group).
-</Callout>
+:::warning{title="The RadioBox only works within a RadioGroup"}
+The RadioBox component should be wrapped inside a RadioGroup in order to work.
+Learn more about the RadioGroup [here](/docs/components/radio-group).
+:::
 
 ## Basic usage
 
@@ -80,38 +74,4 @@ The `description` prop is optional.
   <RadioBox label="Yes" value="yes" />
   <RadioBox label="No" value="no" />
 </RadioGroup>
-```
-
-## Accessibility
-
-Adheres to the [radio role requirements](https://www.w3.org/TR/wai-aria-1.2/#radio).
-
-### Name
-
-The RadioBox is labelled by the props `label`.
-Using [testing-library](https://testing-library.com/), you can fetch the following component
-
-```tsx
-<RadioBox value="daily" label="Daily" description="Once a day" />
-```
-
-by using the query:
-
-```ts
-getByRole("radio", { name: "Daily" });
-```
-
-### Description
-
-The RadioBox is described by the props `description`.
-Using [testing-library](https://testing-library.com/), you can fetch the following component
-
-```tsx
-<RadioBox value="daily" label="Daily" description="Once a day" />
-```
-
-by using the query:
-
-```ts
-getByRole("radio", { description: "Once a day" });
 ```

@@ -1,0 +1,25 @@
+## Summary
+
+| Specification      | Value             |
+| :----------------- | :---------------- |
+| Aria Role          | `radiogroup`      |
+| Accessibility name | prop `aria-label` |
+
+:::info{title="Info"}
+An alternative text label must be provided to identify the radigroup. This should be added using the `aria-label` prop.
+:::
+
+### Item
+
+| Specification      | Value        |
+| :----------------- | :----------- |
+| Aria Role          | `radio`      |
+| Accessibility name | prop `label` |
+
+## Keyboard Interaction
+
+| Key                           | Action                                                                                                                                                                                            |
+| :---------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `Down Arrow` or `Right Arrow` | Move focus to the next radio button in the group, uncheck the previously focused button, and check the newly focused button. If focus is on the last button, focus moves to the first button      |
+| `Up Arrow` or `Left Arrow`    | Move focus to the previous radio button in the group, uncheck the previously focused button, and check the newly focused button. If focus is on the first button, focus moves to the last button. |
+| `Space`                       | Checks the focused radio button if it is not already checked.                                                                                                                                     |

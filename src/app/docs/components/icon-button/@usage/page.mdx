@@ -45,25 +45,3 @@ const Demo = () => {
   return <IconButton ref={ref} iconName="ellipsis" variant="border" />;
 };
 ```
-
----
-
-## Accessibility
-
-IconButton adheres to the [button role requirements](https://www.w3.org/TR/wai-aria-1.2/#button).
-
-An alternative text label must be provided to identify the control. This should be added using the `aria-label` prop.
-
-```tsx
-<IconButton
-  aria-label="More option" // [!code highlight]
-  iconName="ellipsis"
-  variant="borderless"
-/>
-```
-
-## Keyboard Interaction
-
-- `Tab`: Moves focus on the element or outside
-- `Enter`: Triggers the component action
-- `Space`: Triggers the component action
