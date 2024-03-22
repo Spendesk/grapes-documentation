@@ -1,21 +1,11 @@
-"use client";
+import type { Metadata } from "next";
 
-import { useSearchParams } from "next/navigation";
-import lzString from "lz-string";
-
-import { CodeLive } from "@/lib/sandbox/CodeLive";
 import { Suspense } from "react";
+import { Container } from "./container";
 
-function Container() {
-  const searchParams = useSearchParams();
-  const code = searchParams.get("code");
-
-  const decompressedCode = code
-    ? lzString.decompressFromEncodedURIComponent(code)
-    : undefined;
-
-  return <CodeLive decompressedCode={decompressedCode} />;
-}
+export const metadata: Metadata = {
+  title: "Sandbox",
+};
 
 export default function Sandbox() {
   return (
