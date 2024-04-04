@@ -19,7 +19,7 @@ export default function Layout(props: {
         <TabList className="docs-tabs">
           <Tab>Usage</Tab>
           <Tab>Props</Tab>
-          <Tab>Accessbility</Tab>
+          <Tab>Accessibility</Tab>
         </TabList>
         <TabPanels>
           <TabPanel>{props.usage}</TabPanel>
