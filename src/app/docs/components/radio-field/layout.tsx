@@ -3,7 +3,7 @@
 import { useQueryParamsTab } from "@/lib/useQueryParamsTab/useQueryParamsTab";
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from "@dev-spendesk/grapes";
 
-const TABS = ["usage", "props", "accessiblity"];
+const TABS = ["usage", "props", "accessibility"];
 export default function Layout(props: {
   children: React.ReactNode;
   props: React.ReactNode;
