@@ -1,23 +1,10 @@
 import { DemoModal } from "./demo";
+import { Preview } from "@/lib/preview/preview";
 import { WithIllustration } from "./with-illustration";
-import { WithLowerLevelConstructModal } from "./with-lower-level-construct";
-
-## Import
-
-Grapes exposes 7 components to help you create any dialog.
-
-- `Modal`: The fastest and **recommended** way to create a Dialog.
-
-The following are lower-level construct that is leveraged by `Modal` or `ModalSlideshow`:
-
-- `ModalOverlay`: The dimmed overlay behind the modal dialog.
-- `ModalContent`: The container for the modal content. It also contains the button that closes the modal.
-- `ModalHeaderWithIcon`: The header that labels the modal dialog with a Grapes icon.
-- `ModalHeaderWithIllustration`: The header that labels the modal dialog with an Illustration.
-- `ModalBody`: The wrapper that contains the modal's main content.
-- `ModalFooter`: The footer that contains the modal actions.
-
----
+import {
+  WithLowerLevelConstructModal,
+  ModalFlow,
+} from "./with-lower-level-construct";
 
 ## Basic usage
 
@@ -103,6 +90,13 @@ const Demo = () => {
 At times, you may need to build complex flows using Modals, or for specific use cases, you might require a highly customized Modal header or Modal footer.
 In such scenarios, Grapes provides a set of lower-level constructs, allowing you to build any Modal while adhering to the design-system rules.
 
+- `ModalOverlay`: The dimmed overlay behind the modal dialog.
+- `ModalContent`: The container for the modal content. It also contains the button that closes the modal.
+- `ModalHeaderWithIcon`: The header that labels the modal dialog with a Grapes icon.
+- `ModalHeaderWithIllustration`: The header that labels the modal dialog with an Illustration.
+- `ModalBody`: The wrapper that contains the modal's main content.
+- `ModalFooter`: The footer that contains the modal actions.
+
 <WithLowerLevelConstructModal />
 
 ```tsx sandbox
@@ -136,6 +130,112 @@ const Demo = () => {
               variant="primary"
               text="Switch"
               onClick={() => setIsOpen(false)}
+            />
+          </ModalFooter>
+        </ModalContent>
+      </ModalOverlay>
+    </>
+  );
+};
+```
+
+### Build a Modal flow
+
+Although is not the best practice in terms of UX, something you will need to create a flow of modals, i.e. instances where modal follow one another sequentially.
+To create such flows, **you need to use lower-level constructs**.
+
+:::warning{title=Warning}
+If you don't use lower-level constructs to build a flow of Modals, animations will be play between each Modal. These animation can be unpleasant for the user.
+Please use lower-level constructs as demonstrated in the example below.
+:::
+
+<Preview>
+  <ModalFlow />
+</Preview>
+
+```tsx sandbox
+type Action = "next" | "previous" | "open" | "close";
+const STATE = {
+  close: -1,
+  firstModal: 0,
+  secondModal: 1,
+  lastModal: 2,
+};
+
+function reducer(state: number, action: Action) {
+  switch (action) {
+    case "next":
+      return state === STATE.lastModal ? STATE.close : state + 1;
+    case "previous":
+      return state === STATE.firstModal ? -1 : state - 1;
+    case "open":
+      return STATE.firstModal;
+    case "close":
+      return STATE.close;
+  }
+}
+
+const Demo = () => {
+  const [state, setState] = useReducer(reducer, STATE.close);
+
+  return (
+    <>
+      <Button text="Open the modal" onClick={() => setState("open")} />
+      <ModalOverlay isOpen={state !== STATE.close}>
+        <ModalContent
+          aria-labelledby="grapes-id"
+          onClose={() => setState("close")}
+        >
+          {state === STATE.firstModal && (
+            <>
+              <ModalHeaderWithIcon
+                title="Modal 1"
+                iconName="food"
+                iconVariant="info"
+                titleId="grapes-id"
+              />
+              <ModalBody>Content of the first Modal</ModalBody>
+            </>
+          )}
+          {state === STATE.secondModal && (
+            <>
+              <ModalHeaderWithIcon
+                title="Modal 2"
+                iconName="warning"
+                iconVariant="warning"
+                titleId="grapes-id"
+              />
+              <ModalBody>Content of the second Modal</ModalBody>
+            </>
+          )}
+          {state === STATE.lastModal && (
+            <>
+              <ModalHeaderWithIcon
+                title="Modal 3"
+                iconName="success"
+                iconVariant="success"
+                titleId="grapes-id"
+              />
+              <ModalBody>Content of the third Modal</ModalBody>
+            </>
+          )}
+
+          <ModalFooter>
+            <Button
+              key="cancel"
+              variant="secondary"
+              text={state === STATE.firstModal ? "Close" : "Previous"}
+              iconPosition="left"
+              iconName={state === STATE.firstModal ? undefined : "arrow-left"}
+              onClick={() => setState("previous")}
+            />
+            <Button
+              key="switch"
+              variant="primary"
+              text={state === STATE.lastModal ? "Confirm" : "next"}
+              iconPosition="right"
+              iconName={state === STATE.lastModal ? undefined : "arrow-right"}
+              onClick={() => setState("next")}
             />
           </ModalFooter>
         </ModalContent>
