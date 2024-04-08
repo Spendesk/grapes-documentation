@@ -49,6 +49,34 @@ export function DemoBooleanRadioBox() {
   );
 }
 
+export function DemoDefaultValue() {
+  const [selectedValue, setSelectedValue] = useState<string>("singleUse");
+
+  return (
+    <RadioGroup
+      name="cardType"
+      value={selectedValue}
+      onChange={(event) => {
+        setSelectedValue(event?.target.value);
+      }}
+      className="w-[400px]"
+    >
+      <RadioBox
+        iconName="single-purchase-card"
+        label="Single use"
+        description="If you need to make a one-time payment"
+        value="singleUse"
+      />
+      <RadioBox
+        iconName="recurring-card"
+        label="Recurring"
+        description="If you want to manage your subscriptions"
+        value="recurring"
+      />
+    </RadioGroup>
+  );
+}
+
 const options: { label: string; description: string; value: string }[] = [
   {
     label: "Administrator",
