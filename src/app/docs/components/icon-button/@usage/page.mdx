@@ -6,14 +6,14 @@ import { Preview } from "@/lib/preview/preview";
 The IconButton comes with 2 variants: border (default) and borderless
 
 <Preview>
-  <IconButton iconName="ellipsis" variant="border" />
-  <IconButton iconName="ellipsis" variant="borderless" />
+  <IconButton iconName="dots" variant="border" />
+  <IconButton iconName="dots" variant="borderless" />
 </Preview>
 
 ```tsx sandbox
 <>
-  <IconButton iconName="ellipsis" variant="border" />
-  <IconButton iconName="ellipsis" variant="borderless" />
+  <IconButton iconName="dots" variant="border" />
+  <IconButton iconName="dots" variant="borderless" />
 </>
 ```
 
@@ -23,11 +23,11 @@ Use the prop `hasNegativeMargins` to remove the margin around a borderless IconB
 This props doesn't have any impact on border IconButton.
 
 <Preview>
-  <IconButton iconName="ellipsis" variant="borderless" hasNegativeMargins />
+  <IconButton iconName="dots" variant="borderless" hasNegativeMargins />
 </Preview>
 
 ```tsx sandbox
-<IconButton iconName="ellipsis" variant="borderless" hasNegativeMargins />
+<IconButton iconName="dots" variant="borderless" hasNegativeMargins />
 ```
 
 ## Get element ref
@@ -35,13 +35,13 @@ This props doesn't have any impact on border IconButton.
 Create a ref using `useRef` and pass it using the `ref` prop.
 
 <Preview>
-  <IconButton iconName="ellipsis" variant="border" />
+  <IconButton iconName="dots" variant="border" />
 </Preview>
 
 ```tsx sandbox
 const Demo = () => {
   const ref = useRef<HTMLButtonElement | null>(null);
 
-  return <IconButton ref={ref} iconName="ellipsis" variant="border" />;
+  return <IconButton ref={ref} iconName="dots" variant="border" />;
 };
 ```
