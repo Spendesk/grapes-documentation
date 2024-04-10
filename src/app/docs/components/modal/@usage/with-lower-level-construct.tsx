@@ -9,7 +9,7 @@ import {
   ModalHeaderWithIcon,
   ModalOverlay,
 } from "@dev-spendesk/grapes";
-import { useState } from "react";
+import { useReducer, useState } from "react";
 
 export function WithLowerLevelConstructModal() {
   const [isOpen, setIsOpen] = useState(false);
@@ -46,5 +46,94 @@ export function WithLowerLevelConstructModal() {
         </ModalContent>
       </ModalOverlay>
     </Preview>
+  );
+}
+
+type Action = "next" | "previous" | "open" | "close";
+function reducer(state: number, action: Action) {
+  switch (action) {
+    case "next":
+      return state === STATE.lastModal ? STATE.close : state + 1;
+    case "previous":
+      return state === STATE.firstModal ? -1 : state - 1;
+    case "open":
+      return STATE.firstModal;
+    case "close":
+      return STATE.close;
+  }
+}
+
+const STATE = {
+  close: -1,
+  firstModal: 0,
+  secondModal: 1,
+  lastModal: 2,
+};
+export function ModalFlow() {
+  const [state, setState] = useReducer(reducer, STATE.close);
+
+  return (
+    <>
+      <Button text="Open the modal" onClick={() => setState("open")} />
+      <ModalOverlay isOpen={state !== STATE.close}>
+        <ModalContent
+          aria-labelledby="grapes-id"
+          onClose={() => setState("close")}
+        >
+          {state === STATE.firstModal && (
+            <>
+              <ModalHeaderWithIcon
+                title="Modal 1"
+                iconName="food"
+                iconVariant="info"
+                titleId="grapes-id"
+              />
+              <ModalBody>Content of the first Modal</ModalBody>
+            </>
+          )}
+          {state === STATE.secondModal && (
+            <>
+              <ModalHeaderWithIcon
+                title="Modal 2"
+                iconName="warning"
+                iconVariant="warning"
+                titleId="grapes-id"
+              />
+              <ModalBody>Content of the second Modal</ModalBody>
+            </>
+          )}
+          {state === STATE.lastModal && (
+            <>
+              <ModalHeaderWithIcon
+                title="Modal 3"
+                iconName="success"
+                iconVariant="success"
+                titleId="grapes-id"
+              />
+              <ModalBody>Content of the third Modal</ModalBody>
+            </>
+          )}
+
+          <ModalFooter>
+            <Button
+              key="cancel"
+              variant="secondary"
+              text={state === STATE.firstModal ? "Close" : "Previous"}
+              iconPosition="left"
+              iconName={state === STATE.firstModal ? undefined : "arrow-left"}
+              onClick={() => setState("previous")}
+            />
+            <Button
+              key="switch"
+              variant="primary"
+              text={state === STATE.lastModal ? "Confirm" : "next"}
+              iconPosition="right"
+              iconName={state === STATE.lastModal ? undefined : "arrow-right"}
+              onClick={() => setState("next")}
+            />
+          </ModalFooter>
+        </ModalContent>
+      </ModalOverlay>
+    </>
   );
 }
