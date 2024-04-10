@@ -17,7 +17,7 @@
     "@babel/runtime": "^7.24.4",
     "@codemirror/commands": "^6.3.3",
     "@codemirror/lang-javascript": "^6.2.2",
-    "@codemirror/view": "^6.26.1",
+    "@codemirror/view": "^6.26.2",
     "@dev-spendesk/grapes": "^0.278.0",
     "@mdx-js/loader": "^3.0.1",
     "@mdx-js/react": "^3.0.1",
