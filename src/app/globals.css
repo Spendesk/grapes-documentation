@@ -1,3 +1,5 @@
+@import "@dev-spendesk/grapes/tokens";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -105,8 +107,6 @@
 }
 
 @layer reset, layout, grapes;
-
-@import "@dev-spendesk/grapes/tokens";
 
 :root {
   --docs-offset-header: 68px;
