@@ -46,3 +46,24 @@ const Demo = () => {
   );
 };
 ```
+
+## Use a single calendar
+
+Use the prop `numberOfCalendars` to set how many calendar to display. The CalendarRange supports 1 or 2 displayed calendars.
+
+<Preview>
+  <DemoCalendarRange numberOfCalendars={1} />
+</Preview>
+
+```tsx sandbox
+const Demo = () => {
+  const [value, setValue] = useState<DateRange>([
+    new Date("2022-02-13"),
+    new Date("2022-02-21"),
+  ]);
+
+  return (
+    <CalendarRange value={value} onClick={setValue} numberOfCalendars={1} />
+  );
+};
+```
