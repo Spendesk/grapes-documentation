@@ -2,13 +2,12 @@
 
 import { useEffect, useId, useState } from "react";
 import { NavigationItem } from "@dev-spendesk/grapes";
-import { usePathname, useSearchParams } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { useHeadsObserver } from "./useHeadsObserver";
 
 export function TableOfContents() {
   const titleId = useId();
   const pathname = usePathname();
-  const searchParams = useSearchParams();
 
   const { activeId } = useHeadsObserver(pathname);
 
@@ -21,16 +20,34 @@ export function TableOfContents() {
   >([]);
 
   useEffect(() => {
-    setHeadings(
-      Array.from(document.querySelectorAll(`main :is(h2, h3)`))
-        .filter((heading) => heading.clientWidth > 0)
-        .map((heading) => ({
-          id: heading.id,
-          label: heading.textContent ?? "",
-          type: heading.nodeName,
-        })),
-    );
-  }, [pathname, searchParams]);
+    const container = document.querySelector("main");
+    if (container == null) {
+      return;
+    }
+
+    function setHeading() {
+      setHeadings(
+        Array.from(document.querySelectorAll(`main :is(h2, h3)`))
+          .filter((heading) => heading.clientWidth > 0)
+          .map((heading) => ({
+            id: heading.id,
+            label: heading.textContent ?? "",
+            type: heading.nodeName,
+          })),
+      );
+    }
+
+    const observer = new MutationObserver(setHeading);
+    observer.observe(container, {
+      childList: true,
+      subtree: true,
+    });
+    setHeading();
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
 
   if (headings.length === 0) {
     return null;
