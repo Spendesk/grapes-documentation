@@ -39,6 +39,7 @@ export default function RootLayout({
                 openCalendar: "Open calendar",
                 hide: "Hide",
                 show: "Show",
+                showOptions: "Show options",
               },
             },
           }}
