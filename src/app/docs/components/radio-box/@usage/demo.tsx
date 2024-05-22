@@ -8,7 +8,7 @@ export function DemoRadioBox() {
 
   return (
     <RadioGroup
-      name="cardType"
+      name="example_1"
       value={selectedValue}
       onChange={(event) => {
         setSelectedValue(event?.target.value);
@@ -36,7 +36,7 @@ export function DemoBooleanRadioBox() {
 
   return (
     <RadioGroup
-      name="boolean"
+      name="example_2"
       value={selectedValue}
       onChange={(event) => {
         setSelectedValue(event?.target.value);
@@ -54,7 +54,7 @@ export function DemoDefaultValue() {
 
   return (
     <RadioGroup
-      name="cardType"
+      name="example_3"
       value={selectedValue}
       onChange={(event) => {
         setSelectedValue(event?.target.value);
@@ -100,7 +100,7 @@ export function DemoVerticalRadioBox() {
 
   return (
     <RadioGroup
-      name="numberOfUsers"
+      name="example_4"
       value={selectedValue}
       onChange={(event) => {
         setSelectedValue(event?.target.value);
