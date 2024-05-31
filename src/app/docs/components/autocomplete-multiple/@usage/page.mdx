@@ -1,5 +1,5 @@
 import { Preview } from "@/lib/preview/preview";
-import { Demo } from "./demo";
+import { Demo, DemoWithSelectedOptions } from "./demo";
 
 ## Import
 
@@ -39,6 +39,67 @@ const Demo = () => {
       translations={{
         selectAll: `Select all (${options.length} cost centers)`,
         selected: `${selectedOptions.length} cost centers selected`,
+      }}
+      onSearch={(value) => {
+        if (!value) {
+          setOptions(unfilteredOptions);
+          return;
+        }
+        setOptions(
+          unfilteredOptions.filter((option) =>
+            option.label.toLowerCase().includes(value.toLowerCase())
+          )
+        );
+      }}
+      onSelect={setSelectedOptions}
+      placeholder="Search a cost center"
+    />
+  );
+};
+```
+
+### Display selected options
+
+Use the prop `translations` in order to customize the display inside the input.
+When the selected options need to be displayed, we recommend using [`Intl.ListFormat`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/ListFormat).
+
+<Preview>
+  <DemoWithSelectedOptions />
+</Preview>
+
+```tsx sandbox
+const unfilteredOptions = [
+  { key: "1", label: "Marketing" },
+  { key: "2", label: "Legal" },
+  { key: "3", label: "Office" },
+  { key: "4", label: "Platform" },
+  { key: "5", label: "Finance" },
+  { key: "6", label: "Recruitment" },
+  { key: "7", label: "Growth" },
+  { key: "8", label: "Management" },
+];
+type Option = (typeof unfilteredOptions)[number];
+// [!code highlight:5]
+const formatter = new Intl.ListFormat(navigator.locale, {
+  style: "long",
+  type: "conjunction",
+});
+
+const Demo = () => {
+  const [options, setOptions] = useState(unfilteredOptions);
+  const [selectedOptions, setSelectedOptions] = useState<Option[]>([]);
+
+  return (
+    <AutocompleteMultiple
+      options={options}
+      values={selectedOptions}
+      fit="parent"
+      translations={{
+        selectAll: `Select all (${options.length} cost centers)`,
+        // [!code highlight:4]
+        selected: formatter.format(
+          selectedOptions.map((option) => option.label)
+        ),
       }}
       onSearch={(value) => {
         if (!value) {
