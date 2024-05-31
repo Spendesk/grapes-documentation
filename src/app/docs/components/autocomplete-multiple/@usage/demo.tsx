@@ -34,8 +34,44 @@ export const Demo = () => {
         }
         setOptions(
           unfilteredOptions.filter((option) =>
-            option.label.toLowerCase().includes(value.toLowerCase())
-          )
+            option.label.toLowerCase().includes(value.toLowerCase()),
+          ),
+        );
+      }}
+      onSelect={setSelectedOptions}
+      placeholder="Search a cost center"
+    />
+  );
+};
+
+const formatter = new Intl.ListFormat("en-US", {
+  style: "long",
+  type: "conjunction",
+});
+export const DemoWithSelectedOptions = () => {
+  const [options, setOptions] = useState(unfilteredOptions);
+  const [selectedOptions, setSelectedOptions] = useState<Option[]>([]);
+
+  return (
+    <AutocompleteMultiple
+      options={options}
+      values={selectedOptions}
+      fit="parent"
+      translations={{
+        selectAll: `Select all (${options.length} cost centers)`,
+        selected: formatter.format(
+          selectedOptions.map((option) => option.label),
+        ),
+      }}
+      onSearch={(value) => {
+        if (!value) {
+          setOptions(unfilteredOptions);
+          return;
+        }
+        setOptions(
+          unfilteredOptions.filter((option) =>
+            option.label.toLowerCase().includes(value.toLowerCase()),
+          ),
         );
       }}
       onSelect={setSelectedOptions}
