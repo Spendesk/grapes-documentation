@@ -22,6 +22,6 @@ const config: Config = {
   variants: {},
   // These classes are added dynamically and need to be safelisted.
   // @see https://tailwindcss.com/docs/content-configuration#safelisting-classes
-  safelist: ["title-s", "title-xl", "body-xxl"],
+  safelist: ["title-s", "title-xl", "body-xxl", "title-xxl"],
 };
 export default config;
