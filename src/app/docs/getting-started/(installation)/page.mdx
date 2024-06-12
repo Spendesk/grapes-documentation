@@ -43,6 +43,7 @@ export const MySwitchField = () => {
             openCalendar: "Open calendar",
             show: "show",
             hide: "hide",
+            showOptions: "Show options",
           },
         },
       }}
@@ -66,10 +67,20 @@ To get started, you first need to make sure that you have a working Tailwind CSS
 Then, include the preset to your `tailwind.config.js` file:
 
 ```ts
-{
-  presets: [require('@dev-spendesk/grapes/tailwind')], // [!code highlight]
-}
+import GrapesPreset from "@dev-spendesk/grapes/tailwind";
+
+export default {
+  corePlugins: {
+    preflight: false, // Disabled preflight // [!code highlight]
+  },
+  presets: [GrapesPreset], // [!code highlight]
+};
 ```
+
+:::warning{title="Disabled preflight"}
+TailwindCSS comes with an opinionated set of base styles.
+This feature, named preflight, needs to be disabled in order for the Grapes preset to work properly.
+:::
 
 ### Using the theme
 
