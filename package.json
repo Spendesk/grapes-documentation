@@ -21,7 +21,7 @@
     "@dev-spendesk/grapes": "^0.286.1",
     "@mdx-js/loader": "^3.0.1",
     "@mdx-js/react": "^3.0.1",
-    "@next/mdx": "^14.2.3",
+    "@next/mdx": "^14.2.4",
     "@react-docgen/cli": "^2.0.3",
     "@shikijs/transformers": "^1.6.3",
     "@types/mdx": "^2.0.13",
