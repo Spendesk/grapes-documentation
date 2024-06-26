@@ -40,6 +40,8 @@ export default function RootLayout({
                 hide: "Hide",
                 show: "Show",
                 showOptions: "Show options",
+                edit: "Edit",
+                clearSelection: "Clear selection",
               },
             },
           }}
