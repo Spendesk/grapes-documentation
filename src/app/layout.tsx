@@ -41,7 +41,6 @@ export default function RootLayout({
                 show: "Show",
                 showOptions: "Show options",
                 edit: "Edit",
-                collapse: "Collapse",
                 clearSelection: "Clear selection",
               },
             },
