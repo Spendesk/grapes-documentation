@@ -9,9 +9,10 @@ import "./iconSet.css";
 
 const iconProps = getSortedProps("Icon");
 const nameProp = iconProps.find((prop) => prop.name === "name");
-const icons = nameProp?.type.value?.map((name) =>
-  name.value.replace(/\"/g, ""),
-) as IconName[];
+const collator = new Intl.Collator("en-US");
+const icons = nameProp?.type.value
+  ?.map((name) => name.value.replace(/\"/g, ""))
+  .sort(collator.compare) as IconName[];
 
 export function IconSet() {
   const searchParams = useSearchParams();

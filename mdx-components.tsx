@@ -39,7 +39,6 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     a: ({ children, href }) =>
       href?.startsWith("http") ? (
         <GrapesLink
-          as="a"
           href={href}
           isExternal
           className="inline-flex gap-xxs items-center"
