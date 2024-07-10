@@ -133,10 +133,13 @@ export function Search() {
             <input
               placeholder="Search the docs"
               type="text"
+              pattern="[\w\s]+"
               value={value}
               onChange={(event) => {
-                setValue(event.target.value);
-                setSelectedIndex(0);
+                if (event.target.checkValidity()) {
+                  setValue(event.target.value);
+                  setSelectedIndex(0);
+                }
               }}
             />
             <IconButton
