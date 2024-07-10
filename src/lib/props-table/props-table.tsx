@@ -12,6 +12,19 @@ type Props = {
   components: string[];
 };
 
+const collator = Intl.Collator("en-US");
+const MAX_VALUES_DISPLAYED = 16;
+function extractValues(values: { value: string }[]): string {
+  const extractedValues = values
+    .map(({ value }) => value)
+    .sort(collator.compare);
+
+  if (extractedValues.length > MAX_VALUES_DISPLAYED) {
+    return `${extractedValues.slice(0, MAX_VALUES_DISPLAYED).join(" | ")} | ... ${extractedValues.length - MAX_VALUES_DISPLAYED} more ...`;
+  }
+  return extractedValues.join(" | ");
+}
+
 export function PropsTable({ components }: Props) {
   return (
     <div className="mt-s">
@@ -47,7 +60,11 @@ export function PropsTable({ components }: Props) {
                           {name}
                         </span>
                       )}
-                      <InlineBlock code={type.raw ?? type.name} />
+                      <InlineBlock
+                        code={
+                          type.value ? extractValues(type.value) : type.name
+                        }
+                      />
                     </div>
                     <p className="text-neutral-dark mt-xs">{description}</p>
                     {defaultValue != null ? (
