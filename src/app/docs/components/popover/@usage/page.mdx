@@ -40,11 +40,13 @@ import { DemoPopover } from "./demo";
 
 The `placement` prop lets you decide where the dropdown content should appear.
 
-<Preview>
+<Preview className="grid">
   <DemoPopover placement="bottom-start" />
   <DemoPopover placement="bottom-end" />
   <DemoPopover placement="top-start" />
   <DemoPopover placement="top-end" />
+  <DemoPopover placement="end-bottom" />
+  <DemoPopover placement="end-top" />
 </Preview>
 
 ```tsx
@@ -53,5 +55,7 @@ The `placement` prop lets you decide where the dropdown content should appear.
   <Popover placement="bottom-end" {...otherProps} />
   <Popover placement="top-start" {...otherProps} />
   <Popover placement="top-end" {...otherProps} />
+  <Popover placement="end-bottom" {...otherProps} />
+  <Popover placement="end-top" {...otherProps} />
 </>
 ```
