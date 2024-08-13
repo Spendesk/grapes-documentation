@@ -3,7 +3,13 @@
 import { Button, Popover } from "@dev-spendesk/grapes";
 
 type Props = {
-  placement?: "bottom-start" | "bottom-end" | "top-start" | "top-end";
+  placement?:
+    | "bottom-start"
+    | "bottom-end"
+    | "top-start"
+    | "top-end"
+    | "end-bottom"
+    | "end-top";
 };
 
 export function DemoPopover({ placement }: Props) {

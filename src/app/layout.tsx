@@ -42,6 +42,7 @@ export default function RootLayout({
                 showOptions: "Show options",
                 edit: "Edit",
                 clearSelection: "Clear selection",
+                selectCurrency: "Select a currency",
               },
             },
           }}
