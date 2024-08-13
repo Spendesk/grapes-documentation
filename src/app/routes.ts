@@ -144,6 +144,10 @@ export const componentRoutes: RouteConfig[] = [
         url: "/docs/components/form-field",
       },
       {
+        label: "Input",
+        url: "/docs/components/input",
+      },
+      {
         label: "OptionGroup",
         url: "/docs/components/option-group",
       },

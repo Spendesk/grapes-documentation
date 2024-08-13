@@ -30,7 +30,7 @@
     width: calc(100% + 2 * var(--_code-padding));
     margin-inline: calc(-1 * var(--_code-padding));
     padding-inline: var(--_code-padding);
-    background: color-mix(in srgb, var(--color-white) 20%, transparent);
+    background: color-mix(in srgb, var(--color-white) 10%, transparent);
   }
 }
 
