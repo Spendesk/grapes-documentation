@@ -30,7 +30,7 @@
     "hastscript": "^9.0.0",
     "libphonenumber-js": "^1.11.7",
     "lz-string": "^1.5.0",
-    "next": "^14.2.5",
+    "next": "^14.2.6",
     "react": "^18",
     "react-canvas-confetti": "^2.0.7",
     "react-docgen": "^7.0.3",
