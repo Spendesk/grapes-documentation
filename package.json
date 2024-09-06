@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.25.6",
-    "@codemirror/commands": "^6.6.0",
+    "@codemirror/commands": "^6.6.1",
     "@codemirror/lang-javascript": "^6.2.2",
     "@codemirror/view": "^6.33.0",
     "@dev-spendesk/grapes": "^0.293.0",
