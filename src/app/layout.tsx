@@ -43,6 +43,7 @@ export default function RootLayout({
                 edit: "Edit",
                 clearSelection: "Clear selection",
                 selectCurrency: "Select a currency",
+                deleteWithName: ({ name }) => `Delete ${name}`,
               },
             },
           }}
