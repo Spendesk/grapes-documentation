@@ -225,6 +225,10 @@ export const componentRoutes: RouteConfig[] = [
         url: "/docs/components/modal-slideshow",
       },
       {
+        label: "DeprecatedModalSlideshow",
+        url: "/docs/components/deprecated-modal-slideshow",
+      },
+      {
         label: "PageModal",
         url: "/docs/components/page-modal",
       },

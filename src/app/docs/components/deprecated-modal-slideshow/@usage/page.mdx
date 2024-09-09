@@ -15,22 +15,22 @@ const Demo = () => {
   return (
     <>
       <Button text="Open the modal" onClick={() => setIsOpen(true)} />
-      <ModalSlideshow
+      <DeprecatedModalSlideshow
         slides={[
           {
             title: "Title slide 1",
-            content: <p>Content slide 1</p>,
-            illustration: <img src="/illustration-slide-1.webp" alt="" />,
+            content: "Content slide 1",
+            illustration: <img src="/slide-1.webp" alt="" />,
           },
           {
             title: "Title slide 2",
-            content: <p>Content slide 2</p>,
-            illustration: <img src="/illustration-slide-2.webp" alt="" />,
+            content: "Content slide 2",
+            illustration: <img src="/slide-2.webp" alt="" />,
           },
           {
             title: "Title slide 3",
-            content: <p>Content slide 3</p>,
-            illustration: <img src="/illustration-slide-3.webp" alt="" />,
+            content: "Content slide 3",
+            illustration: <img src="/slide-3.webp" alt="" />,
           },
         ]}
         translations={{
