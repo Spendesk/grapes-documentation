@@ -23,7 +23,7 @@
     "@mdx-js/react": "^3.0.1",
     "@next/mdx": "^14.2.8",
     "@react-docgen/cli": "^2.0.3",
-    "@shikijs/transformers": "^1.16.1",
+    "@shikijs/transformers": "^1.16.2",
     "@types/mdx": "^2.0.13",
     "codemirror": "^6.0.1",
     "github-slugger": "^2.0.0",
