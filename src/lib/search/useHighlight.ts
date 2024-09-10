@@ -26,39 +26,28 @@ export function useHighlight(root: MutableRefObject<HTMLUListElement | null>) {
         textNodes.push(treeWalker.currentNode);
       }
 
-      textNodes
-        .map((node) => {
-          const text = node.textContent;
+      textNodes.forEach((node) => {
+        const text = node.textContent;
 
-          if (text === null) {
-            return [];
+        if (text === null) {
+          return;
+        }
+
+        return tokens.forEach((token) => {
+          const lowerCaseSearchPattern = token.toLowerCase();
+          const startIndex = text.toLowerCase().indexOf(lowerCaseSearchPattern);
+          const endIndex = startIndex + lowerCaseSearchPattern.length;
+
+          if (startIndex === -1) {
+            return;
           }
 
-          return tokens.map((token) => {
-            const lowerCaseSearchPattern = token.toLowerCase();
-            const startIndex = text
-              .toLowerCase()
-              .indexOf(lowerCaseSearchPattern);
-            const endIndex = startIndex + lowerCaseSearchPattern.length;
-
-            if (startIndex === -1) {
-              return;
-            }
-
-            const range = new Range();
-            range.setStart(node, startIndex);
-            range.setEnd(node, endIndex);
-
-            return range;
-          });
-        })
-        .forEach((ranges) => {
-          ranges.forEach((range) => {
-            if (range) {
-              colorHighlight.add(range);
-            }
-          });
+          const range = new Range();
+          range.setStart(node, startIndex);
+          range.setEnd(node, endIndex);
+          colorHighlight.add(range);
         });
+      });
     };
   }
 
