@@ -8,6 +8,7 @@ export default function Layout(props: {
   children: React.ReactNode;
   props: React.ReactNode;
   usage: React.ReactNode;
+  accessibility: React.ReactNode;
 }) {
   const [defaultTabIndex, setQueryParams] = useQueryParamsTab(TABS, "usage");
 
@@ -18,10 +19,12 @@ export default function Layout(props: {
         <TabList className="docs-tabs">
           <Tab>Usage</Tab>
           <Tab>Props</Tab>
+          <Tab>Accessibility</Tab>
         </TabList>
         <TabPanels>
           <TabPanel>{props.usage}</TabPanel>
           <TabPanel>{props.props}</TabPanel>
+          <TabPanel>{props.accessibility}</TabPanel>
         </TabPanels>
       </Tabs>
     </>
