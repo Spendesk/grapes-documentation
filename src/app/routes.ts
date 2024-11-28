@@ -388,10 +388,6 @@ const designTokensRoutes: RouteConfig[] = [
         url: "/docs/tokens/box",
       },
       {
-        label: "Clickable Box",
-        url: "/docs/tokens/clickable-box",
-      },
-      {
         label: "Separator",
         url: "/docs/tokens/separator",
       },
