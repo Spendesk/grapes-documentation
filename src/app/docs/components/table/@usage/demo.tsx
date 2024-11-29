@@ -185,7 +185,6 @@ export function DemoTable({
   const optionalProps: Pick<
     TableProps<DataRow>,
     | "rowHeight"
-    | "hasColumnSeparator"
     | "getRowVariant"
     | "getIsRowDisabled"
     | "maxHeight"
