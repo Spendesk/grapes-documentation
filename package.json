@@ -18,7 +18,7 @@
     "@codemirror/commands": "^6.7.1",
     "@codemirror/lang-javascript": "^6.2.2",
     "@codemirror/view": "^6.35.0",
-    "@dev-spendesk/grapes": "^0.298.5",
+    "@dev-spendesk/grapes": "^1.15.0",
     "@mdx-js/loader": "^3.0.1",
     "@mdx-js/react": "^3.1.0",
     "@next/mdx": "^14.2.9",
@@ -55,6 +55,7 @@
     "lodash.kebabcase": "^4.1.1",
     "plop": "^4.0.1",
     "postcss": "^8.4.49",
+    "postcss-import": "^16.1.0",
     "prettier": "^3.3.3",
     "tailwindcss": "^3.4.15",
     "typescript": "^5.7.2"

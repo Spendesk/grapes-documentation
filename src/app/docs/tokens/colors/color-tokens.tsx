@@ -18,48 +18,48 @@ type Color = {
 };
 const tokens: { [key in ColorSection]: Color[] } = {
   neutral: [
-    { name: "darker", value: colors.neutralDarker },
-    { name: "dark", value: colors.neutralDark },
-    { name: "default", value: colors.neutral },
-    { name: "light", value: colors.neutralLight },
-    { name: "lighter", value: colors.neutralLighter },
-    { name: "lightest", value: colors.neutralLightest },
+    { name: "darker", value: colors.contentSecondaryBgPrimary },
+    { name: "dark", value: colors.contentSecondaryBgPrimary },
+    { name: "default", value: colors.backgroundSecondary },
+    { name: "light", value: colors.backgroundSecondary },
+    { name: "lighter", value: colors.backgroundSecondary },
+    { name: "lightest", value: colors.backgroundSecondary },
   ],
   primary: [
-    { name: "dark", value: colors.primaryDark },
-    { name: "default", value: colors.primary },
-    { name: "light", value: colors.primaryLight },
-    { name: "lighter", value: colors.primaryLighter },
-    { name: "lightest", value: colors.primaryLightest },
+    { name: "dark", value: colors.contentPrimary },
+    { name: "default", value: colors.contentPrimary },
+    { name: "light", value: colors.backgroundSecondaryBrandDefault },
+    { name: "lighter", value: colors.backgroundSecondaryBrandDefault },
+    { name: "lightest", value: colors.backgroundSecondaryBrandDefault },
   ],
   warning: [
-    { name: "dark", value: colors.warningDark },
-    { name: "default", value: colors.warning },
-    { name: "light", value: colors.warningLight },
-    { name: "lighter", value: colors.warningLighter },
-    { name: "lightest", value: colors.warningLightest },
+    { name: "dark", value: colors.contentWarningDefault },
+    { name: "default", value: colors.contentWarningDefault },
+    { name: "light", value: colors.backgroundSecondaryWarningDefault },
+    { name: "lighter", value: colors.backgroundSecondaryWarningDefault },
+    { name: "lightest", value: colors.backgroundSecondaryWarningDefault },
   ],
   alert: [
-    { name: "dark", value: colors.alertDark },
-    { name: "default", value: colors.alert },
-    { name: "light", value: colors.alertLight },
-    { name: "lighter", value: colors.alertLighter },
-    { name: "lightest", value: colors.alertLightest },
+    { name: "dark", value: colors.contentAlertDefault },
+    { name: "default", value: colors.contentAlertDefault },
+    { name: "light", value: colors.backgroundSecondaryAlertDefault },
+    { name: "lighter", value: colors.backgroundSecondaryAlertDefault },
+    { name: "lightest", value: colors.backgroundSecondaryAlertDefault },
   ],
   success: [
-    { name: "default", value: colors.success },
-    { name: "lighter", value: colors.successLighter },
-    { name: "lightest", value: colors.successLightest },
+    { name: "default", value: colors.contentSuccessDefault },
+    { name: "lighter", value: colors.backgroundSecondarySuccessDefault },
+    { name: "lightest", value: colors.backgroundSecondarySuccessDefault },
   ],
   info: [
-    { name: "default", value: colors.info },
-    { name: "lighter", value: colors.infoLighter },
-    { name: "lightest", value: colors.infoLightest },
+    { name: "default", value: colors.contentInfoDefault },
+    { name: "lighter", value: colors.backgroundSecondaryInfoDefault },
+    { name: "lightest", value: colors.backgroundSecondaryInfoDefault },
   ],
   structure: [
-    { name: "complementary", value: colors.complementary },
-    { name: "background", value: colors.pageBackground },
-    { name: "white", value: colors.white },
+    { name: "complementary", value: colors.contentPrimary },
+    { name: "background", value: colors.backgroundPrimary },
+    { name: "white", value: colors.backgroundPrimary },
   ],
 };
 
@@ -88,7 +88,7 @@ export function ColorTokens() {
       {Object.entries(tokens).map(([key, values]) => (
         <Fragment key={key}>
           <h2 id={key}>{getSectionName(key as ColorSection)}</h2>
-          <div className="grid grid-cols-6 gap-s">
+          <div className="grid grid-cols-6 gap-16">
             {values.map((color) => (
               <ColorBox color={color} key={color.name} />
             ))}
@@ -129,13 +129,13 @@ function ColorBox({ color }: { color: Color }) {
         <button
           style={{ backgroundColor: color.value }}
           aria-label={`Copy ${color.value}`}
-          className="h-3xl rounded-xs w-full border-none transition-all cursor-pointer elevation-20 hover:scale-105"
+          className="h-64 rounded-8 w-full border-none transition-all cursor-pointer elevation-s hover:scale-105"
           onClick={handleClick}
         ></button>
       </Tooltip>
       <div>
-        <p className="font-medium text-complementary mt-xxs">{color.name}</p>
-        <small className="text-neutral-dark">{hexa}</small>
+        <p className="font-medium text-content-primary mt-4">{color.name}</p>
+        <small className="text-content-primary">{hexa}</small>
       </div>
     </div>
   );

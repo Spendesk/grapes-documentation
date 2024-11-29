@@ -1,9 +1,11 @@
 "use client";
 
 import { useEffect, useId, useState } from "react";
-import { NavigationItem } from "@dev-spendesk/grapes";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 import { useHeadsObserver } from "./useHeadsObserver";
+
+import { classNames } from "@/lib/classNames";
 
 export function TableOfContents() {
   const titleId = useId();
@@ -54,21 +56,23 @@ export function TableOfContents() {
   }
 
   return (
-    <nav aria-labelledby={titleId} className="pt-m">
-      <h3 id={titleId} className="title-m text-primary-dark m-xs">
+    <nav aria-labelledby={titleId} className="pt-24">
+      <h3 id={titleId} className="title-m text-content-brand-default m-8">
         On this page
       </h3>
       <ul aria-labelledby={titleId} className="list-none">
         {headings.map((heading) => (
           <li key={heading.label}>
-            <NavigationItem
-              isEmphasized={activeId === heading.id}
-              className={`${heading.type === "H3" ? "ml-s" : ""} title-m`}
-              variant="sideNavigation"
-              component="a"
+            <Link
+              className={classNames(
+                heading.type === "H3" ? "ml-8" : "",
+                "docs-nav-link",
+                activeId === heading.id && "active",
+              )}
               href={`#${heading.id}`}
-              text={heading.label}
-            />
+            >
+              {heading.label}
+            </Link>
           </li>
         ))}
       </ul>

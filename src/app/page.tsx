@@ -26,13 +26,12 @@ export default function Home() {
           </Link>
         </div>
       </div>
-
       <section>
         <h2>
           Provide a <span className="highlight">consistent</span> experience to
           anyone
         </h2>
-        <p className="body-l text-neutral-dark">
+        <p className="body-l text-content-primary">
           Users should have this experience across devices and form factors.
           They should also feel that Spendesk honors the conventions of the
           device, feel native to the country and culture within which it is
@@ -44,7 +43,7 @@ export default function Home() {
               <h3 className="body-xl">
                 Design Tokens <Icon name="external" aria-hidden="true" />
               </h3>
-              <p className="body-l mt-xs">
+              <p className="body-l mt-8">
                 Explore our colors, spacing system and typography
               </p>
             </div>
@@ -61,7 +60,7 @@ export default function Home() {
               <h3 className="body-xl">
                 Design Guidelines <Icon name="external" aria-hidden="true" />
               </h3>
-              <p className="body-l mt-xs">Coming soon</p>
+              <p className="body-l mt-8">Coming soon</p>
             </div>
             <Image
               width={150}
@@ -80,7 +79,7 @@ export default function Home() {
               <h3 className="body-xl">
                 Components <Icon name="external" aria-hidden="true" />
               </h3>
-              <p className="body-l mt-xs">
+              <p className="body-l mt-8">
                 Grapes provides React components to build your project faster
                 and more consistently
               </p>
@@ -95,12 +94,11 @@ export default function Home() {
           </Link>
         </div>
       </section>
-
       <section>
         <h2>
           Meet the <span className="highlight">team</span>
         </h2>
-        <p className="body-l text-neutral-dark">
+        <p className="body-l text-content-primary">
           Amazing people who lead the design system full-time. A question or an
           issue? come chat with our core team on.
         </p>

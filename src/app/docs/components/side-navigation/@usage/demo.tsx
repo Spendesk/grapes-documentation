@@ -43,11 +43,6 @@ export function DemoSideNavigation() {
           key={book.key}
           text={book.label}
           isActive={book.key === activeKey}
-          isEmphasized={[
-            "accounting-integration",
-            "bank-accounts",
-            "expense-accounts",
-          ].includes(book.key)}
           onClick={() => setActiveKey(book.key)}
         />
       ))}

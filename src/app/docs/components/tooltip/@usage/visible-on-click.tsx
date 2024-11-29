@@ -10,7 +10,7 @@ export function VisibleOnClick() {
     <Preview>
       <Tooltip content="Copied" isOpen={isVisible} triggerAsChild>
         <Button
-          variant="primary"
+          variant="primaryBrand"
           text="Click to copy"
           onClick={() => {
             setIsVisible(true);

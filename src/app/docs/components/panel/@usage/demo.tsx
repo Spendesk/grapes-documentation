@@ -22,24 +22,28 @@ export function DemoPanel() {
       onClose={() => {}}
       className="body-m"
       header={
-        <div className="flex gap-xs items-center">
+        <div className="flex gap-8 items-center">
           <Avatar src="/supplier.svg" text="supplier" variant="square" />
           <div>
-            <div className="title-m text-complementary mb-xxs">Google</div>
+            <div className="title-m text-content-primary mb-4">Google</div>
             <div className="body-s">401000</div>
           </div>
         </div>
       }
       footer={
-        <Button variant="secondary" fit="parent" text="Archive supplier" />
+        <Button
+          variant="secondaryNeutral"
+          fit="parent"
+          text="Archive supplier"
+        />
       }
       footerSummary={{
         title: "Summary",
         isCollapsible: true,
         content: (
-          <div className="mt-s flex justify-between items-center">
+          <div className="mt-16 flex justify-between items-center">
             <div>Total amount</div>
-            <div className="title-m text-complementary">500€</div>
+            <div className="title-m text-content-primary">500€</div>
           </div>
         ),
       }}
@@ -66,17 +70,17 @@ export function DemoPanel() {
       >
         <div className="flex items-center justify-between">
           <div>Legal name</div>
-          <div className="text-complementary">{legalName}</div>
+          <div className="text-content-primary">{legalName}</div>
         </div>
       </PanelSection>
       <PanelSection title="Bank details" isEditable={false} isCollapsible>
-        <div className="grid grid-cols-2 gap-m mt-m">
+        <div className="grid grid-cols-2 gap-24 mt-24">
           <div>Bank country</div>
-          <div className="text-complementary text-right">France</div>
+          <div className="text-content-primary text-right">France</div>
           <div>IBAN</div>
-          <div className="text-complementary text-right">-</div>
+          <div className="text-content-primary text-right">-</div>
           <div>BIC</div>
-          <div className="text-complementary text-right">-</div>
+          <div className="text-content-primary text-right">-</div>
         </div>
       </PanelSection>
       <PanelSection title="Proof of bank details" isEditable={false}>

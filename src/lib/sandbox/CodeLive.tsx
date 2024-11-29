@@ -43,7 +43,7 @@ export function CodeLive({ decompressedCode }: Props) {
           <LiveError />
           <LivePreview />
         </LiveProvider>
-        <div className="absolute bottom-xs right-xs flex items-center gap-xs">
+        <div className="absolute bottom-8 right-8 flex items-center gap-8">
           <GrapesImports.Tag variant="info">Beta</GrapesImports.Tag>
           <FeedbackLink />
         </div>

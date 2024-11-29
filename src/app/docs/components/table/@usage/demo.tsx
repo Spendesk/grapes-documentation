@@ -109,7 +109,7 @@ const columnsWithCellVariant: TableColumn<DataRow>[] = [
       const { supplierName } = row;
       return (
         <>
-          <span className="inline-block mr-xs">
+          <span className="inline-block mr-8">
             {getCellVariant(row) === "alert" ? "❌" : "👌"}
           </span>
           {supplierName}
@@ -199,7 +199,7 @@ export function DemoTable({
       data.length < initialData.length + additionalData.length && {
         footer: (
           <Button
-            variant="secondary"
+            variant="secondaryNeutral"
             text="Load more"
             onClick={() => {
               setData([...data, ...additionalData]);

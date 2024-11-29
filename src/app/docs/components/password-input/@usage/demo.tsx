@@ -51,7 +51,7 @@ export function DemoPasswordInput() {
       />
       <PasswordInput
         fit="parent"
-        className="mt-s"
+        className="mt-16"
         rules={[getConfirmPasswordRule(password)]}
         value={confirmPassword}
         onChange={(event) => {

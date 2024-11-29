@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { Icon, Input, Button, type IconName } from "@dev-spendesk/grapes";
+import { Icon, Input, type IconName } from "@dev-spendesk/grapes";
 import { getSortedProps } from "@/lib/props-table/utils";
 
 import "./iconSet.css";
@@ -30,10 +30,9 @@ export function IconSet() {
           fit="parent"
           type="search"
           name="search"
-          leftAddon={<Icon name="search" className="ml-xs" />}
+          leftAddon={<Icon name="search" className="ml-8" />}
         />
       </form>
-
       <ul className="docs-icon-set">
         {icons
           .filter((iconName) => {
@@ -46,18 +45,20 @@ export function IconSet() {
                 <div className="docs-icon-box">
                   <Icon size="l" name={icon} />
                   <div className="docs-cta-stack">
-                    <Button
-                      text="Copy name"
-                      variant="secondary"
+                    <button
+                      type="button"
                       onClick={() => navigator.clipboard.writeText(icon)}
-                    />
-                    <Button
-                      text="Copy JSX"
-                      variant="secondary"
+                    >
+                      Copy name
+                    </button>
+                    <button
+                      type="button"
                       onClick={() =>
                         navigator.clipboard.writeText(`<Icon name="${icon}" />`)
                       }
-                    />
+                    >
+                      Copy JSX
+                    </button>
                   </div>
                 </div>
                 {icon}

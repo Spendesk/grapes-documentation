@@ -19,13 +19,13 @@ export function DemoModal() {
         actions={[
           <Button
             key="cancel"
-            variant="secondary"
+            variant="secondaryNeutral"
             text="Cancel"
             onClick={() => setIsOpen(false)}
           />,
           <Button
             key="switch"
-            variant="primary"
+            variant="primaryBrand"
             text="Switch"
             onClick={() => setIsOpen(false)}
           />,

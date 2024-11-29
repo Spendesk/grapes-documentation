@@ -1,29 +1,29 @@
 :where(.cell) {
   cursor: pointer;
-  height: var(--sizing-l);
-  width: var(--sizing-l);
+  height: var(--unit-32);
+  width: var(--unit-32);
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid var(--color-neutral-dark);
+  border: 1px solid var(--color-border-default);
   font-weight: 500;
-  color: var(--color-neutral-darker);
-  background-color: var(--color-neutral-lighter);
+  color: var(--color-content-primary);
+  background-color: var(--color-background-secondary);
 }
 
 .bomb:is(.visible) {
-  background-color: var(--color-neutral-light);
+  background-color: var(--color-background-secondary);
   background-image: url("/grapes.png");
   background-size: cover;
 }
 
 .empty:is(.visible) {
-  background-color: var(--color-neutral-light);
+  background-color: var(--color-background-secondary);
 }
 
 .cell-flag {
   background-image: url("/flag.svg");
-  background-size: var(--sizing-m);
+  background-size: var(--unit-24);
   background-repeat: no-repeat;
   background-position: center;
 }

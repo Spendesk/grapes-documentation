@@ -106,13 +106,13 @@ export function Search() {
         leftAddon={
           <Icon
             name="search"
-            color={colors.neutralDark}
-            className="ml-xs"
+            color={colors.contentSecondaryBgPrimary}
+            className="ml-8"
             aria-hidden="true"
           />
         }
         rightAddon={
-          <Tag className="mx-xs" variant="neutral">
+          <Tag className="mx-8" variant="neutral">
             ⌘K
           </Tag>
         }
@@ -129,7 +129,11 @@ export function Search() {
           onSubmit={handleSubmit}
         >
           <div className="seach-input-wrapper">
-            <Icon name="search" color={colors.neutralDark} size="m" />
+            <Icon
+              name="search"
+              color={colors.contentSecondaryBgPrimary}
+              size="m"
+            />
             <input
               placeholder="Search the docs"
               type="text"
@@ -144,7 +148,7 @@ export function Search() {
             />
             <IconButton
               iconName="cross"
-              iconColor={colors.neutralDark}
+              iconColor={colors.contentSecondaryBgPrimary}
               aria-label="Close"
               onClick={closeModal}
             />

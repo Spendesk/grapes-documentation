@@ -55,7 +55,7 @@ export const CodeEditorToolbar = ({ code, setCode }: Props) => {
         renderButton={(getToggleButtonProps) => (
           <Button
             {...getToggleButtonProps()}
-            variant="ghost"
+            variant="tertiaryNeutral"
             text="Load an example"
           />
         )}
@@ -66,11 +66,11 @@ export const CodeEditorToolbar = ({ code, setCode }: Props) => {
           }
         }}
       />
-      <div className="flex items-center gap-xs">
+      <div className="flex items-center gap-8">
         <Button
           iconName="magic-wand"
           text="Format"
-          variant="ghost"
+          variant="tertiaryNeutral"
           onClick={async () => {
             const formattedCode = await prettier.format(code, {
               parser: "typescript",
@@ -82,7 +82,7 @@ export const CodeEditorToolbar = ({ code, setCode }: Props) => {
         <Button
           iconName="thunder"
           text={isSaving ? "Saving" : "Save"}
-          variant="ghost"
+          variant="tertiaryNeutral"
           onClick={() => handleSave()}
         />
       </div>

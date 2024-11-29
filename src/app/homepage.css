@@ -1,21 +1,15 @@
 .home-content {
   --size-content: min(100vw, 1200px);
-  --size-bleed: var(--spacing-3xl);
-  --font-size-h2: 50px;
-  --gap-section: max(var(--spacing-3xl), 8vh);
-  background: var(--color-page-background);
-  font-family: var(--ff-base);
-
-  a {
-    text-decoration: none;
-  }
+  --size-bleed: var(--unit-64);
+  --gap-section: max(var(--unit-64), 8vh);
 
   position: relative;
+  background: var(--color-background-primary);
   z-index: 0;
   display: grid;
   width: var(--size-content);
   margin: 0 auto;
-  padding-block-start: var(--spacing-3xl);
+  padding-block-start: var(--unit-64);
   grid-template-columns:
     [bleed-start] var(--size-bleed)
     [content-start hero-text-start] 1fr
@@ -24,35 +18,39 @@
     [bleed-end hero-bg-end];
   row-gap: var(--gap-section);
 
+  a {
+    text-decoration: none;
+  }
+
   .hero {
     grid-column: bleed;
     display: grid;
     grid-auto-flow: column;
     grid-template-columns: subgrid;
-    background: var(--color-white);
-    border-radius: var(--border-radius-xs);
+    background: var(--color-background-primary);
+    border-radius: var(--border-radius-12);
     overflow: clip;
-    border: 1px solid var(--color-neutral-lighter);
+    border: 1px solid var(--color-border-default);
   }
 
   .hero-cta {
-    background: var(--color-primary);
-    border-radius: var(--border-radius-xs);
+    background: var(--color-background-primary-brand-default);
+    border-radius: var(--border-radius-12);
     display: inline grid;
     grid-template-areas: "text arrow";
     grid-template-columns: 1fr min-content;
     align-items: center;
-    gap: var(--spacing-xs);
-    color: var(--color-white);
-    font-size: var(--fs-body-l);
-    box-shadow: var(--elevation-30);
-    padding: var(--spacing-s) var(--spacing-m);
+    gap: var(--unit-8);
+    color: var(--color-content-complementary);
+    font: var(--body-l);
+    box-shadow: var(--elevation-m);
+    padding: var(--unit-16) var(--unit-24);
     transition: background var(--transition-duration-long)
       var(--transition-timing-function);
     contain: paint;
 
     &:hover {
-      background: var(--color-primary-light);
+      background: var(--color-background-primary-brand-hover);
 
       span {
         transform: rotate(calc(var(--deg) + -45deg));
@@ -81,26 +79,25 @@
 
   .hero-wrapper {
     grid-column: hero-text;
-    padding-block: var(--spacing-xl);
+    padding-block: var(--unit-40);
     align-self: center;
 
     p {
       text-wrap: balance;
-      margin: var(--spacing-l) 0;
+      margin: var(--unit-32) 0;
     }
 
     h1 {
+      font: var(--heading-xxl);
       font-size: 70px;
       line-height: 80px;
-      font-weight: 700;
-      font-family: var(--docs-ff-base);
 
       span {
         display: block;
         background: linear-gradient(
           120deg,
-          var(--color-primary),
-          var(--color-primary-lighter) 60%
+          var(--color-background-primary-brand-default),
+          var(--color-background-secondary-brand-default) 60%
         );
         color: transparent;
         background-clip: text;
@@ -121,23 +118,22 @@
     grid-column: content;
 
     h2 {
-      font-size: var(--fs-body-xxl);
-      font-weight: var(--fw-medium);
-      color: var(--color-complementary);
+      font: var(--heading-xxl);
+      color: var(--color-content-primary);
       text-wrap: pretty;
-      margin-block-end: var(--spacing-s);
+      margin-block-end: var(--unit-16);
     }
   }
 
   .highlight {
     position: relative;
-    color: var(--color-primary);
+    color: var(--color-content-brand-default);
 
     &::before {
       content: "";
       display: block;
       position: absolute;
-      background: var(--color-primary-lighter);
+      background: var(--color-background-secondary-brand-default);
       z-index: -1;
       width: 100%;
       top: 30px;
@@ -150,37 +146,37 @@
   .features {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    margin: var(--spacing-s) 0;
-    gap: var(--spacing-s);
+    margin: var(--unit-16) 0;
+    gap: var(--unit-16);
 
     :where(.feature-item) {
-      background: var(--color-white);
-      border-radius: var(--border-radius-xs);
-      padding: var(--spacing-m);
+      background: var(--color-background-primary);
+      border-radius: var(--border-radius-12);
+      padding: var(--unit-24);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: var(--spacing-s);
-      border: 1px solid var(--color-neutral-lighter);
+      gap: var(--unit-16);
+      border: 1px solid var(--color-border-default);
 
       &:hover {
-        border: 1px solid var(--color-primary-light);
+        border: 1px solid var(--color-border-hover);
         h3 {
-          color: var(--color-primary);
+          color: var(--color-content-brand-default);
         }
       }
     }
 
     .illustration {
-      padding: var(--spacing-s);
+      padding: var(--unit-16);
     }
 
     h3 {
-      color: var(--color-complementary);
+      color: var(--color-content-primary);
     }
 
     p {
-      color: var(--color-neutral-darker);
+      color: var(--color-content-primary);
     }
   }
 
@@ -188,19 +184,19 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    gap: var(--spacing-xl);
+    gap: var(--unit-40);
     list-style: none;
-    margin: var(--spacing-l) 0;
+    margin: var(--unit-32) 0;
     text-align: center;
 
     p {
-      color: var(--color-complementary);
-      font-size: var(--fs-body-xl);
-      margin-block: var(--spacing-s) var(--spacing-xxs);
+      color: var(--color-content-primary);
+      font: var(--body-l);
+      margin-block: var(--unit-16) var(--unit-4);
     }
     small {
-      font-size: var(--fs-body-l);
-      color: var(--color-neutral-dark);
+      color: var(--color-content-primary);
+      font: var(--body-m);
     }
   }
 }
@@ -214,7 +210,7 @@
   }
 
   .home-content {
-    --size-bleed: var(--spacing-s);
+    --size-bleed: var(--unit-16);
     grid-template-columns:
       [bleed-start hero-bg-start] var(--size-bleed)
       [content-start hero-text-start] 1fr
