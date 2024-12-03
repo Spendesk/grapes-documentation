@@ -15,7 +15,11 @@ The Popover component should only be used in cases where the
 ```tsx sandbox
 <Popover
   renderTrigger={(triggerProps) => (
-    <Button {...triggerProps} text="Show me a dropdown" variant="primary" />
+    <Button
+      {...triggerProps}
+      text="Show me a dropdown"
+      variant="primaryBrand"
+    />
   )}
 >
   {(closeDropdown) => (
@@ -25,7 +29,7 @@ The Popover component should only be used in cases where the
       <div>Look at me, I&apos;m a dropdown.</div>
       <Button
         className="mt-s"
-        variant="primary"
+        variant="primaryBrand"
         text="Close me"
         onClick={closeDropdown}
       />

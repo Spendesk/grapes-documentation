@@ -11,13 +11,13 @@ import { VisibleOnClick } from "./visible-on-click";
     placement="top"
     triggerAsChild
   >
-    <Button variant="primary" isDisabled text="Top tooltip" />
+    <Button variant="primaryBrand" isDisabled text="Top tooltip" />
   </Tooltip>
 </Preview>
 
 ```tsx sandbox
 <Tooltip content="This is some useful information in a tooltip" triggerAsChild>
-  <Button variant="primary" isDisabled text="Top tooltip" />
+  <Button variant="primaryBrand" isDisabled text="Top tooltip" />
 </Tooltip>
 ```
 
@@ -30,25 +30,25 @@ Use the `placement` prop to specify where the tooltip should be positioned.
     content="This is some useful information in a tooltip"
     placement="top"
   >
-    <Button variant="primary" isDisabled text="Top tooltip" />
+    <Button variant="primaryBrand" isDisabled text="Top tooltip" />
   </Tooltip>
   <Tooltip
     content="This is some useful information in a tooltip"
     placement="bottom"
   >
-    <Button variant="primary" isDisabled text="Bottom tooltip" />
+    <Button variant="primaryBrand" isDisabled text="Bottom tooltip" />
   </Tooltip>
   <Tooltip
     content="This is some useful information in a tooltip"
     placement="left"
   >
-    <Button variant="primary" isDisabled text="Left tooltip" />
+    <Button variant="primaryBrand" isDisabled text="Left tooltip" />
   </Tooltip>
   <Tooltip
     content="This is some useful information in a tooltip"
     placement="right"
   >
-    <Button variant="primary" isDisabled text="Right tooltip" />
+    <Button variant="primaryBrand" isDisabled text="Right tooltip" />
   </Tooltip>
 </Preview>
 
@@ -59,28 +59,28 @@ Use the `placement` prop to specify where the tooltip should be positioned.
     placement="top"
     triggerAsChild
   >
-    <Button variant="primary" isDisabled text="Top tooltip" />
+    <Button variant="primaryBrand" isDisabled text="Top tooltip" />
   </Tooltip>
   <Tooltip
     content="This is some useful information in a tooltip"
     placement="bottom"
     triggerAsChild
   >
-    <Button variant="primary" isDisabled text="Bottom tooltip" />
+    <Button variant="primaryBrand" isDisabled text="Bottom tooltip" />
   </Tooltip>
   <Tooltip
     content="This is some useful information in a tooltip"
     placement="left"
     triggerAsChild
   >
-    <Button variant="primary" isDisabled text="Left tooltip" />
+    <Button variant="primaryBrand" isDisabled text="Left tooltip" />
   </Tooltip>
   <Tooltip
     content="This is some useful information in a tooltip"
     placement="right"
     triggerAsChild
   >
-    <Button variant="primary" isDisabled text="Right tooltip" />
+    <Button variant="primaryBrand" isDisabled text="Right tooltip" />
   </Tooltip>
 </>
 ```
@@ -91,13 +91,13 @@ If the `isDisabled` prop is set to `true`, the tooltip will never appear.
 
 <Preview>
   <Tooltip content="This is some useful information in a tooltip" isDisabled>
-    <Button variant="primary" isDisabled text="Tooltip" />
+    <Button variant="primaryBrand" isDisabled text="Tooltip" />
   </Tooltip>
 </Preview>
 
 ```tsx sandbox
 <Tooltip content="This is some useful information in a tooltip" isDisabled>
-  <Button variant="primary" isDisabled text="Tooltip" />
+  <Button variant="primaryBrand" isDisabled text="Tooltip" />
 </Tooltip>
 ```
 
@@ -114,7 +114,7 @@ const Demo = () => {
   return (
     <Tooltip content="Copied" isOpen={isVisible} triggerAsChild>
       <Button
-        variant="primary"
+        variant="primaryBrand"
         text="Click to copy"
         onClick={() => {
           setIsVisible(true);
