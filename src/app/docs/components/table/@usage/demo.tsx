@@ -158,7 +158,6 @@ type Props = {
   isCompact?: boolean;
   isSortable?: boolean;
   isSelectable?: boolean;
-  withColumnSeparator?: boolean;
   withFooter?: boolean;
   withRowVariant?: boolean;
   withCellVariant?: boolean;
@@ -171,7 +170,6 @@ export function DemoTable({
   isCompact,
   isSortable,
   isSelectable,
-  withColumnSeparator,
   withFooter,
   withRowVariant,
   withCellVariant,
@@ -193,7 +191,6 @@ export function DemoTable({
     | "onAllRowsSelectionChange"
   > = {
     ...(isCompact && { rowHeight: "compact" }),
-    ...(withColumnSeparator && { hasColumnSeparator: true }),
     ...(withFooter &&
       data.length < initialData.length + additionalData.length && {
         footer: (

@@ -110,18 +110,6 @@ The Table component has two variants: `normal` and `compact`. The compact mode m
 <Table rowHeight="compact" {...otherProps} />
 ```
 
-## Column separator
-
-The `columnSeparator` prop adds a line between each column.
-
-<Preview>
-  <DemoTable withColumnSeparator />
-</Preview>
-
-```tsx
-<Table hasColumnSeparator {...otherProps} />
-```
-
 ## Footer
 
 The `footer` prop allows you to add a footer to the Table, to load more data for example.
@@ -255,7 +243,7 @@ The `getRowVariant` prop allows you to specify a variant (`info` or `warning`) f
 The `getCellVariant` prop allows you to specify a variant for each cell when necessary. This function should be used in the `columns` prop.
 
 <Preview>
-  <DemoTable withCellVariant withColumnSeparator />
+  <DemoTable withCellVariant />
 </Preview>
 
 ```tsx
