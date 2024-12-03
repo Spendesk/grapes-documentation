@@ -38,3 +38,17 @@ export function DemoIndeterminate() {
     />
   );
 }
+
+export function DemoWithIcon() {
+  const [isAdministrator, setAdministrator] = useState<boolean>(false);
+
+  return (
+    <CheckboxBox
+      label="Administrator"
+      description="An admin can set up the account: invite new members, edit approval policies and team composition"
+      iconName="person"
+      isChecked={isAdministrator}
+      onChange={(e) => setAdministrator(e.target.checked)}
+    />
+  );
+}
