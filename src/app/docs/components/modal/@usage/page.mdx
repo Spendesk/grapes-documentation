@@ -26,13 +26,13 @@ const Demo = () => {
         actions={[
           <Button
             key="cancel"
-            variant="secondary"
+            variant="secondaryNeutral"
             text="Cancel"
             onClick={() => setIsOpen(false)}
           />,
           <Button
             key="switch"
-            variant="primary"
+            variant="primaryBrand"
             text="Switch"
             onClick={() => setIsOpen(false)}
           />,
@@ -66,13 +66,13 @@ const Demo = () => {
         actions={[
           <Button
             key="cancel"
-            variant="secondary"
+            variant="secondaryNeutral"
             text="Cancel"
             onClick={() => setIsOpen(false)}
           />,
           <Button
             key="switch"
-            variant="primary"
+            variant="primaryBrand"
             text="Switch"
             onClick={() => setIsOpen(false)}
           />,
@@ -121,13 +121,13 @@ const Demo = () => {
           <ModalFooter>
             <Button
               key="cancel"
-              variant="secondary"
+              variant="secondaryNeutral"
               text="Cancel"
               onClick={() => setIsOpen(false)}
             />
             <Button
               key="switch"
-              variant="primary"
+              variant="primaryBrand"
               text="Switch"
               onClick={() => setIsOpen(false)}
             />
@@ -223,7 +223,7 @@ const Demo = () => {
           <ModalFooter>
             <Button
               key="cancel"
-              variant="secondary"
+              variant="secondaryNeutral"
               text={state === STATE.firstModal ? "Close" : "Previous"}
               iconPosition="left"
               iconName={state === STATE.firstModal ? undefined : "arrow-left"}
@@ -231,7 +231,7 @@ const Demo = () => {
             />
             <Button
               key="switch"
-              variant="primary"
+              variant="primaryBrand"
               text={state === STATE.lastModal ? "Confirm" : "next"}
               iconPosition="right"
               iconName={state === STATE.lastModal ? undefined : "arrow-right"}

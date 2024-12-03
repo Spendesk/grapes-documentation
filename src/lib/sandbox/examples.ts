@@ -4,7 +4,7 @@ export const initialCode = `const Demo = () => {
   return (
     <>
       <Button
-        variant="primary"
+        variant="primaryBrand"
         text="Click me!"
         onClick={() => setIsOpen(true)}
       />
@@ -15,7 +15,7 @@ export const initialCode = `const Demo = () => {
         actions={[
           <Button
             key="certified"
-            variant="primary"
+            variant="primaryBrand"
             text="Thank you :)"
             onClick={() => setIsOpen(false)}
           />,
@@ -110,7 +110,7 @@ const Demo = () => {
       footer={
         <Button
           fit="parent"
-          variant="secondary"
+          variant="secondaryNeutral"
           iconName="archive"
           text="Archive supplier"
           onClick={() => console.log("Archive supplier")}
