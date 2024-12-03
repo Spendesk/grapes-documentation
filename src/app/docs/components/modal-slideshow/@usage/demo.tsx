@@ -80,7 +80,7 @@ export function Demo() {
   return (
     <>
       <Button
-        variant="primary"
+        variant="primaryBrand"
         text="Open the modal"
         onClick={() => setIsOpen(true)}
       />

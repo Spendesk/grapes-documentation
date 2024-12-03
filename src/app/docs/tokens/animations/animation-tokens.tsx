@@ -11,7 +11,7 @@ const animationTimingFunction = "--transition-timing-function";
 
 export function AnimationTokens() {
   return (
-    <div className="flex gap-l box text-center">
+    <div className="flex gap-32 box text-center">
       {animationDurations.map((token) => (
         <AnimationBox key={token} token={token} property="animation-duration" />
       ))}
@@ -49,8 +49,10 @@ function AnimationBox({
         animationTimingFunction: `var(${token})`,
       }}
     >
-      <div className="title-m mt-xs">{token}</div>
-      <div className="text-neutral">{animationToken}</div>
+      <div className="title-m mt-8">{token}</div>
+      <div className="text-content-secondary-bg-secondary">
+        {animationToken}
+      </div>
     </div>
   );
 }

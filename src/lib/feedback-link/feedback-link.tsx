@@ -14,7 +14,7 @@ export function FeedbackLink() {
     <Link
       href={`${AIRTABLE_FORM}?prefill_URL=${APP_URL}${pathname}`}
       isExternal
-      className="inline-flex gap-xxs items-center"
+      className="inline-flex gap-4 items-center"
     >
       Leave feedback
       <Icon name="external" size="s" aria-hidden="true" />

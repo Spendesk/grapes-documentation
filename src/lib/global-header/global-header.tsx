@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { Suspense } from "react";
-import { NavigationItem, Tag } from "@dev-spendesk/grapes";
+import { Tag } from "@dev-spendesk/grapes";
 import { headerRoutes } from "@/app/routes";
 
 import { Search } from "../search/search";
@@ -30,17 +30,12 @@ export function GlobalHeader() {
           target="_blank"
           href={`https://github.com/Spendesk/grapes/releases/tag/v${grapesPackage.version}`}
         >
-          <Tag variant="neutral">{grapesPackage.version}</Tag>
+          <Tag variant="ocean">{grapesPackage.version}</Tag>
         </Link>
         <ul className="global-header-links">
           {headerRoutes.map((headerRoute) => (
             <li key={headerRoute.category}>
-              <NavigationItem
-                variant="subNavigation"
-                component={Link}
-                href={headerRoute.url}
-                text={headerRoute.category}
-              />
+              <Link href={headerRoute.url}>{headerRoute.category}</Link>
             </li>
           ))}
         </ul>

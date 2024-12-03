@@ -27,7 +27,7 @@ export function DemoUpload({ withIllustration, withAccept }: Props) {
             <span>
               Drag & drop file(s) here <br />
               or{" "}
-              <u className="text-complementary font-medium">
+              <u className="text-content-primary font-medium">
                 import them from your computer
               </u>
             </span>

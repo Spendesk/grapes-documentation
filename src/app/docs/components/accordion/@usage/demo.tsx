@@ -38,12 +38,12 @@ export function DemoAccordion({
       {withOpenClose && (
         <>
           <Button
-            variant="primary"
+            variant="primaryBrand"
             text="Open accordion"
             onClick={() => openAccordion()}
           />
           <Button
-            variant="primary"
+            variant="primaryBrand"
             text="Close accordion"
             onClick={() => closeAccordion()}
           />
@@ -62,7 +62,7 @@ export function DemoAccordion({
             key={accordionItem}
             renderHeader={() => <div>{accordionItem}</div>}
           >
-            <div className="p-m pt-xs text-neutral-dark">
+            <div className="p-24 pt-8 text-content-primary">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec
               lectus sed sem porttitor viverra. Vestibulum magna leo.
             </div>

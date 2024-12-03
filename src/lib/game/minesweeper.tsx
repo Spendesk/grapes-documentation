@@ -195,7 +195,7 @@ export function Minesweeper() {
 
   return (
     <div className="body-m text-center">
-      <div className="border border-solid border-neutral-dark">
+      <div className="border border-solid border-border-default">
         {grid.map((row, x) => (
           <div className="flex" key={x}>
             {row.map((_, y) => {
@@ -209,10 +209,18 @@ export function Minesweeper() {
                     grid[x][y] === -1 && "bomb",
                     grid[x][y] === 0 && "empty",
                     isCellVisible && "visible",
-                    isCellVisible && grid[x][y] === 1 && "bg-info-lighter",
-                    isCellVisible && grid[x][y] === 2 && "bg-success-lighter",
-                    isCellVisible && grid[x][y] === 3 && "bg-alert-lighter",
-                    isCellVisible && grid[x][y] === 4 && "bg-primary-lighter",
+                    isCellVisible &&
+                      grid[x][y] === 1 &&
+                      "bg-background-secondary-info-default",
+                    isCellVisible &&
+                      grid[x][y] === 2 &&
+                      "bg-background-secondary-success-default",
+                    isCellVisible &&
+                      grid[x][y] === 3 &&
+                      "bg-background-secondary-alert-default",
+                    isCellVisible &&
+                      grid[x][y] === 4 &&
+                      "bg-background-secondary-brand-default",
                     !isCellVisible && flags.has(cellNumber) && "cell-flag",
                   )}
                   key={`${x}|${y}`}
@@ -225,18 +233,23 @@ export function Minesweeper() {
           </div>
         ))}
       </div>
-      <div className="flex gap-xs mt-xs items-center justify-between">
+      <div className="flex gap-8 mt-8 items-center justify-between">
         <SwitchField
           isChecked={isSettingFlag}
           onChange={() => setIsSettingFlag(!isSettingFlag)}
           label={
-            <div className="flex gap-xxs items-center">
+            <div className="flex gap-4 items-center">
               <Icon name="racing-flag" />
               Flag
             </div>
           }
         />
-        <Button id="restart" variant="ghost" onClick={reset} text="Restart" />
+        <Button
+          id="restart"
+          variant="tertiaryNeutral"
+          onClick={reset}
+          text="Restart"
+        />
       </div>
       {status === "won" && <Confetti />}
     </div>

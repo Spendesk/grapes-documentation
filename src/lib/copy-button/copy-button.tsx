@@ -15,9 +15,13 @@ export function CopyButton({
 }: CopyButtonProps) {
   const [hasBeenCopied, setHasBeenCopied] = useState(false);
   const defaultColor =
-    colorScheme === "light" ? colors.white : colors.neutralDark;
+    colorScheme === "light"
+      ? colors.backgroundPrimary
+      : colors.contentSecondaryBgPrimary;
   const successColor =
-    colorScheme === "light" ? colors.successLightest : colors.success;
+    colorScheme === "light"
+      ? colors.backgroundSecondarySuccessDefault
+      : colors.contentSuccessDefault;
 
   return (
     <Tooltip
@@ -28,7 +32,7 @@ export function CopyButton({
     >
       <IconButton
         className={className}
-        variant="borderless"
+        variant="tertiaryNeutral"
         iconName={hasBeenCopied ? "success" : "copy"}
         iconColor={hasBeenCopied ? successColor : defaultColor}
         aria-label={hasBeenCopied ? "Copied" : "Copy"}

@@ -4,28 +4,33 @@ import React, { useId } from "react";
 import { routes, headerRoutes, type RouteConfig } from "@/app/routes";
 import { usePathname } from "next/navigation";
 
-import { SideBarLink } from "./sidebar-link";
+import Link from "next/link";
+import { classNames } from "../classNames";
 
 function NavigationList({ route }: { route: RouteConfig }) {
   const pathname = usePathname();
   const listId = useId();
 
   return (
-    <details className="mb-l" open>
+    <details className="mb-32" open>
       <summary
         id={listId}
-        className="title-m mb-xs text-primary-dark cursor-pointer"
+        className="title-m mb-8 text-content-brand-default cursor-pointer"
       >
         {route.category}
       </summary>
-      <ul className="ml-xxs" aria-labelledby={listId}>
+      <ul className="ml-4" aria-labelledby={listId}>
         {route.routes.map((subRoute) => (
           <li key={subRoute.label}>
-            <SideBarLink
-              isActive={pathname === subRoute.url}
-              url={subRoute.url}
-              label={subRoute.label}
-            />
+            <Link
+              className={classNames(
+                "docs-nav-link",
+                pathname === subRoute.url && "active",
+              )}
+              href={subRoute.url}
+            >
+              {subRoute.label}
+            </Link>
           </li>
         ))}
       </ul>

@@ -36,7 +36,7 @@ export function DemoDropdownMenu({ fitToButton, placement }: Props) {
           <Button
             {...getToggleButtonProps()}
             fit={fitToButton ? "parent" : "content"}
-            variant="ghost"
+            variant="tertiaryNeutral"
             text={placement ?? "Cost centers"}
           />
         </div>
@@ -67,7 +67,7 @@ export function DemoDropdownMenuCheckboxes() {
       renderButton={(getToggleButtonProps) => (
         <Button
           {...getToggleButtonProps()}
-          variant="ghost"
+          variant="tertiaryNeutral"
           text="Cost centers"
         />
       )}

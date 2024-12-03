@@ -27,11 +27,11 @@ function extractValues(values: { value: string }[]): string {
 
 export function PropsTable({ components }: Props) {
   return (
-    <div className="mt-s">
+    <div className="mt-16">
       {components.map((component, index) => (
         <Fragment key={index}>
           {components.length > 1 && <h2 id={component}>{component}</h2>}
-          <ListView className={classNames(components.length > 0 && "mt-m")}>
+          <ListView className={classNames(components.length > 0 && "mt-24")}>
             {getSortedProps(component).map(
               ({ name, required, type, defaultValue, description }) => {
                 const isAnIconProp =
@@ -39,11 +39,11 @@ export function PropsTable({ components }: Props) {
 
                 return (
                   <ListItem key={name} className={styles.listItem}>
-                    <div className="flex items-baseline gap-xs ">
+                    <div className="flex items-baseline gap-8 ">
                       {isAnIconProp ? (
                         <Link
                           className={classNames(
-                            "text-complementary title-l",
+                            "text-content-primary title-l",
                             required && styles.required,
                           )}
                           href="/docs/components/icon"
@@ -53,7 +53,7 @@ export function PropsTable({ components }: Props) {
                       ) : (
                         <span
                           className={classNames(
-                            "text-complementary title-l",
+                            "text-content-primary title-l",
                             required && styles.required,
                           )}
                         >
@@ -66,9 +66,11 @@ export function PropsTable({ components }: Props) {
                         }
                       />
                     </div>
-                    <p className="text-neutral-dark mt-xs">{description}</p>
+                    <p className="text-secondary-bg-primary body-m mt-8">
+                      {description}
+                    </p>
                     {defaultValue != null ? (
-                      <Tag className="mt-xxs" variant="neutral">
+                      <Tag className="mt-4" variant="neutral">
                         Default: {`${defaultValue.value}`}
                       </Tag>
                     ) : null}

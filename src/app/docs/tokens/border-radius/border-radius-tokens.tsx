@@ -5,7 +5,7 @@ import { borderRadiusTokens } from "./types";
 
 export function BorderRadiusTokens() {
   return (
-    <div className="flex gap-l box text-center">
+    <div className="flex gap-32 box text-center">
       {borderRadiusTokens.map((token) => (
         <BorderRadiusBox key={token} token={token} />
       ))}
@@ -30,10 +30,10 @@ function BorderRadiusBox({ token }: { token: string }) {
       <div
         ref={ref}
         style={{ borderRadius: `var(${token})` }}
-        className="w-[160px] h-[120px] bg-primary-lighter"
+        className="w-[160px] h-[120px] bg-background-secondary-brand-default"
       />
-      <div className="title-m mt-xs">{token}</div>
-      <div className="text-neutral">{borderRadius}</div>
+      <div className="title-m mt-8">{token}</div>
+      <div className="text-content-secondary-bg-secondary">{borderRadius}</div>
     </div>
   );
 }

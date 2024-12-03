@@ -32,13 +32,13 @@ export function WithLowerLevelConstructModal() {
           <ModalFooter>
             <Button
               key="cancel"
-              variant="secondary"
+              variant="secondaryNeutral"
               text="Cancel"
               onClick={() => setIsOpen(false)}
             />
             <Button
               key="switch"
-              variant="primary"
+              variant="primaryBrand"
               text="Switch"
               onClick={() => setIsOpen(false)}
             />
@@ -117,7 +117,7 @@ export function ModalFlow() {
           <ModalFooter>
             <Button
               key="cancel"
-              variant="secondary"
+              variant="secondaryNeutral"
               text={state === STATE.firstModal ? "Close" : "Previous"}
               iconPosition="left"
               iconName={state === STATE.firstModal ? undefined : "arrow-left"}
@@ -125,7 +125,7 @@ export function ModalFlow() {
             />
             <Button
               key="switch"
-              variant="primary"
+              variant="primaryBrand"
               text={state === STATE.lastModal ? "Confirm" : "next"}
               iconPosition="right"
               iconName={state === STATE.lastModal ? undefined : "arrow-right"}

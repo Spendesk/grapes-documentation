@@ -13,7 +13,6 @@ export function DemoNavigation({ isSubNavigation }: Props) {
   return (
     <Navigation
       className="w-full"
-      variant={isSubNavigation ? "subNavigation" : "mainNavigation"}
       leftNavigationItems={[
         <NavigationItem
           key="1"
@@ -32,20 +31,6 @@ export function DemoNavigation({ isSubNavigation }: Props) {
           text="Link 3"
           isActive={activeIndex === 3}
           onClick={() => setActiveIndex(3)}
-        />,
-      ]}
-      rightNavigationItems={[
-        <NavigationItem
-          key="4"
-          text="Link 4"
-          isActive={activeIndex === 4}
-          onClick={() => setActiveIndex(4)}
-        />,
-        <NavigationItem
-          key="5"
-          text="Link 5"
-          isActive={activeIndex === 5}
-          onClick={() => setActiveIndex(5)}
         />,
       ]}
     />

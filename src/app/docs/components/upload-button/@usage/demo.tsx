@@ -32,7 +32,7 @@ export function DemoUploadButton({ withAccept }: Props) {
             setSelectedFile(filesToUpload?.[0]);
           }}
           text="Add a document"
-          variant="ghost"
+          variant="tertiaryNeutral"
         />
       )}
     </div>

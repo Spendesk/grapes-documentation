@@ -1,6 +1,6 @@
 .logo {
-  color: var(--color-neutral-darker);
-  height: var(--sizing-m);
+  color: var(--color-content-primary);
+  height: var(--unit-24);
 }
 
 .sr-only {

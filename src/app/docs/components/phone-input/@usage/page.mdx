@@ -1,15 +1,13 @@
-import { Callout } from "@dev-spendesk/grapes";
-
 import { Preview } from "@/lib/preview/preview";
 import { DemoPhoneInput } from "./demo";
 
 ## Basic usage
 
-<Callout title="formatPhoneNumber" variant="info">
-  When using the component, the function `formatPhoneNumber` has to be defined.
-  We usually use the package `libphonenumber-js` for this, it will have to be
-  installed in your repository.
-</Callout>
+:::info{title="formatPhoneNumber"}
+When using the component, the function `formatPhoneNumber` has to be defined.
+We usually use the package `libphonenumber-js` for this, it will have to be
+installed in your repository.
+:::
 
 <Preview>
   <DemoPhoneInput />

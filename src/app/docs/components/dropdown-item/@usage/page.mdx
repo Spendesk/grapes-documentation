@@ -1,19 +1,19 @@
-import { Avatar, Callout, DropdownItem } from "@dev-spendesk/grapes";
+import { Avatar, DropdownItem } from "@dev-spendesk/grapes";
 import { Preview } from "@/lib/preview/preview";
 
-<Callout className="mt-m" variant="warning" title="Usage">
-  The DropdownItem component shouldn't be used as is, but in a DropdownMenu,
-  Autocomplete, AutocompleteMultiple, Select, etc.
-</Callout>
+:::warning{title="Usage"}
+The DropdownItem component shouldn't be used as is, but in a DropdownMenu,
+Autocomplete, AutocompleteMultiple, Select, etc.
+:::
 
 ## Basic usage
 
-<Callout title="Word break">
-  To prevent overflow, any word may be broken at any point if there are no
-  acceptable break point. If you like to change this behavior, please use the
-  className props. For instance, you can revert to the default behavior by
-  passing the TailwindCSS class break-normal.
-</Callout>
+:::info{title="Word break"}
+To prevent overflow, any word may be broken at any point if there are no
+acceptable break point. If you like to change this behavior, please use the
+className props. For instance, you can revert to the default behavior by
+passing the TailwindCSS class break-normal.
+:::
 
 <Preview>
   <DropdownItem label="Michael Murphy" />

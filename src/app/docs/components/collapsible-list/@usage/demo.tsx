@@ -11,13 +11,13 @@ import {
 function DemoHeader() {
   return (
     <div className="flex items-center justify-between w-full">
-      <div className="flex gap-xs items-center">
+      <div className="flex gap-8 items-center">
         <Avatar text="Michael Murphy" />
         <div>Michael Murphy</div>
       </div>
       <div className="text-right">
         <div className="title-m">€250.00</div>
-        <div className="text-neutral-dark body-s">3 payables</div>
+        <div className="text-content-primary body-s">3 payables</div>
       </div>
     </div>
   );
@@ -36,11 +36,11 @@ function DemoListItem({
     <div className="flex items-center justify-between w-full">
       <div>
         <div>{supplier}</div>
-        <div className="text-neutral-dark body-s">Michael Murphy</div>
+        <div className="text-content-primary body-s">Michael Murphy</div>
       </div>
       <div className="text-right">
         <div className="title-m">{amount}</div>
-        <div className="text-neutral-dark body-s">{date}</div>
+        <div className="text-content-primary body-s">{date}</div>
       </div>
     </div>
   );
@@ -96,7 +96,7 @@ export function DemoCollapsibleList({
           withFooter && (
             <Button
               text="Load more"
-              variant="secondary"
+              variant="secondaryNeutral"
               onClick={() => console.log("Load more")}
             />
           )

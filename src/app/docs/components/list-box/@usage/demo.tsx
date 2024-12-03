@@ -102,8 +102,8 @@ export function DemoListBox({
     ...(withHeader && { header: <div>Members</div> }),
     ...(withFooter && {
       footer: (
-        <div className="my-xs mx-auto">
-          <Button fit="content" text="Load more" variant="secondary" />
+        <div className="my-8 mx-auto">
+          <Button fit="content" text="Load more" variant="secondaryNeutral" />
         </div>
       ),
     }),
@@ -172,14 +172,14 @@ export function DemoListBox({
       {...optionalProps}
     >
       {(option, titleId) => (
-        <div className="flex gap-s items-center">
+        <div className="flex gap-16 items-center">
           <Avatar variant="circle" src={option.avatar} text={option.name} />
           <div className="flex-grow">
             <div className="title-m" id={titleId}>
               {option.name}
             </div>
             {!isCompact && (
-              <div className="body-m text-neutral-dark mt-xxs">
+              <div className="body-m text-content-primary mt-4">
                 {option.description}
               </div>
             )}

@@ -32,7 +32,9 @@ export default function Components() {
                           src={`/static/images/components/${item.label}.svg`}
                           alt="grapes"
                         />
-                        <p className="p-s shrink-0 bg-white">{item.label}</p>
+                        <p className="p-16 shrink-0 bg-background-primary">
+                          {item.label}
+                        </p>
                       </Link>
                     );
                   })}
