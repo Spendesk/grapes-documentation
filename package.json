@@ -18,7 +18,7 @@
     "@codemirror/commands": "^6.7.1",
     "@codemirror/lang-javascript": "^6.2.2",
     "@codemirror/view": "^6.35.0",
-    "@dev-spendesk/grapes": "^1.15.0",
+    "@dev-spendesk/grapes": "^1.16.3",
     "@mdx-js/loader": "^3.0.1",
     "@mdx-js/react": "^3.1.0",
     "@next/mdx": "^14.2.9",
