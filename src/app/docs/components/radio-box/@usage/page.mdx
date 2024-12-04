@@ -3,7 +3,7 @@ import {
   DemoRadioBox,
   DemoBooleanRadioBox,
   DemoDefaultValue,
-  DemoVerticalRadioBox,
+  DemoWithIconRadioBox,
 } from "./demo";
 
 :::warning{title="The RadioBox only works within a RadioGroup"}
@@ -28,38 +28,27 @@ const Demo = () => {
       onChange={(event) => {
         setSelectedValue(event?.target.value);
       }}
+      direction="column"
+      className="gap-8"
     >
       <RadioBox
-        iconName="single-purchase-card"
-        label="Single use"
-        description="If you need to make a one-time payment"
-        value="singleUse"
+        label="Administrator"
+        description="An admin can set-up the account"
+        value="administrator"
       />
       <RadioBox
-        iconName="recurring-card"
-        label="Recurring"
-        description="If you want to manage your subscriptions"
-        value="recurring"
+        label="Controller"
+        description="A controller has access to all accounting features"
+        value="controller"
+      />
+      <RadioBox
+        label="Requester"
+        description="A requester can request and make purchases"
+        value="requester"
       />
     </RadioGroup>
   );
 };
-```
-
-## Vertical
-
-The layout of the RadioBox is different when the `direction` prop is set to `column` in the `RadioGroup` component: the radio button is displayed on the left.
-
-<Preview>
-  <DemoVerticalRadioBox />
-</Preview>
-
-```tsx
-<RadioGroup direction="column" {...otherProps}>
-  {options.map((option) => (
-    <RadioBox {...props} />
-  ))}
-</RadioGroup>
 ```
 
 ## Default value
@@ -73,7 +62,9 @@ To define a default value, use `useState`.
 
 ```tsx sandbox
 const Demo = () => {
-  const [selectedValue, setSelectedValue] = useState<string>("singleUse");
+  const [selectedValue, setSelectedValue] = useState<string | null>(
+    "administrator"
+  );
 
   return (
     <RadioGroup
@@ -82,22 +73,52 @@ const Demo = () => {
       onChange={(event) => {
         setSelectedValue(event?.target.value);
       }}
+      direction="column"
+      className="gap-8"
     >
       <RadioBox
-        iconName="single-purchase-card"
-        label="Single use"
-        description="If you need to make a one-time payment"
-        value="singleUse"
+        label="Administrator"
+        description="An admin can set-up the account"
+        value="administrator"
       />
       <RadioBox
-        iconName="recurring-card"
-        label="Recurring"
-        description="If you want to manage your subscriptions"
-        value="recurring"
+        label="Controller"
+        description="A controller has access to all accounting features"
+        value="controller"
+      />
+      <RadioBox
+        label="Requester"
+        description="A requester can request and make purchases"
+        value="requester"
       />
     </RadioGroup>
   );
 };
+```
+
+## With icon
+
+Use the `iconName` prop to add an icon to the RadioBox.
+
+<Preview>
+  <DemoWithIconRadioBox />
+</Preview>
+
+```tsx
+<RadioGroup {...otherProps}>
+  <RadioBox
+    iconName="single-purchase-card"
+    label="Single use"
+    description="If you need to make a one-time payment"
+    value="singleUse"
+  />
+  <RadioBox
+    iconName="recurring-card"
+    label="Recurring"
+    description="If you want to manage your subscriptions"
+    value="recurring"
+  />
+</RadioGroup>
 ```
 
 ## Without the description
