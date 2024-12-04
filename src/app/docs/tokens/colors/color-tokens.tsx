@@ -3,88 +3,219 @@
 import { Tooltip, colors } from "@dev-spendesk/grapes";
 import { Fragment, useEffect, useState } from "react";
 
-type ColorSection =
-  | "primary"
-  | "neutral"
-  | "info"
-  | "success"
-  | "warning"
-  | "alert"
-  | "structure";
+type ColorSection = "content" | "border";
+type BackgroundColorSection = "default" | "primary" | "secondary";
 
 type Color = {
   name: string;
   value: string;
 };
-const tokens: { [key in ColorSection]: Color[] } = {
-  neutral: [
-    { name: "darker", value: colors.contentSecondaryBgPrimary },
-    { name: "dark", value: colors.contentSecondaryBgPrimary },
-    { name: "default", value: colors.backgroundSecondary },
-    { name: "light", value: colors.backgroundSecondary },
-    { name: "lighter", value: colors.backgroundSecondary },
-    { name: "lightest", value: colors.backgroundSecondary },
+
+const backgroundTokens: { [key in BackgroundColorSection]: Color[] } = {
+  default: [
+    { name: "primary", value: colors.backgroundPrimary },
+    { name: "secondary", value: colors.backgroundSecondary },
+    { name: "tertiary", value: colors.backgroundTertiary },
+    { name: "hover", value: colors.backgroundHover },
+    { name: "pressed", value: colors.backgroundPressed },
+    { name: "selected", value: colors.backgroundSelected },
+    { name: "disabled", value: colors.backgroundDisabled },
+    { name: "readonly", value: colors.backgroundReadonly },
+    { name: "complementary", value: colors.backgroundComplementary },
   ],
   primary: [
-    { name: "dark", value: colors.contentPrimary },
-    { name: "default", value: colors.contentPrimary },
-    { name: "light", value: colors.backgroundSecondaryBrandDefault },
-    { name: "lighter", value: colors.backgroundSecondaryBrandDefault },
-    { name: "lightest", value: colors.backgroundSecondaryBrandDefault },
+    {
+      name: "brand-default",
+      value: colors.backgroundPrimaryBrandDefault,
+    },
+    {
+      name: "brand-hover",
+      value: colors.backgroundPrimaryBrandHover,
+    },
+    {
+      name: "brand-pressed",
+      value: colors.backgroundPrimaryBrandPressed,
+    },
+    {
+      name: "info-default",
+      value: colors.backgroundPrimaryInfoDefault,
+    },
+    {
+      name: "info-hover",
+      value: colors.backgroundPrimaryInfoHover,
+    },
+    {
+      name: "info-pressed",
+      value: colors.backgroundPrimaryInfoPressed,
+    },
+    {
+      name: "success-default",
+      value: colors.backgroundPrimarySuccessDefault,
+    },
+    {
+      name: "success-hover",
+      value: colors.backgroundPrimarySuccessHover,
+    },
+    {
+      name: "success-pressed",
+      value: colors.backgroundPrimarySuccessPressed,
+    },
+    {
+      name: "warning-default",
+      value: colors.backgroundPrimaryWarningDefault,
+    },
+    {
+      name: "warning-hover",
+      value: colors.backgroundPrimaryWarningHover,
+    },
+    {
+      name: "warning-pressed",
+      value: colors.backgroundPrimaryWarningPressed,
+    },
+    {
+      name: "alert-default",
+      value: colors.backgroundPrimaryAlertDefault,
+    },
+    {
+      name: "alert-hover",
+      value: colors.backgroundPrimaryAlertHover,
+    },
+    {
+      name: "alert-pressed",
+      value: colors.backgroundPrimaryAlertPressed,
+    },
   ],
-  warning: [
-    { name: "dark", value: colors.contentWarningDefault },
-    { name: "default", value: colors.contentWarningDefault },
-    { name: "light", value: colors.backgroundSecondaryWarningDefault },
-    { name: "lighter", value: colors.backgroundSecondaryWarningDefault },
-    { name: "lightest", value: colors.backgroundSecondaryWarningDefault },
+  secondary: [
+    {
+      name: "brand-default",
+      value: colors.backgroundSecondaryBrandDefault,
+    },
+    {
+      name: "brand-hover",
+      value: colors.backgroundSecondaryBrandHover,
+    },
+    {
+      name: "brand-pressed",
+      value: colors.backgroundSecondaryBrandPressed,
+    },
+    {
+      name: "info-default",
+      value: colors.backgroundSecondaryInfoDefault,
+    },
+    {
+      name: "info-hover",
+      value: colors.backgroundSecondaryInfoHover,
+    },
+    {
+      name: "info-pressed",
+      value: colors.backgroundSecondaryInfoPressed,
+    },
+    {
+      name: "success-default",
+      value: colors.backgroundSecondarySuccessDefault,
+    },
+    {
+      name: "success-hover",
+      value: colors.backgroundSecondarySuccessHover,
+    },
+    {
+      name: "success-pressed",
+      value: colors.backgroundSecondarySuccessPressed,
+    },
+    {
+      name: "warning-default",
+      value: colors.backgroundSecondaryWarningDefault,
+    },
+    {
+      name: "warning-hover",
+      value: colors.backgroundSecondaryWarningHover,
+    },
+    {
+      name: "warning-pressed",
+      value: colors.backgroundSecondaryWarningPressed,
+    },
+    {
+      name: "alert-default",
+      value: colors.backgroundSecondaryAlertDefault,
+    },
+    {
+      name: "alert-hover",
+      value: colors.backgroundSecondaryAlertHover,
+    },
+    {
+      name: "alert-pressed",
+      value: colors.backgroundSecondaryAlertPressed,
+    },
   ],
-  alert: [
-    { name: "dark", value: colors.contentAlertDefault },
-    { name: "default", value: colors.contentAlertDefault },
-    { name: "light", value: colors.backgroundSecondaryAlertDefault },
-    { name: "lighter", value: colors.backgroundSecondaryAlertDefault },
-    { name: "lightest", value: colors.backgroundSecondaryAlertDefault },
+};
+
+const tokens: { [key in ColorSection]: Color[] } = {
+  content: [
+    { name: "primary", value: colors.contentPrimary },
+    { name: "secondary-bg-primary", value: colors.contentSecondaryBgPrimary },
+    {
+      name: "secondary-bg-secondary",
+      value: colors.contentSecondaryBgSecondary,
+    },
+    { name: "decorative-icon", value: colors.contentDecorativeIcon },
+    { name: "complementary", value: colors.contentComplementary },
+    { name: "selected", value: colors.contentSelected },
+    { name: "disabled", value: colors.contentDisabled },
+    { name: "brand-default", value: colors.contentBrandDefault },
+    { name: "brand-hover", value: colors.contentBrandHover },
+    { name: "brand-pressed", value: colors.contentBrandPressed },
+    { name: "info-default", value: colors.contentInfoDefault },
+    { name: "success-default", value: colors.contentSuccessDefault },
+    { name: "warning-default", value: colors.contentWarningDefault },
+    { name: "alert-default", value: colors.contentAlertDefault },
   ],
-  success: [
-    { name: "default", value: colors.contentSuccessDefault },
-    { name: "lighter", value: colors.backgroundSecondarySuccessDefault },
-    { name: "lightest", value: colors.backgroundSecondarySuccessDefault },
-  ],
-  info: [
-    { name: "default", value: colors.contentInfoDefault },
-    { name: "lighter", value: colors.backgroundSecondaryInfoDefault },
-    { name: "lightest", value: colors.backgroundSecondaryInfoDefault },
-  ],
-  structure: [
-    { name: "complementary", value: colors.contentPrimary },
-    { name: "background", value: colors.backgroundPrimary },
-    { name: "white", value: colors.backgroundPrimary },
+  border: [
+    { name: "default", value: colors.borderDefault },
+    { name: "hover", value: colors.borderHover },
+    { name: "selected", value: colors.borderSelected },
+    { name: "info", value: colors.borderInfo },
+    { name: "success", value: colors.borderSuccess },
+    { name: "warning", value: colors.borderWarning },
+    { name: "alert", value: colors.borderAlert },
   ],
 };
 
 function getSectionName(section: ColorSection): string {
   switch (section) {
+    case "content":
+      return "Content";
+    case "border":
+      return "Border";
+  }
+}
+
+function getBackgroundSectionName(section: BackgroundColorSection): string {
+  switch (section) {
+    case "default":
+      return "Default";
     case "primary":
       return "Primary";
-    case "neutral":
-      return "Neutral";
-    case "info":
-      return "Info";
-    case "success":
-      return "Success";
-    case "warning":
-      return "Warning";
-    case "alert":
-      return "Alert";
-    case "structure":
-      return "Structure";
+    case "secondary":
+      return "Secondary";
   }
 }
 
 export function ColorTokens() {
   return (
     <div>
+      <h2>Background</h2>
+      {Object.entries(backgroundTokens).map(([key, values]) => (
+        <Fragment key={key}>
+          <h3 id={key}>
+            {getBackgroundSectionName(key as BackgroundColorSection)}
+          </h3>
+          <div className="grid grid-cols-6 gap-16">
+            {values.map((color) => (
+              <ColorBox color={color} key={color.name} />
+            ))}
+          </div>
+        </Fragment>
+      ))}
       {Object.entries(tokens).map(([key, values]) => (
         <Fragment key={key}>
           <h2 id={key}>{getSectionName(key as ColorSection)}</h2>

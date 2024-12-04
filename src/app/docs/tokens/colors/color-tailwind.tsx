@@ -3,6 +3,16 @@
 import { Table, colors } from "@dev-spendesk/grapes";
 import { CopyCell } from "@/lib/copy-cell/copy-cell";
 
+function getTailwindClassName(color: string): string {
+  if (color.startsWith("var(--color-background")) {
+    return color.replace("var(--color", "bg").replace(")", "");
+  }
+  if (color.startsWith("var(--color-content")) {
+    return color.replace("var(--color", "text").replace(")", "");
+  }
+  return color.replace("var(--color", "border").replace(")", "");
+}
+
 export function ColorTailwind() {
   return (
     <Table
@@ -15,12 +25,30 @@ export function ColorTailwind() {
         {
           header: "CSS equivalent",
           id: "css",
-          renderCell: ({ css }) => <div style={{ color: css }}>Aa</div>,
+          renderCell: ({ tailwind, css }) => {
+            if (tailwind.startsWith("bg")) {
+              return (
+                <div
+                  className="w-24 h-24 rounded-4"
+                  style={{ backgroundColor: css }}
+                />
+              );
+            }
+            if (tailwind.startsWith("text")) {
+              return <div style={{ color: css }}>Aa</div>;
+            }
+            return (
+              <div
+                className="w-24 border-0 border-b-2 border-solid"
+                style={{ borderColor: css }}
+              />
+            );
+          },
         },
       ]}
       rowHeight="compact"
       data={Object.values(colors).map((color) => ({
-        tailwind: color.replace("var(--color", "text").replace(")", ""),
+        tailwind: getTailwindClassName(color),
         css: color,
       }))}
     />
