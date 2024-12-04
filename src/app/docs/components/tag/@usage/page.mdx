@@ -1,27 +1,76 @@
 import { Avatar, Tag } from "@dev-spendesk/grapes";
 import { Preview } from "@/lib/preview/preview";
+import { Demo } from "./demo.tsx";
 
 ## Variant
 
-The Tag comes with six visual styles: alert, info (default), neutral, primary, success, and warning.
+The Tag comes with two main visual styles: status and decorative.
+
+### Status
 
 <Preview>
-  <Tag variant="alert">Alert</Tag>
-  <Tag variant="info">Info</Tag>
-  <Tag variant="neutral">Neutral</Tag>
-  <Tag variant="primary">Primary</Tag>
-  <Tag variant="success">Success</Tag>
-  <Tag variant="warning">Warning</Tag>
+  <Tag iconName="failure" variant="alert">
+    Status
+  </Tag>
+  <Tag iconName="warning" variant="warning">
+    Status
+  </Tag>
+  <Tag iconName="info" variant="info">
+    Status
+  </Tag>
+  <Tag iconName="success" variant="success">
+    Status
+  </Tag>
+  <Tag iconName="clock-full" variant="neutral">
+    Status
+  </Tag>
 </Preview>
 
 ```tsx sandbox
 <>
-  <Tag variant="alert">Alert tag</Tag>
-  <Tag variant="info">Info tag</Tag>
-  <Tag variant="neutral">Neutral tag</Tag>
-  <Tag variant="primary">Primary tag</Tag>
-  <Tag variant="success">Success tag</Tag>
-  <Tag variant="warning">Warning tag</Tag>
+  <Tag iconName="failure" variant="alert">
+    Status
+  </Tag>
+  <Tag iconName="warning" variant="warning">
+    Status
+  </Tag>
+  <Tag iconName="info" variant="info">
+    Status
+  </Tag>
+  <Tag iconName="success" variant="success">
+    Status
+  </Tag>
+  <Tag iconName="clock-full" variant="neutral">
+    Status
+  </Tag>
+</>
+```
+
+### Decorative
+
+<Preview>
+  <Tag variant="carbon">My tag</Tag>
+  <Tag variant="grolive">My tag</Tag>
+  <Tag variant="forest">My tag</Tag>
+  <Tag variant="lemon">My tag</Tag>
+  <Tag variant="ocean">My tag</Tag>
+  <Tag variant="purple">My tag</Tag>
+  <Tag variant="pink">My tag</Tag>
+  <Tag variant="peach">My tag</Tag>
+  <Tag variant="white">My tag</Tag>
+</Preview>
+
+```tsx sandbox
+<>
+  <Tag variant="carbon">My tag</Tag>
+  <Tag variant="grolive">My tag</Tag>
+  <Tag variant="forest">My tag</Tag>
+  <Tag variant="lemon">My tag</Tag>
+  <Tag variant="ocean">My tag</Tag>
+  <Tag variant="purple">My tag</Tag>
+  <Tag variant="pink">My tag</Tag>
+  <Tag variant="peach">My tag</Tag>
+  <Tag variant="white">My tag</Tag>
 </>
 ```
 
@@ -30,31 +79,25 @@ The Tag comes with six visual styles: alert, info (default), neutral, primary, s
 Use the `iconName` prop to set a icon on the left side of the Tag.
 
 <Preview>
-  <Tag variant="primary" iconName="airplane">
+  <Tag variant="purple" iconName="airplane">
     My tag
   </Tag>
 </Preview>
 
 ```tsx sandbox
-<Tag variant="primary" iconName="airplane">
+<Tag variant="purple" iconName="airplane">
   My tag
 </Tag>
 ```
 
-## Rounded tag
-
-Use the `isRounded` prop to round the tag.
+## With close button
 
 <Preview>
-  <Tag variant="neutral" isRounded>
-    <Avatar variant="circle" src="/aurelien.webp" size="xs" text="aurelien" />
-    <span className="ml-xs">Alex Smith</span>
-  </Tag>
+  <Demo />
 </Preview>
 
 ```tsx sandbox
-<Tag variant="neutral" isRounded>
-  <Avatar variant="circle" src="/aurelien.webp" size="xs" text="aurelien" />
-  <span className="ml-xs">Alex Smith</span>
+<Tag variant="purple" onClose={() => {}}>
+  My tag
 </Tag>
 ```
