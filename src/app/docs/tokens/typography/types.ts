@@ -7,3 +7,10 @@ export const titleTokens = [
   "title-xl",
   "title-xxl",
 ];
+
+export const headingTokens = [
+  "heading-m",
+  "heading-l",
+  "heading-xl",
+  "heading-xxl",
+];
