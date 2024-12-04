@@ -1,10 +1,10 @@
 "use client";
 
 import { Table } from "@dev-spendesk/grapes";
-import { sizingTokens } from "./types";
+import { unitTokens } from "./types";
 import { CopyCell } from "@/lib/copy-cell/copy-cell";
 
-export function SizingTailwind() {
+export function UnitTailwind() {
   return (
     <Table
       columns={[
@@ -20,9 +20,9 @@ export function SizingTailwind() {
         },
       ]}
       rowHeight="compact"
-      data={sizingTokens.map((sizingToken) => ({
-        tailwind: sizingToken.replace("--sizing", "w"),
-        css: `width: var(${sizingToken})`,
+      data={unitTokens.map((unitToken) => ({
+        tailwind: unitToken.replace("--unit", "m"),
+        css: `margin: var(${unitToken})`,
       }))}
     />
   );
