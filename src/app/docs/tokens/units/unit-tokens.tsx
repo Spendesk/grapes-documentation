@@ -1,19 +1,19 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { spacingTokens } from "./types";
+import { unitTokens } from "./types";
 
-export function SpacingTokens() {
+export function UnitTokens() {
   return (
     <div className="grid grid-cols-4 gap-16 text-center items-end box">
-      {spacingTokens.map((token) => (
-        <SpacingBox key={token} token={token} />
+      {unitTokens.map((token) => (
+        <UnitBox key={token} token={token} />
       ))}
     </div>
   );
 }
 
-function SpacingBox({ token }: { token: string }) {
+function UnitBox({ token }: { token: string }) {
   const ref = useRef<HTMLDivElement | null>(null);
   const [spacing, setSpacing] = useState("");
 

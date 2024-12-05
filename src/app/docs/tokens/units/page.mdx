@@ -1,15 +1,15 @@
 ---
-title: Spacings
+title: Units
 ---
 
-import { SpacingTokens } from "./spacing-tokens";
-import { SpacingTailwind } from "./spacing-tailwind";
+import { UnitTokens } from "./unit-tokens";
+import { UnitTailwind } from "./unit-tailwind";
 
-# Spacings
+# Units
 
 ## Tokens
 
-<SpacingTokens />
+<UnitTokens />
 
 ## Usage in CSS
 
@@ -17,16 +17,16 @@ Whenever you want to apply this style, you can use the corresponding variable.
 
 ```css
 .myClass {
-  margin-right: var(--spacing-xs);
+  margin-right: var(--unit-8);
 }
 ```
 
 ## Usage with TailwindCSS
 
-Whenever you want to use a spacing from Grapes with TailwindCSS, you can use the corresponding keys.
+Whenever you want to use a unit from Grapes with TailwindCSS, you can use the corresponding keys.
 
 Example with margin:
 
-<SpacingTailwind />
+<UnitTailwind />
 
 See documentation from TailwindCSS: [https://tailwindcss.com/docs/margin](https://tailwindcss.com/docs/margin).

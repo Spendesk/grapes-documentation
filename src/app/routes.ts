@@ -367,12 +367,8 @@ const designTokensRoutes: RouteConfig[] = [
         url: "/docs/tokens/elevation",
       },
       {
-        label: "Sizings",
-        url: "/docs/tokens/sizings",
-      },
-      {
-        label: "Spacings",
-        url: "/docs/tokens/spacings",
+        label: "Units",
+        url: "/docs/tokens/units",
       },
       {
         label: "Typography",
