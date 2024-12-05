@@ -91,7 +91,7 @@ export function DemoPanel() {
           rightAddon={
             <Icon
               aria-hidden="true"
-              color="var(--color-neutral)"
+              color="var(--color-content-decorative-icon)"
               name="search"
             />
           }

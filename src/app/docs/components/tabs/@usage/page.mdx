@@ -25,7 +25,7 @@ import { DemoControlledTabs } from "./demo";
 
 <Preview className="block body-m">
   <Tabs>
-    <TabList className="mb-s">
+    <TabList className="mb-16">
       <Tab>Information</Tab>
       <Tab>Roles</Tab>
       <Tab>Settings & Policies</Tab>
@@ -40,7 +40,7 @@ import { DemoControlledTabs } from "./demo";
 
 ```tsx sandbox
 <Tabs>
-  <TabList className="mb-s">
+  <TabList className="mb-16">
     <Tab>Information</Tab>
     <Tab>Roles</Tab>
     <Tab>Settings & Policies</Tab>
@@ -59,7 +59,7 @@ Use the `isFitted` prop on the TabList component to make the tabs fit their cont
 
 <Preview className="block body-m">
   <Tabs>
-    <TabList isFitted className="mb-s">
+    <TabList isFitted className="mb-16">
       <Tab>Information</Tab>
       <Tab>Roles</Tab>
       <Tab>Settings & Policies</Tab>
@@ -74,7 +74,7 @@ Use the `isFitted` prop on the TabList component to make the tabs fit their cont
 
 ```tsx sandbox
 <Tabs>
-  <TabList isFitted className="mb-s">
+  <TabList isFitted className="mb-16">
     <Tab>Information</Tab>
     <Tab>Roles</Tab>
     <Tab>Settings & Policies</Tab>
@@ -93,7 +93,7 @@ Use the `defaultTabIndex` prop to make a tab initially active.
 
 <Preview className="block body-m">
   <Tabs defaultTabIndex={2}>
-    <TabList className="mb-s">
+    <TabList className="mb-16">
       <Tab>Information</Tab>
       <Tab>Roles</Tab>
       <Tab>Settings & Policies</Tab>
@@ -116,16 +116,20 @@ The Tab accepts any kind of content, it can be customized as needed.
 
 <Preview className="block body-m">
   <Tabs>
-    <TabList className="mb-s">
+    <TabList className="mb-16">
       <Tab>Information</Tab>
       <Tab>
         Roles
-        <Tag className="ml-xs" variant="primary">
+        <Tag className="ml-8" variant="primary">
           3
         </Tag>
       </Tab>
       <Tab>
-        <Icon className="mr-xs" color="var(--color-warning)" name="warning" />
+        <Icon
+          className="mr-8"
+          color="var(--color-content-warning-default)"
+          name="warning"
+        />
         Settings & Policies
       </Tab>
     </TabList>
@@ -139,16 +143,20 @@ The Tab accepts any kind of content, it can be customized as needed.
 
 ```tsx sandbox
 <Tabs>
-  <TabList className="mb-s">
+  <TabList className="mb-16">
     <Tab>Information</Tab>
     <Tab>
       Roles
-      <Tag className="ml-xs" variant="primary">
+      <Tag className="ml-8" variant="primary">
         3
       </Tag>
     </Tab>
     <Tab>
-      <Icon className="mr-xs" color="var(--color-warning)" name="warning" />
+      <Icon
+        className="mr-8"
+        color="var(--color-content-warning-default)"
+        name="warning"
+      />
       Settings & Policies
     </Tab>
   </TabList>
@@ -161,7 +169,7 @@ The Tab comes with three visual styles: primary (default), warning, and alert.
 
 <Preview className="block body-m">
   <Tabs>
-    <TabList className="mb-s">
+    <TabList className="mb-16">
       <Tab variant="primary">Primary</Tab>
       <Tab variant="warning">Warning</Tab>
       <Tab variant="alert">Alert</Tab>
@@ -176,7 +184,7 @@ The Tab comes with three visual styles: primary (default), warning, and alert.
 
 ```tsx sandbox
 <Tabs>
-  <TabList className="mb-s">
+  <TabList className="mb-16">
     <Tab variant="primary">Primary</Tab>
     <Tab variant="warning">Warning</Tab>
     <Tab variant="alert">Alert</Tab>

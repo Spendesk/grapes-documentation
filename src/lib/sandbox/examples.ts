@@ -37,7 +37,7 @@ export const examples: { key: string; label: string; code: string }[] = [
     <>
       <FormField
         label="Legal name"
-        style={{ marginBottom: "var(--spacing-s)" }}
+        style={{ marginBottom: "var(--unit-16)" }}
       >
         <TextInput
           value={information.legalName}
@@ -61,7 +61,7 @@ export const examples: { key: string; label: string; code: string }[] = [
 const BankDetailsForm = ({ bankDetails, setBankDetails }) => {
   return (
     <>
-      <FormField label="IBAN" style={{ marginBottom: "var(--spacing-s)" }}>
+      <FormField label="IBAN" style={{ marginBottom: "var(--unit-16)" }}>
         <TextInput
           value={bankDetails.iban}
           onChange={(event) => {
@@ -100,7 +100,7 @@ const Demo = () => {
           style={{
             display: "flex",
             alignItems: "center",
-            gap: "var(--spacing-xs)",
+            gap: "var(--unit-8)",
           }}
         >
           <Avatar src="https://logo.clearbit.com/google.com" text="Google" />
@@ -136,16 +136,16 @@ const Demo = () => {
             style={{
               display: "flex",
               justifyContent: "space-between",
-              marginBottom: "var(--spacing-s)",
+              marginBottom: "var(--unit-16)",
             }}
           >
-            <span style={{ color: "var(--color-neutral-dark)" }}>
+            <span style={{ color: "var(--color-content-secondary-bg-primary)" }}>
               Legal name
             </span>
             <span>{information.legalName ?? "-"}</span>
           </li>
           <li style={{ display: "flex", justifyContent: "space-between" }}>
-            <span style={{ color: "var(--color-neutral-dark)" }}>
+            <span style={{ color: "var(--color-content-secondary-bg-primary)" }}>
               VAT number
             </span>
             <span>{information.vatNumber ?? "-"}</span>
@@ -171,14 +171,14 @@ const Demo = () => {
             style={{
               display: "flex",
               justifyContent: "space-between",
-              marginBottom: "var(--spacing-s)",
+              marginBottom: "var(--unit-16)",
             }}
           >
-            <span style={{ color: "var(--color-neutral-dark)" }}>IBAN</span>
+            <span style={{ color: "var(--color-content-secondary-bg-primary)" }}>IBAN</span>
             <span>{bankDetails.iban ?? "-"}</span>
           </li>
           <li style={{ display: "flex", justifyContent: "space-between" }}>
-            <span style={{ color: "var(--color-neutral-dark)" }}>
+            <span style={{ color: "var(--color-content-secondary-bg-primary)" }}>
               BIC/Swift code
             </span>
             <span>{bankDetails.bic ?? "-"}</span>

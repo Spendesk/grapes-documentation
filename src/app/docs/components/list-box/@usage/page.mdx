@@ -33,13 +33,13 @@ const Demo = () => {
       aria-label="Employees"
     >
       {(option, titleId) => (
-        <div className="flex gap-s items-center">
+        <div className="flex gap-16 items-center">
           <Avatar variant="circle" src={option.avatar} text={option.name} />
           <div className="flex-grow">
             <div className="title-m" id={titleId}>
               {option.name}
             </div>
-            <div className="body-m text-neutral-dark mt-xxs">
+            <div className="body-m text-content-secondary-bg-primary mt-4">
               {option.description}
             </div>
           </div>
@@ -94,7 +94,7 @@ The `header` and `footer` props allow you to specify a header or a footer for th
 <ListBox
   header={<div>Members</div>}
   footer={
-    <div className="my-xs mx-auto">
+    <div className="my-8 mx-auto">
       <Button fit="content" text="Load more" variant="secondaryNeutral" />
     </div>
   }

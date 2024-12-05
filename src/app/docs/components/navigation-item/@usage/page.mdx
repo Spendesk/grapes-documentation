@@ -1,7 +1,7 @@
 import { Badge, Callout, NavigationItem } from "@dev-spendesk/grapes";
 import { Preview } from "@/lib/preview/preview";
 
-<Callout title="Usage" className="mt-m">
+<Callout title="Usage" className="mt-24">
   The NavigationItem component should only be used in the{" "}
   <a href="/docs/components/navigation">Navigation</a> and{" "}
   <a className="ml-0" href="/docs/components/side-navigation">
@@ -15,7 +15,7 @@ import { Preview } from "@/lib/preview/preview";
 The navigation item comes with three visual styles: `mainNavigation`, `subNavigation`, and `sideNavigation`.
 
 <Preview className="items-center">
-  <div className="bg-complementary h-[68px] flex items-center justify-center px-s">
+  <div className="bg-complementary h-[68px] flex items-center justify-center px-16">
     <NavigationItem text="Main navigation item" variant="mainNavigation" />
   </div>
   <NavigationItem text="Sub navigation item" variant="subNavigation" />
@@ -59,7 +59,7 @@ The `leftAddon` and `rightAddon` props are used to display another element insid
 The `isActive` prop is used to display the navigation item as active.
 
 <Preview className="items-center">
-  <div className="bg-complementary h-[68px] flex items-center justify-center px-s">
+  <div className="bg-complementary h-[68px] flex items-center justify-center px-16">
     <NavigationItem
       isActive
       text="Main navigation item"
@@ -112,7 +112,7 @@ The `isEmphasized` prop is used to emphasize navigation items.
 The `withDivider` prop is used to add a divider on the right of the navigation item. It acts as a separator between two items.
 
 <Preview className="items-center">
-  <div className="bg-complementary h-[68px] flex items-center justify-center px-s">
+  <div className="bg-complementary h-[68px] flex items-center justify-center px-16">
     <NavigationItem
       withDivider
       text="Main navigation item"
