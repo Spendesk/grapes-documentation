@@ -1,4 +1,9 @@
 import type { Config } from "tailwindcss";
+import {
+  headingTokens,
+  titleTokens,
+  bodyTokens,
+} from "./src/app/docs/tokens/typography/types";
 
 const config: Config = {
   content: [
@@ -22,6 +27,6 @@ const config: Config = {
   variants: {},
   // These classes are added dynamically and need to be safelisted.
   // @see https://tailwindcss.com/docs/content-configuration#safelisting-classes
-  safelist: ["title-s", "title-xl", "body-xxl", "title-xxl"],
+  safelist: [...headingTokens, ...titleTokens, ...bodyTokens],
 };
 export default config;

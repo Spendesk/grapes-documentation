@@ -1,7 +1,7 @@
 "use client";
 
 import { Table } from "@dev-spendesk/grapes";
-import { bodyTokens, titleTokens } from "./types";
+import { bodyTokens, titleTokens, headingTokens } from "./types";
 import { CopyCell } from "@/lib/copy-cell/copy-cell";
 
 export function TypographyTailwind() {
@@ -15,7 +15,7 @@ export function TypographyTailwind() {
         },
       ]}
       rowHeight="compact"
-      data={titleTokens.concat(bodyTokens).map((token) => ({
+      data={[...headingTokens, ...titleTokens, ...bodyTokens].map((token) => ({
         tailwind: token,
       }))}
     />

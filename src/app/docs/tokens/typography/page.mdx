@@ -4,17 +4,21 @@ title: Typography
 
 import { TypographyTailwind } from "./typography-tailwind";
 import { TypographyTokens } from "./typography-tokens";
-import { bodyTokens, titleTokens } from "./types";
+import { bodyTokens, titleTokens, headingTokens } from "./types";
 
 # Typography
 
-## Tokens
+## Font
 
-### Title placeholders
+### Heading
+
+<TypographyTokens tokens={headingTokens} />
+
+### Title
 
 <TypographyTokens tokens={titleTokens} />
 
-### Body placeholders
+### Body
 
 <TypographyTokens tokens={bodyTokens} />
 
@@ -24,15 +28,15 @@ Whenever you want to apply this style to text, you can use the corresponding pla
 
 ```css
 .myBodyClass {
-  font-size: var(--fs-body-m);
-  font-weight: var(--fw-regular);
-  font-family: var(--ff-base);
+  font: var(--body-m);
 }
 
 .myTitleClass {
-  font-size: var(--fs-title-m);
-  font-weight: var(--fw-medium);
-  font-family: var(--ff-base);
+  font: var(--title-m);
+}
+
+.myHeadingClass {
+  font: var(--heading-m);
 }
 ```
 
@@ -41,3 +45,45 @@ Whenever you want to apply this style to text, you can use the corresponding pla
 Whenever you want to apply a typography style to the block element, you can use the corresponding className.
 
 <TypographyTailwind />
+
+## Advanced Usage
+
+:::info{title="Usage"}
+Except in rare cases, you should avoid using the following design tokens.
+Instead, it's recommended to use the font shorthand variables above.
+:::
+
+### Font Size
+
+| Token          | Value |
+| :------------- | :---- |
+| --font-size-12 | 12px  |
+| --font-size-14 | 14px  |
+| --font-size-16 | 16px  |
+| --font-size-20 | 20px  |
+| --font-size-24 | 24px  |
+| --font-size-32 | 32px  |
+| --font-size-40 | 40px  |
+
+### Line Height
+
+| Token   | Value |
+| :------ | :---- |
+| --lh-16 | 16px  |
+| --lh-20 | 20px  |
+| --lh-24 | 24px  |
+| --lh-32 | 32px  |
+
+### Font Families
+
+| Token        | Value                            |
+| :----------- | :------------------------------- |
+| --ff-base    | 'Inter', Helvetica, sans-serif   |
+| --ff-heading | 'Roobert', Helvetica, sans-serif |
+
+### Font Weight
+
+| Token         | Value |
+| :------------ | :---- |
+| --fw-medium   | 500   |
+| --fw-semibold | 600   |
