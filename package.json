@@ -36,7 +36,7 @@
     "react-docgen": "^7.0.3",
     "react-docgen-typescript": "^2.2.2",
     "react-dom": "^18",
-    "react-live": "^4.1.7",
+    "react-live": "^4.1.8",
     "remark-directive": "^3.0.0",
     "remark-frontmatter": "^5.0.0",
     "remark-gfm": "^4.0.0",
