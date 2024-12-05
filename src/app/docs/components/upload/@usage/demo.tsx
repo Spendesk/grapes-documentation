@@ -26,10 +26,7 @@ export function DemoUpload({ withIllustration, withAccept }: Props) {
           content={
             <span>
               Drag & drop file(s) here <br />
-              or{" "}
-              <u className="text-content-primary font-medium">
-                import them from your computer
-              </u>
+              or <u>import them from your computer</u>
             </span>
           }
           activeDragContent="Upload file(s)"

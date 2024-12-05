@@ -179,7 +179,7 @@ export function DemoListBox({
               {option.name}
             </div>
             {!isCompact && (
-              <div className="body-m text-content-primary mt-4">
+              <div className="body-m text-content-secondary-bg-primary mt-4">
                 {option.description}
               </div>
             )}
