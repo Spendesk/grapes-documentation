@@ -1,8 +1,4 @@
-import {
-  Timeline,
-  TimelineItem,
-  DeprecatedPreview as GrapesPreview,
-} from "@dev-spendesk/grapes";
+import { Tag, Timeline, TimelineItem } from "@dev-spendesk/grapes";
 import { Preview } from "@/lib/preview/preview";
 
 import { TimelineWithCustomDate } from "./custom-date";
@@ -32,7 +28,13 @@ import { TimelineWithCustomDate } from "./custom-date";
       </section>
     </TimelineItem>
     <TimelineItem date={new Date("2021-01-08T08:24:00.000Z")}>
-      <GrapesPreview fit="parent" primaryText="Validated by Finance Team" />
+      <div className="flex items-center gap-4">
+        <Tag variant="success" iconName="success">
+          Validated
+        </Tag>
+        by
+        <Tag variant="carbon">Finance Team</Tag>
+      </div>
     </TimelineItem>
   </Timeline>
 </Preview>
@@ -53,7 +55,13 @@ import { TimelineWithCustomDate } from "./custom-date";
     </section>
   </TimelineItem>
   <TimelineItem date={new Date("2021-01-08T08:24:00.000Z")}>
-    <DeprecatedPreview fit="parent" primaryText="Validated by Finance Team" />
+    <div className="flex items-center gap-4">
+      <Tag variant="success" iconName="success">
+        Validated
+      </Tag>
+      by
+      <Tag variant="carbon">Finance Team</Tag>
+    </div>
   </TimelineItem>
 </Timeline>
 ```
@@ -82,7 +90,13 @@ The `renderDate` prop is used to render the date with a different format than th
     </section>
   </TimelineItem>
   <TimelineItem date={new Date("2021-01-08T08:24:00.000Z")}>
-    <DeprecatedPreview fit="parent" primaryText="Validated by Finance Team" />
+    <div className="flex items-center gap-4">
+      <Tag variant="success" iconName="success">
+        Validated
+      </Tag>
+      by
+      <Tag variant="carbon">Finance Team</Tag>
+    </div>
   </TimelineItem>
 </Timeline>
 ```
