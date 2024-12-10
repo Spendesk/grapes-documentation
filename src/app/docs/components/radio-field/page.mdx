@@ -1,9 +1,31 @@
----
-title: RadioField
----
+import { Preview } from "@/lib/preview/preview";
+import { DemoRadioField } from "./demo";
 
-# RadioField
+:::warning{title="The RadioField should only be used within a RadioGroup"}
+The RadioField component should be wrapped inside a RadioGroup. Learn more
+about the RadioGroup [here](/docs/components/radio-group).
+:::
 
-A radio input allows people to select one option from a number of choices. The radio field is generally displayed in a radio group.
+## Basic usage
 
-[View source code](https://github.com/Spendesk/grapes/tree/master/src/components/RadioField)
+<Preview>
+  <DemoRadioField />
+</Preview>
+
+```tsx sandbox
+const Demo = () => {
+  const [isChecked, setIsChecked] = useState(false);
+
+  return (
+    <RadioField
+      name="approval"
+      value="approval-needed"
+      label="Approval Needed"
+      isChecked={isChecked}
+      onChange={(e) => {
+        setIsChecked(true);
+      }}
+    />
+  );
+};
+```

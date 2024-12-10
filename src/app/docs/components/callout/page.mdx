@@ -1,10 +1,52 @@
----
-title: Callout
----
+import { Callout } from "@dev-spendesk/grapes";
+import { Preview } from "@/lib/preview/preview";
 
-# Callout
+## Variant
 
-Callouts are used to communicate a state that affects a system, feature or page.
-Callout is an ideal component for use cases such as Form errors.
+The Callout comes with four visual styles: info (default), alert, warning, and success.
 
-[View source code](https://github.com/Spendesk/grapes/tree/master/src/components/Callout)
+<Preview className="grid">
+  <Callout title="Info callout title" variant="info" />
+  <Callout title="Alert callout title" variant="alert" />
+  <Callout title="Warning callout title" variant="warning" />
+  <Callout title="Success callout title" variant="success" />
+</Preview>
+
+```tsx sandbox
+<>
+  <Callout title="Info callout title" variant="info" />
+  <Callout title="Alert callout title" variant="alert" />
+  <Callout title="Warning callout title" variant="warning" />
+  <Callout title="Success callout title" variant="success" />
+</>
+```
+
+## Content
+
+Use the `children` prop to add any content to the callout.
+
+<Preview className="grid">
+  <Callout title="Callout title">
+    On the budget, the amount of the invoice will be proportionally reflected
+    over the period.
+  </Callout>
+</Preview>
+
+```tsx sandbox
+<Callout title="Callout title">
+  On the budget, the amount of the invoice will be proportionally reflected over
+  the period.
+</Callout>
+```
+
+## Icon
+
+Use the `iconName` prop to set a custom icon instead of the one predefined by the variant.
+
+<Preview className="grid">
+  <Callout title="Callout title" iconName="airplane" />
+</Preview>
+
+```tsx sandbox
+<Callout title="Callout title" iconName="airplane" />
+```

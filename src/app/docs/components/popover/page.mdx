@@ -1,7 +1,63 @@
----
-title: Popover
---- 
+import { Preview } from "@/lib/preview/preview";
+import { DemoPopover } from "./demo";
 
-# Popover
+:::warning{title="Usage"}
+The Popover component should only be used in cases where the
+[DropdownMenu](/docs/components/dropdown-menu) cannot be used.
+:::
 
-[View source code](https://github.com/Spendesk/grapes/tree/master/src/components/Popover)
+## Basic usage
+
+<Preview>
+  <DemoPopover />
+</Preview>
+
+```tsx sandbox
+<Popover
+  renderTrigger={(triggerProps) => (
+    <Button
+      {...triggerProps}
+      text="Show me a dropdown"
+      variant="primaryBrand"
+    />
+  )}
+>
+  {(closeDropdown) => (
+    <div className="body-m p-16 text-center min-w-[400px]">
+      Hey there!
+      <br />
+      <div>Look at me, I&apos;m a dropdown.</div>
+      <Button
+        className="mt-16"
+        variant="primaryBrand"
+        text="Close me"
+        onClick={closeDropdown}
+      />
+    </div>
+  )}
+</Popover>
+```
+
+## Placement
+
+The `placement` prop lets you decide where the dropdown content should appear.
+
+<Preview className="grid">
+  <DemoPopover placement="bottom-start" />
+  <DemoPopover placement="bottom-end" />
+  <DemoPopover placement="top-start" />
+  <DemoPopover placement="top-end" />
+  <DemoPopover placement="end-bottom" />
+  <DemoPopover placement="end-top" />
+</Preview>
+
+```tsx
+<>
+  <Popover placement="bottom-start" {...otherProps} />
+  <Popover placement="bottom-end" {...otherProps} />
+  <Popover placement="top-start" {...otherProps} />
+  <Popover placement="top-end" {...otherProps} />
+  <Popover placement="end-bottom" {...otherProps} />
+  <Popover placement="end-top" {...otherProps} />
+</>
+```

@@ -1,9 +1,67 @@
----
-title: PhoneInput
----
+import { Preview } from "@/lib/preview/preview";
+import { DemoPhoneInput } from "./demo";
 
-# PhoneInput
+## Basic usage
 
-The PhoneInput component allows users to enter their phone number.
+:::info{title="formatPhoneNumber"}
+When using the component, the function `formatPhoneNumber` has to be defined.
+We usually use the package `libphonenumber-js` for this, it will have to be
+installed in your repository.
+:::
 
-[View source code](https://github.com/Spendesk/grapes/tree/master/src/components/PhoneInput)
+<Preview>
+  <DemoPhoneInput />
+</Preview>
+
+```tsx
+import { PhoneInput } from "@dev-spendesk/grapes";
+import {
+  type CountryCode,
+  getCountryCallingCode,
+  formatIncompletePhoneNumber,
+} from "libphonenumber-js";
+import { useState } from "react";
+
+import { COUNTRIES } from "@/utils/country";
+
+const formatPhoneNumber = (value: string | null, country: string) => {
+  if (!value) {
+    return "";
+  }
+  const formattedPhoneNumber = formatIncompletePhoneNumber(
+    value.replace(/\s/g, ""),
+    country as CountryCode
+  );
+  const callingCode = getCountryCallingCode(country as CountryCode);
+  if (formattedPhoneNumber === `+${callingCode}`) {
+    return "";
+  }
+  return formattedPhoneNumber.replace(`+${callingCode} `, "");
+};
+
+const Demo = () => {
+  const [value, setValue] = useState<string | null>(null);
+  const [country, setCountry] = useState<CountryCode>("FR");
+  return (
+    <PhoneInput
+      formatPhoneNumber={formatPhoneNumber}
+      value={value}
+      callingCode={getCountryCallingCode(country)}
+      country={country}
+      countries={Object.entries(COUNTRIES).map(
+        ([countryCode, countryName]) => ({
+          key: countryCode,
+          label: countryName,
+        })
+      )}
+      onChange={(newValue) => {
+        setValue(newValue);
+      }}
+      onSelectCountry={(selectedCountry) => {
+        setCountry(selectedCountry.key as CountryCode);
+        setValue("");
+      }}
+    />
+  );
+};
+```

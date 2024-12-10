@@ -1,10 +1,97 @@
----
-title: CheckboxBox
-description: Allows the user to select one or more items from a collection.
----
+import { Preview } from "@/lib/preview/preview";
+import {
+  Demo,
+  DemoWithoutDescription,
+  DemoIndeterminate,
+  DemoWithIcon,
+} from "./demo";
 
-# CheckboxBox
+## Basic usage
 
-Checkboxes allow the user to select one or more items from a collection.
+<Preview>
+  <Demo />
+</Preview>
 
-[View source code](https://github.com/Spendesk/grapes/tree/master/src/components/CheckboxBox)
+```tsx sandbox
+const Demo = () => {
+  const [isAdministrator, setAdministrator] = useState<boolean>(false);
+
+  return (
+    <CheckboxBox
+      label="Administrator"
+      description="An admin can set up the account: invite new members, edit approval policies and team composition"
+      isChecked={isAdministrator}
+      onChange={(e) => setAdministrator(e.target.checked)}
+    />
+  );
+};
+```
+
+## With an icon
+
+Use the `iconName` prop to add an icon to the CheckboxBox.
+
+<Preview>
+  <DemoWithIcon />
+</Preview>
+
+```tsx sandbox
+const Demo = () => {
+  const [isAdministrator, setAdministrator] = useState<boolean>(false);
+
+  return (
+    <CheckboxBox
+      label="Administrator"
+      description="An admin can set up the account: invite new members, edit approval policies and team composition"
+      iconName="person" // [!code highlight]
+      isChecked={isAdministrator}
+      onChange={(e) => setAdministrator(e.target.checked)}
+    />
+  );
+};
+```
+
+## Without the description
+
+The `description` prop is optional.
+
+<Preview>
+  <DemoWithoutDescription />
+</Preview>
+
+```tsx sandbox
+const Demo = () => {
+  const [isAdministrator, setAdministrator] = useState<boolean>(false);
+
+  return (
+    <CheckboxBox
+      label="Administrator"
+      isChecked={isAdministrator}
+      onChange={(e) => setAdministrator(e.target.checked)}
+    />
+  );
+};
+```
+
+## Indeterminate state
+
+Use `isIndeterminate` to set the checkbox into an indeterminate state.
+
+<Preview>
+  <DemoIndeterminate />
+</Preview>
+
+```tsx sandbox
+const Demo = () => {
+  const [isAdministrator, setAdministrator] = useState<boolean>(false);
+
+  return (
+    <CheckboxBox
+      label="Administrator"
+      isIndeterminate={true} // [!code highlight]
+      isChecked={isAdministrator}
+      onChange={(e) => setAdministrator(e.target.checked)}
+    />
+  );
+};
+```

@@ -1,7 +1,27 @@
----
-title: Icon
---- 
+import { Icon } from "@dev-spendesk/grapes";
+import { Preview } from "@/lib/preview/preview";
+import { IconSet } from "./iconSet";
 
-# Icon
+## Size
 
-[View source code](https://github.com/Spendesk/grapes/tree/master/src/components/Icon)
+The Icon comes in four different sizes: s, m (default), l, and xl.
+
+<Preview>
+  <Icon size="s" name="info" />
+  <Icon size="m" name="info" />
+  <Icon size="l" name="info" />
+  <Icon size="xl" name="info" />
+</Preview>
+
+```tsx sandbox
+<>
+  <Icon size="s" name="info" />
+  <Icon size="m" name="info" />
+  <Icon size="l" name="info" />
+  <Icon size="xl" name="info" />
+</>
+```
+
+## Icon set
+
+<IconSet />

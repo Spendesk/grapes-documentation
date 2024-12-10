@@ -1,9 +1,13 @@
----
-title: InfoTip
----
+import { InfoTip } from "@dev-spendesk/grapes";
 
-# InfoTip
+import { Preview } from "@/lib/preview/preview";
 
-The InfoTip component displays a rounded info icon with a tooltip.
+## Basic usage
 
-[View source code](https://github.com/Spendesk/grapes/tree/master/src/components/InfoTip)
+<Preview>
+  <InfoTip content="Some useful information to make your life easier." />
+</Preview>
+
+```tsx sandbox
+<InfoTip content="Some useful information to make your life easier." />
+```

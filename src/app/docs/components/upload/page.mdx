@@ -1,9 +1,62 @@
----
-title: Upload
----
+import { Preview } from "@/lib/preview/preview";
+import { DemoUpload } from "./demo";
 
-# Upload
+## Basic usage
 
-The Upload component allows users to upload a file manually or using drag and drop.
+<Preview>
+  <DemoUpload />
+</Preview>
 
-[View source code](https://github.com/Spendesk/grapes/tree/master/src/components/Upload)
+```tsx sandbox
+const Demo = () => {
+  const [selectedFile, setSelectedFile] = useState<File>();
+
+  return selectedFile ? (
+    <FileCard
+      title={selectedFile.name}
+      mimeType={selectedFile.type}
+      onDelete={() => setSelectedFile(undefined)}
+    />
+  ) : (
+    <Upload
+      content={
+        <span>
+          Drag & drop file(s) here <br />
+          or <u>import them from your computer</u>
+        </span>
+      }
+      activeDragContent="Upload file(s)"
+      onUpload={async (filesToUpload) => {
+        setSelectedFile(filesToUpload?.[0]);
+      }}
+    />
+  );
+};
+```
+
+## Illustration
+
+You can display an illustration instead of the default icon with the `illustration` prop.
+
+<Preview>
+  <DemoUpload withIllustration />
+</Preview>
+
+```tsx
+<Upload
+  illustration={<img src="/illustration.webp" alt="" />}
+  {...otherProps}
+/>
+```
+
+## Accept specific file types
+
+The `accept` prop is used to allow one or more unique file types.
+
+<Preview>
+  <DemoUpload withAccept />
+</Preview>
+
+```tsx
+<Upload accept="image/*" {...otherProps} />
+```

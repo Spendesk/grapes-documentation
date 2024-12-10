@@ -1,9 +1,72 @@
----
-title: Input
----
+import { Preview } from "@/lib/preview/preview";
 
-# Input
+import { DemoNumberInput, DemoEmailInput } from "./demo";
 
-Input is a lower-level constructs upon which all Grapes inputs are built.
+:::warning{title="Usage"}
+Consider using this component as a last resort when none of the other available Grapes components meet your requirements, such as:
 
-[View source code](https://github.com/Spendesk/grapes/tree/master/src/components/Input)
+- [TextInput](/docs/components/text-input)
+- [AmountInput](/docs/components/amount-input)
+
+The primary difference between using an `Input` component versus a `TextInput` component is the ability to specify the `type` attribute with `Input`.
+[Here are the list of type available.](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#input_types)
+
+:::
+
+## Build a number input
+
+<Preview>
+  <DemoNumberInput />
+</Preview>
+
+```tsx sandbox
+const Demo = () => {
+  const [value, setValue] = useState(0);
+
+  return (
+    <FormField label="Quantity">
+      <Input
+        placeholder="Enter a quantity"
+        type="number" // [!code highlight]
+        value={value}
+        onChange={(event) => {
+          setValue(event.target.valueAsNumber);
+        }}
+      />
+    </FormField>
+  );
+};
+```
+
+## Build a email input
+
+You can take advantage of the browser's built-in email validation to verify whether an email address is valid.
+
+:::warning{title="Usage"}
+Built-in email validation is often too permissive, so it's recommended to use a custom regex or a validation library like [yup](https://www.npmjs.com/package/yup) for more accurate email validation.
+:::
+
+<Preview>
+  <DemoEmailInput />
+</Preview>
+
+```tsx sandbox
+const Demo = () => {
+  const [value, setValue] = useState(0);
+  const [error, setError] = useState(false);
+
+  return (
+    <FormField label="Email" alertMessage={error ? "Email invalid" : undefined}>
+      <Input
+        placeholder="Enter your email"
+        type="email" // [!code highlight]
+        value={value}
+        onChange={(event) => {
+          setError(!event.target.checkValidity()); // [!code highlight]
+          setValue(event.target.value);
+        }}
+      />
+    </FormField>
+  );
+};
+```

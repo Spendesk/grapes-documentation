@@ -1,7 +1,94 @@
----
-title: Accordion
---- 
+import { Preview } from "@/lib/preview/preview";
+import { DemoAccordion } from "./demo";
 
-# Accordion
+## Basic usage
 
-[View source code](https://github.com/Spendesk/grapes/tree/master/src/components/Accordion)
+The Accordion is highly customizable and has few styles from the start.
+
+<Preview className="body-m">
+  <DemoAccordion />
+</Preview>
+
+```tsx sandbox
+const accordionItems = [
+  "Invite team members",
+  "Make a first payment",
+  "Order physical cards",
+];
+
+const Demo = () => {
+  return (
+    <Accordion>
+      {accordionItems.map((accordionItem) => (
+        <AccordionItem
+          key={accordionItem}
+          renderHeader={() => <div>{accordionItem}</div>}
+        >
+          <div className="p-24 pt-8 text-content-primary">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec
+            lectus sed sem porttitor viverra. Vestibulum magna leo.
+          </div>
+        </AccordionItem>
+      ))}
+    </Accordion>
+  );
+};
+```
+
+## Multiple open items
+
+The `withMultipleOpenItems` props allows the user to expand multiple accordion items together.
+
+<Preview className="body-m">
+  <DemoAccordion withMultipleOpenItems />
+</Preview>
+
+```tsx
+<Accordion allowMultipleOpenItems>...</Accordion>
+```
+
+## Default expanded items
+
+The `defaultAccordionItemIndexes` lets you select which items should be expanded initially.
+
+<Preview className="body-m">
+  <DemoAccordion withDefaultOpenItems />
+</Preview>
+
+```tsx
+<Accordion defaultAccordionItemIndexes={new Set([0, 2])}>...</Accordion>
+```
+
+## Open / Close accordion
+
+The `AccordionHandle` lets you open and close the accordion items programmatically.
+
+<Preview className="body-m">
+  <DemoAccordion withOpenClose />
+</Preview>
+
+```tsx
+const accordionRef = useRef<AccordionHandle | null>(null);
+
+return (
+  <>
+    <Button
+      variant="primaryBrand"
+      text="Open accordion"
+      onClick={() => {
+        accordionRef.current?.openAccordion(new Set([0, 1, 2]));
+      }}
+    />
+    <Button
+      variant="primaryBrand"
+      text="Close accordion"
+      onClick={() => {
+        accordionRef.current?.closeAccordion();
+      }}
+    />
+    <Accordion ref={accordionRef} {...otherProps}>
+      ...
+    </Accordion>
+  </>
+);
+```

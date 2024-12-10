@@ -1,9 +1,88 @@
+import {
+  Timeline,
+  TimelineItem,
+  DeprecatedPreview as GrapesPreview,
+} from "@dev-spendesk/grapes";
+import { Preview } from "@/lib/preview/preview";
+
+import { TimelineWithCustomDate } from "./custom-date";
+
+## Import
+
+- `Timeline`: The timeline component.
+- `TimelineItem`: A helper component designed to represent an item inside a timeline.
+
 ---
-title: Timeline
----
 
-The timeline displays a list of events in chronological order.
+## Basic usage
 
-# Timeline
+<Preview>
+  <Timeline>
+    <TimelineItem date={new Date("2020-12-22T21:29:00.000Z")}>
+      <section>
+        <div>New request created</div>
+        <div>Submitted by Roger Dupont</div>
+        <div>Amount requested: 39€</div>
+      </section>
+    </TimelineItem>
+    <TimelineItem date={new Date("2021-01-05T14:29:00.000Z")}>
+      <section>
+        <div>Approved by manager</div>
+        <div>Approver: Jean</div>
+      </section>
+    </TimelineItem>
+    <TimelineItem date={new Date("2021-01-08T08:24:00.000Z")}>
+      <GrapesPreview fit="parent" primaryText="Validated by Finance Team" />
+    </TimelineItem>
+  </Timeline>
+</Preview>
 
-[View source code](https://github.com/Spendesk/grapes/tree/master/src/components/Timeline)
+```tsx sandbox
+<Timeline>
+  <TimelineItem date={new Date("2020-12-22T21:29:00.000Z")}>
+    <section>
+      <div>New request created</div>
+      <div>Submitted by Roger Dupont</div>
+      <div>Amount requested: 39€</div>
+    </section>
+  </TimelineItem>
+  <TimelineItem date={new Date("2021-01-05T14:29:00.000Z")}>
+    <section>
+      <div>Approved by manager</div>
+      <div>Approver: Jean</div>
+    </section>
+  </TimelineItem>
+  <TimelineItem date={new Date("2021-01-08T08:24:00.000Z")}>
+    <DeprecatedPreview fit="parent" primaryText="Validated by Finance Team" />
+  </TimelineItem>
+</Timeline>
+```
+
+## With custom render date
+
+The `renderDate` prop is used to render the date with a different format than the default one.
+
+<Preview>
+  <TimelineWithCustomDate />
+</Preview>
+
+```tsx sandbox
+<Timeline renderDate={(date, locale) => date.toLocaleString(locale)}>
+  <TimelineItem date={new Date("2020-12-22T21:29:00.000Z")}>
+    <section>
+      <div>New request created</div>
+      <div>Submitted by Roger Dupont</div>
+      <div>Amount requested: 39€</div>
+    </section>
+  </TimelineItem>
+  <TimelineItem date={new Date("2021-01-05T14:29:00.000Z")}>
+    <section>
+      <div>Approved by manager</div>
+      <div>Approver: Jean</div>
+    </section>
+  </TimelineItem>
+  <TimelineItem date={new Date("2021-01-08T08:24:00.000Z")}>
+    <DeprecatedPreview fit="parent" primaryText="Validated by Finance Team" />
+  </TimelineItem>
+</Timeline>
+```
