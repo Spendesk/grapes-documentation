@@ -1,9 +1,18 @@
----
-title: Badge
----
+import { Badge } from "@dev-spendesk/grapes";
+import { Preview } from "@/lib/preview/preview";
 
-# Badge
+## Variant
 
-Badges are used as indicators to count the quantity of items.
+The Badge comes with two visual styles: primary (default) and secondary.
 
-[View source code](https://github.com/Spendesk/grapes/tree/master/src/components/Badge)
+<Preview>
+  <Badge variant="primary">12</Badge>
+  <Badge variant="secondary">12</Badge>
+</Preview>
+
+```tsx sandbox
+<>
+  <Badge variant="primary">12</Badge>
+  <Badge variant="secondary">12</Badge>
+</>
+```

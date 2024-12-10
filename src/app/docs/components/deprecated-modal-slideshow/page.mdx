@@ -1,13 +1,50 @@
----
-title: DeprecatedModalSlideshow
----
+import { Preview } from "@/lib/preview/preview";
+import { Demo } from "./demo.tsx";
+import { ListView, ListItem, SwitchField } from "@dev-spendesk/grapes";
 
-# DeprecatedModalSlideshow
+## Basic usage
 
-:::warning{title="Deprecated"}
-This version is deprecated, please use [ModalSlideshow](https://github.com/Spendesk/grapes/tree/master/src/components/ModalSlideshow)
-:::
+<Preview>
+  <Demo />
+</Preview>
 
-DeprecatedModalSlideshow is a special Modal using a Slideshow as header.
+```tsx sandbox
+const Demo = () => {
+  const [isOpen, setIsOpen] = useState(false);
 
-[View source code](https://github.com/Spendesk/grapes/tree/master/src/components/DeprecatedModalSlideshow)
+  return (
+    <>
+      <Button text="Open the modal" onClick={() => setIsOpen(true)} />
+      <DeprecatedModalSlideshow
+        slides={[
+          {
+            title: "Title slide 1",
+            content: "Content slide 1",
+            illustration: <img src="/slide-1.webp" alt="" />,
+          },
+          {
+            title: "Title slide 2",
+            content: "Content slide 2",
+            illustration: <img src="/slide-2.webp" alt="" />,
+          },
+          {
+            title: "Title slide 3",
+            content: "Content slide 3",
+            illustration: <img src="/slide-3.webp" alt="" />,
+          },
+        ]}
+        translations={{
+          cancel: "Cancel",
+          previous: "Back",
+          next: "Next",
+          done: "Action wording",
+        }}
+        isOpen={isOpen}
+        onCancel={() => setIsOpen(false)}
+        onClose={() => setIsOpen(false)}
+        onDone={() => setIsOpen(false)}
+      />
+    </>
+  );
+};
+```

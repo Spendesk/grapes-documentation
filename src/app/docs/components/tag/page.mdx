@@ -1,9 +1,103 @@
----
-title: Tag
----
+import { Avatar, Tag } from "@dev-spendesk/grapes";
+import { Preview } from "@/lib/preview/preview";
+import { Demo } from "./demo.tsx";
 
-# Tag
+## Variant
 
-Compact element to display information about an entity.
+The Tag comes with two main visual styles: status and decorative.
 
-[View source code](https://github.com/Spendesk/grapes/tree/master/src/components/Tag)
+### Status
+
+<Preview>
+  <Tag iconName="failure" variant="alert">
+    Status
+  </Tag>
+  <Tag iconName="warning" variant="warning">
+    Status
+  </Tag>
+  <Tag iconName="info" variant="info">
+    Status
+  </Tag>
+  <Tag iconName="success" variant="success">
+    Status
+  </Tag>
+  <Tag iconName="clock-full" variant="neutral">
+    Status
+  </Tag>
+</Preview>
+
+```tsx sandbox
+<>
+  <Tag iconName="failure" variant="alert">
+    Status
+  </Tag>
+  <Tag iconName="warning" variant="warning">
+    Status
+  </Tag>
+  <Tag iconName="info" variant="info">
+    Status
+  </Tag>
+  <Tag iconName="success" variant="success">
+    Status
+  </Tag>
+  <Tag iconName="clock-full" variant="neutral">
+    Status
+  </Tag>
+</>
+```
+
+### Decorative
+
+<Preview>
+  <Tag variant="carbon">My tag</Tag>
+  <Tag variant="grolive">My tag</Tag>
+  <Tag variant="forest">My tag</Tag>
+  <Tag variant="lemon">My tag</Tag>
+  <Tag variant="ocean">My tag</Tag>
+  <Tag variant="purple">My tag</Tag>
+  <Tag variant="pink">My tag</Tag>
+  <Tag variant="peach">My tag</Tag>
+  <Tag variant="white">My tag</Tag>
+</Preview>
+
+```tsx sandbox
+<>
+  <Tag variant="carbon">My tag</Tag>
+  <Tag variant="grolive">My tag</Tag>
+  <Tag variant="forest">My tag</Tag>
+  <Tag variant="lemon">My tag</Tag>
+  <Tag variant="ocean">My tag</Tag>
+  <Tag variant="purple">My tag</Tag>
+  <Tag variant="pink">My tag</Tag>
+  <Tag variant="peach">My tag</Tag>
+  <Tag variant="white">My tag</Tag>
+</>
+```
+
+## Use an icon
+
+Use the `iconName` prop to set a icon on the left side of the Tag.
+
+<Preview>
+  <Tag variant="purple" iconName="airplane">
+    My tag
+  </Tag>
+</Preview>
+
+```tsx sandbox
+<Tag variant="purple" iconName="airplane">
+  My tag
+</Tag>
+```
+
+## With close button
+
+<Preview>
+  <Demo />
+</Preview>
+
+```tsx sandbox
+<Tag variant="purple" onClose={() => {}}>
+  My tag
+</Tag>
+```

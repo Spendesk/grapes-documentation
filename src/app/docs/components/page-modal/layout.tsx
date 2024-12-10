@@ -1,31 +1,16 @@
-"use client";
+import { ComponentNavigation } from "@/lib/component-navigation/component-navigation";
 
-import { useQueryParamsTab } from "@/lib/useQueryParamsTab/useQueryParamsTab";
-import { Tab, TabList, TabPanel, TabPanels, Tabs } from "@dev-spendesk/grapes";
-
-export default function Layout(props: {
-  children: React.ReactNode;
-  props: React.ReactNode;
-  usage: React.ReactNode;
-}) {
-  const [defaultTabIndex, setQueryParams] = useQueryParamsTab(
-    ["usage", "props"],
-    "usage",
-  );
-
+export default function Layout(props: { children: React.ReactNode }) {
   return (
     <>
+      <h1>PageModal</h1>
+      <ComponentNavigation
+        links={[
+          { text: "Usage", href: "/docs/components/page-modal" },
+          { text: "Props", href: "/docs/components/page-modal/props" },
+        ]}
+      />
       {props.children}
-      <Tabs onChange={setQueryParams} defaultTabIndex={defaultTabIndex}>
-        <TabList className="docs-tabs">
-          <Tab>Usage</Tab>
-          <Tab>Props</Tab>
-        </TabList>
-        <TabPanels>
-          <TabPanel>{props.usage}</TabPanel>
-          <TabPanel>{props.props}</TabPanel>
-        </TabPanels>
-      </Tabs>
     </>
   );
 }

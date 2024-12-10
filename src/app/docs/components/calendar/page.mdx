@@ -1,9 +1,46 @@
----
-title: Calendar
----
+import { Calendar } from "@dev-spendesk/grapes";
 
-# Calendar
+import { Preview } from "@/lib/preview/preview";
 
-Calendar displays the grid of days in a month and allow users to select a single date.
+import { DemoCalendar } from "./demo";
 
-[View source code](https://github.com/Spendesk/grapes/tree/master/src/components/Calendar)
+## Basic usage
+
+<Preview>
+  <DemoCalendar />
+</Preview>
+
+```tsx sandbox
+const Demo = () => {
+  const [value, setValue] = useState(new Date("2022-02-14"));
+
+  return <Calendar value={value} onClick={setValue} />;
+};
+```
+
+## With min and max date
+
+When a minimum or maximum date is specified, these dates are grayed out and cannot be selected.
+
+<Preview className="pointer-events-none">
+  <Calendar
+    maxDate={new Date("2022-02-24")}
+    minDate={new Date("2022-02-04")}
+    value={new Date("2022-02-15")}
+  />
+</Preview>
+
+```tsx sandbox
+const Demo = () => {
+  const [value, setValue] = useState(new Date("2022-02-14"));
+
+  return (
+    <Calendar
+      maxDate={new Date("2022-02-24")}
+      minDate={new Date("2022-02-04")}
+      value={new Date("2022-02-15")}
+      onClick={setValue}
+    />
+  );
+};
+```

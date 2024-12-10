@@ -1,3 +1,138 @@
-# CollapsibleList
+import { DemoCollapsibleList } from "./demo";
 
-[View source code](https://github.com/Spendesk/grapes/tree/master/src/components/CollapsibleList)
+import { Preview } from "@/lib/preview/preview";
+
+## Import
+
+- `CollapsibleList`: The collapsible list component.
+- `CollapsibleListItem`: A helper component designed to represent an item inside a collapsible list.
+
+---
+
+## Basic usage
+
+<Preview>
+  <DemoCollapsibleList />
+</Preview>
+
+```tsx sandbox
+const Demo = () => {
+  const [activeListItem, setActiveListItem] = useState<number | null>(null);
+  const [selectedListItems, setSelectedListItems] = useState<number[]>([]);
+
+  function onSelect(id: number) {
+    if (selectedListItems.includes(id)) {
+      setSelectedListItems(selectedListItems.filter((item) => item !== id));
+    } else {
+      setSelectedListItems([...selectedListItems, id]);
+    }
+  }
+
+  return (
+    <div className="w-[360px]">
+      <CollapsibleList
+        renderHeader={(toggle, isCollapsed) => (
+          <CollapsibleListItem
+            asHeader
+            isCollapsed={isCollapsed}
+            onClick={toggle}
+            isSelected={selectedListItems.length === 3}
+            isIndeterminate={
+              selectedListItems.length > 0 && selectedListItems.length < 3
+            }
+            onSelect={() => {
+              if (selectedListItems.length < 3) {
+                setSelectedListItems([0, 1, 2]);
+              } else {
+                setSelectedListItems([]);
+              }
+            }}
+          >
+            Header
+          </CollapsibleListItem>
+        )}
+      >
+        <CollapsibleListItem
+          isActive={activeListItem === 0}
+          onClick={() => setActiveListItem(0)}
+          isSelected={selectedListItems.includes(0)}
+          onSelect={() => onSelect(0)}
+        >
+          Item 1
+        </CollapsibleListItem>
+        <CollapsibleListItem
+          isActive={activeListItem === 1}
+          onClick={() => setActiveListItem(1)}
+          isSelected={selectedListItems.includes(1)}
+          onSelect={() => onSelect(1)}
+        >
+          Item 2
+        </CollapsibleListItem>
+        <CollapsibleListItem
+          isActive={activeListItem === 2}
+          onClick={() => setActiveListItem(2)}
+          isSelected={selectedListItems.includes(2)}
+          onSelect={() => onSelect(2)}
+        >
+          Item 3
+        </CollapsibleListItem>
+      </CollapsibleList>
+    </div>
+  );
+};
+```
+
+## Expanded by default
+
+The `isInitialCollapsed` prop allows you to specify whether the CollapsibleList should be initially collapsed (default) or expanded. Pass `isInitialCollapsed={false}` to expand the CollapsibleList at the first render.
+
+<Preview>
+  <DemoCollapsibleList isInitialOpen />
+</Preview>
+
+```tsx
+<CollapsibleList isInitialCollapsed={false} {...otherProps}>
+  ...
+</CollapsibleList>
+```
+
+## Footer
+
+The `footer` prop allows you to add a footer to the CollapsibleList.
+
+<Preview>
+  <DemoCollapsibleList isInitialOpen withFooter />
+</Preview>
+
+```tsx
+<CollapsibleList
+  footer={
+    withFooter && (
+      <Button
+        text="Load more"
+        variant="secondaryNeutral"
+        onClick={() => console.log("Load more")}
+      />
+    )
+  }
+  {...otherProps}
+>
+  ...
+</CollapsibleList>
+```
+
+## Variant
+
+CollapsibleListItems can have an alert `variant`.
+
+<Preview>
+  <DemoCollapsibleList isInitialOpen withVariant />
+</Preview>
+
+```tsx
+<CollapsibleList {...otherProps}>
+  <CollapsibleListItem>Item 1</CollapsibleListItem>
+  <CollapsibleListItem variant="alert">Item 2</CollapsibleListItem>
+  <CollapsibleListItem>Item 3</CollapsibleListItem>
+</CollapsibleList>
+```

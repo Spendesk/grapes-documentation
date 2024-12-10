@@ -1,9 +1,77 @@
----
-title: Banner
----
+import { Banner } from "@dev-spendesk/grapes";
+import { Preview } from "@/lib/preview/preview";
 
-# Banner
+## Variant
 
-Callout to prompt the user for an action.
+The Badge comes with three visual styles: primary (default), warning and info.
 
-[View source code](https://github.com/Spendesk/grapes/tree/master/src/components/Banner)
+<Preview className="grid">
+  <Banner
+    variant="primary"
+    actionText="Set up sub-budgets"
+    illustration={<img src="/user-infinite.webp" />}
+    title="Primary variant"
+  >
+    You can now track sub-budgets based on expense categories. It will help you
+    track your budgets with more granularity and precision.
+  </Banner>
+  <Banner
+    variant="info"
+    actionText="Set up sub-budgets"
+    illustration={<img src="/user-infinite.webp" />}
+    title="Info variant"
+  >
+    You can now track sub-budgets based on expense categories. It will help you
+    track your budgets with more granularity and precision.
+  </Banner>
+  <Banner
+    variant="warning"
+    actionText="Set up sub-budgets"
+    illustration={<img src="/user-infinite.webp" />}
+    title="Warning variant"
+  >
+    You can now track sub-budgets based on expense categories. It will help you
+    track your budgets with more granularity and precision.
+  </Banner>
+</Preview>
+
+```tsx sandbox
+<>
+  <Banner
+    variant="primary"
+    actionText="Set up sub-budgets"
+    illustration={<img src="/user-infinite.webp" />}
+    title="Primary variant"
+  >
+    You can now track sub-budgets based on expense categories. It will help you
+    track your budgets with more granularity and precision.
+  </Banner>
+  <Banner
+    variant="info"
+    actionText="Set up sub-budgets"
+    illustration={<img src="/user-infinite.webp" />}
+    title="Info variant"
+  >
+    You can now track sub-budgets based on expense categories. It will help you
+    track your budgets with more granularity and precision.
+  </Banner>
+  <Banner
+    variant="warning"
+    actionText="Set up sub-budgets"
+    illustration={<img src="/user-infinite.webp" />}
+    title="Warning variant"
+  >
+    You can now track sub-budgets based on expense categories. It will help you
+    track your budgets with more granularity and precision.
+  </Banner>
+</>
+```
+
+## Button position
+
+The Banner leverages [CSS Container queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Container_Queries) to control the button's positioning.
+
+- If the width of the Banner is **below** 744px, the button will be positioned at the bottom.
+- If the width of the banner **equals or exceeds** 744px, the button will be positioned on the right.
+
+There is no way to customize this behavior.

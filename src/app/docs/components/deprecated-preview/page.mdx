@@ -1,9 +1,139 @@
----
-title: DeprecatedPreview
----
+import {
+  DeprecatedPreview as GrapesPreview,
+  Callout,
+  Icon,
+} from "@dev-spendesk/grapes";
+import { Preview } from "@/lib/preview/preview";
 
-# DeprecatedPreview
+<Callout className="mt-4" variant="warning" title="Deprecation warning">
+  This component is being deprecated in favor of two components: CardLink and
+  FileCard. The CardLink component is still being created, but you can already
+  use the [FileCard](/docs/components/file-card) component if you need to
+  display a file.
+</Callout>
 
-This component is used to display a condensed view of an entity. If it is clickable, we expect to see a 'detailed' version.
+## Basic usage
 
-[View source code](https://github.com/Spendesk/grapes/tree/master/src/components/DeprecatedPreview)
+The `rightAddon` prop is used to add a component on the right of the `DeprecatedPreview` component. To add a callback to the component, for example to open a modal or redirect to another page, you can use the `onClick` prop.
+
+<Preview>
+  <GrapesPreview
+    primaryText="Uploaded on November 4, 2020"
+    rightAddon={
+      <Icon
+        aria-hidden="true"
+        color="var(--color-content-decorative-icon)"
+        name="search"
+      />
+    }
+  />
+</Preview>
+
+```tsx
+<DeprecatedPreview
+  primaryText="Uploaded on November 4, 2020"
+  rightAddon={
+    <Icon
+      aria-hidden="true"
+      color="var(--color-content-decorative-icon)"
+      name="search"
+    />
+  }
+  onClick={() => {}}
+/>
+```
+
+## Icon
+
+The `iconName` prop is used to add a `HighlightIcon` component to the left of the `Preview` component.
+
+<Preview>
+  <GrapesPreview
+    iconName="receipt-checked"
+    primaryText="Uploaded on November 4, 2020"
+    rightAddon={
+      <Icon
+        aria-hidden="true"
+        color="var(--color-content-decorative-icon)"
+        name="search"
+      />
+    }
+  />
+</Preview>
+
+```tsx
+<DeprecatedPreview iconName="receipt-checked" {...otherProps} />
+```
+
+## Secondary text
+
+The `secondaryText` prop allows you to specify a secondary text to display. You can use a string or a component as the secondary text.
+
+<Preview>
+  <GrapesPreview
+    primaryText="€400.00"
+    secondaryText="From your bank"
+    rightAddon={
+      <Icon
+        aria-hidden="true"
+        color="var(--color-content-decorative-icon)"
+        name="caret-right"
+      />
+    }
+  />
+</Preview>
+
+```tsx
+<DeprecatedPreview
+  primaryText="€400.00"
+  secondaryText="From your bank"
+  {...otherProps}
+/>
+```
+
+## Overflowing secondary text
+
+If the `fit` prop is set to `parent` and the content in the secondary text overflows, an ellipsis will appear.
+
+<Preview>
+  <div className="w-[360px]">
+    <GrapesPreview
+      fit="parent"
+      primaryText="Main text"
+      secondaryText="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    />
+  </div>
+</Preview>
+
+```tsx
+<div className="w-[360px]">
+  <DeprecatedPreview
+    fit="parent"
+    secondaryText="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    {...otherProps}
+  />
+</div>
+```
+
+## Highlighted
+
+The `isHighlighted` prop lets you specify whether the `Preview` component should be highlighted.
+
+<Preview>
+  <GrapesPreview
+    isHighlighted
+    iconName="receipt-checked"
+    primaryText="Uploaded on November 4, 2020"
+    rightAddon={
+      <Icon
+        aria-hidden="true"
+        color="var(--color-content-decorative-icon)"
+        name="search"
+      />
+    }
+  />
+</Preview>
+
+```tsx
+<DeprecatedPreview isHighlighted {...otherProps} />
+```

@@ -1,10 +1,50 @@
----
-title: ModalSlideshow
----
+import { Preview } from "@/lib/preview/preview";
+import { Demo } from "./demo.tsx";
+import { ListView, ListItem, SwitchField } from "@dev-spendesk/grapes";
 
-# ModalSlideshow
+## Basic usage
 
-ModalSlideshow is a special Modal using Slideshow illustrations (images or videos).
-We recommend making sure that the content on the left side is not too long, especially when translated. Please prefer using multiple slides in that case.
+<Preview>
+  <Demo />
+</Preview>
 
-[View source code](https://github.com/Spendesk/grapes/tree/master/src/components/ModalSlideshow)
+```tsx sandbox
+const Demo = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <>
+      <Button text="Open the modal" onClick={() => setIsOpen(true)} />
+      <ModalSlideshow
+        slides={[
+          {
+            title: "Title slide 1",
+            content: <p>Content slide 1</p>,
+            illustration: <img src="/illustration-slide-1.webp" alt="" />,
+          },
+          {
+            title: "Title slide 2",
+            content: <p>Content slide 2</p>,
+            illustration: <img src="/illustration-slide-2.webp" alt="" />,
+          },
+          {
+            title: "Title slide 3",
+            content: <p>Content slide 3</p>,
+            illustration: <img src="/illustration-slide-3.webp" alt="" />,
+          },
+        ]}
+        translations={{
+          cancel: "Cancel",
+          previous: "Back",
+          next: "Next",
+          done: "Action wording",
+        }}
+        isOpen={isOpen}
+        onCancel={() => setIsOpen(false)}
+        onClose={() => setIsOpen(false)}
+        onDone={() => setIsOpen(false)}
+      />
+    </>
+  );
+};
+```

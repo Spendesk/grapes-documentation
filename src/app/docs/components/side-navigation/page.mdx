@@ -1,9 +1,51 @@
+import { Preview } from "@/lib/preview/preview";
+import { DemoSideNavigation } from "./demo";
+
+## Import
+
+- `SideNavigation`: The navigation component.
+- `NavigationItem`: A helper component designed to represent an item inside a navigation list.
+
 ---
-title: SideNavigation
----
 
-# SideNavigation
+## Basic usage
 
-A side menu displays a vertical list of sub-pages that are accessible to a user.
+The side navigation presents a list of navigation items on the side to help the user navigate between pages. Please refer to the [NavigationItem](/docs/components/navigation-item) docs for more information on how to create the different links (emphasized, with divider, with icon, etc.).
 
-[View source code](https://github.com/Spendesk/grapes/tree/master/src/components/SideNavigation)
+<Preview>
+  <DemoSideNavigation />
+</Preview>
+
+```tsx sandbox
+const accountingNavigation = [
+  { label: "Accounting integration", key: "accounting-integration" },
+  { label: "Bank accounts", key: "bank-accounts" },
+  { label: "Expense accounts", key: "expense-accounts" },
+  { label: "VAT Accounts", key: "vat-accounts" },
+  { label: "Supplier accounts", key: "supplier-accounts" },
+  { label: "Employee accounts", key: "employee-accounts" },
+  { label: "Bookkeeping date", key: "bookkeeping-date" },
+];
+
+const Demo = () => {
+  const [activeKey, setActiveKey] = useState("accounting-integration");
+
+  return (
+    <SideNavigation>
+      {accountingNavigation.map((book) => (
+        <NavigationItem
+          key={book.key}
+          text={book.label}
+          isActive={book.key === activeKey}
+          isEmphasized={[
+            "accounting-integration",
+            "bank-accounts",
+            "expense-accounts",
+          ].includes(book.key)}
+          onClick={() => setActiveKey(book.key)}
+        />
+      ))}
+    </SideNavigation>
+  );
+};
+```

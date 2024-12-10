@@ -1,32 +1,20 @@
-"use client";
+import { ComponentNavigation } from "@/lib/component-navigation/component-navigation";
 
-import { useQueryParamsTab } from "@/lib/useQueryParamsTab/useQueryParamsTab";
-import { Tab, TabList, TabPanel, TabPanels, Tabs } from "@dev-spendesk/grapes";
-
-const TABS = ["usage", "props", "accessibility"];
-export default function Layout(props: {
-  children: React.ReactNode;
-  props: React.ReactNode;
-  usage: React.ReactNode;
-  accessibility: React.ReactNode;
-}) {
-  const [defaultTabIndex, setQueryParams] = useQueryParamsTab(TABS, "usage");
-
+export default function Layout(props: { children: React.ReactNode }) {
   return (
     <>
+      <h1>OptionGroup</h1>
+      <ComponentNavigation
+        links={[
+          { text: "Usage", href: "/docs/components/option-group" },
+          { text: "Props", href: "/docs/components/option-group/props" },
+          {
+            text: "Accessibility",
+            href: "/docs/components/option-group/accessibility",
+          },
+        ]}
+      />
       {props.children}
-      <Tabs onChange={setQueryParams} defaultTabIndex={defaultTabIndex}>
-        <TabList className="docs-tabs">
-          <Tab>Usage</Tab>
-          <Tab>Props</Tab>
-          <Tab>Accessibility</Tab>
-        </TabList>
-        <TabPanels>
-          <TabPanel>{props.usage}</TabPanel>
-          <TabPanel>{props.props}</TabPanel>
-          <TabPanel>{props.accessibility}</TabPanel>
-        </TabPanels>
-      </Tabs>
     </>
   );
 }

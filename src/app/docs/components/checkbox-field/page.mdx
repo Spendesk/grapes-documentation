@@ -1,10 +1,35 @@
----
-title: CheckboxField
-description: Allows the user to select one or more items from a collection.
----
+import { CheckboxField } from "@dev-spendesk/grapes";
+import { Preview } from "@/lib/preview/preview";
+import { Demo } from "./demo";
 
-# CheckboxField
+## Basic usage
 
-Checkboxes allow the user to select one or more items from a collection.
+<Preview>
+  <Demo />
+</Preview>
 
-[View source code](https://github.com/Spendesk/grapes/tree/master/src/components/CheckboxField)
+```tsx sandbox
+const Demo = () => {
+  const [checked, setChecked] = useState(false);
+
+  return (
+    <CheckboxField
+      label="Include receipt"
+      isChecked={checked}
+      onChange={(event) => setChecked(event.target.checked)}
+    />
+  );
+};
+```
+
+## Indeterminate state
+
+Use `isIndeterminate` to set the checkbox into an indeterminate state.
+
+<Preview>
+  <CheckboxField label="Include receipt" isIndeterminate />
+</Preview>
+
+```tsx sandbox
+<CheckboxField label="Include receipt" isIndeterminate />
+```

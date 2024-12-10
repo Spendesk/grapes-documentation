@@ -1,9 +1,84 @@
----
-title: Link
----
+import { Link as NextLink } from "next/link";
+import { Callout, Link } from "@dev-spendesk/grapes";
+import { Preview } from "@/lib/preview/preview";
 
-# Link
+## Basic usage
 
-Links allow users to navigate to a different location.
+<Preview className="body-m">
+  <Link href="https://spendesk.com" isExternal>
+    Spendesk
+  </Link>
+</Preview>
 
-[View source code](https://github.com/Spendesk/grapes/tree/master/src/components/Link)
+```tsx sandbox
+<Link href="https://spendesk.com" isExternal>
+  Spendesk
+</Link>
+```
+
+## Routing library
+
+The `as` prop is used to support a custom component, such as a react-router or Next.js link.
+
+<Preview className="body-m">
+  <Link as={NextLink} href="/docs/components/button">
+    Button
+  </Link>
+</Preview>
+
+```tsx
+import { Link as NextLink } from "next/link";
+
+const Demo = () => {
+  return (
+    <Link as={NextLink} href="/docs/components/button">
+      Button
+    </Link>
+  );
+};
+```
+
+```tsx
+import { Link as ReactRouterLink } from "react-router-dom";
+
+const Demo = () => {
+  return (
+    <Link as={ReactRouterLink} to="/help">
+      Click Me
+    </Link>
+  );
+};
+```
+
+## Inside a Callout
+
+The Link component can be used inside other components, such as a Callout.
+
+<Preview>
+  <Callout
+    className="max-w-[440px]"
+    variant="warning"
+    title={
+      <p className="m-0">
+        You need to activate cost centers to enable Purchase Orders.{" "}
+        <Link href="https://spendesk.com" isExternal>
+          Activate cost centers
+        </Link>
+      </p>
+    }
+  />
+</Preview>
+
+```tsx sandbox
+<Callout
+  variant="warning"
+  title={
+    <p className="m-0">
+      You need to activate cost centers to enable Purchase Orders.{" "}
+      <Link href="https://spendesk.com" isExternal>
+        Activate cost centers
+      </Link>
+    </p>
+  }
+/>
+```

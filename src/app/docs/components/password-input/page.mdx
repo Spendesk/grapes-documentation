@@ -1,9 +1,68 @@
----
-title: PasswordInput
----
+import { Preview } from "@/lib/preview/preview";
 
-# PasswordInput
+import { DemoPasswordInput } from "./demo";
 
-The PasswordInput creates an input of type password with a set of rules. The eye icon lets you display the password if needed.
+## Basic usage
 
-[View source code](https://github.com/Spendesk/grapes/tree/master/src/components/PasswordInput)
+<Preview>
+  <DemoPasswordInput />
+</Preview>
+
+```tsx sandbox
+const passwordRules: PasswordRule[] = [
+  {
+    label: "characters",
+    required: 12,
+    validate: (value): boolean => !!value && value.length >= 12,
+  },
+  {
+    label: "lowercase",
+    required: 1,
+    validate: (value): boolean => !!value && value.toUpperCase() !== value,
+  },
+  {
+    label: "uppercase",
+    required: 1,
+    validate: (value): boolean => !!value && value.toLowerCase() !== value,
+  },
+  {
+    label: "digit",
+    required: 1,
+    validate: (value): boolean => !!value && /\d/.test(value),
+  },
+];
+
+const getConfirmPasswordRule = (password: string | null): PasswordRule => {
+  return {
+    label: "Passwords match",
+    validate: (value) => Boolean(password && value && value === password),
+  };
+};
+
+const Demo = () => {
+  const [password, setPassword] = useState<string | null>(null);
+  const [confirmPassword, setConfirmPassword] = useState<string | null>(null);
+
+  return (
+    <div className="w-[360px]">
+      <PasswordInput
+        fit="parent"
+        rules={passwordRules}
+        value={password}
+        onChange={(event) => {
+          setPassword(event.target.value);
+        }}
+      />
+      <PasswordInput
+        fit="parent"
+        className="mt-16"
+        rules={[getConfirmPasswordRule(password)]}
+        value={confirmPassword}
+        onChange={(event) => {
+          setConfirmPassword(event.target.value);
+        }}
+      />
+    </div>
+  );
+};
+```

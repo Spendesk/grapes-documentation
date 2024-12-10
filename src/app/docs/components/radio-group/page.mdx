@@ -1,9 +1,53 @@
----
-title: RadioGroup
----
+import { Preview } from "@/lib/preview/preview";
+import { DemoRadioGroup } from "./demo";
 
-# RadioGroup
+## Basic usage
 
-The radio group component is the preferred way to display multiple radio fields.
+<Preview>
+  <DemoRadioGroup />
+</Preview>
 
-[View source code](https://github.com/Spendesk/grapes/tree/master/src/components/RadioGroup)
+```tsx sandbox
+const options: {
+  value: string;
+  label: string;
+  isDisabled?: boolean;
+}[] = [
+  { value: "daily", label: "Daily" },
+  { value: "weekly", label: "Weekly" },
+  { value: "yearly", label: "Yearly" },
+];
+
+const Demo = () => {
+  const [selectedValue, setSelectedValue] = useState<string | null>(null);
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setSelectedValue(event.target.value);
+  };
+
+  return (
+    <RadioGroup
+      name="myRadioGroup"
+      value={selectedValue}
+      onChange={handleChange}
+      direction="row"
+    >
+      {options.map((props) => (
+        <RadioField {...props} key={props.value} />
+      ))}
+    </RadioGroup>
+  );
+};
+```
+
+## Column
+
+The `direction` prop is used to specify the axis the radio buttons should align with.
+
+<Preview>
+  <DemoRadioGroup isColumn />
+</Preview>
+
+```tsx
+<RadioGroup direction="column" {...otherProps} />
+```
