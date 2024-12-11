@@ -1,7 +1,7 @@
 "use client";
 
-import { Icon, Link } from "@dev-spendesk/grapes";
 import { usePathname } from "next/navigation";
+import { ExternalLink } from "../external-link/external-link";
 
 const APP_URL = "https://grapes.spendesk.design";
 const AIRTABLE_FORM =
@@ -11,13 +11,8 @@ export function FeedbackLink() {
   const pathname = usePathname();
 
   return (
-    <Link
-      href={`${AIRTABLE_FORM}?prefill_URL=${APP_URL}${pathname}`}
-      isExternal
-      className="inline-flex gap-4 items-center"
-    >
+    <ExternalLink href={`${AIRTABLE_FORM}?prefill_URL=${APP_URL}${pathname}`}>
       Leave feedback
-      <Icon name="external" size="s" aria-hidden="true" />
-    </Link>
+    </ExternalLink>
   );
 }
