@@ -1,9 +1,25 @@
+import type { Metadata } from "next";
 import { ComponentNavigation } from "@/lib/component-navigation/component-navigation";
+import { ExternalLink } from "@/lib/external-link/external-link";
+import { Callout } from "@dev-spendesk/grapes";
+
+export const metadata: Metadata = {
+  title: "DropdownMenu",
+};
 
 export default function Layout(props: { children: React.ReactNode }) {
   return (
     <>
       <h1>DropdownMenu</h1>
+      <p>A dropdown menu displays a list of actions or options to a user.</p>
+      <Callout title="Usage" variant="info">
+        This component is not intended to be used within a form. If you need a
+        form element, please refer to the Autocomplete or AutocompleteMultiple
+        components documentation.
+      </Callout>
+      <ExternalLink href="https://github.com/Spendesk/grapes/tree/master/src/components/DropdownMenu">
+        View source code
+      </ExternalLink>
       <ComponentNavigation
         links={[
           { text: "Usage", href: "/docs/components/dropdown-menu" },

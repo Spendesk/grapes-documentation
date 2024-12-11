@@ -1,10 +1,11 @@
-import { Callout, Link as GrapesLink, Icon } from "@dev-spendesk/grapes";
+import { Callout } from "@dev-spendesk/grapes";
 import Link from "next/link";
 import { slug } from "github-slugger";
 
 import type { MDXComponents } from "mdx/types";
 
 import { CodeBlock } from "@/lib/code-block/code-block";
+import { ExternalLink } from "@/lib/external-link/external-link";
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
@@ -38,14 +39,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     p: ({ children }) => <p>{children}</p>,
     a: ({ children, href }) =>
       href?.startsWith("http") ? (
-        <GrapesLink
-          href={href}
-          isExternal
-          className="inline-flex gap-4 items-center"
-        >
-          {children}
-          <Icon name="external" size="s" aria-hidden="true" />
-        </GrapesLink>
+        <ExternalLink href={href}>{children}</ExternalLink>
       ) : (
         <Link href={href ?? "#"}>{children}</Link>
       ),

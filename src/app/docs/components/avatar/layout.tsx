@@ -1,9 +1,22 @@
+import type { Metadata } from "next";
 import { ComponentNavigation } from "@/lib/component-navigation/component-navigation";
+import { ExternalLink } from "@/lib/external-link/external-link";
+
+export const metadata: Metadata = {
+  title: "Avatar",
+};
 
 export default function Layout(props: { children: React.ReactNode }) {
   return (
     <>
       <h1>Avatar</h1>
+      <p>
+        The Avatar component is used to represent a user or a entity. It
+        displays a picture or a fallback to initials.
+      </p>
+      <ExternalLink href="https://github.com/Spendesk/grapes/tree/master/src/components/Avatar">
+        View source code
+      </ExternalLink>
       <ComponentNavigation
         links={[
           { text: "Usage", href: "/docs/components/avatar" },
