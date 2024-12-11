@@ -2,6 +2,8 @@
   --size-content: min(95vw, 1200px);
   --_size: 2000px;
 
+  background-color: var(--color-background-primary);
+
   a {
     text-decoration: none;
   }
@@ -149,7 +151,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: max-content 1fr max-content;
-    padding: var(--unit-32) 0 0;
+    padding: var(--unit-32) 0;
     gap: 0 var(--unit-48);
   }
 
@@ -181,6 +183,26 @@
     text-decoration: underline;
   }
 
+  .icon-separator {
+    overflow-x: clip;
+    width: 100%;
+    background-color: var(--color-background-complementary);
+  }
+
+  .icon-set {
+    display: inline-flex;
+    height: var(--unit-24);
+    margin-block: var(--unit-56);
+    gap: var(--unit-24);
+    align-items: center;
+    color: var(--color-content-complementary);
+    animation: linear 240s infinite both icon-animation;
+
+    > * {
+      flex-shrink: 0;
+    }
+  }
+
   .team {
     display: flex;
     flex-direction: row;
@@ -199,6 +221,18 @@
       color: var(--color-content-primary);
       font: var(--body-m);
     }
+  }
+}
+
+@keyframes icon-animation {
+  0% {
+    translate: 0 0;
+  }
+  50% {
+    translate: calc(-100% + 100vw) 0;
+  }
+  100% {
+    translate: 0 0;
   }
 }
 

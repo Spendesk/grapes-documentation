@@ -1,7 +1,16 @@
-import { Avatar, Icon, Button } from "@dev-spendesk/grapes";
+import { Avatar, Icon, Button, type IconName } from "@dev-spendesk/grapes";
 import Link from "next/link";
 
+import { getSortedProps } from "@/lib/props-table/utils";
+
 import "./homepage.css";
+
+const iconProps = getSortedProps("Icon");
+const nameProp = iconProps.find((prop) => prop.name === "name");
+const collator = new Intl.Collator("en-US");
+const icons = nameProp?.type.value
+  ?.map((name) => name.value.replace(/\"/g, ""))
+  .sort(collator.compare) as IconName[];
 
 export default function Home() {
   return (
@@ -64,13 +73,20 @@ export default function Home() {
             </Link>
             <Link className="feature-item" href="/docs/components/icon">
               <h3>Icons</h3>
-              <p>Over 40 carefully designed icons</p>
-              <div className="ugly-hack">
-                <Icon name="arrow-right" size="xl" />
-              </div>
+              <p>Over 110 carefully designed icons</p>
+              <Icon name="arrow-right" size="xl" />
             </Link>
           </div>
         </section>
+      </main>
+      <div className="icon-separator">
+        <div className="icon-set">
+          {icons.map((icon) => (
+            <Icon key={icon} size="l" name={icon} />
+          ))}
+        </div>
+      </div>
+      <footer>
         <section>
           <h2>
             Meet the <span className="highlight">team</span>
@@ -98,7 +114,7 @@ export default function Home() {
             </li>
           </ul>
         </section>
-      </main>
+      </footer>
     </div>
   );
 }
