@@ -3,7 +3,7 @@ import type { CSSProperties } from "react";
 export const ogCategory: CSSProperties = {
   fontSize: "40px",
   fontFamily: "Inter",
-  color: "#5d21d2",
+  color: "#7136ed",
   lineHeight: "50px",
   margin: 0,
   padding: 0,
@@ -11,7 +11,7 @@ export const ogCategory: CSSProperties = {
 
 export const ogTitle: CSSProperties = {
   fontSize: "90px",
-  color: "#17114e",
+  color: "#191b1b",
   fontFamily: "Inter",
   fontWeight: 600,
   lineHeight: "120px",
@@ -26,7 +26,7 @@ export const ogRoot: CSSProperties = {
   height: "100%",
   flexDirection: "column",
   justifyContent: "space-between",
-  background: "linear-gradient(35deg, white 35%, #7542d9)",
+  background: "linear-gradient(35deg, white 35%, #7136ed)",
 };
 
 export const ogContainer: CSSProperties = {
