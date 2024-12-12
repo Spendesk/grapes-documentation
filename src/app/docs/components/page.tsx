@@ -3,8 +3,6 @@ import Link from "next/link";
 import React from "react";
 import { slug } from "github-slugger";
 
-import "./page.css";
-
 export default function Components() {
   return (
     <>
@@ -15,13 +13,15 @@ export default function Components() {
           return (
             <React.Fragment key={route.category}>
               <h2 id={slug(route.category)}>{route.category}</h2>
-              <div className="docs-component-grid">
+              <div className="docs-card-grid">
                 {route.routes
                   .filter(
                     (r) =>
-                      !["DeprecatedPreview", "useDateFormatter"].includes(
-                        r.label,
-                      ),
+                      ![
+                        "DeprecatedModalSlideshow",
+                        "DeprecatedPreview",
+                        "useDateFormatter",
+                      ].includes(r.label),
                   )
                   .map((item) => {
                     return (
