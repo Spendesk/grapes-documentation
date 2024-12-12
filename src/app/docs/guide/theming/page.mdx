@@ -1,7 +1,5 @@
 ---
 title: Theming
-openGraph:
-  title: Theming
 ---
 
 # Theming
@@ -17,31 +15,16 @@ for adjusting layouts, spacing, and other elements to suit your needs.
 
 ---
 
-## CSS Cascade layer
-
-This section assumes that you're already familiar with CSS cascade layers.
-Grapes exposes one [CSS cascade layer](https://developer.mozilla.org/en-US/docs/Web/CSS/@layer) named `grapes`.
-All styles are contained within this layer.
-
-When you need to overwrite some styles from Grapes, your CSS need be defined either outside of any layer or inside a layer taking precedence over `grapes`.
-
----
-
 ## className props
 
 Most Grapes components support the props `className`. This props is intended to set styling option such as layout, position, and spacing.
 Although not recommended, this props can also be used to override any style within a given component.
 
-:::warning{title="Mind the order of your layer"}
-If your className is defined in a layer, make sure your layer takes precedence
-over `grapes`.
-:::
-
 ---
 
 ## Theming
 
-Colors, sizing, spacing, fonts, and other tokens can be customized throught the use of CSS variables. Most predefined CSS variables are defined under the section `Design Token`.
+Colors, sizing, spacing, fonts, and other tokens can be customized throught the use of CSS variables. Most predefined CSS variables are defined under the section `Token`.
 
 The recommended way to override the Grapes theme is to define a new CSS Cascade layer inside your application, say `marketing`.
 
@@ -62,7 +45,7 @@ To override any CSS variable use the pseudo-class `:root` :
 }
 ```
 
-To take effect, **your layer should take precedence** over the layer `grapes`:
+To take effect, **your layer should take precedence** over the layer you defined when importing the style from Grapes.
 
 ```css{1}
 @layer grapes, marketing;

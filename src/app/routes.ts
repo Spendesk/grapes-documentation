@@ -57,6 +57,10 @@ export const gettingStartedRoutes: RouteConfig[] = [
         url: "/docs/guide/grapes-provider",
       },
       {
+        label: "Theming",
+        url: "/docs/guide/theming",
+      },
+      {
         label: "Supported Platforms",
         url: "/docs/guide/supported-platforms",
       },

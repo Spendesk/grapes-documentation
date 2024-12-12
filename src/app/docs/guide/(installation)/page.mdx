@@ -64,6 +64,22 @@ export const MySwitchField = () => {
 };
 ```
 
+### CSS theme
+
+You also need to import the CSS from Grapes.
+
+```css
+@import "@dev-spendesk/grapes/style";
+```
+
+To better manage the specificity of your application's styles and those from Grapes, we recommed using CSS Cascade layers.
+
+Here is an example to import Grapes into a CSS Layer named Grapes:
+
+```css
+@import "@dev-spendesk/grapes/style" layer(grapes);
+```
+
 ### TailwindCSS Preset
 
 Grapes exposes a preset that can be included into any existing Tailwind CSS project.
@@ -85,13 +101,3 @@ export default {
 TailwindCSS comes with an opinionated set of base styles.
 This feature, named preflight, needs to be disabled in order for the Grapes preset to work properly.
 :::
-
-### Using the theme
-
-Here is a quick example if you want to use Grapes' design tokens in your CSS:
-
-```css
-.MyComponent {
-  margin-bottom: var(--unit-8);
-}
-```
