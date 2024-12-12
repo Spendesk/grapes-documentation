@@ -1,7 +1,7 @@
 import { IconName } from "@dev-spendesk/grapes";
 
 type HeaderRoute = {
-  id: "getting-started" | "theme" | "components" | "sandbox";
+  id: "guide" | "theme" | "components" | "sandbox";
   category: string;
   iconName: IconName;
   url: string;
@@ -19,14 +19,14 @@ export type Route = {
 
 export const headerRoutes: HeaderRoute[] = [
   {
-    id: "getting-started",
-    category: "Getting Started",
+    id: "guide",
+    category: "Guide",
     iconName: "success",
-    url: "/docs/getting-started",
+    url: "/docs/guide",
   },
   {
     id: "theme",
-    category: "Design Tokens",
+    category: "Tokens",
     iconName: "sparkles",
     url: "/docs/tokens",
   },
@@ -50,28 +50,28 @@ export const gettingStartedRoutes: RouteConfig[] = [
     routes: [
       {
         label: "Installation",
-        url: "/docs/getting-started",
+        url: "/docs/guide",
+      },
+      {
+        label: "GrapesProvider",
+        url: "/docs/guide/grapes-provider",
       },
       {
         label: "Supported Platforms",
-        url: "/docs/getting-started/supported-platforms",
+        url: "/docs/guide/supported-platforms",
       },
       {
         label: "Contributing",
-        url: "/docs/getting-started/contributing",
-      },
-      {
-        label: "Codemods",
-        url: "/docs/getting-started/codemods",
+        url: "/docs/guide/contributing",
       },
     ],
   },
   {
-    category: "Applications",
+    category: "Migration",
     routes: [
       {
-        label: "GrapesProvider",
-        url: "/docs/getting-started/grapes-provider",
+        label: "Codemods",
+        url: "/docs/guide/codemods",
       },
     ],
   },
@@ -392,7 +392,7 @@ const designTokensRoutes: RouteConfig[] = [
 ];
 
 export const routes = {
-  "getting-started": gettingStartedRoutes,
+  guide: gettingStartedRoutes,
   components: componentRoutes,
   theme: designTokensRoutes,
   sandbox: [],

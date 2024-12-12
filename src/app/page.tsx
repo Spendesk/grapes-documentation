@@ -25,7 +25,7 @@ export default function Home() {
               platform and be delighted by the experience, feeling a sense of
               accomplishment and empowerment.
             </p>
-            <Link href="/docs/getting-started" className="hero-cta">
+            <Link href="/docs/guide" className="hero-cta">
               <span className="initial">Get Started</span>
               <span className="hover">Let&apos;s go</span>
               <Icon name="arrow-right" className="arrow" aria-hidden="true" />
@@ -40,7 +40,7 @@ export default function Home() {
             <h3>New version 1.x</h3>
             <Button
               component="a"
-              href="/docs/getting-started/codemods"
+              href="/docs/guide/codemods"
               text="Upgrade guide"
               variant="secondaryNeutral"
             />
