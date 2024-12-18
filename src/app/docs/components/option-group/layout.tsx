@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { ComponentNavigation } from "@/lib/component-navigation/component-navigation";
-import { ExternalLink } from "@/lib/external-link/external-link";
+import { Link as GrapesLink } from "@dev-spendesk/grapes";
 
 export const metadata: Metadata = {
   title: "OptionGroup",
@@ -14,9 +14,12 @@ export default function Layout(props: { children: React.ReactNode }) {
         OptionGroup allows the user to select one item from a <b>restricted</b>
         collection (usually 3 to 5 items).
       </p>
-      <ExternalLink href="https://github.com/Spendesk/grapes/tree/master/src/components/OptionGroup">
+      <GrapesLink
+        isExternal
+        href="https://github.com/Spendesk/grapes/tree/master/src/components/OptionGroup"
+      >
         View source code
-      </ExternalLink>
+      </GrapesLink>
       <ComponentNavigation
         links={[
           { text: "Usage", href: "/docs/components/option-group" },

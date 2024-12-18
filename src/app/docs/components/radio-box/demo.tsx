@@ -89,13 +89,13 @@ export function DemoWithIconRadioBox() {
       className="gap-8"
     >
       <RadioBox
-        iconName="single-purchase-card"
+        iconName="card-lightning"
         label="Single use"
         description="If you need to make a one-time payment"
         value="singleUse"
       />
       <RadioBox
-        iconName="recurring-card"
+        iconName="card-rounded-arrows"
         label="Recurring"
         description="If you want to manage your subscriptions"
         value="recurring"

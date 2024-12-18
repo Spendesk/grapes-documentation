@@ -105,7 +105,7 @@ export function Search() {
         placeholder="Search the docs"
         leftAddon={
           <Icon
-            name="search"
+            name="magnifying-glass"
             color={colors.contentSecondaryBgPrimary}
             className="ml-8"
             aria-hidden="true"
@@ -130,7 +130,7 @@ export function Search() {
         >
           <div className="seach-input-wrapper">
             <Icon
-              name="search"
+              name="magnifying-glass"
               color={colors.contentSecondaryBgPrimary}
               size="m"
             />

@@ -1,7 +1,7 @@
 "use client";
 
+import { Link as GrapesLink } from "@dev-spendesk/grapes";
 import { usePathname } from "next/navigation";
-import { ExternalLink } from "../external-link/external-link";
 
 const APP_URL = "https://grapes.spendesk.design";
 const AIRTABLE_FORM =
@@ -11,8 +11,11 @@ export function FeedbackLink() {
   const pathname = usePathname();
 
   return (
-    <ExternalLink href={`${AIRTABLE_FORM}?prefill_URL=${APP_URL}${pathname}`}>
+    <GrapesLink
+      isExternal
+      href={`${AIRTABLE_FORM}?prefill_URL=${APP_URL}${pathname}`}
+    >
       Leave feedback
-    </ExternalLink>
+    </GrapesLink>
   );
 }

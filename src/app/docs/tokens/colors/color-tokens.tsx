@@ -25,125 +25,125 @@ const backgroundTokens: { [key in BackgroundColorSection]: Color[] } = {
   ],
   primary: [
     {
-      name: "brand-default",
+      name: "primary-brand-default",
       value: colors.backgroundPrimaryBrandDefault,
     },
     {
-      name: "brand-hover",
+      name: "primary-brand-hover",
       value: colors.backgroundPrimaryBrandHover,
     },
     {
-      name: "brand-pressed",
+      name: "primary-brand-pressed",
       value: colors.backgroundPrimaryBrandPressed,
     },
     {
-      name: "info-default",
+      name: "primary-info-default",
       value: colors.backgroundPrimaryInfoDefault,
     },
     {
-      name: "info-hover",
+      name: "primary-info-hover",
       value: colors.backgroundPrimaryInfoHover,
     },
     {
-      name: "info-pressed",
+      name: "primary-info-pressed",
       value: colors.backgroundPrimaryInfoPressed,
     },
     {
-      name: "success-default",
+      name: "primary-success-default",
       value: colors.backgroundPrimarySuccessDefault,
     },
     {
-      name: "success-hover",
+      name: "primary-success-hover",
       value: colors.backgroundPrimarySuccessHover,
     },
     {
-      name: "success-pressed",
+      name: "primary-success-pressed",
       value: colors.backgroundPrimarySuccessPressed,
     },
     {
-      name: "warning-default",
+      name: "primary-warning-default",
       value: colors.backgroundPrimaryWarningDefault,
     },
     {
-      name: "warning-hover",
+      name: "primary-warning-hover",
       value: colors.backgroundPrimaryWarningHover,
     },
     {
-      name: "warning-pressed",
+      name: "primary-warning-pressed",
       value: colors.backgroundPrimaryWarningPressed,
     },
     {
-      name: "alert-default",
+      name: "primary-alert-default",
       value: colors.backgroundPrimaryAlertDefault,
     },
     {
-      name: "alert-hover",
+      name: "primary-alert-hover",
       value: colors.backgroundPrimaryAlertHover,
     },
     {
-      name: "alert-pressed",
+      name: "primary-alert-pressed",
       value: colors.backgroundPrimaryAlertPressed,
     },
   ],
   secondary: [
     {
-      name: "brand-default",
+      name: "secondary-brand-default",
       value: colors.backgroundSecondaryBrandDefault,
     },
     {
-      name: "brand-hover",
+      name: "secondary-brand-hover",
       value: colors.backgroundSecondaryBrandHover,
     },
     {
-      name: "brand-pressed",
+      name: "secondary-brand-pressed",
       value: colors.backgroundSecondaryBrandPressed,
     },
     {
-      name: "info-default",
+      name: "secondary-info-default",
       value: colors.backgroundSecondaryInfoDefault,
     },
     {
-      name: "info-hover",
+      name: "secondary-info-hover",
       value: colors.backgroundSecondaryInfoHover,
     },
     {
-      name: "info-pressed",
+      name: "secondary-info-pressed",
       value: colors.backgroundSecondaryInfoPressed,
     },
     {
-      name: "success-default",
+      name: "secondary-success-default",
       value: colors.backgroundSecondarySuccessDefault,
     },
     {
-      name: "success-hover",
+      name: "secondary-success-hover",
       value: colors.backgroundSecondarySuccessHover,
     },
     {
-      name: "success-pressed",
+      name: "secondary-success-pressed",
       value: colors.backgroundSecondarySuccessPressed,
     },
     {
-      name: "warning-default",
+      name: "secondary-warning-default",
       value: colors.backgroundSecondaryWarningDefault,
     },
     {
-      name: "warning-hover",
+      name: "secondary-warning-hover",
       value: colors.backgroundSecondaryWarningHover,
     },
     {
-      name: "warning-pressed",
+      name: "secondary-warning-pressed",
       value: colors.backgroundSecondaryWarningPressed,
     },
     {
-      name: "alert-default",
+      name: "secondary-alert-default",
       value: colors.backgroundSecondaryAlertDefault,
     },
     {
-      name: "alert-hover",
+      name: "secondary-alert-hover",
       value: colors.backgroundSecondaryAlertHover,
     },
     {
-      name: "alert-pressed",
+      name: "secondary-alert-pressed",
       value: colors.backgroundSecondaryAlertPressed,
     },
   ],
@@ -151,32 +151,35 @@ const backgroundTokens: { [key in BackgroundColorSection]: Color[] } = {
 
 const tokens: { [key in ColorSection]: Color[] } = {
   content: [
-    { name: "primary", value: colors.contentPrimary },
-    { name: "secondary-bg-primary", value: colors.contentSecondaryBgPrimary },
+    { name: "content-primary", value: colors.contentPrimary },
     {
-      name: "secondary-bg-secondary",
+      name: "content-secondary-bg-primary",
+      value: colors.contentSecondaryBgPrimary,
+    },
+    {
+      name: "content-secondary-bg-secondary",
       value: colors.contentSecondaryBgSecondary,
     },
-    { name: "decorative-icon", value: colors.contentDecorativeIcon },
-    { name: "complementary", value: colors.contentComplementary },
-    { name: "selected", value: colors.contentSelected },
-    { name: "disabled", value: colors.contentDisabled },
-    { name: "brand-default", value: colors.contentBrandDefault },
-    { name: "brand-hover", value: colors.contentBrandHover },
-    { name: "brand-pressed", value: colors.contentBrandPressed },
-    { name: "info-default", value: colors.contentInfoDefault },
-    { name: "success-default", value: colors.contentSuccessDefault },
-    { name: "warning-default", value: colors.contentWarningDefault },
-    { name: "alert-default", value: colors.contentAlertDefault },
+    { name: "content-brand-default", value: colors.contentBrandDefault },
+    { name: "content-info-default", value: colors.contentInfoDefault },
+    { name: "content-success-default", value: colors.contentSuccessDefault },
+    { name: "content-warning-default", value: colors.contentWarningDefault },
+    { name: "content-alert-default", value: colors.contentAlertDefault },
+    { name: "content-selected", value: colors.contentSelected },
+    { name: "content-brand-hover", value: colors.contentBrandHover },
+    { name: "content-brand-pressed", value: colors.contentBrandPressed },
+    { name: "content-disabled", value: colors.contentDisabled },
+    { name: "content-complementary", value: colors.contentComplementary },
+    { name: "content-decorative-icon", value: colors.contentDecorativeIcon },
   ],
   border: [
-    { name: "default", value: colors.borderDefault },
-    { name: "hover", value: colors.borderHover },
-    { name: "selected", value: colors.borderSelected },
-    { name: "info", value: colors.borderInfo },
-    { name: "success", value: colors.borderSuccess },
-    { name: "warning", value: colors.borderWarning },
-    { name: "alert", value: colors.borderAlert },
+    { name: "border-default", value: colors.borderDefault },
+    { name: "border-hover", value: colors.borderHover },
+    { name: "border-selected", value: colors.borderSelected },
+    { name: "border-info", value: colors.borderInfo },
+    { name: "border-success", value: colors.borderSuccess },
+    { name: "border-warning", value: colors.borderWarning },
+    { name: "border-alert", value: colors.borderAlert },
   ],
 };
 
@@ -192,7 +195,7 @@ function getSectionName(section: ColorSection): string {
 function getBackgroundSectionName(section: BackgroundColorSection): string {
   switch (section) {
     case "default":
-      return "Default";
+      return "default";
     case "primary":
       return "Primary";
     case "secondary":
@@ -209,7 +212,7 @@ export function ColorTokens() {
           <h3 id={key}>
             {getBackgroundSectionName(key as BackgroundColorSection)}
           </h3>
-          <div className="grid grid-cols-6 gap-16">
+          <div className="grid grid-cols-3 gap-16">
             {values.map((color) => (
               <ColorBox color={color} key={color.name} />
             ))}
@@ -219,7 +222,7 @@ export function ColorTokens() {
       {Object.entries(tokens).map(([key, values]) => (
         <Fragment key={key}>
           <h2 id={key}>{getSectionName(key as ColorSection)}</h2>
-          <div className="grid grid-cols-6 gap-16">
+          <div className="grid grid-cols-3 gap-16">
             {values.map((color) => (
               <ColorBox color={color} key={color.name} />
             ))}

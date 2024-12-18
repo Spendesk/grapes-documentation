@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { ComponentNavigation } from "@/lib/component-navigation/component-navigation";
-import { ExternalLink } from "@/lib/external-link/external-link";
+import { Link as GrapesLink } from "@dev-spendesk/grapes";
 
 export const metadata: Metadata = {
   title: "Table",
@@ -11,9 +11,12 @@ export default function Layout(props: { children: React.ReactNode }) {
     <>
       <h1>Table</h1>
       <p>The Table component is used to show information from a data set.</p>
-      <ExternalLink href="https://github.com/Spendesk/grapes/tree/master/src/components/Table">
+      <GrapesLink
+        isExternal
+        href="https://github.com/Spendesk/grapes/tree/master/src/components/Table"
+      >
         View source code
-      </ExternalLink>
+      </GrapesLink>
       <ComponentNavigation
         links={[
           { text: "Usage", href: "/docs/components/table" },

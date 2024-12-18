@@ -2,7 +2,6 @@
 
 import { Icon } from "@dev-spendesk/grapes";
 import Link from "next/link";
-import { useEffect, useLayoutEffect, useRef } from "react";
 
 export type OptionType = {
   label: string;
@@ -25,7 +24,7 @@ export function Option({ option, isSelected, onOptionClick }: OptionProps) {
     >
       <li role="option" aria-selected={isSelected}>
         {option.label}
-        <Icon name="caret-right" size="m" />
+        <Icon name="chevron-right" size="m" />
       </li>
     </Link>
   );

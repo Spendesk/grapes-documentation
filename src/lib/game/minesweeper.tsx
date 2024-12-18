@@ -239,7 +239,7 @@ export function Minesweeper() {
           onChange={() => setIsSettingFlag(!isSettingFlag)}
           label={
             <div className="flex gap-4 items-center">
-              <Icon name="racing-flag" />
+              <Icon name="flag-checkered" />
               Flag
             </div>
           }

@@ -20,7 +20,7 @@ export function TimelineWithCustomDate() {
       </TimelineItem>
       <TimelineItem date={new Date("2021-01-08T08:24:00.000Z")}>
         <div className="flex items-center gap-4">
-          <Tag variant="success" iconName="success">
+          <Tag variant="success" iconName="circle-check">
             Validated
           </Tag>
           by

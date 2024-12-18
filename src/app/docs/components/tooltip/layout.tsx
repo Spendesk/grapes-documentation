@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { ComponentNavigation } from "@/lib/component-navigation/component-navigation";
-import { ExternalLink } from "@/lib/external-link/external-link";
+import { Link as GrapesLink } from "@dev-spendesk/grapes";
 
 export const metadata: Metadata = {
   title: "Tooltip",
@@ -11,9 +11,12 @@ export default function Layout(props: { children: React.ReactNode }) {
     <>
       <h1>Tooltip</h1>
       <p>Displays informative text when users hover an element.</p>
-      <ExternalLink href="https://github.com/Spendesk/grapes/tree/master/src/components/Tooltip">
+      <GrapesLink
+        isExternal
+        href="https://github.com/Spendesk/grapes/tree/master/src/components/Tooltip"
+      >
         View source code
-      </ExternalLink>
+      </GrapesLink>
       <ComponentNavigation
         links={[
           { text: "Usage", href: "/docs/components/tooltip" },

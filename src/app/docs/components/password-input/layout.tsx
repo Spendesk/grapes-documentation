@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { ComponentNavigation } from "@/lib/component-navigation/component-navigation";
-import { ExternalLink } from "@/lib/external-link/external-link";
+import { Link as GrapesLink } from "@dev-spendesk/grapes";
 
 export const metadata: Metadata = {
   title: "PasswordInput",
@@ -14,9 +14,12 @@ export default function Layout(props: { children: React.ReactNode }) {
         The PasswordInput creates an input of type password with a set of rules.
         The eye icon lets you display the password if needed.
       </p>
-      <ExternalLink href="https://github.com/Spendesk/grapes/tree/master/src/components/PasswordInput">
+      <GrapesLink
+        isExternal
+        href="https://github.com/Spendesk/grapes/tree/master/src/components/PasswordInput"
+      >
         View source code
-      </ExternalLink>
+      </GrapesLink>
       <ComponentNavigation
         links={[
           { text: "Usage", href: "/docs/components/password-input" },

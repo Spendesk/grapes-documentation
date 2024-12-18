@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { ComponentNavigation } from "@/lib/component-navigation/component-navigation";
-import { ExternalLink } from "@/lib/external-link/external-link";
+import { Link as GrapesLink } from "@dev-spendesk/grapes";
 
 export const metadata: Metadata = {
   title: "GrapesProvider",
@@ -20,9 +20,12 @@ export default function Layout(props: { children: React.ReactNode }) {
         Grapes components rely on the GrapesProvider to define the locale, and
         other settings that they need in order to render.
       </p>
-      <ExternalLink href="https://github.com/Spendesk/grapes/tree/master/src/components/GrapesProvider">
+      <GrapesLink
+        isExternal
+        href="https://github.com/Spendesk/grapes/tree/master/src/components/GrapesProvider"
+      >
         View source code
-      </ExternalLink>
+      </GrapesLink>
       <ComponentNavigation
         links={[
           { text: "Usage", href: "/docs/guide/grapes-provider" },

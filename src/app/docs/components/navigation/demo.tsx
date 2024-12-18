@@ -3,11 +3,7 @@
 import { Navigation, NavigationItem } from "@dev-spendesk/grapes";
 import { useState } from "react";
 
-type Props = {
-  isSubNavigation?: boolean;
-};
-
-export function DemoNavigation({ isSubNavigation }: Props) {
+export function DemoNavigation() {
   const [activeIndex, setActiveIndex] = useState(1);
 
   return (

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { ComponentNavigation } from "@/lib/component-navigation/component-navigation";
-import { ExternalLink } from "@/lib/external-link/external-link";
+import { Link as GrapesLink } from "@dev-spendesk/grapes";
 
 export const metadata: Metadata = {
   title: "DatePicker",
@@ -11,9 +11,12 @@ export default function Layout(props: { children: React.ReactNode }) {
     <>
       <h1>DatePicker</h1>
       <p>DatePicker lets users select a date.</p>
-      <ExternalLink href="https://github.com/Spendesk/grapes/tree/master/src/components/DatePicker">
+      <GrapesLink
+        isExternal
+        href="https://github.com/Spendesk/grapes/tree/master/src/components/DatePicker"
+      >
         View source code
-      </ExternalLink>
+      </GrapesLink>
       <ComponentNavigation
         links={[
           { text: "Usage", href: "/docs/components/date-picker" },

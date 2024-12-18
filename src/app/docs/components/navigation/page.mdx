@@ -10,9 +10,9 @@ import { DemoNavigation } from "./demo";
 
 ## Basic usage
 
-The navigation presents a list of navigation items at the top to help the user navigate between pages. Please refer to the [NavigationItem](/docs/components/navigation-item) docs for more information on how to create the different links (emphasized, with divider, with icon, etc.).
+The navigation presents a list of navigation items at the top to help the user navigate between pages. Please refer to the [NavigationItem](/docs/components/navigation-item) docs for more information on how to create the different links (emphasized, with icon, etc.).
 
-The `leftNavigationItems` and `rightNavigationItems` props are used to display the items on each side of the navigation menu.
+The `leftNavigationItems` prop is used to display the items in the navigation menu.
 
 <Preview>
   <DemoNavigation />
@@ -44,33 +44,7 @@ const Demo = () => {
           onClick={() => setActiveIndex(3)}
         />,
       ]}
-      rightNavigationItems={[
-        <NavigationItem
-          key="4"
-          text="Link 4"
-          isActive={activeIndex === 4}
-          onClick={() => setActiveIndex(4)}
-        />,
-        <NavigationItem
-          key="5"
-          text="Link 5"
-          isActive={activeIndex === 5}
-          onClick={() => setActiveIndex(5)}
-        />,
-      ]}
     />
   );
 };
-```
-
-## Sub navigation
-
-You can set the `variant` prop to `subNavigation` to create a secondary navigation menu.
-
-<Preview>
-  <DemoNavigation isSubNavigation />
-</Preview>
-
-```tsx
-<Navigation variant="subNavigation" {...otherProps} />
 ```

@@ -1,0 +1,86 @@
+---
+title: Migrate from v0 to v1
+---
+
+# Migrate from v0 to v1
+
+Grapes v1 is the biggest update of Grapes yet, bringing a major overhaul design. At its heart is a brand new color palette, paired with refreshed design tokens, updated typography, and a new icon set.
+
+But Grapes v1 is not just about looks - it's also about performance and developer experience.
+We've streamlined the implementation by eliminating unnecessary props, removing deprecated components, updating our code to more modern syntax and changing our build stack. As a result, Grapes v1 is 15% lighter than Grapes v0.
+
+And with Grapes v1, we're also introducing a new way to incorporate styles into your application. It ensures seamless compatibility with both new and legacy frameworks, giving you the freedom to build using any tool.
+
+## New baseline
+
+In Grapes 1.x, the minimum browser support has been updated. Here is the new baseline:
+
+| Browser          | Version |
+| :--------------- | :------ |
+| `Edge`           | >= 105  |
+| `Chrome`         | >= 105  |
+| `Safari (macOS)` | >= 16.5 |
+| `Firefox`        | >= 121  |
+
+:::info{title="Requirement"}
+Grapes 1.x needs the pseudo-class `:has` to work propertly. Please visit [caniuse.com](https://caniuse.com/css-has) to look at browser support.
+:::
+
+## Migration workflow
+
+### Update Grapes version
+
+Install the latest version of Grapes:
+
+```bash
+npm install @dev-spendesk/grapes@latest
+```
+
+### Run migration scripts with @dev-spendesk/grapes-codemod CLI
+
+`@dev-spendesk/grapes-codemod` is CLI tool containing a collection of codemod scripts that help update Grapes components.
+This tool helps you upgrade your codebase to the latest stable versions.
+
+To upgrade to Grapes 1.x, you need to run both CSS codemods and Javascript codemods:
+
+```bash
+npx @dev-spendesk/grapes-codemod ui-refresh-migrate "./src/**/*.{ts,js,tsx,jsx}"
+npx @dev-spendesk/grapes-codemod css-ui-refresh-migrate "./src/**/*.css"
+```
+
+### Include Grapes styles
+
+In Grapes v1, the way styles are shipped has changed. Unlike previous versions where styles were embedded in the JavaScript code, Grapes 1.x requires you to import the style separately.
+
+Inside your main CSS file, include the following line:
+
+```css
+@import "@dev-spendesk/grapes/style" layer(grapes);
+```
+
+:::info{title="Usage"}
+We highly recommend importing styles from Grapes into a layer called Grapes.
+[Learn more](https://developer.mozilla.org/en-US/docs/Web/CSS/@layer)
+:::
+
+### New fonts
+
+Grapes v1 introduces two new fonts, `Roobert` and `Inter`. To use them, you'll need to include the following in your main CSS file:
+
+```css
+@font-face {
+  font-family: "Roobert";
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  src: url("path/to/Roobert.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 1 999;
+  src: url("/path/to/Inter.woff2") format("woff2");
+}
+```

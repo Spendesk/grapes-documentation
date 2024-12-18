@@ -10,20 +10,20 @@ The IconButton comes with three main visual styles: primary, secondary (default)
 Use the primary IconButton for the main action in a page.
 
 <Preview>
-  <IconButton variant="primaryBrand" iconName="dots" />
-  <IconButton variant="primaryInfo" iconName="dots" />
-  <IconButton variant="primarySuccess" iconName="dots" />
-  <IconButton variant="primaryWarning" iconName="dots" />
-  <IconButton variant="primaryAlert" iconName="dots" />
+  <IconButton variant="primaryBrand" iconName="ellipsis-horizontal" />
+  <IconButton variant="primaryInfo" iconName="ellipsis-horizontal" />
+  <IconButton variant="primarySuccess" iconName="ellipsis-horizontal" />
+  <IconButton variant="primaryWarning" iconName="ellipsis-horizontal" />
+  <IconButton variant="primaryAlert" iconName="ellipsis-horizontal" />
 </Preview>
 
 ```tsx sandbox
 <Preview>
-  <IconButton variant="primaryBrand" iconName="dots" />
-  <IconButton variant="primaryInfo" iconName="dots" />
-  <IconButton variant="primarySuccess" iconName="dots" />
-  <IconButton variant="primaryWarning" iconName="dots" />
-  <IconButton variant="primaryAlert" iconName="dots" />
+  <IconButton variant="primaryBrand" iconName="ellipsis-horizontal" />
+  <IconButton variant="primaryInfo" iconName="ellipsis-horizontal" />
+  <IconButton variant="primarySuccess" iconName="ellipsis-horizontal" />
+  <IconButton variant="primaryWarning" iconName="ellipsis-horizontal" />
+  <IconButton variant="primaryAlert" iconName="ellipsis-horizontal" />
 </Preview>
 ```
 
@@ -32,20 +32,20 @@ Use the primary IconButton for the main action in a page.
 Use the secondary IconButton by default.
 
 <Preview>
-  <IconButton variant="secondaryNeutral" iconName="dots" />
-  <IconButton variant="secondaryInfo" iconName="dots" />
-  <IconButton variant="secondarySuccess" iconName="dots" />
-  <IconButton variant="secondaryWarning" iconName="dots" />
-  <IconButton variant="secondaryAlert" iconName="dots" />
+  <IconButton variant="secondaryNeutral" iconName="ellipsis-horizontal" />
+  <IconButton variant="secondaryInfo" iconName="ellipsis-horizontal" />
+  <IconButton variant="secondarySuccess" iconName="ellipsis-horizontal" />
+  <IconButton variant="secondaryWarning" iconName="ellipsis-horizontal" />
+  <IconButton variant="secondaryAlert" iconName="ellipsis-horizontal" />
 </Preview>
 
 ```tsx sandbox
 <Preview>
-  <IconButton variant="secondaryNeutral" iconName="dots" />
-  <IconButton variant="secondaryInfo" iconName="dots" />
-  <IconButton variant="secondarySuccess" iconName="dots" />
-  <IconButton variant="secondaryWarning" iconName="dots" />
-  <IconButton variant="secondaryAlert" iconName="dots" />
+  <IconButton variant="secondaryNeutral" iconName="ellipsis-horizontal" />
+  <IconButton variant="secondaryInfo" iconName="ellipsis-horizontal" />
+  <IconButton variant="secondarySuccess" iconName="ellipsis-horizontal" />
+  <IconButton variant="secondaryWarning" iconName="ellipsis-horizontal" />
+  <IconButton variant="secondaryAlert" iconName="ellipsis-horizontal" />
 </Preview>
 ```
 
@@ -54,22 +54,22 @@ Use the secondary IconButton by default.
 Use the tertiary IconButton to display an optional action or an event trigger.
 
 <Preview>
-  <IconButton variant="tertiaryBrand" iconName="dots" />
-  <IconButton variant="tertiaryNeutral" iconName="dots" />
-  <IconButton variant="tertiaryInfo" iconName="dots" />
-  <IconButton variant="tertiarySuccess" iconName="dots" />
-  <IconButton variant="tertiaryWarning" iconName="dots" />
-  <IconButton variant="tertiaryAlert" iconName="dots" />
+  <IconButton variant="tertiaryBrand" iconName="ellipsis-horizontal" />
+  <IconButton variant="tertiaryNeutral" iconName="ellipsis-horizontal" />
+  <IconButton variant="tertiaryInfo" iconName="ellipsis-horizontal" />
+  <IconButton variant="tertiarySuccess" iconName="ellipsis-horizontal" />
+  <IconButton variant="tertiaryWarning" iconName="ellipsis-horizontal" />
+  <IconButton variant="tertiaryAlert" iconName="ellipsis-horizontal" />
 </Preview>
 
 ```tsx sandbox
 <Preview>
-  <IconButton variant="tertiaryBrand" iconName="dots" />
-  <IconButton variant="tertiaryNeutral" iconName="dots" />
-  <IconButton variant="tertiaryInfo" iconName="dots" />
-  <IconButton variant="tertiarySuccess" iconName="dots" />
-  <IconButton variant="tertiaryWarning" iconName="dots" />
-  <IconButton variant="tertiaryAlert" iconName="dots" />
+  <IconButton variant="tertiaryBrand" iconName="ellipsis-horizontal" />
+  <IconButton variant="tertiaryNeutral" iconName="ellipsis-horizontal" />
+  <IconButton variant="tertiaryInfo" iconName="ellipsis-horizontal" />
+  <IconButton variant="tertiarySuccess" iconName="ellipsis-horizontal" />
+  <IconButton variant="tertiaryWarning" iconName="ellipsis-horizontal" />
+  <IconButton variant="tertiaryAlert" iconName="ellipsis-horizontal" />
 </Preview>
 ```
 
@@ -79,11 +79,19 @@ Use the prop `hasNegativeMargins` to remove the margin around a tertiary IconBut
 This prop doesn't have any impact on the primary and secondary IconButton.
 
 <Preview>
-  <IconButton iconName="dots" variant="tertiaryNeutral" hasNegativeMargins />
+  <IconButton
+    iconName="ellipsis-horizontal"
+    variant="tertiaryNeutral"
+    hasNegativeMargins
+  />
 </Preview>
 
 ```tsx sandbox
-<IconButton iconName="dots" variant="tertiaryNeutral" hasNegativeMargins />
+<IconButton
+  iconName="ellipsis-horizontal"
+  variant="tertiaryNeutral"
+  hasNegativeMargins
+/>
 ```
 
 ## Get element ref
@@ -91,13 +99,19 @@ This prop doesn't have any impact on the primary and secondary IconButton.
 Create a ref using `useRef` and pass it using the `ref` prop.
 
 <Preview>
-  <IconButton iconName="dots" variant="secondaryNeutral" />
+  <IconButton iconName="ellipsis-horizontal" variant="secondaryNeutral" />
 </Preview>
 
 ```tsx sandbox
 const Demo = () => {
   const ref = useRef<HTMLButtonElement | null>(null);
 
-  return <IconButton ref={ref} iconName="dots" variant="secondaryNeutral" />;
+  return (
+    <IconButton
+      ref={ref}
+      iconName="ellipsis-horizontal"
+      variant="secondaryNeutral"
+    />
+  );
 };
 ```

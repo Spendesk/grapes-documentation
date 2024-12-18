@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { ComponentNavigation } from "@/lib/component-navigation/component-navigation";
-import { ExternalLink } from "@/lib/external-link/external-link";
+import { Link as GrapesLink } from "@dev-spendesk/grapes";
 
 export const metadata: Metadata = {
   title: "Tabs",
@@ -14,9 +14,12 @@ export default function Layout(props: { children: React.ReactNode }) {
         Tabs are used to organize content by grouping similar information on the
         same page.
       </p>
-      <ExternalLink href="https://github.com/Spendesk/grapes/tree/master/src/components/Tabs">
+      <GrapesLink
+        isExternal
+        href="https://github.com/Spendesk/grapes/tree/master/src/components/Tabs"
+      >
         View source code
-      </ExternalLink>
+      </GrapesLink>
       <ComponentNavigation
         links={[
           { text: "Usage", href: "/docs/components/tabs" },

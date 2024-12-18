@@ -14,7 +14,7 @@ export function DemoModal() {
         isOpen={isOpen}
         onClose={() => setIsOpen(false)}
         title="Adopt a smooth transition"
-        iconName="swap"
+        iconName="arrow-left-right"
         iconVariant="info"
         actions={[
           <Button

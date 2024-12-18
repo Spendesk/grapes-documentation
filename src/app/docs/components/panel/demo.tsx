@@ -92,7 +92,7 @@ export function DemoPanel() {
             <Icon
               aria-hidden="true"
               color="var(--color-content-decorative-icon)"
-              name="search"
+              name="magnifying-glass"
             />
           }
         />
