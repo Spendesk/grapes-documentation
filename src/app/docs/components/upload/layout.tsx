@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { ComponentNavigation } from "@/lib/component-navigation/component-navigation";
-import { ExternalLink } from "@/lib/external-link/external-link";
+import { Link as GrapesLink } from "@dev-spendesk/grapes";
 
 export const metadata: Metadata = {
   title: "Upload",
@@ -14,9 +14,12 @@ export default function Layout(props: { children: React.ReactNode }) {
         The Upload component allows users to upload a file manually or using
         drag and drop.
       </p>
-      <ExternalLink href="https://github.com/Spendesk/grapes/tree/master/src/components/Upload">
+      <GrapesLink
+        isExternal
+        href="https://github.com/Spendesk/grapes/tree/master/src/components/Upload"
+      >
         View source code
-      </ExternalLink>
+      </GrapesLink>
       <ComponentNavigation
         links={[
           { text: "Usage", href: "/docs/components/upload" },

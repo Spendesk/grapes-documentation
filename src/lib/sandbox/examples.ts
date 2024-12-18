@@ -11,7 +11,7 @@ export const initialCode = `const Demo = () => {
       <Modal
         isOpen={isOpen}
         title="It's a modal"
-        iconName="sparkles"
+        iconName="sparkle"
         actions={[
           <Button
             key="certified"

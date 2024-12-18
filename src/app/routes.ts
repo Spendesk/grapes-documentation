@@ -3,7 +3,6 @@ import { IconName } from "@dev-spendesk/grapes";
 type HeaderRoute = {
   id: "guide" | "theme" | "components" | "sandbox";
   category: string;
-  iconName: IconName;
   url: string;
 };
 
@@ -21,25 +20,21 @@ export const headerRoutes: HeaderRoute[] = [
   {
     id: "guide",
     category: "Guide",
-    iconName: "success",
     url: "/docs/guide",
   },
   {
     id: "theme",
     category: "Tokens",
-    iconName: "sparkles",
     url: "/docs/tokens",
   },
   {
     id: "components",
     category: "Components",
-    iconName: "dashboard",
     url: "/docs/components",
   },
   {
     id: "sandbox",
     category: "Sandbox",
-    iconName: "dashboard",
     url: "/sandbox",
   },
 ];
@@ -68,6 +63,10 @@ export const gettingStartedRoutes: RouteConfig[] = [
         label: "Contributing",
         url: "/docs/guide/contributing",
       },
+      {
+        label: "Tools",
+        url: "/docs/guide/tools",
+      },
     ],
   },
   {
@@ -76,6 +75,10 @@ export const gettingStartedRoutes: RouteConfig[] = [
       {
         label: "Codemods",
         url: "/docs/guide/codemods",
+      },
+      {
+        label: "Migrate to v1",
+        url: "/docs/guide/migrate-v1",
       },
     ],
   },
@@ -337,10 +340,6 @@ export const componentRoutes: RouteConfig[] = [
       {
         label: "Popover",
         url: "/docs/components/popover",
-      },
-      {
-        label: "SideNavigation",
-        url: "/docs/components/side-navigation",
       },
       {
         label: "Tabs",

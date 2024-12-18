@@ -32,7 +32,7 @@ export function OpenInSandboxButton({ code }: Props) {
   return (
     <Tooltip content="Open in Sandbox" triggerAsChild>
       <IconButton
-        iconName="external"
+        iconName="arrow-top-right-square"
         className="docs-cta-open"
         aria-label="Open in Sandbox"
         iconColor={colors.backgroundPrimary}

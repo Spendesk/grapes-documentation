@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { ComponentNavigation } from "@/lib/component-navigation/component-navigation";
-import { ExternalLink } from "@/lib/external-link/external-link";
+import { Link as GrapesLink } from "@dev-spendesk/grapes";
 
 export const metadata: Metadata = {
   title: "EmptyState",
@@ -15,9 +15,12 @@ export default function Layout(props: { children: React.ReactNode }) {
         (either because of an error and we cannot retrieve it or because we have
         an empty result set).
       </p>
-      <ExternalLink href="https://github.com/Spendesk/grapes/tree/master/src/components/EmptyState">
+      <GrapesLink
+        isExternal
+        href="https://github.com/Spendesk/grapes/tree/master/src/components/EmptyState"
+      >
         View source code
-      </ExternalLink>
+      </GrapesLink>
       <ComponentNavigation
         links={[
           { text: "Usage", href: "/docs/components/empty-state" },

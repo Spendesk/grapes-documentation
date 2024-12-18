@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { ComponentNavigation } from "@/lib/component-navigation/component-navigation";
-import { ExternalLink } from "@/lib/external-link/external-link";
+import { Link as GrapesLink } from "@dev-spendesk/grapes";
 
 export const metadata: Metadata = {
   title: "ModalSlideshow",
@@ -16,9 +16,12 @@ export default function Layout(props: { children: React.ReactNode }) {
         is not too long, especially when translated. Please prefer using
         multiple slides in that case.
       </p>
-      <ExternalLink href="https://github.com/Spendesk/grapes/tree/master/src/components/ModalSlideshow">
+      <GrapesLink
+        isExternal
+        href="https://github.com/Spendesk/grapes/tree/master/src/components/ModalSlideshow"
+      >
         View source code
-      </ExternalLink>
+      </GrapesLink>
       <ComponentNavigation
         links={[
           { text: "Usage", href: "/docs/components/modal-slideshow" },

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { ComponentNavigation } from "@/lib/component-navigation/component-navigation";
-import { ExternalLink } from "@/lib/external-link/external-link";
+import { Link as GrapesLink } from "@dev-spendesk/grapes";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -31,9 +31,12 @@ export default function Layout(props: { children: React.ReactNode }) {
           </Link>
         </li>
       </ul>
-      <ExternalLink href="https://github.com/Spendesk/grapes/tree/master/src/components/AutocompleteMultiple">
+      <GrapesLink
+        isExternal
+        href="https://github.com/Spendesk/grapes/tree/master/src/components/AutocompleteMultiple"
+      >
         View source code
-      </ExternalLink>
+      </GrapesLink>
       <ComponentNavigation
         links={[
           { text: "Usage", href: "/docs/components/autocomplete-multiple" },

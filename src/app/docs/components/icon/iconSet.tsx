@@ -30,7 +30,7 @@ export function IconSet() {
           fit="parent"
           type="search"
           name="search"
-          leftAddon={<Icon name="search" className="ml-8" />}
+          leftAddon={<Icon name="magnifying-glass" className="ml-8" />}
         />
       </form>
       <ul className="docs-icon-set">

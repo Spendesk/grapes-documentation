@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { ComponentNavigation } from "@/lib/component-navigation/component-navigation";
-import { ExternalLink } from "@/lib/external-link/external-link";
+import { Link as GrapesLink } from "@dev-spendesk/grapes";
 
 export const metadata: Metadata = {
   title: "Timeline",
@@ -11,9 +11,12 @@ export default function Layout(props: { children: React.ReactNode }) {
     <>
       <h1>Timeline</h1>
       <p>The timeline displays a list of events in chronological order.</p>
-      <ExternalLink href="https://github.com/Spendesk/grapes/tree/master/src/components/Timeline">
+      <GrapesLink
+        isExternal
+        href="https://github.com/Spendesk/grapes/tree/master/src/components/Timeline"
+      >
         View source code
-      </ExternalLink>
+      </GrapesLink>
       <ComponentNavigation
         links={[
           { text: "Usage", href: "/docs/components/timeline" },

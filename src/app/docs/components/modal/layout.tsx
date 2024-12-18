@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { ComponentNavigation } from "@/lib/component-navigation/component-navigation";
-import { ExternalLink } from "@/lib/external-link/external-link";
+import { Link as GrapesLink } from "@dev-spendesk/grapes";
 
 export const metadata: Metadata = {
   title: "Modal",
@@ -15,9 +15,12 @@ export default function Layout(props: { children: React.ReactNode }) {
         that appear over the user interface. The content behind a modal dialog
         is inert, meaning that users cannot interact with it.
       </p>
-      <ExternalLink href="https://github.com/Spendesk/grapes/tree/master/src/components/Modal">
+      <GrapesLink
+        isExternal
+        href="https://github.com/Spendesk/grapes/tree/master/src/components/Modal"
+      >
         View source code
-      </ExternalLink>
+      </GrapesLink>
       <ComponentNavigation
         links={[
           { text: "Usage", href: "/docs/components/modal" },

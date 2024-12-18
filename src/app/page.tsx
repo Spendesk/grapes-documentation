@@ -40,7 +40,7 @@ export default function Home() {
             <h3>New version 1.x</h3>
             <Button
               component="a"
-              href="/docs/guide/codemods"
+              href="/docs/guide/migrate-v1"
               text="Upgrade guide"
               variant="secondaryNeutral"
             />

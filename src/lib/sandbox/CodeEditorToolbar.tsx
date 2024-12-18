@@ -80,7 +80,7 @@ export const CodeEditorToolbar = ({ code, setCode }: Props) => {
           }}
         />
         <Button
-          iconName="thunder"
+          iconName="lightning"
           text={isSaving ? "Saving" : "Save"}
           variant="tertiaryNeutral"
           onClick={() => handleSave()}

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { ComponentNavigation } from "@/lib/component-navigation/component-navigation";
-import { ExternalLink } from "@/lib/external-link/external-link";
+import { Link as GrapesLink } from "@dev-spendesk/grapes";
 
 export const metadata: Metadata = {
   title: "ListView",
@@ -15,9 +15,12 @@ export default function Layout(props: { children: React.ReactNode }) {
         interactive items. ListView is an ideal component for use cases such as
         Settings parameters.
       </p>
-      <ExternalLink href="https://github.com/Spendesk/grapes/tree/master/src/components/ListView">
+      <GrapesLink
+        isExternal
+        href="https://github.com/Spendesk/grapes/tree/master/src/components/ListView"
+      >
         View source code
-      </ExternalLink>
+      </GrapesLink>
       <ComponentNavigation
         links={[
           { text: "Usage", href: "/docs/components/list-view" },

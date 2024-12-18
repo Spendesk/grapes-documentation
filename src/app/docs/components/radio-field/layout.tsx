@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { ComponentNavigation } from "@/lib/component-navigation/component-navigation";
-import { ExternalLink } from "@/lib/external-link/external-link";
+import { Link as GrapesLink } from "@dev-spendesk/grapes";
 
 export const metadata: Metadata = {
   title: "RadioField",
@@ -14,9 +14,12 @@ export default function Layout(props: { children: React.ReactNode }) {
         A radio input allows people to select one option from a number of
         choices. The radio field is generally displayed in a radio group.
       </p>
-      <ExternalLink href="https://github.com/Spendesk/grapes/tree/master/src/components/RadioField">
+      <GrapesLink
+        isExternal
+        href="https://github.com/Spendesk/grapes/tree/master/src/components/RadioField"
+      >
         View source code
-      </ExternalLink>
+      </GrapesLink>
       <ComponentNavigation
         links={[
           { text: "Usage", href: "/docs/components/radio-field" },

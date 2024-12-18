@@ -24,7 +24,7 @@ export function WithLowerLevelConstructModal() {
         >
           <ModalHeaderWithIcon
             title="Adopt a smooth transition"
-            iconName="swap"
+            iconName="circle-information"
             iconVariant="info"
             titleId="grapes-id"
           />
@@ -84,7 +84,7 @@ export function ModalFlow() {
             <>
               <ModalHeaderWithIcon
                 title="Modal 1"
-                iconName="food"
+                iconName="triangle-warning"
                 iconVariant="info"
                 titleId="grapes-id"
               />
@@ -95,7 +95,7 @@ export function ModalFlow() {
             <>
               <ModalHeaderWithIcon
                 title="Modal 2"
-                iconName="warning"
+                iconName="triangle-warning"
                 iconVariant="warning"
                 titleId="grapes-id"
               />
@@ -106,7 +106,7 @@ export function ModalFlow() {
             <>
               <ModalHeaderWithIcon
                 title="Modal 3"
-                iconName="success"
+                iconName="circle-check"
                 iconVariant="success"
                 titleId="grapes-id"
               />

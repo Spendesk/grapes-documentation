@@ -33,7 +33,7 @@ export function CopyButton({
       <IconButton
         className={className}
         variant="tertiaryNeutral"
-        iconName={hasBeenCopied ? "success" : "copy"}
+        iconName={hasBeenCopied ? "circle-check" : "square-stack"}
         iconColor={hasBeenCopied ? successColor : defaultColor}
         aria-label={hasBeenCopied ? "Copied" : "Copy"}
         onClick={() => {

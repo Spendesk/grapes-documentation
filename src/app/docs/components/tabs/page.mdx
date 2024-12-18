@@ -5,7 +5,7 @@ import {
   Tab,
   TabPanels,
   TabPanel,
-  Tag,
+  Badge,
 } from "@dev-spendesk/grapes";
 
 import { Preview } from "@/lib/preview/preview";
@@ -120,15 +120,15 @@ The Tab accepts any kind of content, it can be customized as needed.
       <Tab>Information</Tab>
       <Tab>
         Roles
-        <Tag className="ml-8" variant="primary">
+        <Badge className="ml-8" variant="primary">
           3
-        </Tag>
+        </Badge>
       </Tab>
       <Tab>
         <Icon
           className="mr-8"
           color="var(--color-content-warning-default)"
-          name="warning"
+          name="triangle-warning"
         />
         Settings & Policies
       </Tab>
@@ -147,9 +147,9 @@ The Tab accepts any kind of content, it can be customized as needed.
     <Tab>Information</Tab>
     <Tab>
       Roles
-      <Tag className="ml-8" variant="primary">
+      <Badge className="ml-8" variant="primary">
         3
-      </Tag>
+      </Badge>
     </Tab>
     <Tab>
       <Icon
@@ -159,35 +159,6 @@ The Tab accepts any kind of content, it can be customized as needed.
       />
       Settings & Policies
     </Tab>
-  </TabList>
-</Tabs>
-```
-
-## Variant
-
-The Tab comes with three visual styles: primary (default), warning, and alert.
-
-<Preview className="block body-m">
-  <Tabs>
-    <TabList className="mb-16">
-      <Tab variant="primary">Primary</Tab>
-      <Tab variant="warning">Warning</Tab>
-      <Tab variant="alert">Alert</Tab>
-    </TabList>
-    <TabPanels>
-      <TabPanel>First panel</TabPanel>
-      <TabPanel>Second panel</TabPanel>
-      <TabPanel>Third panel</TabPanel>
-    </TabPanels>
-  </Tabs>
-</Preview>
-
-```tsx sandbox
-<Tabs>
-  <TabList className="mb-16">
-    <Tab variant="primary">Primary</Tab>
-    <Tab variant="warning">Warning</Tab>
-    <Tab variant="alert">Alert</Tab>
   </TabList>
 </Tabs>
 ```
