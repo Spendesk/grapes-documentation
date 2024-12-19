@@ -1,4 +1,9 @@
 .docs-code {
+  --color-background-hover: color-mix(
+    in srgb,
+    var(--color-background-complementary) 70%,
+    var(--color-background-primary)
+  );
   --_code-padding: var(--unit-16);
   position: relative;
   margin-block: var(--unit-16);
@@ -14,7 +19,7 @@
   .docs-cta-open {
     position: absolute;
     top: 0;
-    right: 30px;
+    right: var(--unit-40);
   }
 
   .docs-pre {

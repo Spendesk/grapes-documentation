@@ -12,7 +12,7 @@ export const ogCategory: CSSProperties = {
 export const ogTitle: CSSProperties = {
   fontSize: "90px",
   color: "#191b1b",
-  fontFamily: "Inter",
+  fontFamily: "Roobert",
   fontWeight: 600,
   lineHeight: "120px",
   padding: 0,
