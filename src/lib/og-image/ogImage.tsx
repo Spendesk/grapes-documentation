@@ -18,8 +18,8 @@ export default function OgImage({ title, subtitle }: OgImageProps) {
       >
         <path
           d="m 1.1299512,27.910761 c 4.8194,-6.2015 17.2896998,-14.8495 28.6152998,0.1703 -3.0754,4.5088 -13.1039,10.787 -28.6152998,-0.1703 z"
-          fill="#41d9cc"
-          stroke="#040222"
+          fill="#7DD5D5"
+          stroke="#191b1b"
           strokeWidth="2.26"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -27,8 +27,8 @@ export default function OgImage({ title, subtitle }: OgImageProps) {
         />
         <path
           d="m 26.560751,1.1299606 c 7.1183,3.3189 18.3241,13.5526004 6.2005,27.9360004 -5.08,-1.9951 -13.4321,-10.3755 -6.2005,-27.9360004 z"
-          fill="#41d9cc"
-          stroke="#040222"
+          fill="#7DD5D5"
+          stroke="#191b1b"
           strokeWidth="2.26"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -37,7 +37,7 @@ export default function OgImage({ title, subtitle }: OgImageProps) {
         <path
           d="m 36.114051,36.834961 0.0027,0.0043 c 0.5235,0.8327 1.6234,1.0846 2.4565,0.5614 0.8334,-0.5233 1.084,-1.6243 0.5607,-2.4577 l -0.0037,-0.006 -0.0086,-0.0135 -0.029,-0.0453 c -0.0247,-0.0384 -0.06,-0.0928 -0.1059,-0.1623 -0.0917,-0.1392 -0.2259,-0.3391 -0.4023,-0.593 -0.3527,-0.5076 -0.8746,-1.2316 -1.5639,-2.1169 -1.3779,-1.7697 -3.4291,-4.1898 -6.1408,-6.8184 -5.4161,-5.2503 -13.5161,-11.3799 -24.1933,-14.7765 -0.9376998,-0.2983 -1.9397998,0.22 -2.2380998,1.1578 -0.2983,0.9378 0.22,1.9398 1.1578,2.2381 9.9989998,3.1809 17.6385998,8.9426 22.7931998,13.9393 2.5737,2.4949 4.5155,4.7872 5.8094,6.449 0.6466,0.8304 1.1302,1.502 1.4491,1.961 0.1594,0.2294 0.2775,0.4055 0.3541,0.5217 0.0383,0.058 0.0662,0.101 0.0837,0.1282 z"
           fill="#ffffff"
-          stroke="#040222"
+          stroke="#191b1b"
           strokeWidth="2.26"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -46,8 +46,8 @@ export default function OgImage({ title, subtitle }: OgImageProps) {
         <circle
           r="11.878804"
           transform="matrix(-0.93969271,-0.34201989,-0.34201989,0.93969271,0,0)"
-          fill="#5d21d2"
-          stroke="#040222"
+          fill="#7136ed"
+          stroke="#191b1b"
           strokeWidth="2.26"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -58,8 +58,8 @@ export default function OgImage({ title, subtitle }: OgImageProps) {
         <circle
           r="11.878804"
           transform="matrix(-0.93969271,-0.34201989,-0.34201989,0.93969271,0,0)"
-          fill="#5d21d2"
-          stroke="#040222"
+          fill="#7136ed"
+          stroke="#191b1b"
           strokeWidth="2.26"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -70,8 +70,8 @@ export default function OgImage({ title, subtitle }: OgImageProps) {
         <circle
           r="11.878804"
           transform="matrix(-0.93969271,-0.34201989,-0.34201989,0.93969271,0,0)"
-          fill="#5d21d2"
-          stroke="#040222"
+          fill="#7136ed"
+          stroke="#191b1b"
           strokeWidth="2.26"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -82,8 +82,8 @@ export default function OgImage({ title, subtitle }: OgImageProps) {
         <circle
           r="11.878804"
           transform="matrix(-0.93969271,-0.34201989,-0.34201989,0.93969271,0,0)"
-          fill="#5d21d2"
-          stroke="#040222"
+          fill="#7136ed"
+          stroke="#191b1b"
           strokeWidth="2.26"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -94,8 +94,8 @@ export default function OgImage({ title, subtitle }: OgImageProps) {
         <circle
           r="11.878804"
           transform="matrix(-0.93969271,-0.34201989,-0.34201989,0.93969271,0,0)"
-          fill="#5d21d2"
-          stroke="#040222"
+          fill="#7136ed"
+          stroke="#191b1b"
           strokeWidth="2.26"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -106,8 +106,8 @@ export default function OgImage({ title, subtitle }: OgImageProps) {
         <circle
           r="11.878804"
           transform="matrix(-0.93969271,-0.34201989,-0.34201989,0.93969271,0,0)"
-          fill="#5d21d2"
-          stroke="#040222"
+          fill="#7136ed"
+          stroke="#191b1b"
           strokeWidth="2.26"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -118,8 +118,8 @@ export default function OgImage({ title, subtitle }: OgImageProps) {
         <circle
           r="11.878804"
           transform="matrix(-0.93969271,-0.34201989,-0.34201989,0.93969271,0,0)"
-          fill="#5d21d2"
-          stroke="#040222"
+          fill="#7136ed"
+          stroke="#191b1b"
           strokeWidth="2.26"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -130,8 +130,8 @@ export default function OgImage({ title, subtitle }: OgImageProps) {
         <circle
           r="11.878804"
           transform="matrix(-0.93969271,-0.34201989,-0.34201989,0.93969271,0,0)"
-          fill="#5d21d2"
-          stroke="#040222"
+          fill="#7136ed"
+          stroke="#191b1b"
           strokeWidth="2.26"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -142,8 +142,8 @@ export default function OgImage({ title, subtitle }: OgImageProps) {
         <circle
           r="11.878804"
           transform="matrix(-0.93969271,-0.34201989,-0.34201989,0.93969271,0,0)"
-          fill="#5d21d2"
-          stroke="#040222"
+          fill="#7136ed"
+          stroke="#191b1b"
           strokeWidth="2.26"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -154,8 +154,8 @@ export default function OgImage({ title, subtitle }: OgImageProps) {
         <circle
           r="11.878804"
           transform="matrix(-0.93969271,-0.34201989,-0.34201989,0.93969271,0,0)"
-          fill="#5d21d2"
-          stroke="#040222"
+          fill="#7136ed"
+          stroke="#191b1b"
           strokeWidth="2.26"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -165,7 +165,7 @@ export default function OgImage({ title, subtitle }: OgImageProps) {
         />
         <path
           d="m 131.09115,15.328861 c -12.804,0 -21.186,11.352 -21.186,24.024 0,12.672 7.062,23.76 20.328,23.76 6.27,0 10.296,-2.904 12.012,-5.544 h 0.132 l 1.848,4.752 h 5.214 v -23.496 h -16.104 v 7.128 h 7.986 v 4.356 c -1.452,2.64 -5.544,4.884 -10.164,4.884 -8.514,0 -12.804,-7.128 -12.804,-15.972 0,-8.646 4.884,-16.236 12.738,-16.236 5.742,0 9.042,4.026 11.286,9.702 h 0.396 l 5.874,-6.072 c -2.376,-5.214 -7.986,-11.286 -17.556,-11.286 z m 40.438,9.24 c -3.366,0 -6.27,1.914 -7.722,5.676 h -0.198 l -0.594,-4.884 h -6.666 v 36.96 h 7.92 v -19.8 c 0,-6.072 2.046,-9.9 6.336,-9.9 2.244,0 4.29,1.188 5.346,2.442 h 0.396 l 1.386,-7.92 c -1.122,-1.386 -3.498,-2.574 -6.204,-2.574 z m 24.13,0 c -6.6,0 -11.814,3.168 -14.85,7.524 l 4.092,6.534 h 0.396 c 2.31,-3.96 5.94,-6.996 10.296,-6.996 4.422,0 6.402,1.848 6.402,4.356 0,2.31 -1.32,3.498 -10.032,5.28 -8.514,1.848 -11.418,5.874 -11.418,11.616 0,6.204 3.696,10.23 11.022,10.23 5.082,0 8.778,-2.178 10.89,-5.676 h 0.198 l 0.858,4.884 h 6.27 v -24.684 c 0,-8.25 -5.676,-13.068 -14.124,-13.068 z m 6.336,19.47 v 5.214 c 0,3.894 -4.554,6.798 -9.174,6.798 -2.838,0 -4.62,-1.386 -4.62,-3.762 0,-2.178 1.254,-3.828 6.072,-4.95 4.752,-1.122 6.864,-1.914 7.59,-3.3 z m 34.062,-19.47 c -5.544,0 -9.24,2.706 -10.89,5.676 h -0.198 l -0.594,-4.884 h -6.666 v 49.17 h 7.92 v -16.368 h 0.264 c 1.914,2.772 5.544,4.95 10.164,4.95 10.032,0 15.774,-8.184 15.774,-19.14 0,-11.022 -6.6,-19.404 -15.774,-19.404 z m -1.32,7.26 c 6.072,0 9.174,5.412 9.174,12.144 0,6.798 -3.168,11.748 -9.108,11.748 -5.742,0 -9.504,-4.554 -9.504,-11.616 0,-7.26 3.432,-12.276 9.438,-12.276 z m 38.886,-7.26 c -9.504,0 -17.16,7.854 -17.16,19.338 0,11.418 6.732,19.206 17.754,19.206 7.26,0 12.606,-3.696 14.52,-6.468 l -3.564,-7.062 h -0.396 c -1.716,2.706 -5.676,6.138 -10.56,6.138 -5.676,0 -9.504,-4.092 -9.636,-9.504 h 25.872 c 0,0 0.066,-1.584 0.066,-2.706 0,-11.286 -7.326,-18.942 -16.896,-18.942 z m 0,7.26 c 5.148,0 8.316,3.894 8.646,8.118 h -17.49 c 0.594,-3.828 3.564,-8.118 8.844,-8.118 z m 35.702,-7.26 c -8.382,0 -13.134,5.214 -13.134,10.956 0,5.874 3.762,9.108 11.946,11.154 8.382,2.178 9.372,3.234 9.372,5.346 0,2.31 -1.914,3.762 -6.6,3.762 -4.818,0 -9.108,-3.102 -11.814,-6.534 h -0.396 l -3.564,6.798 c 2.706,3.366 8.382,7.062 16.236,7.062 7.92,0 13.926,-4.224 13.926,-10.824 0,-6.798 -4.29,-9.438 -13.002,-11.616 -7.986,-2.046 -8.448,-3.234 -8.448,-5.082 0,-1.98 1.848,-3.96 5.478,-3.96 4.158,0 8.25,2.772 10.89,6.402 h 0.396 l 3.498,-6.6 c -1.914,-2.508 -7.128,-6.864 -14.784,-6.864 z"
-          fill="#040222"
+          fill="#191b1b"
           id="path12"
         />
       </svg>
@@ -179,13 +179,16 @@ export default function OgImage({ title, subtitle }: OgImageProps) {
 }
 
 export async function fetchFonts() {
-  const url = process.cwd() + "/public/Inter-Bold.ttf";
+  const urlInter = process.cwd() + "/public/Inter-Bold.ttf";
+  const urlRoobert = process.cwd() + "/public/RoobertUprights.ttf";
 
   // Set null as encoding to return a Buffer
-  const buffer = await fs.readFile(url, null);
+  const bufferInter = await fs.readFile(urlInter, null);
+  const bufferRoobert = await fs.readFile(urlRoobert, null);
 
   // Transform buffer to ArrayBuffer
-  const ab = new Uint8Array(buffer).buffer;
+  const ab = new Uint8Array(bufferInter).buffer;
+  const rb = new Uint8Array(bufferRoobert).buffer;
 
   return [
     {
@@ -193,6 +196,12 @@ export async function fetchFonts() {
       data: ab,
       style: "normal" as const,
       weight: 500 as const,
+    },
+    {
+      name: "Roobert",
+      data: rb,
+      style: "normal" as const,
+      weight: 600 as const,
     },
   ];
 }
