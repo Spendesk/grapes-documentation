@@ -51,7 +51,7 @@ export default function Home() {
             Provide a <span className="highlight">consistent</span> experience
             to anyone
           </h2>
-          <p className="body-l text-content-primary">
+          <p className="body-l text-primary">
             Users should have this experience across devices and form factors.
             They should also feel that Spendesk honors the conventions of the
             device, feel native to the country and culture within which it is
@@ -91,7 +91,7 @@ export default function Home() {
           <h2>
             Meet the <span className="highlight">team</span>
           </h2>
-          <p className="body-l text-content-primary">
+          <p className="body-l text-primary">
             Amazing people who lead the design system full-time. A question or
             an issue? come chat with our core team on.
           </p>

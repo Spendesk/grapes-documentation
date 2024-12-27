@@ -30,10 +30,10 @@ function BorderRadiusBox({ token }: { token: string }) {
       <div
         ref={ref}
         style={{ borderRadius: `var(${token})` }}
-        className="w-[160px] h-[120px] bg-background-secondary-brand-default"
+        className="w-[160px] h-[120px] bg-secondary-brand-default"
       />
       <div className="title-m mt-8">{token}</div>
-      <div className="text-content-secondary-bg-secondary">{borderRadius}</div>
+      <div className="text-secondary-bg-secondary">{borderRadius}</div>
     </div>
   );
 }
