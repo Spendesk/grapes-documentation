@@ -28,7 +28,7 @@
     "codemirror": "^6.0.1",
     "github-slugger": "^2.0.0",
     "hastscript": "^9.0.0",
-    "libphonenumber-js": "^1.11.16",
+    "libphonenumber-js": "^1.11.17",
     "lz-string": "^1.5.0",
     "next": "15.1.0",
     "react": "19.0.0",
