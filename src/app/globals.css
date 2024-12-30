@@ -38,7 +38,7 @@
   }
 
   body {
-    background-color: var(--color-background-primary);
+    background-color: var(--color-background-primary-default);
   }
   body:has(dialog[open], [role="dialog"]) {
     overflow: hidden;

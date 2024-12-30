@@ -62,7 +62,7 @@ export function DemoAccordion({
             key={accordionItem}
             renderHeader={() => <div>{accordionItem}</div>}
           >
-            <div className="p-24 pt-8 text-content-primary">
+            <div className="p-24 pt-8 text-primary">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec
               lectus sed sem porttitor viverra. Vestibulum magna leo.
             </div>

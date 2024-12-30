@@ -35,7 +35,7 @@ export function OpenInSandboxButton({ code }: Props) {
         iconName="arrow-top-right-square"
         className="docs-cta-open"
         aria-label="Open in Sandbox"
-        iconColor={colors.backgroundPrimary}
+        iconColor={colors.backgroundPrimaryDefault}
         onClick={() => {
           const parsedCode = makeCodeForSandbox(code);
           const compressedCode =

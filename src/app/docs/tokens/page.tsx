@@ -10,10 +10,10 @@ type CardProps = {
 function Card({ icon, href, children }: CardProps) {
   return (
     <Link href={href}>
-      <div className="grid place-content-center p-48 text-content-brand-default">
+      <div className="grid place-content-center p-48 text-brand-default">
         <Icon name={icon} size="l" />
       </div>
-      <p className="p-16 shrink-0 bg-background-primary">{children}</p>
+      <p className="p-16 shrink-0 bg-primary-default">{children}</p>
     </Link>
   );
 }

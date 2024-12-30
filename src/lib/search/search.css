@@ -8,7 +8,7 @@
   margin: 0 auto;
   border: none;
   border-radius: var(--border-radius-8);
-  background: var(--color-background-primary);
+  background: var(--color-background-primary-default);
   font: var(--body-l);
   opacity: 0;
   translate: 0 0;
@@ -64,7 +64,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: var(--color-background-primary);
+    background: var(--color-background-primary-default);
     padding: var(--unit-16) var(--unit-24);
     border-radius: var(--border-radius-8);
     border: 1px solid var(--color-border-default);

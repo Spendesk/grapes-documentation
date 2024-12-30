@@ -1,8 +1,8 @@
 .docs-code {
   --color-background-hover: color-mix(
     in srgb,
-    var(--color-background-complementary) 70%,
-    var(--color-background-primary)
+    var(--color-background-complementary-default) 70%,
+    var(--color-background-primary-default)
   );
   --_code-padding: var(--unit-16);
   position: relative;
@@ -37,7 +37,7 @@
     padding-inline: var(--_code-padding);
     background: color-mix(
       in srgb,
-      var(--color-background-primary) 10%,
+      var(--color-background-primary-default) 10%,
       transparent
     );
   }

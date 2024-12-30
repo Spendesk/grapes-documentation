@@ -43,7 +43,7 @@ export function PropsTable({ components }: Props) {
                       {isAnIconProp ? (
                         <Link
                           className={classNames(
-                            "text-content-primary title-l",
+                            "text-primary title-l",
                             required && styles.required,
                           )}
                           href="/docs/components/icon"
@@ -53,7 +53,7 @@ export function PropsTable({ components }: Props) {
                       ) : (
                         <span
                           className={classNames(
-                            "text-content-primary title-l",
+                            "text-primary title-l",
                             required && styles.required,
                           )}
                         >

@@ -57,7 +57,7 @@ export function TableOfContents() {
 
   return (
     <nav aria-labelledby={titleId} className="pt-24">
-      <h3 id={titleId} className="title-m text-content-brand-default m-8">
+      <h3 id={titleId} className="title-m text-brand-default m-8">
         On this page
       </h3>
       <ul aria-labelledby={titleId} className="list-none">

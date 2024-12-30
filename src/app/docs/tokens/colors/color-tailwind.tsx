@@ -5,12 +5,12 @@ import { CopyCell } from "@/lib/copy-cell/copy-cell";
 
 function getTailwindClassName(color: string): string {
   if (color.startsWith("var(--color-background")) {
-    return color.replace("var(--color", "bg").replace(")", "");
+    return color.replace("var(--color-background", "bg").replace(")", "");
   }
   if (color.startsWith("var(--color-content")) {
-    return color.replace("var(--color", "text").replace(")", "");
+    return color.replace("var(--color-content", "text").replace(")", "");
   }
-  return color.replace("var(--color", "border").replace(")", "");
+  return color.replace("var(--color-border", "border").replace(")", "");
 }
 
 export function ColorTailwind() {

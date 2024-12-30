@@ -4,7 +4,11 @@ import { Tooltip, colors } from "@dev-spendesk/grapes";
 import { Fragment, useEffect, useState } from "react";
 
 type ColorSection = "content" | "border";
-type BackgroundColorSection = "default" | "primary" | "secondary";
+type BackgroundColorSection =
+  | "primary"
+  | "secondary"
+  | "tertiary"
+  | "complementary";
 
 type Color = {
   name: string;
@@ -12,18 +16,13 @@ type Color = {
 };
 
 const backgroundTokens: { [key in BackgroundColorSection]: Color[] } = {
-  default: [
-    { name: "primary", value: colors.backgroundPrimary },
-    { name: "secondary", value: colors.backgroundSecondary },
-    { name: "tertiary", value: colors.backgroundTertiary },
-    { name: "hover", value: colors.backgroundHover },
-    { name: "pressed", value: colors.backgroundPressed },
-    { name: "selected", value: colors.backgroundSelected },
-    { name: "disabled", value: colors.backgroundDisabled },
-    { name: "readonly", value: colors.backgroundReadonly },
-    { name: "complementary", value: colors.backgroundComplementary },
-  ],
   primary: [
+    { name: "primary-default", value: colors.backgroundPrimaryDefault },
+    { name: "primary-hover", value: colors.backgroundPrimaryHover },
+    { name: "primary-pressed", value: colors.backgroundPrimaryPressed },
+    { name: "primary-selected", value: colors.backgroundPrimarySelected },
+    { name: "primary-disabled", value: colors.backgroundPrimaryDisabled },
+    { name: "primary-readonly", value: colors.backgroundPrimaryReadonly },
     {
       name: "primary-brand-default",
       value: colors.backgroundPrimaryBrandDefault,
@@ -86,6 +85,7 @@ const backgroundTokens: { [key in BackgroundColorSection]: Color[] } = {
     },
   ],
   secondary: [
+    { name: "secondary-default", value: colors.backgroundSecondaryDefault },
     {
       name: "secondary-brand-default",
       value: colors.backgroundSecondaryBrandDefault,
@@ -147,6 +147,24 @@ const backgroundTokens: { [key in BackgroundColorSection]: Color[] } = {
       value: colors.backgroundSecondaryAlertPressed,
     },
   ],
+  tertiary: [
+    { name: "tertiary-default", value: colors.backgroundTertiaryDefault },
+  ],
+  complementary: [
+    {
+      name: "complementary-default",
+      value: colors.backgroundComplementaryDefault,
+    },
+    { name: "complementary-hover", value: colors.backgroundComplementaryHover },
+    {
+      name: "complementary-pressed",
+      value: colors.backgroundComplementaryPressed,
+    },
+    {
+      name: "complementary-disabled",
+      value: colors.backgroundComplementaryDisabled,
+    },
+  ],
 };
 
 const tokens: { [key in ColorSection]: Color[] } = {
@@ -194,12 +212,14 @@ function getSectionName(section: ColorSection): string {
 
 function getBackgroundSectionName(section: BackgroundColorSection): string {
   switch (section) {
-    case "default":
-      return "default";
     case "primary":
       return "Primary";
     case "secondary":
       return "Secondary";
+    case "tertiary":
+      return "Tertiary";
+    case "complementary":
+      return "Complementary";
   }
 }
 
@@ -268,8 +288,8 @@ function ColorBox({ color }: { color: Color }) {
         ></button>
       </Tooltip>
       <div>
-        <p className="font-medium text-content-primary mt-4">{color.name}</p>
-        <small className="text-content-primary">{hexa}</small>
+        <p className="font-medium text-primary mt-4">{color.name}</p>
+        <small className="text-primary">{hexa}</small>
       </div>
     </div>
   );

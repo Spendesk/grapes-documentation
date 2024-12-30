@@ -16,7 +16,7 @@ export function CopyButton({
   const [hasBeenCopied, setHasBeenCopied] = useState(false);
   const defaultColor =
     colorScheme === "light"
-      ? colors.backgroundPrimary
+      ? colors.backgroundPrimaryDefault
       : colors.contentSecondaryBgPrimary;
   const successColor =
     colorScheme === "light"
