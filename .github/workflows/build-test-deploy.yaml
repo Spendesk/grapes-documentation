@@ -13,11 +13,16 @@ env:
 
 jobs:
   main:
-    runs-on: spendesk-2-8
+    runs-on:
+      - runs-on=${{ github.run_id }}
+      - runner=spendesk-2-8
     timeout-minutes: 30
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Setup Runs-On Cache
+        uses: runs-on/action@v1
 
       - name: Get Nodejs
         uses: actions/setup-node@v4
@@ -38,11 +43,16 @@ jobs:
         run: npm run typecheck
 
   build:
-    runs-on: spendesk-2-8
+    runs-on:
+      - runs-on=${{ github.run_id }}
+      - runner=spendesk-2-8
     timeout-minutes: 30
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Setup Runs-On Cache
+        uses: runs-on/action@v1
 
       - name: Get Nodejs
         uses: actions/setup-node@v4
@@ -62,7 +72,9 @@ jobs:
   release:
     if: ${{ contains('refs/heads/main', github.ref) }}
     needs: [main, build]
-    runs-on: spendesk-2-8
+    runs-on:
+      - runs-on=${{ github.run_id }}
+      - runner=spendesk-2-8
     concurrency:
       group: release
       cancel-in-progress: true
@@ -73,6 +85,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Setup Runs-On Cache
+        uses: runs-on/action@v1
 
       - name: Get Nodejs
         uses: actions/setup-node@v4
