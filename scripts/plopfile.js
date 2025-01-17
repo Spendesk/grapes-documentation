@@ -37,6 +37,7 @@ module.exports = (plop) => {
           base: "../plop-templates/component",
           destination: `../src/app/docs/components/${folderName}`,
           data: {
+            folderName,
             componentName,
             componentGithubLink,
             componentPropsList,
@@ -54,7 +55,8 @@ module.exports = (plop) => {
             componentPropsList,
             accessibilityTab,
           },
-          skip: () => accessibilityTab ? undefined : "Accessibility file not necessary"
+          skip: () =>
+            accessibilityTab ? undefined : "Accessibility file not necessary",
         },
       ];
 

@@ -1,41 +1,38 @@
-"use client";
+import type { Metadata } from "next";
+import { ComponentNavigation } from "@/lib/component-navigation/component-navigation";
+import { Link as GrapesLink } from "@dev-spendesk/grapes";
 
-import { useQueryParamsTab } from "@/lib/useQueryParamsTab/useQueryParamsTab";
-import { Tab, TabList, TabPanel, TabPanels, Tabs } from "@dev-spendesk/grapes";
+export const metadata: Metadata = {
+  title: "{{componentName}}",
+};
 
-const TABS = ["usage", "props"{{#if accessibilityTab}}, "accessibility"{{/if}}];
-export default function Layout(props: {
-  children: React.ReactNode;
-  props: React.ReactNode;
-  usage: React.ReactNode;
-  {{#if accessibilityTab}}
-  accessibility: React.ReactNode;
-  {{/if}}
-}) {
-  const [defaultTabIndex, setQueryParams] = useQueryParamsTab(
-    TABS,
-    "usage"
-  );
-
+export default function Layout(props: { children: React.ReactNode }) {
   return (
     <>
+      <h1>{{componentName}}</h1>
+      <p>
+        Short description here
+      </p>
+      <GrapesLink
+        isExternal
+        href="{{componentGithubLink}}"
+      >
+        View source code
+      </GrapesLink>
+      <ComponentNavigation
+        links={[
+          { text: "Usage", href: "/docs/components/{{ folderName }}" },
+          { text: "Props", href: "/docs/components/{{ folderName }}/props" },
+          {{#if accessibilityTab}} 
+          {
+            text: "Accessibility",
+            href: "/docs/components/{{ folderName }}/accessibility",
+          },
+          {{/if}}
+        ]}
+      />
       {props.children}
-      <Tabs onChange={setQueryParams} defaultTabIndex={defaultTabIndex}>
-        <TabList className="docs-tabs">
-          <Tab>Usage</Tab>
-          <Tab>Props</Tab>
-          {{#if accessibilityTab}}
-          <Tab>Accessibility</Tab>
-          {{/if}}
-        </TabList>
-        <TabPanels>
-          <TabPanel>{props.usage}</TabPanel>
-          <TabPanel>{props.props}</TabPanel>
-          {{#if accessibilityTab}}
-          <TabPanel>{props.accessibility}</TabPanel>
-          {{/if}}
-        </TabPanels>
-      </Tabs>
     </>
   );
 }
+
