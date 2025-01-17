@@ -305,6 +305,10 @@ export const componentRoutes: RouteConfig[] = [
         url: "/docs/components/panel",
       },
       {
+        label: "SidePanel",
+        url: "/docs/components/side-panel",
+      },
+      {
         label: "DeprecatedPreview",
         url: "/docs/components/deprecated-preview",
       },
