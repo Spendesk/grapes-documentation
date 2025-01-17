@@ -269,6 +269,10 @@ export const componentRoutes: RouteConfig[] = [
         url: "/docs/components/avatar",
       },
       {
+        label: "Box",
+        url: "/docs/components/box",
+      },
+      {
         label: "Calendar",
         url: "/docs/components/calendar",
       },
