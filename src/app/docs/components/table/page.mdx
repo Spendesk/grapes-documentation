@@ -1,5 +1,5 @@
 import { Preview } from "@/lib/preview/preview";
-import { DemoTable } from "./demo";
+import { DemoTable, DemoTableMini } from "./demo";
 
 ## Basic usage
 
@@ -283,5 +283,52 @@ The `getCellVariant` prop allows you to specify a variant for each cell when nec
     },
   ]}
   {...otherProps}
+/>
+```
+
+## Table.Mini
+
+Table.Mini is a variant of the Table with a compact view and less features. It should only be used to display row data.
+
+Table.Mini doesn't support:
+* Cell and Row variant
+* Sort
+* Empty state
+* Selectable
+
+<Preview>
+  <DemoTableMini />
+</Preview>
+
+```tsx sandbox
+<Table.Mini
+  columns={[
+    {
+      id: "label",
+      renderCell: (cell) => cell.label,
+    },
+    {
+      id: "value",
+      renderCell: (cell) => cell.value,
+    },
+  ]}
+  data={[
+    {
+      id: 0,
+      label: "Address",
+      value: "51 rue de Londres",
+    },
+    {
+      id: 1,
+      label: "Postal code",
+      value: "75008",
+    },
+    {
+      id: 2,
+      label: "City",
+      value: "Paris",
+    },
+  ]}
+  getRowId={(row) => String(row.id)}
 />
 ```
