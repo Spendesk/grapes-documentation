@@ -269,6 +269,10 @@ export const componentRoutes: RouteConfig[] = [
         url: "/docs/components/avatar",
       },
       {
+        label: "Box",
+        url: "/docs/components/box",
+      },
+      {
         label: "Calendar",
         url: "/docs/components/calendar",
       },
@@ -299,6 +303,10 @@ export const componentRoutes: RouteConfig[] = [
       {
         label: "Panel",
         url: "/docs/components/panel",
+      },
+      {
+        label: "SidePanel",
+        url: "/docs/components/side-panel",
       },
       {
         label: "DeprecatedPreview",

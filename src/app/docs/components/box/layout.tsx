@@ -3,36 +3,27 @@ import { ComponentNavigation } from "@/lib/component-navigation/component-naviga
 import { Link as GrapesLink } from "@dev-spendesk/grapes";
 
 export const metadata: Metadata = {
-  title: "{{componentName}}",
+  title: "Box",
 };
 
 export default function Layout(props: { children: React.ReactNode }) {
   return (
     <>
-      <h1>{{componentName}}</h1>
-      <p>
-        Short description here
-      </p>
+      <h1>Box</h1>
+      <p>A Box is a container that groups related content.</p>
       <GrapesLink
         isExternal
-        href="{{componentGithubLink}}"
+        href="https://github.com/Spendesk/grapes/tree/master/src/components/Box"
       >
         View source code
       </GrapesLink>
       <ComponentNavigation
         links={[
-          { text: "Usage", href: "/docs/components/{{ folderName }}" },
-          { text: "Props", href: "/docs/components/{{ folderName }}/props" },
-          {{#if accessibilityTab}} 
-          {
-            text: "Accessibility",
-            href: "/docs/components/{{ folderName }}/accessibility",
-          },
-          {{/if}}
+          { text: "Usage", href: "/docs/components/box" },
+          { text: "Props", href: "/docs/components/box/props" },
         ]}
       />
       {props.children}
     </>
   );
 }
-

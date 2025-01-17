@@ -1,0 +1,149 @@
+import { SidePanel } from "@dev-spendesk/grapes";
+
+import { Preview } from "@/lib/preview/preview";
+
+import {
+  DemoSidePanel,
+  DemoSidePanelFooter,
+  DemoSidePanelFooterSummary,
+} from "./demo";
+
+## Basic usage
+
+The SidePanel component is highly customizable with the `title`, `header`, `footer`, and `footerSummary` props, which are used to add content at the top and bottom of the SidePanel.
+
+The `PanelSection` component lets you define sections inside the SidePanel, which will automatically be separated by dividers. The `isEditable` and `isCollapsible` props allow you to define your sections as editable or collapsible, and a number of props will help you customize editable sections.
+
+<Preview>
+  <DemoSidePanel />
+</Preview>
+
+```tsx sandbox
+const Demo = () => {
+  const [legalName, setLegalName] = useState("google");
+  const [tmpLegalName, setTmpLegalName] = useState("");
+
+  return (
+    <SidePanel
+      title="Supplier details"
+      onClose={() => {}}
+      header={
+        <>
+          <Avatar src="/supplier.svg" text="supplier" variant="square" />
+          <div>
+            <div>Google</div>
+            <div>401000</div>
+          </div>
+        </>
+      }
+      footer={
+        <Button
+          variant="secondaryNeutral"
+          fit="parent"
+          text="Archive supplier"
+        />
+      }
+      footerSummary={{
+        title: "Summary",
+        isCollapsible: true,
+        content: (
+          <>
+            <div>Total amount</div>
+            <div>500€</div>
+          </>
+        ),
+      }}
+    >
+      <PanelSection
+        title="Information"
+        isEditable
+        editSection={
+          <FormField label="Legal name">
+            <TextInput
+              onChange={(event) => setTmpLegalName(event.target.value)}
+              value={tmpLegalName}
+            />
+          </FormField>
+        }
+        cancelTranslation="Cancel"
+        saveTranslation="Save changes"
+        onSave={() => {
+          setLegalName(tmpLegalName);
+        }}
+        onCancel={() => {
+          console.log("onCancel");
+        }}
+      >
+        <div>Legal name</div>
+        <div>{legalName}</div>
+      </PanelSection>
+      <PanelSection title="Bank details" isEditable={false} isCollapsible>
+        <div>Bank country</div>
+        <div>France</div>
+        <div>IBAN</div>
+        <div>-</div>
+        <div>BIC</div>
+        <div>-</div>
+      </PanelSection>
+      <PanelSection title="Proof of bank details" isEditable={false}>
+        <DeprecatedPreview
+          fit="parent"
+          iconName="receipt-checked"
+          primaryText="Uploaded on November 4, 2020"
+          rightAddon={
+            <Icon
+              aria-hidden="true"
+              color="var(--color-content-decorative-icon)"
+              name="magnifying-glass"
+            />
+          }
+        />
+      </PanelSection>
+    </SidePanel>
+  );
+};
+```
+
+## Footer and footer summary
+
+Two props are available to display information at the bottom of a SidePanel: `footer` and `footerSummary`. You can use one or the other, or both at the same time.
+
+### Footer
+
+<Preview>
+  <DemoSidePanelFooter />
+</Preview>
+```tsx sandbox
+<SidePanel
+  title="Supplier details"
+  onClose={() => setOpen(false)}
+  footer={
+    <Button variant="secondaryNeutral" fit="parent" text="Archive supplier" />
+  }
+>
+  <p className="body-m text-secondary-bg-primary">Content</p>
+</SidePanel>
+```
+
+### Footer Summary
+
+The `footerSummary` has a number of options, including `title` and `content`, and can be collapsed with the `isCollapsible` property. If the footer summary is collapsed, the options `isDefaultCollapsed`, `onCollapsed`, and `onExtended` become available.
+
+<Preview>
+  <DemoSidePanelFooterSummary />
+</Preview>
+```tsx sandbox
+<SidePanel
+  footerSummary={{
+    title: "Collapsible footer summary",
+    content: (
+      <div className="mt-16 body-m text-secondary-bg-secondary">
+        Footer summary content
+      </div>
+    ),
+    isCollapsible: true,
+  }}
+>
+  <p className="body-m text-secondary-bg-primary">Content</p>
+</SidePanel>
+```

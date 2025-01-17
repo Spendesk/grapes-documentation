@@ -165,6 +165,41 @@ type Props = {
   withMaxHeight?: boolean;
 };
 
+export function DemoTableMini() {
+  return (
+    <Table.Mini
+      columns={[
+        {
+          id: "label",
+          renderCell: (cell) => cell.label,
+        },
+        {
+          id: "value",
+          renderCell: (cell) => cell.value,
+        },
+      ]}
+      data={[
+        {
+          id: 0,
+          label: "Address",
+          value: "51 rue de Londres",
+        },
+        {
+          id: 1,
+          label: "Postal code",
+          value: "75008",
+        },
+        {
+          id: 2,
+          label: "City",
+          value: "Paris",
+        },
+      ]}
+      getRowId={(row) => String(row.id)}
+    />
+  );
+}
+
 export function DemoTable({
   isTableEmpty,
   isCompact,
