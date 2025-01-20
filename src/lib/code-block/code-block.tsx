@@ -33,7 +33,9 @@ export async function CodeBlock({
           addClassToHast(node, "docs-pre");
         },
       },
-      transformerNotationHighlight(),
+      transformerNotationHighlight({
+        matchAlgorithm: "v3",
+      }),
     ],
   });
 
