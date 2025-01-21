@@ -1,0 +1,89 @@
+import { ActionBar } from "@dev-spendesk/grapes";
+import { Preview } from "@/lib/preview/preview";
+
+import { DemoFloatingActionBar } from "./demo";
+
+## Usage
+
+A FloatingActionButton should be used when a user wants to perform an action that applies to multiple items, such as in a Table or a ListBox component.
+
+<Preview>
+  <DemoFloatingActionBar />
+</Preview>
+```tsx
+{selectedRowIds.length > 0 && (
+  <FloatingActionBar
+    actions={[
+      {
+        text: "Archive",
+        onClick: handleArchive,
+        iconName: "archive",
+      },
+      {
+        text: "Download",
+        onClick: handleDownload,
+        iconName: "arrow-down-tray",
+      },
+    ]}
+  >
+    {`${selectedRowIds.length} selected`}
+  </FloatingActionBar>
+)}
+<Table
+  data={data}
+  columns={columns}
+  getRowId={(row: DataRow) => String(row.id)}
+  selectedRowIds={selectedRowIds}
+  onRowSelectionChange={handleRowSelection}
+  onAllRowsSelectionChange={handleAllRowsSelection}
+/>
+```
+
+## ActionBar
+
+If you don't require the floating behavior of the FloatingActionButton, you can use the ActionBar component instead. The ActionBar component has the same props as the FloatingActionButton.
+
+<Preview>
+  <ActionBar
+    actions={[
+      {
+        text: "Archive",
+        iconName: "archive",
+      },
+      {
+        text: "Edit",
+        iconName: "pen",
+      },
+      {
+        text: "Download",
+        iconName: "arrow-down-tray",
+      },
+    ]}
+  >
+    3 selected
+  </ActionBar>
+</Preview>
+
+```tsx sandbox
+<ActionBar
+  actions={[
+    {
+      text: "Archive",
+      onClick: () => "Archive",
+      iconName: "archive",
+    },
+    {
+      text: "Edit",
+      onClick: () => "Edit",
+      iconName: "pen",
+    },
+    {
+      text: "Download",
+      onClick: () => "Download",
+      iconName: "arrow-down-tray",
+    },
+  ]}
+>
+  3 selected
+</ActionBar>
+```

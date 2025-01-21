@@ -97,6 +97,10 @@ export const componentRoutes: RouteConfig[] = [
         url: "/docs/components/icon-button",
       },
       {
+        label: "FloatingActionBar",
+        url: "/docs/components/floating-action-bar",
+      },
+      {
         label: "Link",
         url: "/docs/components/link",
       },
