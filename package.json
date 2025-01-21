@@ -22,7 +22,7 @@
     "@mdx-js/loader": "^3.1.0",
     "@mdx-js/react": "^3.1.0",
     "@next/mdx": "15.1.4",
-    "@react-docgen/cli": "^2.0.4",
+    "@react-docgen/cli": "^2.0.5",
     "@shikijs/transformers": "^2.0.3",
     "@types/mdx": "^2.0.13",
     "codemirror": "^6.0.1",
