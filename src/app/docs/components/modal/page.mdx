@@ -4,6 +4,7 @@ import { WithIllustration } from "./with-illustration";
 import {
   WithLowerLevelConstructModal,
   ModalFlow,
+  ModalWithoutTitle,
 } from "./with-lower-level-construct";
 
 ## Basic usage
@@ -237,6 +238,40 @@ const Demo = () => {
               iconName={state === STATE.lastModal ? undefined : "arrow-right"}
               onClick={() => setState("next")}
             />
+          </ModalFooter>
+        </ModalContent>
+      </ModalOverlay>
+    </>
+  );
+};
+```
+
+### Building a Modal without title
+
+In some case, you may want to build a modal without a title, icon nor an illustration. To create such modal, **you need to use lower-level constructs**.
+
+:::info{title="Accessibility concern"}
+It is recommended to include the aria-label prop in the ModalContent component to ensure the Modal has an accessible title
+:::
+
+<Preview>
+  <ModalWithoutTitle />
+</Preview>
+
+```tsx sandbox
+const Demo = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <>
+      <Button text="Open the modal" onClick={() => setIsOpen(true)} />
+      <ModalOverlay isOpen={isOpen}>
+        <ModalContent aria-label="Modal without title">
+          <ModalBody>
+            <div className="h-[500px] bg-primary-brand-default"></div>
+          </ModalBody>
+          <ModalFooter>
+            <Button onClick={() => setIsOpen(false)} text="Close" />
           </ModalFooter>
         </ModalContent>
       </ModalOverlay>

@@ -137,3 +137,23 @@ export function ModalFlow() {
     </>
   );
 }
+
+export function ModalWithoutTitle() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <>
+      <Button text="Open the modal" onClick={() => setIsOpen(true)} />
+      <ModalOverlay isOpen={isOpen}>
+        <ModalContent aria-label="Modal without title">
+          <ModalBody>
+            <div className="h-[500px] bg-primary-brand-default"></div>
+          </ModalBody>
+          <ModalFooter>
+            <Button onClick={() => setIsOpen(false)} text="Close" />
+          </ModalFooter>
+        </ModalContent>
+      </ModalOverlay>
+    </>
+  );
+}
