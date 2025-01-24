@@ -2,9 +2,14 @@
 
 import { useState } from "react";
 import {
+  Avatar,
   Button,
+  DATE_FORMAT,
+  HighlightIcon,
+  IconName,
   Table,
   TableColumn,
+  useDateFormatter,
   type TableProps,
 } from "@dev-spendesk/grapes";
 
@@ -280,6 +285,83 @@ export function DemoTable({
         subtitle: "Try looking in another example",
       }}
       {...optionalProps}
+    />
+  );
+}
+
+export function DemoGroupedTable() {
+  const nf = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "EUR",
+  });
+  const dateFormatter = useDateFormatter();
+
+  return (
+    <Table
+      columns={[
+        {
+          id: "date",
+          renderCell: (cell) =>
+            dateFormatter(new Date(cell.date), DATE_FORMAT.MEDIUM),
+          header: "Date",
+        },
+        {
+          id: "description",
+          renderCell: (cell) => cell.description,
+          header: "Description",
+        },
+        {
+          id: "amount",
+          renderCell: (cell) => nf.format(cell.amount),
+          header: "Amount",
+        },
+      ]}
+      data={[
+        {
+          id: 0,
+          avatar: "/jean.webp",
+          description: "Supplies for workshop",
+          amount: 50.5,
+          employeeName: "Lewis Barker",
+          employeeId: 1,
+          date: "2025-01-15",
+        },
+        {
+          id: 1,
+          avatar: "/jean.webp",
+          description: "Team lunch for 11 persons",
+          amount: 150.51,
+          employeeName: "Lewis Barker",
+          date: "2024-12-15",
+          employeeId: 1,
+        },
+        {
+          id: 2,
+          avatar: "/laurent.webp",
+          description: "Laptop charger",
+          amount: 90.5,
+          employeeName: "Nicolas Harvey",
+          employeeId: 2,
+          date: "2024-01-03",
+        },
+      ]}
+      getRowId={(row) => String(row.id)}
+      groupBy={(row) => `${row.employeeId}`}
+      renderGroupedRowHeader={(_, aggregatedRow) => {
+        const { avatar, employeeName } = aggregatedRow[0];
+        const sum = aggregatedRow.reduce((acc, row) => acc + row.amount, 0);
+        return (
+          <div className="flex items-center gap-8 py-8">
+            <Avatar src={avatar} text={employeeName} />
+            <p className="grow body-m text-primary">{employeeName}</p>
+            <p>{`${aggregatedRow.length} requests`}</p>
+            <Button
+              variant="secondaryNeutral"
+              text={`Approve ${nf.format(sum)}`}
+            />
+          </div>
+        );
+      }}
     />
   );
 }
