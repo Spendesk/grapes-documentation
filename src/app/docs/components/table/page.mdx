@@ -355,14 +355,14 @@ return (
   ]}
   getRowId={(row) => String(row.id)}
   groupBy={(row) => `${row.employeeId}`}
-  renderGroupedRowHeader={(_, aggregatedRow) => {
-    const { avatar, employeeName } = aggregatedRow[0];
-    const sum = aggregatedRow.reduce((acc, row) => acc + row.amount, 0);
+  renderGroupedRowHeader={(_, aggregatedRows) => {
+    const { avatar, employeeName } = aggregatedRows[0];
+    const sum = aggregatedRows.reduce((acc, row) => acc + row.amount, 0);
     return (
       <div className="flex items-center gap-8 py-8">
         <Avatar src={avatar} text={employeeName} />
         <p className="grow body-m text-primary">{employeeName}</p>
-        <p>{`${aggregatedRow.length} requests`}</p>
+        <p>{`${aggregatedRows.length} requests`}</p>
         <Button variant="secondaryNeutral" text={`Approve ${nf.format(sum)}`} />
       </div>
     );
