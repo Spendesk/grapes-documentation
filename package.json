@@ -14,7 +14,7 @@
     "create:component": "plop component --plopfile scripts/plopfile.js"
   },
   "dependencies": {
-    "@babel/runtime": "^7.26.0",
+    "@babel/runtime": "^7.26.7",
     "@codemirror/commands": "^6.8.0",
     "@codemirror/lang-javascript": "^6.2.2",
     "@codemirror/view": "^6.36.2",
