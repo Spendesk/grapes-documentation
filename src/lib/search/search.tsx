@@ -1,7 +1,14 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { Icon, IconButton, Tag, TextInput, colors } from "@dev-spendesk/grapes";
+import {
+  Button,
+  Icon,
+  IconButton,
+  Tag,
+  TextInput,
+  colors,
+} from "@dev-spendesk/grapes";
 import { type Route, routes } from "@/app/routes";
 import { useEffect, useRef, useState } from "react";
 import { Option } from "./option";
@@ -15,7 +22,6 @@ function extractToken(pattern: string): string[] {
 
 export function Search() {
   const modalRef = useRef<HTMLDialogElement | null>(null);
-  const inputRef = useRef<HTMLInputElement | null>(null);
   const listboxRef = useRef<HTMLUListElement | null>(null);
   const [value, setValue] = useState("");
   const router = useRouter();
@@ -100,24 +106,11 @@ export function Search() {
 
   return (
     <>
-      <TextInput
-        ref={inputRef}
-        placeholder="Search the docs"
-        leftAddon={
-          <Icon
-            name="magnifying-glass"
-            color={colors.contentSecondaryBgPrimary}
-            className="ml-8"
-            aria-hidden="true"
-          />
-        }
-        rightAddon={
-          <Tag className="mx-8" variant="neutral">
-            ⌘K
-          </Tag>
-        }
-        onFocus={() => {
-          inputRef.current?.blur();
+      <Button
+        variant="secondaryNeutral"
+        iconName="magnifying-glass"
+        text="⌘K"
+        onClick={() => {
           modalRef.current?.showModal();
         }}
       />

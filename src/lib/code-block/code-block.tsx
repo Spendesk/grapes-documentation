@@ -1,5 +1,8 @@
 import { codeToHtml, addClassToHast } from "shiki";
-import { transformerNotationHighlight } from "@shikijs/transformers";
+import {
+  transformerNotationHighlight,
+  transformerNotationDiff,
+} from "@shikijs/transformers";
 import { CopyButton } from "@/lib/copy-button/copy-button";
 import { OpenInSandboxButton } from "@/lib/open-in-sandbox-button/open-in-sandbox-button";
 
@@ -36,6 +39,7 @@ export async function CodeBlock({
       transformerNotationHighlight({
         matchAlgorithm: "v3",
       }),
+      transformerNotationDiff({ matchAlgorithm: "v3" }),
     ],
   });
 

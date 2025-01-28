@@ -1,7 +1,5 @@
-import { IconName } from "@dev-spendesk/grapes";
-
 type HeaderRoute = {
-  id: "guide" | "theme" | "components" | "sandbox";
+  id: "guide" | "theme" | "components" | "blog" | "sandbox";
   category: string;
   url: string;
 };
@@ -31,6 +29,11 @@ export const headerRoutes: HeaderRoute[] = [
     id: "components",
     category: "Components",
     url: "/docs/components",
+  },
+  {
+    id: "blog",
+    category: "Blog",
+    url: "/blog",
   },
   {
     id: "sandbox",
@@ -410,5 +413,6 @@ export const routes = {
   guide: gettingStartedRoutes,
   components: componentRoutes,
   theme: designTokensRoutes,
+  blog: [],
   sandbox: [],
 };
