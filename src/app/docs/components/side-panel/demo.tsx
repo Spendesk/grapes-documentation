@@ -4,11 +4,10 @@ import {
   Avatar,
   Button,
   FormField,
-  Icon,
   SidePanel,
   PanelSection,
-  DeprecatedPreview,
   TextInput,
+  FileCard,
 } from "@dev-spendesk/grapes";
 import { useState } from "react";
 import { createPortal } from "react-dom";
@@ -90,17 +89,11 @@ export function DemoSidePanel() {
               </div>
             </PanelSection>
             <PanelSection title="Proof of bank details" isEditable={false}>
-              <DeprecatedPreview
-                fit="parent"
-                iconName="receipt-checked"
-                primaryText="Uploaded on November 4, 2020"
-                rightAddon={
-                  <Icon
-                    aria-hidden="true"
-                    color="var(--color-content-decorative-icon)"
-                    name="magnifying-glass"
-                  />
-                }
+              <FileCard
+                title="Filename.pdf"
+                description="Uploaded on November 4, 2020"
+                mimeType="application/pdf"
+                onClick={() => {}}
               />
             </PanelSection>
           </SidePanel>,
