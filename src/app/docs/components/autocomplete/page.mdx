@@ -152,7 +152,7 @@ Use the `renderOption` prop to customize how options are rendered.
     <DropdownItem
       {...state}
       label={option.label}
-      prefix={<Avatar size="s" text={option.label} variant="square" />}
+      prefix={<Avatar size={24} text={option.label} variant="square" />}
     />
   )}
   {...otherProps}
@@ -169,7 +169,7 @@ Use the `renderPrefix` prop to customize the input.
 
 ```tsx
 <Autocomplete
-  renderPrefix={() => <Avatar size="s" text="Supplier" variant="square" />}
+  renderPrefix={() => <Avatar size={24} text="Supplier" variant="square" />}
   {...otherProps}
 />
 ```
