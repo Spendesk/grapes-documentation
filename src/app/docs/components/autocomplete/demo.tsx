@@ -52,7 +52,7 @@ export const Demo = ({
         <DropdownItem
           {...state}
           label={option.label}
-          prefix={<Avatar size="s" text={option.label} variant="square" />}
+          prefix={<Avatar size={24} text={option.label} variant="square" />}
         />
       )
     : undefined;
@@ -60,7 +60,11 @@ export const Demo = ({
   const renderPrefix =
     withCustomPrefix && selectedOption !== undefined
       ? () => (
-          <Avatar size="s" text={selectedOption.label ?? ""} variant="square" />
+          <Avatar
+            size={24}
+            text={selectedOption.label ?? ""}
+            variant="square"
+          />
         )
       : undefined;
 

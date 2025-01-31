@@ -1,5 +1,5 @@
 import { Preview } from "@/lib/preview/preview";
-import { DemoAccordion } from "./demo";
+import { DemoAccordion, DemoOpen, DemoControlledAccordion } from "./demo";
 
 ## Basic usage
 
@@ -35,60 +35,73 @@ const Demo = () => {
 };
 ```
 
-## Multiple open items
+## Default expanded item
 
-The `withMultipleOpenItems` props allows the user to expand multiple accordion items together.
+The `open` prop lets you select which item should be expanded.
 
-<Preview className="body-m">
-  <DemoAccordion withMultipleOpenItems />
-</Preview>
-
-```tsx
-<Accordion allowMultipleOpenItems>...</Accordion>
-```
-
-## Default expanded items
-
-The `defaultAccordionItemIndexes` lets you select which items should be expanded initially.
+Only one item can be expanded at the same time.
+If multiple `AccordionItem` have the prop `open` set to `true`, the last one will be open.
 
 <Preview className="body-m">
-  <DemoAccordion withDefaultOpenItems />
+  <DemoOpen />
 </Preview>
 
-```tsx
-<Accordion defaultAccordionItemIndexes={new Set([0, 2])}>...</Accordion>
+```tsx sandbox
+<Accordion className="w-full text-primary">
+  <AccordionItem
+    open // [!code highlight]
+    renderHeader={() => "Invite team members"}
+  >
+    <div className="p-24 pt-8">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec lectus
+      sed sem porttitor viverra. Vestibulum magna leo.
+    </div>
+  </AccordionItem>
+  <AccordionItem renderHeader={() => "Make a first payment"}>
+    <div className="p-24 pt-8">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec lectus
+      sed sem porttitor viverra. Vestibulum magna leo.
+    </div>
+  </AccordionItem>
+</Accordion>
 ```
 
 ## Open / Close accordion
 
-The `AccordionHandle` lets you open and close the accordion items programmatically.
+To control an `AccordionItem`, use the `useState` hook and set the `open` prop to the desired state.
 
 <Preview className="body-m">
-  <DemoAccordion withOpenClose />
+  <DemoControlledAccordion />
 </Preview>
 
-```tsx
-const accordionRef = useRef<AccordionHandle | null>(null);
+```tsx sandbox
+function Demo() {
+  const [indexOpen, setIndexOpen] = useState("close"); // [!code highlight]
 
-return (
-  <>
-    <Button
-      variant="primaryBrand"
-      text="Open accordion"
-      onClick={() => {
-        accordionRef.current?.openAccordion(new Set([0, 1, 2]));
-      }}
-    />
-    <Button
-      variant="primaryBrand"
-      text="Close accordion"
-      onClick={() => {
-        accordionRef.current?.closeAccordion();
-      }}
-    />
-    <Accordion ref={accordionRef} {...otherProps}>
-      ...
-    </Accordion>
-  </>
-);
+  return (
+    <>
+      <Button
+        variant="primaryBrand"
+        text="Open accordion"
+        onClick={() => setIndexOpen("open")}
+      />
+      <Button
+        variant="primaryBrand"
+        text="Close accordion"
+        onClick={() => setIndexOpen("close")}
+      />
+      <Accordion className="w-full overflow-hidden">
+        <AccordionItem
+          open={"open" === indexOpen} // [!code highlight]
+          renderHeader={() => "Invite team members"}
+        >
+          <div className="p-24 pt-8 text-primary">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec
+            lectus sed sem porttitor viverra. Vestibulum magna leo.
+          </div>
+        </AccordionItem>
+      </Accordion>
+    </>
+  );
+}
 ```

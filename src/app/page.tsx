@@ -98,17 +98,17 @@ export default function Home() {
 
           <ul className="team">
             <li>
-              <Avatar src="/marie-aline.webp" text="Marie-Aline" size="xl" />
+              <Avatar src="/marie-aline.webp" text="Marie-Aline" size={56} />
               <p>Marie-Aline</p>
               <small>Product Designer</small>
             </li>
             <li>
-              <Avatar src="/pauline.webp" text="Pauline" size="xl" />
+              <Avatar src="/pauline.webp" text="Pauline" size={56} />
               <p>Pauline</p>
               <small>Frontend Engineer</small>
             </li>
             <li>
-              <Avatar src="/thibault.webp" text="Thibault" size="xl" />
+              <Avatar src="/thibault.webp" text="Thibault" size={56} />
               <p>Thibault</p>
               <small>Fullstack Engineer</small>
             </li>

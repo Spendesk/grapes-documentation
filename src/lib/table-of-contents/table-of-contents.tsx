@@ -29,7 +29,9 @@ export function TableOfContents() {
 
     function setHeading() {
       setHeadings(
-        Array.from(document.querySelectorAll(`main :is(h2, h3)`))
+        Array.from(
+          document.querySelectorAll(`main :is(h2, h3):not([id^=grapes])`),
+        )
           .filter((heading) => heading.clientWidth > 0)
           .map((heading) => ({
             id: heading.id,
