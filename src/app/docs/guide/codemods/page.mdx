@@ -23,6 +23,16 @@ Replacing `<transform>` and `<path>` with appropriate values.
 
 ## Transformations
 
+### 1.29.0
+
+**Migrate Avatar and HighlightIcon**
+
+This codemod changes the size prop of the `Avatar` and `HighlightIcon` components from a t-shirt size scale (e.g. 'xs', 's', 'm') to a numerical scale (e.g. 16, 24, 32).
+
+```bash
+npx @dev-spendesk/grapes-codemod size-unit "./src/**/*.{ts,js,tsx,jsx}"
+```
+
 ### 0.268.0
 
 **Migrate MoneyInput**
