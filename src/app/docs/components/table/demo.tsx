@@ -5,10 +5,15 @@ import {
   Avatar,
   Button,
   DATE_FORMAT,
+  DropdownItem,
+  DropdownMenu,
   HighlightIcon,
+  Icon,
+  IconButton,
   IconName,
   Table,
   TableColumn,
+  Tag,
   useDateFormatter,
   type TableProps,
 } from "@dev-spendesk/grapes";
@@ -362,6 +367,111 @@ export function DemoGroupedTable() {
           </div>
         );
       }}
+    />
+  );
+}
+
+export function DemoTableDropdown() {
+  return (
+    <Table
+      columns={[
+        {
+          id: "rule",
+          header: "Rule Name",
+          renderCell: ({ ruleIcon, ruleName }) => (
+            <div className="flex gap-8 items-center">
+              <HighlightIcon name={ruleIcon} size={32} variant="peach" />
+              <p>{ruleName}</p>
+            </div>
+          ),
+        },
+        {
+          id: "conditions",
+          header: "Conditions",
+          renderCell: ({ conditions }) =>
+            conditions.split(",").map((condition) => {
+              return (
+                <Tag key={condition} variant="neutral">
+                  {condition}
+                </Tag>
+              );
+            }),
+        },
+        {
+          id: "by",
+          width: "72px",
+          header: "By",
+          renderCell: ({ fromName, fromAvatar }) => {
+            return <Avatar text={fromName} src={fromAvatar} />;
+          },
+        },
+        {
+          id: "action",
+          width: "72px",
+          header: "Action",
+          renderCell: () => {
+            return (
+              <DropdownMenu
+                placement="bottom-end"
+                options={[
+                  { key: "edit", label: "Edit", iconName: "pen" as IconName },
+                  {
+                    key: "delete",
+                    label: "Delete",
+                    iconName: "trash" as IconName,
+                  },
+                ]}
+                renderButton={(getToggleButtonProps) => {
+                  const { isDropdown, ...rest } = getToggleButtonProps();
+                  return (
+                    <IconButton
+                      {...rest}
+                      aria-label="action"
+                      variant="tertiaryNeutral"
+                      iconName="ellipsis-horizontal"
+                    />
+                  );
+                }}
+                renderOption={(option) => (
+                  <DropdownItem
+                    label={option.label}
+                    isSelected={false}
+                    prefix={<Icon name={option.iconName} />}
+                  />
+                )}
+                onSelect={() => {}}
+              />
+            );
+          },
+        },
+      ]}
+      data={[
+        {
+          id: 4,
+          ruleIcon: "building-storefront" as IconName,
+          ruleName: "Software Suppliers",
+          conditions: "Invoice, Acme",
+          fromName: "laurent",
+          fromAvatar: "/laurent.webp",
+        },
+        {
+          id: 5,
+          ruleIcon: "car" as IconName,
+          ruleName: "Taxi & Car sharing",
+          conditions: "Bolt, Uber, FreeNow",
+          fromName: "chloe",
+          fromAvatar: "/chloe.webp",
+        },
+        {
+          id: 6,
+          ruleIcon: "buildings-office" as IconName,
+          ruleName: "Office expenses",
+          conditions: "Rental costs, Office",
+          fromName: "bertrand",
+          fromAvatar: "/bertrand.webp",
+        },
+      ]}
+      getRowId={(row) => String(row.id)}
     />
   );
 }
