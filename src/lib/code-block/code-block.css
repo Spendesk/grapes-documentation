@@ -41,6 +41,41 @@
       transparent
     );
   }
+
+  .diff {
+    margin: 0 calc(-1 * var(--_code-padding));
+    padding: 0 var(--_code-padding);
+    width: calc(100% + 2 * var(--_code-padding));
+    display: inline-block;
+
+    &::before {
+      position: absolute;
+      left: var(--unit-4);
+      color: var(--color-content-complementary);
+    }
+  }
+
+  .remove {
+    opacity: 0.85;
+    background-color: color-mix(
+      in srgb,
+      var(--color-background-primary-alert-default) 70%,
+      transparent
+    );
+    &::before {
+      content: "-";
+    }
+  }
+  .add {
+    background-color: color-mix(
+      in srgb,
+      var(--color-background-primary-success-default) 70%,
+      transparent
+    );
+    &::before {
+      content: "+";
+    }
+  }
 }
 
 .docs-preview + .docs-code {

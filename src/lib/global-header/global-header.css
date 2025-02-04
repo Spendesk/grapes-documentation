@@ -75,7 +75,7 @@
     list-style-type: none;
   }
 
-  @media (width <= 900px) {
+  @media (width <= 700px) {
     .global-header-wrapper {
       grid-template-columns: 1fr 200px;
     }

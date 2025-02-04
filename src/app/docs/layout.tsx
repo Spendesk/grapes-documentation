@@ -20,7 +20,7 @@ export default function Layout({ children }: Props) {
           </Suspense>
         </div>
       </nav>
-      <main className="docs-content">
+      <main className="docs-content content">
         {children}
         <hr />
         <FeedbackLink />
