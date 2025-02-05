@@ -1,5 +1,5 @@
 import { Preview } from "@/lib/preview/preview";
-import { Demo } from "./demo";
+import { Demo, DemoWithAddOption } from "./demo";
 
 ## Import
 
@@ -112,29 +112,23 @@ Use the `showClearSelectionButton` prop to display a button at the end of the fi
 The Autocomplete component lets the user create a new option when no options match his search.
 Use the `onAddOption` and `renderAddOption` to add this behavior.
 
+:::info{title="Visibility behavior"}
+The option to create a new element only appears when no existing elements match the user's search. As long as at least one existing element matches the user's search, the "create new element" option is not visible.
+:::
+
+<Preview>
+  <DemoWithAddOption />
+</Preview>
 ```tsx
 <Autocomplete
-  onAddOption={(newOptionLabel) => {
-    // Create the new option
-    const newOption = {
-      key: `myNewKey`,
-      label: newOptionLabel,
-    };
-
-    // Add it to the list of options
-    setOptions((options) => {
-      return options.concat(newOption);
-    });
-
-    // Return the created option
-    return newOption;
-  }}
   renderAddOption={(inputValue) => {
     return <DropdownItem label={<span>Create {inputValue}</span>} />;
   }}
+  onAddOption={handleAddOption}
   {...otherProps}
 />
-```
+
+````
 
 ## Customization
 
@@ -157,7 +151,7 @@ Use the `renderOption` prop to customize how options are rendered.
   )}
   {...otherProps}
 />
-```
+````
 
 ### Customized input
 
