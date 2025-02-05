@@ -4,10 +4,9 @@ import {
   Autocomplete,
   AutocompleteNoOptions,
   DropdownItem,
-  type AutocompleteProps,
   Avatar,
 } from "@dev-spendesk/grapes";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 type Option = (typeof unfilteredOptions)[number];
 export const unfilteredOptions = [
@@ -96,3 +95,42 @@ export const Demo = ({
     />
   );
 };
+
+export function DemoWithAddOption() {
+  const [searchValue, setSearchValue] = useState<string | undefined>();
+  const [options, setOptions] = useState<Option[]>(unfilteredOptions);
+  const [selectedOption, setSelectedOption] = useState<Option | undefined>();
+
+  const counter = useRef(unfilteredOptions.length);
+
+  return (
+    <Autocomplete
+      value={selectedOption}
+      options={options.filter((option) => {
+        if (searchValue) {
+          return option.label.toLowerCase().includes(searchValue.toLowerCase());
+        }
+        return true;
+      })}
+      onSearch={(search) => {
+        setSearchValue(search);
+      }}
+      onSelect={setSelectedOption}
+      onAddOption={(newOptionLabel) => {
+        const newOption = {
+          key: `${++counter.current}`,
+          label: newOptionLabel,
+        };
+        setOptions((options) => {
+          return options
+            .concat(newOption)
+            .sort((a, b) => a.label.localeCompare(b.label));
+        });
+        return newOption;
+      }}
+      renderAddOption={(inputValue) => {
+        return <DropdownItem label={<span>Create {inputValue}</span>} />;
+      }}
+    />
+  );
+}
