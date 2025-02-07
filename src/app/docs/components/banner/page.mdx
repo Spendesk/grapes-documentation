@@ -3,32 +3,23 @@ import { Preview } from "@/lib/preview/preview";
 
 ## Variant
 
-The Badge comes with three visual styles: primary (default), warning and info.
+The Badge comes with two visual styles: brand (default) and neutral.
 
 <Preview className="grid">
   <Banner
-    variant="primary"
+    variant="neutral"
     actionText="Set up sub-budgets"
     illustration={<img src="/user-infinite.webp" />}
-    title="Primary variant"
+    title="Neutral variant"
   >
     You can now track sub-budgets based on expense categories. It will help you
     track your budgets with more granularity and precision.
   </Banner>
   <Banner
-    variant="info"
+    variant="brand"
     actionText="Set up sub-budgets"
     illustration={<img src="/user-infinite.webp" />}
-    title="Info variant"
-  >
-    You can now track sub-budgets based on expense categories. It will help you
-    track your budgets with more granularity and precision.
-  </Banner>
-  <Banner
-    variant="warning"
-    actionText="Set up sub-budgets"
-    illustration={<img src="/user-infinite.webp" />}
-    title="Warning variant"
+    title="Brand variant"
   >
     You can now track sub-budgets based on expense categories. It will help you
     track your budgets with more granularity and precision.
@@ -38,28 +29,19 @@ The Badge comes with three visual styles: primary (default), warning and info.
 ```tsx sandbox
 <>
   <Banner
-    variant="primary"
+    variant="neutral"
     actionText="Set up sub-budgets"
     illustration={<img src="/user-infinite.webp" />}
-    title="Primary variant"
+    title="Neutral variant"
   >
     You can now track sub-budgets based on expense categories. It will help you
     track your budgets with more granularity and precision.
   </Banner>
   <Banner
-    variant="info"
+    variant="brand"
     actionText="Set up sub-budgets"
     illustration={<img src="/user-infinite.webp" />}
-    title="Info variant"
-  >
-    You can now track sub-budgets based on expense categories. It will help you
-    track your budgets with more granularity and precision.
-  </Banner>
-  <Banner
-    variant="warning"
-    actionText="Set up sub-budgets"
-    illustration={<img src="/user-infinite.webp" />}
-    title="Warning variant"
+    title="Brand variant"
   >
     You can now track sub-budgets based on expense categories. It will help you
     track your budgets with more granularity and precision.
@@ -67,11 +49,30 @@ The Badge comes with three visual styles: primary (default), warning and info.
 </>
 ```
 
-## Button position
+## Banner without illustration
 
-The Banner leverages [CSS Container queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Container_Queries) to control the button's positioning.
+The `illustration` prop is not mandatory in the Banner component. However, it is strongly advised to add an illustration when space is not a constraint.
 
-- If the width of the Banner is **below** 744px, the button will be positioned at the bottom.
-- If the width of the banner **equals or exceeds** 744px, the button will be positioned on the right.
+<Preview>
+  <Banner
+    variant="neutral"
+    actionText="Set up sub-budgets"
+    title="Neutral variant"
+  >
+    You can now track sub-budgets based on expense categories. It will help you
+    track your budgets with more granularity and precision.
+  </Banner>
+</Preview>
 
-There is no way to customize this behavior.
+```tsx sandbox
+<>
+  <Banner
+    variant="neutral"
+    actionText="Set up sub-budgets"
+    title="Neutral variant"
+  >
+    You can now track sub-budgets based on expense categories. It will help you
+    track your budgets with more granularity and precision.
+  </Banner>
+</>
+```
