@@ -64,7 +64,7 @@ export const MySwitchField = () => {
 };
 ```
 
-### CSS theme
+## CSS theme
 
 You also need to import the CSS from Grapes.
 
@@ -80,24 +80,42 @@ Here is an example to import Grapes into a CSS Layer named Grapes:
 @import "@dev-spendesk/grapes/style" layer(grapes);
 ```
 
-### TailwindCSS Preset
+## TailwindCSS Preset
+
+:::warning{title="Compatibility"}
+This preset only works with TailwindCSS v3. TailwindCSS v4 is not yet supported.
+:::
 
 Grapes exposes a preset that can be included into any existing Tailwind CSS project.
-To get started, you first need to make sure that you have a working Tailwind CSS project installed. More information about the installation can be found on Tailwind's documentation website: [https://tailwindcss.com/docs/installation](https://tailwindcss.com/docs/installation).
+To get started, you first need to make sure that you have a working Tailwind CSS project installed.
+More information about the installation can be found on [Tailwind's documentation website](https://v3.tailwindcss.com/docs/installation).
+
 Then, include the preset to your `tailwind.config.js` file:
 
 ```ts
 import GrapesPreset from "@dev-spendesk/grapes/tailwind";
 
 export default {
-  corePlugins: {
-    preflight: false, // Disabled preflight // [!code highlight]
-  },
-  presets: [GrapesPreset], // [!code highlight]
+  presets: [GrapesPreset], // [!code ++]
 };
 ```
 
-:::warning{title="Disabled preflight"}
-TailwindCSS comes with an opinionated set of base styles.
-This feature, named preflight, needs to be disabled in order for the Grapes preset to work properly.
-:::
+Please note that this preset overrides the default value of TailwindCSS.
+
+### Tailwind preflight
+
+TailwindCSS comes with an opinionated set of base styles, called [preflight](https://v3.tailwindcss.com/docs/preflight).
+If you imported Grapes into a layer called grapes, then it's likely that these base styles override many Grapes styles.
+
+To fix that, you need to disable preflight in order for the Grapes preset to work properly.
+
+```ts
+import GrapesPreset from "@dev-spendesk/grapes/tailwind";
+
+export default {
+  corePlugins: {
+    preflight: false, // [!code ++]
+  },
+  presets: [GrapesPreset],
+};
+```
