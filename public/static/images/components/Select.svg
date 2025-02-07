@@ -1,10 +1,10 @@
 <svg width="244" height="175" viewBox="0 0 244 175" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="244" height="175" fill="#F4EFFC"/>
+<rect width="244" height="175" fill="#F3F0FF"/>
 <rect x="66.5" y="45" width="111" height="23" rx="3.5" fill="#F9F9FA"/>
-<rect x="66.5" y="45" width="111" height="23" rx="3.5" stroke="#5D21D2"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M166 57.1453L169.627 53.5L171 54.8794L166.686 59.2143C166.307 59.5952 165.693 59.5952 165.314 59.2143L161 54.8794L162.373 53.5L166 57.1453Z" fill="#5D21D2"/>
-<rect opacity="0.5" x="66.5" y="73" width="111" height="57" rx="3.5" fill="#F9F9FA" stroke="#7542D9"/>
-<rect opacity="0.5" x="70" y="80.5" width="60" height="8" rx="2" fill="#DFD3F6"/>
-<rect opacity="0.5" x="70" y="97.5" width="56" height="8" rx="2" fill="#DFD3F6"/>
-<rect opacity="0.5" x="70" y="114.5" width="68" height="8" rx="2" fill="#DFD3F6"/>
+<rect x="66.5" y="45" width="111" height="23" rx="3.5" stroke="#601DD3"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M166 57.1453L169.627 53.5L171 54.8794L166.686 59.2143C166.307 59.5952 165.693 59.5952 165.314 59.2143L161 54.8794L162.373 53.5L166 57.1453Z" fill="#601DD3"/>
+<rect opacity="0.5" x="66.5" y="73" width="111" height="57" rx="3.5" fill="#F9F9FA" stroke="#7136ed"/>
+<rect opacity="0.5" x="70" y="80.5" width="60" height="8" rx="2" fill="#e4ddff"/>
+<rect opacity="0.5" x="70" y="97.5" width="56" height="8" rx="2" fill="#e4ddff"/>
+<rect opacity="0.5" x="70" y="114.5" width="68" height="8" rx="2" fill="#e4ddff"/>
 </svg>
