@@ -1,17 +1,22 @@
 version: 2
 updates:
-  - package-ecosystem: 'npm'
-    directory: '/'
+  - package-ecosystem: "npm"
+    directory: "/"
     schedule:
-      interval: 'daily'
+      interval: "daily"
     open-pull-requests-limit: 3
     groups:
       shiki:
         patterns:
-          - 'shiki'
-          - '@shikijs/transformers'
+          - "shiki"
+          - "@shikijs/transformers"
+      next:
+        patterns:
+          - "next"
+          - "@next/*"
+          - "eslint-config-next"
 
-  - package-ecosystem: 'github-actions'
-    directory: '/'
+  - package-ecosystem: "github-actions"
+    directory: "/"
     schedule:
-      interval: 'weekly'
+      interval: "weekly"
