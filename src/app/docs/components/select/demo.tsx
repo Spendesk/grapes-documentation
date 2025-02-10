@@ -61,17 +61,13 @@ export function DemoSelect({
         placeholder={placeholder ?? "Select a cost center"}
         options={costCenters}
         value={selectedOption}
-        dropdownContentMaxHeight={withMaxHeight ? "264px" : undefined}
+        dropdownContentMaxHeight={withMaxHeight ? "232px" : undefined}
         placement={placement}
         renderOption={
           withRenderOption
             ? (option: CostCenter, optionState) => (
                 <DropdownItem
-                  label={
-                    <>
-                      {option.label} ({option.owner})
-                    </>
-                  }
+                  label={`${option.label} (${option.owner})`}
                   {...optionState}
                 />
               )

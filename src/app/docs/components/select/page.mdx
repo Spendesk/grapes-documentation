@@ -61,19 +61,28 @@ Use the placement prop to move the list of options above or below the Select.
 
 ### Max height
 
-The `dropdownContentMaxHeight` prop is used to define a maximum height for the select's dropdown content. It defaults to 160px.
+The `dropdownContentMaxHeight` prop is used to define a maximum height for the select's dropdown content. It defaults to 152px.
+
+:::info{title="Visibility behavior"}
+To indicate that the dropdown is scrollable, please ensure the last visible item is partially hidden.
+For example, the default value of 152px result in the fourth item being cut off halfway, signaling to the user that there are more items to scroll through.
+:::
 
 <Preview>
   <DemoSelect withMaxHeight />
 </Preview>
 
 ```tsx
-<Select dropdownContentMaxHeight="264px" {...otherProps} />
+<Select dropdownContentMaxHeight="232px" {...otherProps} />
 ```
 
 ### Customized option
 
 Use the `renderOption` prop to customize how options are rendered.
+
+:::info{title="Visibility behavior"}
+If you customize the rendering of options, which likely involves changing the default height of a dropdown item (40px), you should also use the dropdownContentMaxHeight prop to adjust the default height of the DropdownContent accordingly.
+:::
 
 <Preview>
   <DemoSelect withRenderOption />
@@ -83,11 +92,7 @@ Use the `renderOption` prop to customize how options are rendered.
 <Select
   renderOption={(option: CostCenter, optionState) => (
     <DropdownItem
-      label={
-        <>
-          {option.label} ({option.owner})
-        </>
-      }
+      label={`${option.label} (${option.owner})`}
       {...optionState}
     />
   )}
