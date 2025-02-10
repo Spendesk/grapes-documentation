@@ -11,6 +11,13 @@ import { Preview } from "@/lib/preview/preview";
 
 ## Basic usage
 
+:::alert{title="Content Overflow"}
+By definition, a collapsible list is meant to hide elements when collapsed, which requires that no elements overflow the list limits.
+
+It means that `Popover`, `Select` and `DropdownMenu` are not compatible with the CollapsibleList component, as they can't overflow the list limits.
+It is recommended to avoid using these components within a CollapsibleList to ensure proper functionality.
+:::
+
 <Preview>
   <DemoCollapsibleList />
 </Preview>
