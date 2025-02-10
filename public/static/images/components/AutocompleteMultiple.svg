@@ -1,14 +1,14 @@
 <svg width="253" height="171" viewBox="0 0 253 171" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="253" height="171" fill="#F4EFFC"/>
+<rect width="253" height="171" fill="#F3F0FF"/>
 <rect x="71" y="44" width="111" height="23" rx="3.5" fill="#F9F9FA"/>
-<rect x="71" y="44" width="111" height="23" rx="3.5" stroke="#5D21D2"/>
+<rect x="71" y="44" width="111" height="23" rx="3.5" stroke="#601DD3"/>
 <line x1="75" y1="47" x2="75" y2="64" stroke="#B4B3BD"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M170.5 56.1453L174.127 52.5L175.5 53.8794L171.186 58.2143C170.807 58.5952 170.193 58.5952 169.814 58.2143L165.5 53.8794L166.873 52.5L170.5 56.1453Z" fill="#5D21D2"/>
-<rect x="71" y="72" width="111" height="55" rx="3.5" fill="#F9F9FA" stroke="#7542D9"/>
-<rect x="87.5" y="80" width="60" height="8" rx="2" fill="#DFD3F6"/>
-<rect x="75.5" y="80" width="8" height="8" rx="2" fill="#DFD3F6"/>
-<rect x="75.5" y="96" width="8" height="8" rx="2" fill="#DFD3F6"/>
-<rect x="75.5" y="112" width="8" height="8" rx="2" fill="#DFD3F6"/>
-<rect x="87.5" y="96" width="56" height="8" rx="2" fill="#DFD3F6"/>
-<rect x="87.5" y="112" width="68" height="8" rx="2" fill="#DFD3F6"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M170.5 56.1453L174.127 52.5L175.5 53.8794L171.186 58.2143C170.807 58.5952 170.193 58.5952 169.814 58.2143L165.5 53.8794L166.873 52.5L170.5 56.1453Z" fill="#601DD3"/>
+<rect x="71" y="72" width="111" height="55" rx="3.5" fill="#F9F9FA" stroke="#7136ed"/>
+<rect x="87.5" y="80" width="60" height="8" rx="2" fill="#e4ddff"/>
+<rect x="75.5" y="80" width="8" height="8" rx="2" fill="#e4ddff"/>
+<rect x="75.5" y="96" width="8" height="8" rx="2" fill="#e4ddff"/>
+<rect x="75.5" y="112" width="8" height="8" rx="2" fill="#e4ddff"/>
+<rect x="87.5" y="96" width="56" height="8" rx="2" fill="#e4ddff"/>
+<rect x="87.5" y="112" width="68" height="8" rx="2" fill="#e4ddff"/>
 </svg>
