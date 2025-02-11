@@ -1,6 +1,6 @@
 "use client";
 
-import { Input, FormField } from "@dev-spendesk/grapes";
+import { Input, FormField, type InputProps } from "@dev-spendesk/grapes";
 import { useState } from "react";
 
 export function DemoNumberInput() {
@@ -13,6 +13,45 @@ export function DemoNumberInput() {
         value={value}
         onChange={(event) => {
           setValue(event.target.valueAsNumber);
+        }}
+      />
+    </FormField>
+  );
+}
+
+export function DemoNumberConstraint() {
+  const [value, setValue] = useState(0);
+  return (
+    <FormField className="w-[360px]" label="Quantity">
+      <Input
+        placeholder="Enter a quantity"
+        type="number"
+        min={3}
+        max={5}
+        value={value}
+        onChange={(event) => {
+          if (event.target.checkValidity()) {
+            setValue(event.target.valueAsNumber);
+          }
+        }}
+      />
+    </FormField>
+  );
+}
+
+export function DemoStringConstraint() {
+  const [value, setValue] = useState("");
+  return (
+    <FormField className="w-[360px]" label="Name">
+      <Input
+        placeholder="Enter a name"
+        type="text"
+        pattern="[a-w]{0,8}"
+        value={value}
+        onChange={(event) => {
+          if (event.target.checkValidity()) {
+            setValue(event.target.value);
+          }
         }}
       />
     </FormField>
