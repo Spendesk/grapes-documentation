@@ -33,11 +33,8 @@ export default async function Image({ params }: Props) {
   }
 
   const fonts = await fetchFonts();
-  return new ImageResponse(
-    <OgImage title={post.metadata.title} subtitle="Blog" />,
-    {
-      ...size,
-      fonts,
-    },
-  );
+  return new ImageResponse(<OgImage title={post.metadata.title} />, {
+    ...size,
+    fonts,
+  });
 }

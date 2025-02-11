@@ -13,11 +13,8 @@ export const revalidate = false;
 
 export default async function Image() {
   const fonts = await fetchFonts();
-  return new ImageResponse(
-    <OgImage title="Supported Platforms" subtitle="Getting Started" />,
-    {
-      ...size,
-      fonts,
-    },
-  );
+  return new ImageResponse(<OgImage title="Supported Platforms" />, {
+    ...size,
+    fonts,
+  });
 }
