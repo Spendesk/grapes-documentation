@@ -47,9 +47,6 @@
         var(--transition-timing-function);
     }
   }
-  .img-grapes {
-    height: var(--unit-32);
-  }
 
   .grapes-version {
     justify-self: start;

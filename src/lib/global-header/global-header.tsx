@@ -19,10 +19,9 @@ export function GlobalHeader() {
         <Link href="/" key="grapes" className="logo-grapes">
           <Image
             height={32}
-            width={128}
+            width={117}
             src="/logo.svg"
             alt="Grapes homepage"
-            className="img-grapes"
           />
         </Link>
         <Link

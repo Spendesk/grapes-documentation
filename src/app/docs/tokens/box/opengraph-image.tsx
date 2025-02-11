@@ -13,7 +13,7 @@ export const revalidate = false;
 
 export default async function Image() {
   const fonts = await fetchFonts();
-  return new ImageResponse(<OgImage title="Box" subtitle="Design Tokens" />, {
+  return new ImageResponse(<OgImage title="Box" />, {
     ...size,
     fonts,
   });
