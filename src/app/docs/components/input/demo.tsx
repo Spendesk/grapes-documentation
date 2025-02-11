@@ -20,7 +20,7 @@ export function DemoNumberInput() {
 }
 
 export function DemoNumberConstraint() {
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState<number | string>(0);
   return (
     <FormField className="w-[360px]" label="Quantity">
       <Input
@@ -31,7 +31,11 @@ export function DemoNumberConstraint() {
         value={value}
         onChange={(event) => {
           if (event.target.checkValidity()) {
-            setValue(event.target.valueAsNumber);
+            setValue(
+              Number.isNaN(event.target.valueAsNumber)
+                ? ""
+                : event.target.valueAsNumber,
+            );
           }
         }}
       />

@@ -93,7 +93,7 @@ const Demo = () => {
         value={value}
         onChange={(event) => {
           if (event.target.checkValidity()) { // [!code highlight]
-            setValue(event.target.valueAsNumber);
+            setValue(Number.isNaN(event.target.valueAsNumber) ? "" : event.target.valueAsNumber);
           }
         }}
       />
