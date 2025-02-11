@@ -2,7 +2,6 @@ import React, { ReactNode, Suspense } from "react";
 
 import { SideBar } from "@/lib/sidebar/sidebar";
 import { TableOfContents } from "@/lib/table-of-contents/table-of-contents";
-import { FeedbackLink } from "@/lib/feedback-link/feedback-link";
 
 import "./layout.css";
 
@@ -20,11 +19,7 @@ export default function Layout({ children }: Props) {
           </Suspense>
         </div>
       </nav>
-      <main className="docs-content content">
-        {children}
-        <hr />
-        <FeedbackLink />
-      </main>
+      <main className="docs-content content">{children}</main>
       <aside className="docs-toc">
         <Suspense>
           <TableOfContents />

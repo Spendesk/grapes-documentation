@@ -9,7 +9,6 @@ import { classNames } from "@/lib/classNames";
 import { CodeEditor } from "./CodeEditor";
 import { CodeEditorToolbar } from "./CodeEditorToolbar";
 import { CopyButton } from "../copy-button/copy-button";
-import { FeedbackLink } from "../feedback-link/feedback-link";
 import { initialCode } from "./examples";
 
 import styles from "./CodeLive.module.css";
@@ -45,7 +44,6 @@ export function CodeLive({ decompressedCode }: Props) {
         </LiveProvider>
         <div className="absolute bottom-8 right-8 flex items-center gap-8">
           <GrapesImports.Tag variant="info">Beta</GrapesImports.Tag>
-          <FeedbackLink />
         </div>
       </div>
     </div>
