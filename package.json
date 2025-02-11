@@ -39,7 +39,7 @@
     "react-live": "^4.1.8",
     "remark-directive": "^3.0.1",
     "remark-frontmatter": "^5.0.0",
-    "remark-gfm": "^4.0.0",
+    "remark-gfm": "^4.0.1",
     "remark-mdx-frontmatter": "^5.0.0",
     "shiki": "^2.3.2",
     "thememirror": "^2.0.1"
