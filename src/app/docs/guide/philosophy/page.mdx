@@ -1,0 +1,26 @@
+---
+title: Philosophy
+---
+
+# Philosophy
+
+Grapes is not a kitchen-sink design-system that attempts to handle every use case your code coud have in the way you wish.
+Instead, it serves as the foundation upon which the Spendesk frontend is built.
+
+Yet, Grapes has many components and even more props. While many are essentials, some components and props, such as `BetaDropdownMenuSearch` or the `CollapsibleList` are harder to justifiy. Others, like the `Banner` and the `Callout` have become the subject of [bike-shedding](https://en.wikipedia.org/wiki/Law_of_triviality) within the team and among Grapes' consumers. .
+
+These components are remnants of the past and have become costly to maintain. Their existence should not serve as a motivation to add more components.
+
+:::info{title="Info"}
+Attempting to support every use case is a perfect example of [tragedy of the commons](https://en.wikipedia.org/wiki/Tragedy_of_the_commons).
+:::
+
+In the past, Grapes was focused on growth and supporting as many use cases as possible to increase its adoption within the Spendesk frontend.
+However, now that Grapes fully powers the Spendesk frontend, the focus has shift from growth at all costs to stability, consistency, and flexibility.
+
+Going forward, new components and props will only be added if they:
+
+- Do not conflict with existing components
+- Can be extended to other use cases
+
+This approach will help maintain a balanced and efficient design system.

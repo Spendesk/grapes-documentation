@@ -3,8 +3,6 @@ import { GrapesProvider } from "@dev-spendesk/grapes";
 import { GlobalHeader } from "@/lib/global-header/global-header";
 
 import "./globals.css";
-import { Tracking } from "@/lib/tracking/tracking";
-import { Suspense } from "react";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://grapes.spendesk.design"),
@@ -49,11 +47,6 @@ export default function RootLayout({
           }}
         >
           <GlobalHeader />
-          {process.env.NODE_ENV === "production" && (
-            <Suspense>
-              <Tracking />
-            </Suspense>
-          )}
           {children}
         </GrapesProvider>
       </body>

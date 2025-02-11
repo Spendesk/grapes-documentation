@@ -63,8 +63,8 @@ export const gettingStartedRoutes: RouteConfig[] = [
         url: "/docs/guide/supported-platforms",
       },
       {
-        label: "Contributing",
-        url: "/docs/guide/contributing",
+        label: "Philisophy",
+        url: "/docs/guide/philosophy",
       },
       {
         label: "Tools",
