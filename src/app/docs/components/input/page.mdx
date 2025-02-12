@@ -1,6 +1,6 @@
 import { Preview } from "@/lib/preview/preview";
 
-import { DemoNumberInput, DemoEmailInput } from "./demo";
+import { DemoNumberInput, DemoEmailInput, DemoNumberConstraint, DemoStringConstraint } from "./demo";
 
 :::warning{title="Usage"}
 Consider using this component as a last resort when none of the other available Grapes components meet your requirements, such as:
@@ -64,6 +64,66 @@ const Demo = () => {
         onChange={(event) => {
           setError(!event.target.checkValidity()); // [!code highlight]
           setValue(event.target.value);
+        }}
+      />
+    </FormField>
+  );
+};
+```
+
+## Build a generic input with constraint
+
+You can use the prop `min` and `max` to defines a minimal and maximal value for your input and then leverage the [validation constraint API](https://developer.mozilla.org/en-US/docs/Web/HTML/Constraint_validation) to verify if the input meets the defined constraints.
+
+<Preview>
+  <DemoNumberConstraint />
+</Preview>
+
+```tsx sandbox
+const Demo = () => {
+  const [value, setValue] = useState(0);
+
+  return (
+    <FormField label="Quantity">
+      <Input
+        placeholder="Enter a quantity"
+        type="number"  // [!code highlight]
+        min={3} // [!code highlight]
+        max={5} // [!code highlight]
+        value={value}
+        onChange={(event) => {
+          if (event.target.checkValidity()) { // [!code highlight]
+            setValue(Number.isNaN(event.target.valueAsNumber) ? "" : event.target.valueAsNumber);
+          }
+        }}
+      />
+    </FormField>
+  );
+};
+```
+
+You can also use the prop `pattern` for text input:
+
+<Preview>
+  <DemoStringConstraint />
+</Preview>
+
+```tsx sandbox
+const Demo = () => {
+  const [value, setValue] = useState("");
+
+  return (
+    <FormField label="Name">
+      <Input
+        placeholder="Enter a name"
+        type="text"  // [!code highlight]
+        // Only lowercase letters, with a maximum length of 8 characters.
+        pattern="[a-w]{0,8}" // [!code highlight]
+        value={value}
+        onChange={(event) => {
+          if (event.target.checkValidity()) { // [!code highlight]
+            setValue(event.target.value);
+          }
         }}
       />
     </FormField>
