@@ -10,8 +10,8 @@ export default function OgImage({ title }: OgImageProps) {
     <div style={ogRoot}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="500"
-        height="136"
+        width="280"
+        height="76"
         fill="none"
       >
         <g stroke="#191B1B" stroke-width="4">
@@ -72,20 +72,20 @@ export default function OgImage({ title }: OgImageProps) {
 }
 
 export async function fetchFonts() {
-  const urlInter = process.cwd() + "/public/Inter-Regular.ttf";
+  const urlRoobert = process.cwd() + "/public/RoobertUprights.ttf";
 
   // Set null as encoding to return a Buffer
-  const bufferInter = await fs.readFile(urlInter, null);
+  const buggerRoobert = await fs.readFile(urlRoobert, null);
 
   // Transform buffer to ArrayBuffer
-  const ab = new Uint8Array(bufferInter).buffer;
+  const rb = new Uint8Array(buggerRoobert).buffer;
 
   return [
     {
-      name: "Inter",
-      data: ab,
+      name: "Roobert",
+      data: rb,
       style: "normal" as const,
-      weight: 500 as const,
+      weight: 600 as const,
     },
   ];
 }

@@ -1,10 +1,10 @@
 import type { CSSProperties } from "react";
 
 export const ogTitle: CSSProperties = {
-  fontSize: "60px",
+  fontSize: "90px",
   color: "#191b1b",
-  fontFamily: "Inter",
-  lineHeight: "70px",
+  fontFamily: "Roobert",
+  lineHeight: "90px",
   padding: 0,
   margin: 0,
 };
