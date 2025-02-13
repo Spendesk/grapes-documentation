@@ -12,7 +12,7 @@ import { DemoNavigation } from "./demo";
 
 The navigation presents a list of navigation items at the top to help the user navigate between pages. Please refer to the [NavigationItem](/docs/components/navigation-item) docs for more information on how to create the different links (emphasized, with icon, etc.).
 
-The `leftNavigationItems` prop is used to display the items in the navigation menu.
+The `children` prop is used to display the items in the navigation menu.
 
 <Preview>
   <DemoNavigation />
@@ -23,28 +23,26 @@ const Demo = () => {
   const [activeIndex, setActiveIndex] = useState(1);
 
   return (
-    <Navigation
-      leftNavigationItems={[
-        <NavigationItem
-          key="1"
-          text="Link 1"
-          isActive={activeIndex === 1}
-          onClick={() => setActiveIndex(1)}
-        />,
-        <NavigationItem
-          key="2"
-          text="Link 2"
-          isActive={activeIndex === 2}
-          onClick={() => setActiveIndex(2)}
-        />,
-        <NavigationItem
-          key="3"
-          text="Link 3"
-          isActive={activeIndex === 3}
-          onClick={() => setActiveIndex(3)}
-        />,
-      ]}
-    />
+    <Navigation>
+      <NavigationItem
+        key="1"
+        text="Link 1"
+        isActive={activeIndex === 1}
+        onClick={() => setActiveIndex(1)}
+      />
+      <NavigationItem
+        key="2"
+        text="Link 2"
+        isActive={activeIndex === 2}
+        onClick={() => setActiveIndex(2)}
+      />
+      <NavigationItem
+        key="3"
+        text="Link 3"
+        isActive={activeIndex === 3}
+        onClick={() => setActiveIndex(3)}
+      />
+    </Navigation>
   );
 };
 ```

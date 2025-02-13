@@ -13,9 +13,8 @@ type Props = {
 export function ComponentNavigation({ links }: Props) {
   const pathname = usePathname();
   return (
-    <Navigation
-      className="mt-24"
-      leftNavigationItems={links.map((link) => {
+    <Navigation className="mt-24">
+      {links.map((link) => {
         return (
           <NavigationItem
             key={link.text}
@@ -26,6 +25,6 @@ export function ComponentNavigation({ links }: Props) {
           />
         );
       })}
-    />
+    </Navigation>
   );
 }
