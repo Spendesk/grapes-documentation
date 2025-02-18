@@ -3,6 +3,16 @@ import { DemoAccordion, DemoOpen, DemoControlledAccordion } from "./demo";
 
 ## Basic usage
 
+:::alert{title="Content Overflow"}
+The AccordionItem component benefits from an animation effect when it is revealed or concealed. This animation requires the use of an overflow property to ensure the content appears and disappears smoothly.
+
+As a result, components such as `Popover`, `Select`, and `DropdownMenu` are **not compatible** with the AccordionItem component, as they cannot properly overflow the AccordionItem's boundaries.
+
+It is recommended to avoid using these components within an AccordionItem to ensure proper functionality.
+
+However, if you must use these components within an AccordionItem, you can use the `noAnimation` prop. This prop will disable the animation, thereby eliminating the need for the overflow property.
+:::
+
 The Accordion is highly customizable and has few styles from the start.
 
 <Preview className="body-m">
