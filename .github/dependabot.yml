@@ -5,6 +5,8 @@ updates:
     schedule:
       interval: "daily"
     open-pull-requests-limit: 3
+    ignore:
+      - dependency-name: "prettier"
     groups:
       shiki:
         patterns:
@@ -20,3 +22,9 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+
+registries:
+  npm-npmjs:
+    type: npm-registry
+    url: https://registry.npmjs.org
+    token: ${{secrets.NPM_TOKEN}}
