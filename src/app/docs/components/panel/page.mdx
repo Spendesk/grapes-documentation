@@ -109,6 +109,16 @@ const Demo = () => {
 
 ## Footer and footer summary
 
+:::alert{title="Content Overflow in Footer Summary"}
+The Footer Summary, when configured as collapsible, benefits from an animation effect when it is revealed or concealed. This animation requires the use of an overflow property to ensure the content appears and disappears smoothly.
+
+As a result, components such as `Popover`, `Select`, and `DropdownMenu` are **not compatible**, as they cannot properly overflow the Footer Summary's boundaries.
+
+It is recommended to avoid using these components within an Collapsible Footer Summary to ensure proper functionality.
+
+However, if you must use these components, you can use the `noAnimation` prop. This prop will disable the animation, thereby eliminating the need for the overflow property.
+:::
+
 Two props are available to display information at the bottom of a panel: `footer` and `footerSummary`. You can use one or the other, or both at the same time.
 
 The `footerSummary` has a number of options, including `title` and `content`, and can be collapsed with the `isCollapsible` property. If the footer summary is collapsed, the options `isDefaultCollapsed`, `onCollapsed`, and `onExtended` become available.
