@@ -5,7 +5,7 @@ import { useState } from "react";
 
 export function DemoAccordion() {
   return (
-    <Accordion className="w-full overflow-hidden">
+    <Accordion className="w-full">
       <AccordionItem renderHeader={() => "Invite team members"}>
         <div className="p-24 pt-8 text-primary">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec
@@ -56,7 +56,7 @@ export function DemoControlledAccordion() {
         text="Close accordion"
         onClick={() => setIndexOpen("close")}
       />
-      <Accordion className="w-full overflow-hidden">
+      <Accordion className="w-full">
         <AccordionItem
           open={"open" === indexOpen} // [!code highlight]
           renderHeader={() => "Invite team members"}
@@ -68,5 +68,23 @@ export function DemoControlledAccordion() {
         </AccordionItem>
       </Accordion>
     </>
+  );
+}
+
+export function DemoControlledState() {
+  const [openItem, setOpenItem] = useState(false);
+
+  return (
+    <AccordionItem
+      className="w-full"
+      open={openItem} // [!code highlight]
+      onToggle={(open) => setOpenItem(open)}
+      renderHeader={() => (openItem ? "Show less" : "Show more")}
+    >
+      <div className="p-24 pt-8 text-primary">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec
+        lectus sed sem porttitor viverra. Vestibulum magna leo.
+      </div>
+    </AccordionItem>
   );
 }
