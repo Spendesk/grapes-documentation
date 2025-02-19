@@ -1,5 +1,10 @@
 import { Preview } from "@/lib/preview/preview";
-import { DemoAccordion, DemoOpen, DemoControlledAccordion } from "./demo";
+import {
+  DemoAccordion,
+  DemoOpen,
+  DemoControlledAccordion,
+  DemoControlledState,
+} from "./demo";
 
 ## Basic usage
 
@@ -49,8 +54,9 @@ const Demo = () => {
 
 The `open` prop lets you select which item should be expanded.
 
-Only one item can be expanded at the same time.
-If multiple `AccordionItem` have the prop `open` set to `true`, the last one will be open.
+In an `Accordion` group, only one `AccordionItem` can be expanded at a time. If multiple `AccordionItem` components have the open prop set to true, the last one will be the one that is open.
+
+If you need to have multiple `AccordionItem` components open at the same time, you should use the `AccordionItem` components directly without wrapping them in an `Accordion` component.
 
 <Preview className="body-m">
   <DemoOpen />
@@ -114,4 +120,32 @@ function Demo() {
     </>
   );
 }
+```
+
+## Controlled state
+
+The `onToggle` prop lets you get the state of an `AccordionItem` component.
+
+<Preview className="body-m">
+  <DemoControlledState />
+</Preview>
+
+```tsx sandbox
+const Demo = () => {
+  const [openItem, setOpenItem] = useState(false); // [!code highlight]
+
+  return (
+    <AccordionItem
+      className="w-full"
+      open={openItem} // [!code highlight]
+      onToggle={(open) => setOpenItem(open)}
+      renderHeader={() => (openItem ? "Show less" : "Show more")} // [!code highlight]
+    >
+      <div className="p-24 pt-8 text-primary">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec
+        lectus sed sem porttitor viverra. Vestibulum magna leo.
+      </div>
+    </AccordionItem>
+  );
+};
 ```
