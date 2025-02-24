@@ -1,14 +1,12 @@
-import { MutableRefObject } from "react";
+import type { RefObject } from "react";
 
 const colorHighlight =
   typeof window !== "undefined" && "Highlight" in window
-    ? // @ts-ignore
-      new Highlight()
+    ? new Highlight()
     : null;
 
-export function useHighlight(root: MutableRefObject<HTMLUListElement | null>) {
+export function useHighlight(root: RefObject<HTMLUListElement | null>) {
   if (colorHighlight) {
-    // @ts-ignore
     CSS.highlights.set("primary", colorHighlight);
 
     return (tokens: string[]) => {

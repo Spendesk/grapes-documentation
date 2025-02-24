@@ -156,7 +156,7 @@ export function DemoListBox({
   };
 
   return (
-    // @ts-ignore
+    // @ts-expect-error Demo is too generic for TS
     <ListBox
       getOptionId={(option) => option.id}
       options={!isListEmpty ? options : []}

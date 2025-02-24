@@ -1,7 +1,7 @@
 import { Timeline, TimelineItem } from "@dev-spendesk/grapes";
 import Link from "next/link";
 import React from "react";
-import { formatDate, getBlogPosts } from "./utils";
+import { getBlogPosts } from "./utils";
 
 export default function Components() {
   const blogs = getBlogPosts();

@@ -1,5 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
-
 "use client";
 
 import { FileCard, UploadButton } from "@dev-spendesk/grapes";

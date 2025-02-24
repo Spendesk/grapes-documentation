@@ -12,7 +12,7 @@ export function DemoRadioField() {
       value="approval-needed"
       label="Approval Needed"
       isChecked={isChecked}
-      onChange={(e) => {
+      onChange={() => {
         setIsChecked(true);
       }}
     />
