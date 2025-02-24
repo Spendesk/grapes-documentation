@@ -1,7 +1,7 @@
 import { getBlogPosts } from "../utils";
 
 export async function generateStaticParams() {
-  let posts = getBlogPosts();
+  const posts = getBlogPosts();
 
   return posts.map((post) => ({
     slug: post.slug,
@@ -10,13 +10,13 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props) {
   const slug = (await params).slug;
-  let post = getBlogPosts().find((post) => post.slug === slug);
+  const post = getBlogPosts().find((post) => post.slug === slug);
 
   if (!post) {
     throw new Error("Unable to find post");
   }
 
-  let {
+  const {
     title,
     publishedAt: publishedTime,
     summary: description,
@@ -42,7 +42,7 @@ export default async function Blog({ params }: Props) {
   const slug = (await params).slug;
   const { default: Post } = await import(`../_posts/${slug}.mdx`);
 
-  let post = getBlogPosts().find((post) => post.slug === slug);
+  const post = getBlogPosts().find((post) => post.slug === slug);
 
   if (!post) {
     throw new Error("Unable to find post");

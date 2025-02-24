@@ -1,6 +1,6 @@
 "use client";
 
-import { Input, FormField, type InputProps } from "@dev-spendesk/grapes";
+import { Input, FormField } from "@dev-spendesk/grapes";
 import { useState } from "react";
 
 export function DemoNumberInput() {

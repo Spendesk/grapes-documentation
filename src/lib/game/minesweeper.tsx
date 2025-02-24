@@ -59,7 +59,7 @@ function generateCellContent(grid: number[][], x: number, y: number): number {
 
 function initializeGrid() {
   const grid: number[][] = Array.from({ length: SIZE }, () => []);
-  for (let i in grid) {
+  for (const i in grid) {
     grid[i] = Array.from({ length: SIZE }, () => 0);
   }
   return grid;

@@ -13,7 +13,7 @@ export const contentType = "image/png";
 export const revalidate = false;
 
 export async function generateStaticParams() {
-  let posts = getBlogPosts();
+  const posts = getBlogPosts();
 
   return posts.map((post) => ({
     slug: post.slug,
@@ -26,7 +26,7 @@ type Props = {
 export default async function Image({ params }: Props) {
   const slug = (await params).slug;
 
-  let post = getBlogPosts().find((post) => post.slug === slug);
+  const post = getBlogPosts().find((post) => post.slug === slug);
 
   if (!post) {
     throw new Error("Unable to find post");

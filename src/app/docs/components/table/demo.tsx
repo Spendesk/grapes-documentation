@@ -278,7 +278,7 @@ export function DemoTable({
   };
 
   return (
-    // @ts-ignore
+    // @ts-expect-error Too generic for TS
     <Table
       data={data}
       columns={columns}
@@ -422,6 +422,7 @@ export function DemoTableDropdown() {
                   },
                 ]}
                 renderButton={(getToggleButtonProps) => {
+                  // eslint-disable-next-line @typescript-eslint/no-unused-vars
                   const { isDropdown, ...rest } = getToggleButtonProps();
                   return (
                     <IconButton

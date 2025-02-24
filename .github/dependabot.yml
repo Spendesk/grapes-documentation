@@ -2,11 +2,13 @@ version: 2
 updates:
   - package-ecosystem: "npm"
     directory: "/"
+    registries: "*"
     schedule:
       interval: "daily"
     open-pull-requests-limit: 3
     ignore:
       - dependency-name: "prettier"
+      - dependency-name: "tailwindcss"
     groups:
       shiki:
         patterns:
