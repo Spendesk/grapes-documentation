@@ -1,0 +1,97 @@
+---
+title: "February 2025 update"
+publishedAt: "2025-02-28T14:56:00"
+summary: "Discover the latest change from February 2025"
+---
+
+import { TextArea, HighlightIcon, Banner } from "@dev-spendesk/grapes";
+import { Preview } from "@/lib/preview/preview";
+
+import { DemoControlledState } from "../../docs/components/accordion/demo";
+import { DemoSelect } from "../../docs/components/select/demo";
+
+February was a month of fixes and stabilization for Grapes, as shown by the current version number `1.31.11` - an unusually high number of 11 patch versions for a minor release.
+
+We also spent a lot of time increasing the test coverage from `90%` to `98%`, providing a strong safeguard against the introduction of new bugs in future versions.
+
+During February, nearly 20 new versions of Grapes were released. Let's take a closer look at the updates.
+
+## Components update
+
+### Design update on Select, DropdownMenu and Autocomplete
+
+<Preview>
+  <DemoSelect />
+</Preview>
+
+The Select, DropdownMenu, Autocomplete, and AutocompleteMultiple components have now received a much-needed design update, bringing them in line with the rest of the Grapes components.
+
+### New size for the HighlightIcon
+
+<Preview>
+  <HighlightIcon name="circle-information" size={24} variant="info" />
+  <HighlightIcon name="circle-information" size={32} variant="info" />
+  <HighlightIcon name="circle-information" size={40} variant="info" />
+  <HighlightIcon name="circle-information" size={56} variant="info" />
+</Preview>
+
+The HighlightIcon component has been updated to include the new size `40`, which was forgotten from the initial launch of Grapes 1.0.
+
+### Banner without illustration
+
+<Preview>
+  <Banner
+    variant="neutral"
+    actionText="Set up sub-budgets"
+    title="Neutral variant"
+  >
+    You can now track sub-budgets based on expense categories. It will help you
+    track your budgets with more granularity and precision.
+  </Banner>
+</Preview>
+
+The `illustration` prop for the Banner component is now optional. This change aligns the component with the specifications in Figma.
+
+### TextArea
+
+A long-standing bug in the TextArea component, present since the launch of Grapes 1.0, has been resolved.
+The issue caused the TextArea to fail to grow with its content and had an incorrect initial height.
+
+This problem has now been solved.
+
+<Preview>
+  <TextArea className="w-[360px]" placeholder="Describe your expense" />
+</Preview>
+
+### Accordion
+
+The accordion gets a new prop called `onToggle`. This prop allows you to retrieve the state of the Accordion and also provides the option to convert it into a controlled component.
+
+<Preview>
+  <DemoControlledState />
+</Preview>
+
+[Discover the onToggle prop](/docs/components/accordion#controlled-state)
+
+### noAnimation prop
+
+Following the rework of the Collapse component, which serves as the foundation for components like Accordion, FooterSummary for Panel, and CollapsibleList, we got many feedback regarding overflow issues.
+
+As a temporary solution, a new prop called `noAnimation` has been added to the affected components. This prop disables the animation of the underlying Collapse component, effectively resolving the overflow issue
+
+#### Learn more about this issue
+
+The Collapse component displays a summary that expands to show more details when clicked, with a smooth animation.
+Initially, this component relied on an external library called react-animate-height, which seems no longer maintained ([last commit 2 years ago](https://github.com/Stanko/react-animate-height)).
+On the other side, the web platform evolved a lot and made it possible to achieve this animation without external libraries.
+Specifically, it's now [possible to animate to a height auto](https://developer.chrome.com/docs/css-ui/animate-to-height-auto) and [style the element `<details>`](https://developer.chrome.com/blog/styling-details), making it easy to create a beautiful animation using just `<details>` and `<summary>` elements and some CSS.
+
+However, this new way to animate elements only works on Chrome >= 131. Other browsers don't have the animation, only the behavior to hide/show content.
+
+This is only temporary though. Interop (an ongoing effort to make the web more interoperable in key areas, prioritized by user and web developer needs) has chosen to work on the `<details>` elements for [2025](https://wpt.fyi/interop-2025), so it's just a matter of time/month before every browser supports these new features, and every user can see the animation we built.
+
+Now, back to the issue. For this new animation to work properly, we need to use an overflow. It means that no content can overflow our Collapse component. This causes an issue with the DropdownMenu, which needs to overflow its parent to function correctly.
+As this only affects users with the latest version of Chrome, a solution is to leverage modern way to position a floating elements: [Anchor API](https://developer.chrome.com/blog/anchor-positioning-api).
+
+However, introducing this API would require maintaining two separate mechanisms for placing elements: one for older browsers and one for modern browsers. This would increase maintenance and debugging time.
+Therefore, I prefer to wait a bit before introducing it. Anchor API is also part of Interop 2025, so it's likely that every browser will support it before the end of 2025.
