@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+echo 'Remember to install latest node version (`volta install node@latest`)'
+npm install
+npm run generate:props
+npm run dev
