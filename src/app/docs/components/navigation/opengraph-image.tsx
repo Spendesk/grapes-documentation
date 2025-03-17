@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 
 import OgImage, { fetchFonts } from "@/lib/og-image/ogImage";
 
-export const alt = "Component: Naivgation";
+export const alt = "Component: Navigation";
 export const size = {
   width: 1200,
   height: 630,
@@ -13,7 +13,7 @@ export const revalidate = false;
 
 export default async function Image() {
   const fonts = await fetchFonts();
-  return new ImageResponse(<OgImage title="Naivgation" />, {
+  return new ImageResponse(<OgImage title="Navigation" />, {
     ...size,
     fonts,
   });
