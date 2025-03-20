@@ -181,7 +181,9 @@ export function DemoTableMini() {
       columns={[
         {
           id: "label",
-          renderCell: (cell) => cell.label,
+          renderCell: (cell) => (
+            <span className="text-secondary-bg-primary">{cell.label}</span>
+          ),
         },
         {
           id: "value",
