@@ -91,6 +91,36 @@ A badge can be used with an avatar to display additional information, such as a 
 </>
 ```
 
+## IconName
+
+Name of the icon to display in the Avatar.
+
+Use either : 
+- `iconName` for icons 
+- or `src` for images (with or without `fallbackSrc`)
+
+<Preview>
+  <Avatar
+    iconName="car"
+    size={40}
+    text="drive"
+    variant="square"
+  />
+  <Avatar iconName="person" size={40} text="George Gray" />
+</Preview>
+
+```tsx sandbox
+<>
+  <Avatar
+    iconName="car"
+    size={40}
+    text="drive"
+    variant="square"
+  />
+  <Avatar iconName="person" size={40} text="George Gray" />
+</>
+```
+
 ## Fallback
 
 If there is an error loading the src of the avatar or if the `src` has not been specified, there are 2 fallbacks:
@@ -100,7 +130,7 @@ If there is an error loading the src of the avatar or if the `src` has not been 
 
 <Preview>
   <Avatar
-    fallbackSrc="/supplier.svg"
+    fallbackSrc="/jean.webp"
     size={40}
     text="Spendesk"
     variant="square"
@@ -114,10 +144,9 @@ If there is an error loading the src of the avatar or if the `src` has not been 
 ```tsx sandbox
 <>
   <Avatar
-    fallbackSrc="/supplier.svg"
+    fallbackSrc="/jean.webp"
     size={40}
     text="Spendesk"
-    variant="square"
   />
   <Avatar size={40} text="George Gray" />
   <Avatar size={40} text="Lewis Barker" />

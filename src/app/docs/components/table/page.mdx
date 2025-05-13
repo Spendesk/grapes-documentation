@@ -184,7 +184,7 @@ To make a table sortable, you will need to add the `getSortValue` function to th
 
 ## Selectable
 
-If you want to make a Table component selectable, you will need to specify the following props: `onAllRowsSelectionChange`, `onRowSelectionChange`, and `selectedRowIds`. Rows that have been disabled with `getIsRowDisabled` are not selectable.
+If you want to make a Table component selectable, you will need to specify the following props: `onAllRowsSelectionChange`, `onRowSelectionChange`, and `selectedRowIds`. Rows that have been disabled with `getIsRowDisabled` are not selectable. You can also specify directly if a row should be selectable with getIsRowCheckable, without having to disable the row.
 
 <Preview>
   <DemoTable isSelectable withDisabledRows />

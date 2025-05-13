@@ -28,7 +28,11 @@ export function DemoSidePanel() {
             className="body-m"
             header={
               <div className="flex gap-8 items-center">
-                <Avatar src="/supplier.svg" text="supplier" variant="square" />
+                <Avatar
+                  iconName="building-storefront"
+                  text="supplier"
+                  variant="square"
+                />
                 <div>
                   <div className="title-m text-primary mb-4">Google</div>
                   <div className="body-s">401000</div>
