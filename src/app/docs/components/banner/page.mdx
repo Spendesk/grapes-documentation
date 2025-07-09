@@ -1,4 +1,4 @@
-import { Banner } from "@dev-spendesk/grapes";
+import { Banner, Button } from "@dev-spendesk/grapes";
 import { Preview } from "@/lib/preview/preview";
 
 ## Variant
@@ -8,18 +8,18 @@ The Badge comes with two visual styles: brand (default) and neutral.
 <Preview className="grid">
   <Banner
     variant="neutral"
-    actionText="Set up sub-budgets"
     illustration={<img src="/user-infinite.webp" />}
     title="Neutral variant"
+    actions={<Button variant="secondaryNeutral" text="Set up sub-budgets" />}
   >
     You can now track sub-budgets based on expense categories. It will help you
     track your budgets with more granularity and precision.
   </Banner>
   <Banner
     variant="brand"
-    actionText="Set up sub-budgets"
     illustration={<img src="/user-infinite.webp" />}
     title="Brand variant"
+    actions={<Button variant="secondaryNeutral" text="Set up sub-budgets" />}
   >
     You can now track sub-budgets based on expense categories. It will help you
     track your budgets with more granularity and precision.
@@ -30,18 +30,18 @@ The Badge comes with two visual styles: brand (default) and neutral.
 <>
   <Banner
     variant="neutral"
-    actionText="Set up sub-budgets"
     illustration={<img src="/user-infinite.webp" />}
     title="Neutral variant"
+    actions={<Button variant="secondaryNeutral" text="Set up sub-budgets" />}
   >
     You can now track sub-budgets based on expense categories. It will help you
     track your budgets with more granularity and precision.
   </Banner>
   <Banner
     variant="brand"
-    actionText="Set up sub-budgets"
     illustration={<img src="/user-infinite.webp" />}
     title="Brand variant"
+    actions={<Button variant="secondaryNeutral" text="Set up sub-budgets" />}
   >
     You can now track sub-budgets based on expense categories. It will help you
     track your budgets with more granularity and precision.
@@ -56,8 +56,8 @@ The `illustration` prop is not mandatory in the Banner component. However, it is
 <Preview>
   <Banner
     variant="neutral"
-    actionText="Set up sub-budgets"
     title="Neutral variant"
+    actions={<Button variant="secondaryNeutral" text="Set up sub-budgets" />}
   >
     You can now track sub-budgets based on expense categories. It will help you
     track your budgets with more granularity and precision.
@@ -68,8 +68,8 @@ The `illustration` prop is not mandatory in the Banner component. However, it is
 <>
   <Banner
     variant="neutral"
-    actionText="Set up sub-budgets"
     title="Neutral variant"
+    actions={<Button variant="secondaryNeutral" text="Set up sub-budgets" />}
   >
     You can now track sub-budgets based on expense categories. It will help you
     track your budgets with more granularity and precision.
