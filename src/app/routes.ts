@@ -1,5 +1,5 @@
 type HeaderRoute = {
-  id: "guide" | "theme" | "components" | "blog" | "sandbox";
+  id: "guide" | "theme" | "components" | "sandbox";
   category: string;
   url: string;
 };
@@ -29,11 +29,6 @@ export const headerRoutes: HeaderRoute[] = [
     id: "components",
     category: "Components",
     url: "/docs/components",
-  },
-  {
-    id: "blog",
-    category: "Blog",
-    url: "/blog",
   },
   {
     id: "sandbox",
@@ -413,6 +408,5 @@ export const routes = {
   guide: gettingStartedRoutes,
   components: componentRoutes,
   theme: designTokensRoutes,
-  blog: [],
   sandbox: [],
 };
