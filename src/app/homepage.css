@@ -48,44 +48,6 @@
     color: var(--color-content-primary);
   }
 
-  .card {
-    background-color: var(--color-background-complementary-default);
-    color: var(--color-content-complementary);
-    border-radius: var(--border-radius-12);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow: clip;
-    padding-block-end: var(--unit-40);
-    box-shadow: var(--elevation-l);
-    padding: var(--unit-32) 0;
-
-    img {
-      width: 100%;
-    }
-
-    h3 {
-      color: var(--color-content-complementary);
-      font: var(--heading-xl);
-      margin-block: var(--unit-16) var(--unit-32);
-      text-align: center;
-    }
-  }
-
-  .snowflake-icon {
-    padding: var(--unit-8);
-    border-radius: var(--border-radius-12);
-    background-color: #c0ecec;
-    aspect-ratio: 1;
-    display: grid;
-    place-content: center;
-  }
-
-  .snowflake-icon svg {
-    height: var(--unit-40);
-    fill: black;
-  }
-
   .hero-cta {
     background: var(--color-background-primary-brand-default);
     border-radius: var(--border-radius-12);
@@ -143,10 +105,6 @@
     }
   }
 
-  .highlight {
-    color: var(--color-content-brand-default);
-  }
-
   .features {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -182,67 +140,12 @@
   .feature-item:hover h3 {
     text-decoration: underline;
   }
-
-  .icon-separator {
-    overflow-x: clip;
-    width: 100%;
-    background-color: var(--color-background-complementary-default);
-  }
-
-  .icon-set {
-    display: inline-flex;
-    height: var(--unit-24);
-    margin-block: var(--unit-56);
-    gap: var(--unit-24);
-    align-items: center;
-    color: var(--color-content-complementary);
-    animation: linear 240s infinite both icon-animation;
-
-    > * {
-      flex-shrink: 0;
-    }
-  }
-
-  .team {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: var(--unit-40);
-    list-style: none;
-    margin: var(--unit-32) 0;
-    text-align: center;
-
-    p {
-      color: var(--color-content-primary);
-      font: var(--body-l);
-      margin-block: var(--unit-16) var(--unit-4);
-    }
-    small {
-      color: var(--color-content-primary);
-      font: var(--body-m);
-    }
-  }
-}
-
-@keyframes icon-animation {
-  0% {
-    translate: 0 0;
-  }
-  50% {
-    translate: calc(-100% + 100vw) 0;
-  }
-  100% {
-    translate: 0 0;
-  }
 }
 
 @media (width <= 900px) {
   .home-content .features {
     grid-template-columns: 1fr;
     gap: var(--unit-16);
-  }
-  .home-content .team {
-    flex-direction: column;
   }
   .home-content .hero {
     grid-template-columns: 1fr 1fr;
