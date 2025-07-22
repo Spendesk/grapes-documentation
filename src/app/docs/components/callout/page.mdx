@@ -1,4 +1,4 @@
-import { Callout } from "@dev-spendesk/grapes";
+import { Button, Callout } from "@dev-spendesk/grapes";
 import { Preview } from "@/lib/preview/preview";
 
 ## Variant
@@ -36,5 +36,43 @@ Use the `children` prop to add any content to the callout.
 <Callout title="Callout title">
   On the budget, the amount of the invoice will be proportionally reflected over
   the period.
+</Callout>
+```
+
+## CTAs
+
+CTAs can be added through the `children` prop as well.
+
+<Preview className="grid">
+  <Callout className="mt-4" title="This automation rule changed" variant="info" iconName="lightning">
+    <div className="flex flex-row gap-8">
+      <Button
+        variant="primaryInfo"
+        text="Update with rule value"
+      />
+      <Button
+        variant="secondaryNeutral"
+        text="Ignore"
+        label="Ignore"
+      />
+    </div>
+  </Callout>
+</Preview>
+
+```tsx sandbox
+<Callout className="mt-4" title="This automation rule changed" variant="info" iconName="lightning">
+  <div className="flex flex-row gap-8">
+    <Button
+      variant="primaryInfo"
+      text="Update with rule value"
+      onClick={() => {}}
+    />
+    <Button
+      variant="secondaryNeutral"
+      text="Ignore"
+      label="Ignore"
+      onClick={() => {}}
+    />
+  </div>
 </Callout>
 ```
