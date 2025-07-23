@@ -1,17 +1,12 @@
 "use client";
 
 import { useEffect, useId, useState } from "react";
-import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { useHeadsObserver } from "./useHeadsObserver";
 
 import { classNames } from "@/lib/classNames";
 
 export function TableOfContents() {
   const titleId = useId();
-  const pathname = usePathname();
-
-  const { activeId } = useHeadsObserver(pathname);
 
   const [headings, setHeadings] = useState<
     {
@@ -69,7 +64,6 @@ export function TableOfContents() {
               className={classNames(
                 heading.type === "H3" ? "ml-8" : "",
                 "docs-nav-link",
-                activeId === heading.id && "active",
               )}
               href={`#${heading.id}`}
             >

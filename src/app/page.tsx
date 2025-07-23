@@ -8,20 +8,18 @@ export default function Home() {
     <div className="home-content">
       <main>
         <section className="hero">
-          <div className="title">
-            <h1>A bunch of grapes</h1>
-            <p className="body-l">
-              We&apos;re convinced that anyone who uses our products should
-              easily and quickly recognize the value of Spendesk while using the
-              platform and be delighted by the experience, feeling a sense of
-              accomplishment and empowerment.
-            </p>
-            <Link href="/docs/guide" className="hero-cta">
-              <span className="initial">Get Started</span>
-              <span className="hover">Let&apos;s go</span>
-              <Icon name="arrow-right" className="arrow" aria-hidden="true" />
-            </Link>
-          </div>
+          <h1>A bunch of grapes</h1>
+          <p className="body-l">
+            We&apos;re convinced that anyone who uses our products should easily
+            and quickly recognize the value of Spendesk while using the platform
+            and be delighted by the experience, feeling a sense of
+            accomplishment and empowerment.
+          </p>
+          <Link href="/docs/guide" className="hero-cta">
+            <span className="initial">Get Started</span>
+            <span className="hover">Let&apos;s go</span>
+            <Icon name="arrow-right" className="arrow" aria-hidden="true" />
+          </Link>
         </section>
         <section>
           <h2>

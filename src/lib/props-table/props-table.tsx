@@ -1,5 +1,4 @@
 import { ListView, ListItem, Tag } from "@dev-spendesk/grapes";
-import Link from "next/link";
 import { Fragment } from "react";
 import { classNames } from "@/lib/classNames";
 
@@ -34,32 +33,17 @@ export function PropsTable({ components }: Props) {
           <ListView className={classNames(components.length > 0 && "mt-24")}>
             {getSortedProps(component).map(
               ({ name, required, type, defaultValue, description }) => {
-                const isAnIconProp =
-                  type.raw && type.raw.includes("arrow-bottom");
-
                 return (
                   <ListItem key={name} className={styles.listItem}>
                     <div className="flex items-baseline gap-8 ">
-                      {isAnIconProp ? (
-                        <Link
-                          className={classNames(
-                            "text-primary title-l",
-                            required && styles.required,
-                          )}
-                          href="/docs/components/icon"
-                        >
-                          {name}
-                        </Link>
-                      ) : (
-                        <span
-                          className={classNames(
-                            "text-primary title-l",
-                            required && styles.required,
-                          )}
-                        >
-                          {name}
-                        </span>
-                      )}
+                      <span
+                        className={classNames(
+                          "text-primary title-l",
+                          required && styles.required,
+                        )}
+                      >
+                        {name}
+                      </span>
                       <InlineBlock
                         code={
                           type.value ? extractValues(type.value) : type.name
