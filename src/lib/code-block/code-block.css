@@ -1,4 +1,5 @@
 .docs-code {
+  color-scheme: light;
   --color-background-hover: color-mix(
     in srgb,
     var(--color-background-complementary-default) 70%,
