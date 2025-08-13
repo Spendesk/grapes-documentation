@@ -19,33 +19,10 @@
   }
 
   .logo-grapes {
-    --size-effect: 20px;
     position: relative;
     overflow: hidden;
     justify-self: start;
     height: var(--unit-32);
-
-    &::before {
-      content: "";
-      display: block;
-      position: absolute;
-      left: calc(-1.2 * var(--size-effect));
-      top: -50%;
-      rotate: 20deg;
-      width: var(--size-effect);
-      height: 200%;
-      background: linear-gradient(
-        90deg,
-        transparent 0%,
-        white 50%,
-        transparent 100%
-      );
-    }
-    &:hover::before {
-      left: calc(100% + var(--size-effect));
-      transition: left var(--transition-duration-long)
-        var(--transition-timing-function);
-    }
   }
 
   .grapes-version {

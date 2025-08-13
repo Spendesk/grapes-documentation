@@ -192,8 +192,12 @@
 }
 
 :root {
+  color-scheme: light dark;
   --docs-offset-header: 68px;
-  --docs-background-header: rgb(255 255 255 / 0.8);
+  --docs-background-header: light-dark(
+    rgb(255 255 255 / 0.8),
+    rgb(28 30 30 / 0.8)
+  );
   --docs-background-filter: blur(8px);
   --docs-width: min(95vw, 1400px);
   --docs-ff-mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas,
