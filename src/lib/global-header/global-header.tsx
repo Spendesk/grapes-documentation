@@ -7,6 +7,7 @@ import { headerRoutes } from "@/app/routes";
 import { Search } from "../search/search";
 import { LogoGithub } from "../logo/logo-github";
 import { LogoFigma } from "../logo/logo-figma";
+import { ThemeSwitcher } from "../theme-switcher/theme-switcher";
 
 import grapesPackage from "../../../node_modules/@dev-spendesk/grapes/package.json";
 
@@ -44,6 +45,10 @@ export function GlobalHeader() {
         <div className="global-header-logos">
           <LogoGithub />
           <LogoFigma />
+          <div className="global-header-separator" />
+          <Suspense>
+            <ThemeSwitcher />
+          </Suspense>
         </div>
       </div>
     </header>

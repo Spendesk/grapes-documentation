@@ -1,0 +1,8 @@
+.toggle-theme {
+  border: none;
+  background: none;
+  color: var(--color-content-primary);
+  height: var(--unit-24);
+  width: var(--unit-24);
+  cursor: pointer;
+}

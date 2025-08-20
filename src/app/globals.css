@@ -204,6 +204,14 @@
     monospace;
 }
 
+:root[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+}
+
 ::highlight(primary) {
   color: var(--color-content-brand-default);
   text-decoration: underline;
