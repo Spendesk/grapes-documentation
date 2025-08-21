@@ -28,22 +28,22 @@ function getUserTheme(): Theme {
 function useTheme(): [Theme | null, (theme: Theme) => void] {
   const [theme, setTheme] = useState<Theme | null>(null);
 
+  const handleThemeChange = (theme: Theme) => {
+    document.documentElement.dataset.theme = theme;
+    setTheme(theme);
+  };
+
   // Use useEffect to avoid hydratation mismatch
   // @see https://nextjs.org/docs/messages/react-hydration-error#solution-1-using-useeffect-to-run-on-the-client-only
   useEffect(() => {
-    setTheme(getUserTheme());
+    handleThemeChange(getUserTheme());
   }, []);
 
-  return [theme, setTheme];
+  return [theme, handleThemeChange];
 }
 
 export function ThemeSwitcher() {
   const [theme, setTheme] = useTheme();
-
-  const handleClick = (theme: Theme) => {
-    document.documentElement.dataset.theme = theme;
-    setTheme(theme);
-  };
 
   if (theme === null) {
     return <div className="toggle-theme" />;
@@ -53,7 +53,7 @@ export function ThemeSwitcher() {
     <button
       type="button"
       className="toggle-theme"
-      onClick={() => handleClick("dark")}
+      onClick={() => setTheme("dark")}
     >
       <SunIcon />
     </button>
@@ -61,7 +61,7 @@ export function ThemeSwitcher() {
     <button
       className="toggle-theme"
       type="button"
-      onClick={() => handleClick("light")}
+      onClick={() => setTheme("light")}
     >
       <MoonIcon />
     </button>

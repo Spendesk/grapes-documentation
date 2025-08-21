@@ -7,7 +7,8 @@ type Props = {
 export async function InlineBlock({ code }: Props) {
   const html = await codeToHtml(code, {
     lang: "ts",
-    theme: "slack-ochin",
+    themes: { light: "slack-ochin", dark: "slack-dark" },
+    defaultColor: "light-dark()",
     transformers: [
       {
         pre(node) {
