@@ -25,7 +25,7 @@ function NavigationList({ route }: { route: RouteConfig }) {
             <Link
               className={classNames(
                 "docs-nav-link",
-                pathname === subRoute.url && "active",
+                pathname.startsWith(subRoute.url) && "active",
               )}
               href={subRoute.url}
             >
