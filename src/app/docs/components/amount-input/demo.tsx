@@ -26,8 +26,8 @@ export function Demo(props: AmountInputProps & { defaultValue: number }) {
       {...props}
       currency={{ key: "EUR", label: "€ - Euro" }}
       value={selectedValue}
-      onChange={(event) => {
-        setSelectedValue(event.target.valueAsNumber);
+      onChange={(_, newValue) => {
+        setSelectedValue(newValue);
       }}
     />
   );
@@ -45,8 +45,8 @@ export function DemoWithMultipleCurrencies() {
       }}
       currency={currency}
       value={selectedValue}
-      onChange={(event) => {
-        setSelectedValue(event.target.valueAsNumber);
+      onChange={(_, newValue) => {
+        setSelectedValue(newValue);
       }}
     />
   );

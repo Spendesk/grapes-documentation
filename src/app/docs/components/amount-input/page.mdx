@@ -16,8 +16,8 @@ const Demo = () => {
     <AmountInput
       currency={{ key: "EUR", label: "€ - Euro" }}
       value={selectedValue}
-      onChange={(event) => {
-        setSelectedValue(event.target.valueAsNumber);
+      onChange={(_, newValue) => {
+        setSelectedValue(newValue);
       }}
     />
   );
