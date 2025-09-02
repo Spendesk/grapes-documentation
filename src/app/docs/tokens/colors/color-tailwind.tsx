@@ -25,32 +25,16 @@ export function ColorTailwind() {
         {
           header: "CSS equivalent",
           id: "css",
-          renderCell: ({ tailwind, css }) => {
-            if (tailwind.startsWith("bg")) {
-              return (
-                <div
-                  className="w-24 h-24 rounded-4"
-                  style={{ backgroundColor: css }}
-                />
-              );
-            }
-            if (tailwind.startsWith("text")) {
-              return <div style={{ color: css }}>Aa</div>;
-            }
-            return (
-              <div
-                className="w-24 border-0 border-b-2 border-solid"
-                style={{ borderColor: css }}
-              />
-            );
-          },
+          renderCell: ({ css }) => <CopyCell content={css} />,
         },
       ]}
       rowHeight="compact"
-      data={Object.values(colors).map((color) => ({
-        tailwind: getTailwindClassName(color),
-        css: color,
-      }))}
+      data={Object.values(colors)
+        .filter((color) => color !== colors.backgroundBackdrop)
+        .map((color) => ({
+          tailwind: getTailwindClassName(color),
+          css: color,
+        }))}
     />
   );
 }
