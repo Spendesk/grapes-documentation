@@ -13,10 +13,16 @@ export function TypographyTailwind() {
           id: "tailwind",
           renderCell: ({ tailwind }) => <CopyCell content={tailwind} />,
         },
+        {
+          header: "CSS equivalent",
+          id: "css",
+          renderCell: ({ css }) => <CopyCell content={css} />,
+        },
       ]}
       rowHeight="compact"
       data={[...headingTokens, ...titleTokens, ...bodyTokens].map((token) => ({
         tailwind: token,
+        css: `font: var(--${token})`,
       }))}
     />
   );
