@@ -51,7 +51,7 @@
     "eslint": "^9.34.0",
     "eslint-config-next": "15.5.2",
     "husky": "^9.1.7",
-    "lint-staged": "^16.1.5",
+    "lint-staged": "^16.1.6",
     "lodash.kebabcase": "^4.1.1",
     "plop": "^4.0.1",
     "postcss": "^8.5.6",
