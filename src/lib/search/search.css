@@ -7,16 +7,16 @@
   width: min(80vw, 500px);
   margin: 0 auto;
   border: none;
-  border-radius: var(--border-radius-8);
-  background: var(--color-background-primary-default);
-  font: var(--body-l);
+  border-radius: var(--grapes-border-radius-8);
+  background: var(--grapes-color-background-primary-default);
+  font: var(--grapes-body-l);
   opacity: 0;
   translate: 0 0;
   transition:
-    opacity var(--transition-duration),
-    translate var(--transition-duration),
-    display var(--transition-duration) allow-discrete,
-    overlay var(--transition-duration) allow-discrete;
+    opacity var(--grapes-transition-duration),
+    translate var(--grapes-transition-duration),
+    display var(--grapes-transition-duration) allow-discrete,
+    overlay var(--grapes-transition-duration) allow-discrete;
 
   &::backdrop {
     background: #17114eb3;
@@ -36,44 +36,44 @@
 }
 
 .search-body {
-  padding-inline: var(--unit-24);
+  padding-inline: var(--grapes-unit-24);
 }
 
 .seach-input-wrapper {
   display: flex;
   align-items: center;
-  gap: var(--unit-16);
-  padding-block: var(--unit-16);
-  border-block-end: 1px solid var(--color-border-default);
+  gap: var(--grapes-unit-16);
+  padding-block: var(--grapes-unit-16);
+  border-block-end: 1px solid var(--grapes-color-border-default);
 
   input {
     display: block;
     flex: 1;
     border: none;
-    font: var(--body-l);
+    font: var(--grapes-body-l);
   }
 }
 
 .search-list {
   display: flex;
-  gap: var(--unit-8);
-  padding-block: var(--unit-24);
+  gap: var(--grapes-unit-8);
+  padding-block: var(--grapes-unit-24);
   flex-direction: column;
 
   [role="option"] {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: var(--color-background-primary-default);
-    padding: var(--unit-16) var(--unit-24);
-    border-radius: var(--border-radius-8);
-    border: 1px solid var(--color-border-default);
-    color: var(--color-content-primary);
+    background: var(--grapes-color-background-primary-default);
+    padding: var(--grapes-unit-16) var(--grapes-unit-24);
+    border-radius: var(--grapes-border-radius-8);
+    border: 1px solid var(--grapes-color-border-default);
+    color: var(--grapes-color-content-primary);
   }
 
   a:focus-visible [role="option"],
   [role="option"]:is(:hover, [aria-selected="true"]) {
-    border: 1px solid var(--color-border-hover);
-    color: var(--color-content-selected);
+    border: 1px solid var(--grapes-color-border-hover);
+    color: var(--grapes-color-content-selected);
   }
 }

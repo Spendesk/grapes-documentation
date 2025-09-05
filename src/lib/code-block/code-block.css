@@ -1,13 +1,13 @@
 .docs-code {
   color-scheme: light;
-  --color-background-hover: color-mix(
+  --grapes-color-background-hover: color-mix(
     in srgb,
-    var(--color-background-complementary-default) 70%,
-    var(--color-background-primary-default)
+    var(--grapes-color-background-complementary-default) 70%,
+    var(--grapes-color-background-primary-default)
   );
-  --_code-padding: var(--unit-16);
+  --_code-padding: var(--grapes-unit-16);
   position: relative;
-  margin-block: var(--unit-16);
+  margin-block: var(--grapes-unit-16);
   max-width: var(--docs-width);
   line-height: 1.3;
 
@@ -20,14 +20,14 @@
   .docs-cta-open {
     position: absolute;
     top: 0;
-    right: var(--unit-40);
+    right: var(--grapes-unit-40);
   }
 
   .docs-pre {
     padding: var(--_code-padding);
-    border-radius: var(--border-radius-8);
+    border-radius: var(--grapes-border-radius-8);
     overflow-x: auto;
-    font: var(--body-m);
+    font: var(--grapes-body-m);
     font-family: var(--docs-ff-mono);
   }
 
@@ -38,7 +38,7 @@
     padding-inline: var(--_code-padding);
     background: color-mix(
       in srgb,
-      var(--color-background-primary-default) 10%,
+      var(--grapes-color-background-primary-default) 10%,
       transparent
     );
   }
@@ -51,8 +51,8 @@
 
     &::before {
       position: absolute;
-      left: var(--unit-4);
-      color: var(--color-content-complementary);
+      left: var(--grapes-unit-4);
+      color: var(--grapes-color-content-complementary);
     }
   }
 
@@ -60,7 +60,7 @@
     opacity: 0.85;
     background-color: color-mix(
       in srgb,
-      var(--color-background-primary-alert-default) 70%,
+      var(--grapes-color-background-primary-alert-default) 70%,
       transparent
     );
     &::before {
@@ -70,7 +70,7 @@
   .add {
     background-color: color-mix(
       in srgb,
-      var(--color-background-primary-success-default) 70%,
+      var(--grapes-color-background-primary-success-default) 70%,
       transparent
     );
     &::before {
@@ -83,6 +83,7 @@
   margin-block-start: 0;
 
   .docs-pre {
-    border-radius: 0 0 var(--border-radius-8) var(--border-radius-8);
+    border-radius: 0 0 var(--grapes-border-radius-8)
+      var(--grapes-border-radius-8);
   }
 }

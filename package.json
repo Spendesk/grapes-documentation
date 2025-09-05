@@ -18,7 +18,7 @@
     "@codemirror/commands": "^6.8.1",
     "@codemirror/lang-javascript": "^6.2.4",
     "@codemirror/view": "^6.38.2",
-    "@dev-spendesk/grapes": "^1.49.0",
+    "@dev-spendesk/grapes": "^1.50.0-beta.2",
     "@mdx-js/loader": "^3.1.1",
     "@mdx-js/react": "^3.1.1",
     "@next/mdx": "15.5.2",
@@ -45,6 +45,7 @@
     "thememirror": "^2.0.1"
   },
   "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.13",
     "@types/node": "^24.3.1",
     "@types/react": "19.1.6",
     "@types/react-dom": "19.1.5",
@@ -57,7 +58,7 @@
     "postcss": "^8.5.6",
     "postcss-import": "^16.1.1",
     "prettier": "^3.3.3",
-    "tailwindcss": "^3.4.17",
+    "tailwindcss": "^4.1.13",
     "typescript": "^5.9.2"
   },
   "browserslist": [

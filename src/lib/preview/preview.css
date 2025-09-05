@@ -1,19 +1,19 @@
 .docs-preview {
-  border: 1px solid var(--color-border-default);
-  background-color: var(--color-background-primary-default);
-  border-radius: var(--border-radius-8);
-  padding: var(--unit-24);
-  margin-block: var(--unit-24);
+  border: 1px solid var(--grapes-color-border-default);
+  background-color: var(--grapes-color-background-primary-default);
+  border-radius: var(--grapes-border-radius-8);
+  padding: var(--grapes-unit-24);
+  margin-block: var(--grapes-unit-24);
 }
 
 :where(.docs-preview) {
   display: flex;
-  gap: var(--unit-24);
+  gap: var(--grapes-unit-24);
   flex-wrap: wrap;
 }
 
 .docs-preview:has(+ .docs-code) {
   border-bottom: none;
   margin-block-end: 0;
-  border-radius: var(--border-radius-8) var(--border-radius-8) 0 0;
+  border-radius: var(--grapes-border-radius-8) var(--grapes-border-radius-8) 0 0;
 }

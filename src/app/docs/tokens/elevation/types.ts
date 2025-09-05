@@ -1,7 +1,7 @@
 export const elevationTokens = [
-  "--elevation-xs",
-  "--elevation-s",
-  "--elevation-m",
-  "--elevation-l",
-  "--elevation-xl",
+  "--grapes-elevation-xs",
+  "--grapes-elevation-s",
+  "--grapes-elevation-m",
+  "--grapes-elevation-l",
+  "--grapes-elevation-xl",
 ];

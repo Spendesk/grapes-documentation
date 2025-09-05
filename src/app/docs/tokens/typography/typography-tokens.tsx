@@ -17,7 +17,7 @@ export function TypographyTokens({ tokens }: Props) {
 function TypographyBox({ token }: { token: string }) {
   return (
     <div>
-      <div className="text-primary">--{token}</div>
+      <div className="text-primary">--grapes-{token}</div>
       <span className={token}>The quick brown fox jumps over the lazy dog</span>
     </div>
   );

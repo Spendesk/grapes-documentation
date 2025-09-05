@@ -3,11 +3,11 @@
 import { useEffect, useRef, useState } from "react";
 
 const animationDurations = [
-  "--transition-duration",
-  "--transition-duration-long",
+  "--grapes-transition-duration",
+  "--grapes-transition-duration-long",
 ];
 
-const animationTimingFunction = "--transition-timing-function";
+const animationTimingFunction = "--grapes-transition-timing-function";
 
 export function AnimationTokens() {
   return (

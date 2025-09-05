@@ -21,7 +21,7 @@ export function UnitTailwind() {
       ]}
       rowHeight="compact"
       data={unitTokens.map((unitToken) => ({
-        tailwind: unitToken.replace("--unit", "m"),
+        tailwind: unitToken.replace("--grapes-unit", "m"),
         css: `margin: var(${unitToken})`,
       }))}
     />

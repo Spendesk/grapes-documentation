@@ -1,8 +1,8 @@
 .listItem {
-  padding-block: var(--unit-16);
+  padding-block: var(--grapes-unit-16);
 }
 
 .required::after {
   content: "*";
-  color: var(--color-content-alert-default);
+  color: var(--grapes-color-content-alert-default);
 }
