@@ -15,7 +15,7 @@ function NavigationList({ route }: { route: RouteConfig }) {
     <details className="mb-32" open>
       <summary
         id={listId}
-        className="title-m mb-8 text-brand-default cursor-pointer"
+        className="title-m mb-8 text-content-brand-default cursor-pointer"
       >
         {route.category}
       </summary>

@@ -38,7 +38,7 @@ export function PropsTable({ components }: Props) {
                     <div className="flex items-baseline gap-8 ">
                       <span
                         className={classNames(
-                          "text-primary title-l",
+                          "text-content-primary title-l",
                           required && styles.required,
                         )}
                       >
@@ -50,7 +50,7 @@ export function PropsTable({ components }: Props) {
                         }
                       />
                     </div>
-                    <p className="text-secondary-bg-primary body-m mt-8">
+                    <p className="text-content-secondary-bg-primary body-m mt-8">
                       {description}
                     </p>
                     {defaultValue != null ? (

@@ -39,7 +39,7 @@ const Demo = () => {
           key={accordionItem}
           renderHeader={() => <div>{accordionItem}</div>}
         >
-          <div className="p-24 pt-8 text-primary">
+          <div className="p-24 pt-8 text-content-primary">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec
             lectus sed sem porttitor viverra. Vestibulum magna leo.
           </div>
@@ -63,7 +63,7 @@ If you need to have multiple `AccordionItem` components open at the same time, y
 </Preview>
 
 ```tsx sandbox
-<Accordion className="w-full text-primary">
+<Accordion className="w-full text-content-primary">
   <AccordionItem
     open // [!code highlight]
     renderHeader={() => "Invite team members"}
@@ -111,7 +111,7 @@ function Demo() {
           open={"open" === indexOpen} // [!code highlight]
           renderHeader={() => "Invite team members"}
         >
-          <div className="p-24 pt-8 text-primary">
+          <div className="p-24 pt-8 text-content-primary">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec
             lectus sed sem porttitor viverra. Vestibulum magna leo.
           </div>
@@ -141,7 +141,7 @@ const Demo = () => {
       onToggle={(open) => setOpenItem(open)}
       renderHeader={() => (openItem ? "Show less" : "Show more")} // [!code highlight]
     >
-      <div className="p-24 pt-8 text-primary">
+      <div className="p-24 pt-8 text-content-primary">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec
         lectus sed sem porttitor viverra. Vestibulum magna leo.
       </div>

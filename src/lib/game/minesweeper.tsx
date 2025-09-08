@@ -195,7 +195,7 @@ export function Minesweeper() {
 
   return (
     <div className="body-m text-center">
-      <div className="border border-solid border-default">
+      <div className="border border-solid border-border-default">
         {grid.map((row, x) => (
           <div className="flex" key={x}>
             {row.map((_, y) => {
@@ -211,16 +211,16 @@ export function Minesweeper() {
                     isCellVisible && "visible",
                     isCellVisible &&
                       grid[x][y] === 1 &&
-                      "bg-secondary-info-default",
+                      "bg-background-secondary-info-default",
                     isCellVisible &&
                       grid[x][y] === 2 &&
-                      "bg-secondary-success-default",
+                      "bg-background-secondary-success-default",
                     isCellVisible &&
                       grid[x][y] === 3 &&
-                      "bg-secondary-alert-default",
+                      "bg-background-secondary-alert-default",
                     isCellVisible &&
                       grid[x][y] === 4 &&
-                      "bg-secondary-brand-default",
+                      "bg-background-secondary-brand-default",
                     !isCellVisible && flags.has(cellNumber) && "cell-flag",
                   )}
                   key={`${x}|${y}`}

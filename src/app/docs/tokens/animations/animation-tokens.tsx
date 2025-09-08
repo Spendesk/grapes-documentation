@@ -50,7 +50,9 @@ function AnimationBox({
       }}
     >
       <div className="title-m mt-8">{token}</div>
-      <div className="text-secondary-bg-secondary">{animationToken}</div>
+      <div className="text-content-secondary-bg-secondary">
+        {animationToken}
+      </div>
     </div>
   );
 }

@@ -1,4 +1,4 @@
-@layer reset, theme, base, components, utilities, layout, content, grapes;
+@layer reset, theme, layout, content, grapes, base, components, utilities;
 @import "@dev-spendesk/grapes/dist/style" layer(grapes);
 @import "tailwindcss/theme.css" layer(theme);
 @import "tailwindcss/utilities.css" layer(utilities);

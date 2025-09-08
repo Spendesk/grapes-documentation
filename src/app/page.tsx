@@ -23,10 +23,11 @@ export default function Home() {
         </section>
         <section>
           <h2>
-            Provide a <span className="text-brand-default">consistent</span>{" "}
+            Provide a{" "}
+            <span className="text-content-brand-default">consistent</span>{" "}
             experience to anyone
           </h2>
-          <p className="body-l text-primary">
+          <p className="body-l text-content-primary">
             Users should have this experience across devices and form factors.
             They should also feel that Spendesk honors the conventions of the
             device, feel native to the country and culture within which it is

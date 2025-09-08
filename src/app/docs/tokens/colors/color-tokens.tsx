@@ -17,151 +17,175 @@ type Color = {
 
 const backgroundTokens: { [key in BackgroundColorSection]: Color[] } = {
   primary: [
-    { name: "primary-default", value: colors.backgroundPrimaryDefault },
-    { name: "primary-hover", value: colors.backgroundPrimaryHover },
-    { name: "primary-pressed", value: colors.backgroundPrimaryPressed },
-    { name: "primary-selected", value: colors.backgroundPrimarySelected },
-    { name: "primary-disabled", value: colors.backgroundPrimaryDisabled },
-    { name: "primary-readonly", value: colors.backgroundPrimaryReadonly },
     {
-      name: "primary-brand-default",
+      name: "background-primary-default",
+      value: colors.backgroundPrimaryDefault,
+    },
+    { name: "background-primary-hover", value: colors.backgroundPrimaryHover },
+    {
+      name: "background-primary-pressed",
+      value: colors.backgroundPrimaryPressed,
+    },
+    {
+      name: "background-primary-selected",
+      value: colors.backgroundPrimarySelected,
+    },
+    {
+      name: "background-primary-disabled",
+      value: colors.backgroundPrimaryDisabled,
+    },
+    {
+      name: "background-primary-readonly",
+      value: colors.backgroundPrimaryReadonly,
+    },
+    {
+      name: "background-primary-brand-default",
       value: colors.backgroundPrimaryBrandDefault,
     },
     {
-      name: "primary-brand-hover",
+      name: "background-primary-brand-hover",
       value: colors.backgroundPrimaryBrandHover,
     },
     {
-      name: "primary-brand-pressed",
+      name: "background-primary-brand-pressed",
       value: colors.backgroundPrimaryBrandPressed,
     },
     {
-      name: "primary-info-default",
+      name: "background-primary-info-default",
       value: colors.backgroundPrimaryInfoDefault,
     },
     {
-      name: "primary-info-hover",
+      name: "background-primary-info-hover",
       value: colors.backgroundPrimaryInfoHover,
     },
     {
-      name: "primary-info-pressed",
+      name: "background-primary-info-pressed",
       value: colors.backgroundPrimaryInfoPressed,
     },
     {
-      name: "primary-success-default",
+      name: "background-primary-success-default",
       value: colors.backgroundPrimarySuccessDefault,
     },
     {
-      name: "primary-success-hover",
+      name: "background-primary-success-hover",
       value: colors.backgroundPrimarySuccessHover,
     },
     {
-      name: "primary-success-pressed",
+      name: "background-primary-success-pressed",
       value: colors.backgroundPrimarySuccessPressed,
     },
     {
-      name: "primary-warning-default",
+      name: "background-primary-warning-default",
       value: colors.backgroundPrimaryWarningDefault,
     },
     {
-      name: "primary-warning-hover",
+      name: "background-primary-warning-hover",
       value: colors.backgroundPrimaryWarningHover,
     },
     {
-      name: "primary-warning-pressed",
+      name: "background-primary-warning-pressed",
       value: colors.backgroundPrimaryWarningPressed,
     },
     {
-      name: "primary-alert-default",
+      name: "background-primary-alert-default",
       value: colors.backgroundPrimaryAlertDefault,
     },
     {
-      name: "primary-alert-hover",
+      name: "background-primary-alert-hover",
       value: colors.backgroundPrimaryAlertHover,
     },
     {
-      name: "primary-alert-pressed",
+      name: "background-primary-alert-pressed",
       value: colors.backgroundPrimaryAlertPressed,
     },
   ],
   secondary: [
-    { name: "secondary-default", value: colors.backgroundSecondaryDefault },
     {
-      name: "secondary-brand-default",
+      name: "background-secondary-default",
+      value: colors.backgroundSecondaryDefault,
+    },
+    {
+      name: "background-secondary-brand-default",
       value: colors.backgroundSecondaryBrandDefault,
     },
     {
-      name: "secondary-brand-hover",
+      name: "background-secondary-brand-hover",
       value: colors.backgroundSecondaryBrandHover,
     },
     {
-      name: "secondary-brand-pressed",
+      name: "background-secondary-brand-pressed",
       value: colors.backgroundSecondaryBrandPressed,
     },
     {
-      name: "secondary-info-default",
+      name: "background-secondary-info-default",
       value: colors.backgroundSecondaryInfoDefault,
     },
     {
-      name: "secondary-info-hover",
+      name: "background-secondary-info-hover",
       value: colors.backgroundSecondaryInfoHover,
     },
     {
-      name: "secondary-info-pressed",
+      name: "background-secondary-info-pressed",
       value: colors.backgroundSecondaryInfoPressed,
     },
     {
-      name: "secondary-success-default",
+      name: "background-secondary-success-default",
       value: colors.backgroundSecondarySuccessDefault,
     },
     {
-      name: "secondary-success-hover",
+      name: "background-secondary-success-hover",
       value: colors.backgroundSecondarySuccessHover,
     },
     {
-      name: "secondary-success-pressed",
+      name: "background-secondary-success-pressed",
       value: colors.backgroundSecondarySuccessPressed,
     },
     {
-      name: "secondary-warning-default",
+      name: "background-secondary-warning-default",
       value: colors.backgroundSecondaryWarningDefault,
     },
     {
-      name: "secondary-warning-hover",
+      name: "background-secondary-warning-hover",
       value: colors.backgroundSecondaryWarningHover,
     },
     {
-      name: "secondary-warning-pressed",
+      name: "background-secondary-warning-pressed",
       value: colors.backgroundSecondaryWarningPressed,
     },
     {
-      name: "secondary-alert-default",
+      name: "background-secondary-alert-default",
       value: colors.backgroundSecondaryAlertDefault,
     },
     {
-      name: "secondary-alert-hover",
+      name: "background-secondary-alert-hover",
       value: colors.backgroundSecondaryAlertHover,
     },
     {
-      name: "secondary-alert-pressed",
+      name: "background-secondary-alert-pressed",
       value: colors.backgroundSecondaryAlertPressed,
     },
   ],
   tertiary: [
-    { name: "tertiary-default", value: colors.backgroundTertiaryDefault },
+    {
+      name: "background-tertiary-default",
+      value: colors.backgroundTertiaryDefault,
+    },
   ],
   complementary: [
     {
-      name: "complementary-default",
+      name: "background-complementary-default",
       value: colors.backgroundComplementaryDefault,
     },
-    { name: "complementary-hover", value: colors.backgroundComplementaryHover },
     {
-      name: "complementary-pressed",
+      name: "background-complementary-hover",
+      value: colors.backgroundComplementaryHover,
+    },
+    {
+      name: "background-complementary-pressed",
       value: colors.backgroundComplementaryPressed,
     },
     {
-      name: "complementary-disabled",
+      name: "background-complementary-disabled",
       value: colors.backgroundComplementaryDisabled,
     },
   ],
@@ -191,13 +215,13 @@ const tokens: { [key in ColorSection]: Color[] } = {
     { name: "content-decorative-icon", value: colors.contentDecorativeIcon },
   ],
   border: [
-    { name: "border-default", value: colors.borderDefault },
-    { name: "border-hover", value: colors.borderHover },
-    { name: "border-selected", value: colors.borderSelected },
-    { name: "border-info", value: colors.borderInfo },
-    { name: "border-success", value: colors.borderSuccess },
-    { name: "border-warning", value: colors.borderWarning },
-    { name: "border-alert", value: colors.borderAlert },
+    { name: "border-border-default", value: colors.borderDefault },
+    { name: "border-border-hover", value: colors.borderHover },
+    { name: "border-border-selected", value: colors.borderSelected },
+    { name: "border-border-info", value: colors.borderInfo },
+    { name: "border-border-success", value: colors.borderSuccess },
+    { name: "border-border-warning", value: colors.borderWarning },
+    { name: "border-border-alert", value: colors.borderAlert },
   ],
 };
 
@@ -288,8 +312,8 @@ function ColorBox({ color }: { color: Color }) {
         ></button>
       </Tooltip>
       <div>
-        <p className="font-medium text-primary mt-4">{color.name}</p>
-        <small className="text-primary">{hexa}</small>
+        <p className="body-m text-content-primary mt-4">{color.name}</p>
+        <small className="body-s text-content-primary">{hexa}</small>
       </div>
     </div>
   );
