@@ -25,7 +25,7 @@ jobs:
         uses: runs-on/action@v2
 
       - name: Get Nodejs
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: "npm"
@@ -55,7 +55,7 @@ jobs:
         uses: runs-on/action@v2
 
       - name: Get Nodejs
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: "npm"
@@ -90,7 +90,7 @@ jobs:
         uses: runs-on/action@v2
 
       - name: Get Nodejs
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: "npm"
