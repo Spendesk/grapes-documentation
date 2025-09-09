@@ -17,7 +17,7 @@ function DemoHeader() {
       </div>
       <div className="text-right">
         <div className="title-m">€250.00</div>
-        <div className="text-primary body-s">3 payables</div>
+        <div className="text-content-primary body-s">3 payables</div>
       </div>
     </div>
   );
@@ -36,11 +36,11 @@ function DemoListItem({
     <div className="flex items-center justify-between w-full">
       <div>
         <div>{supplier}</div>
-        <div className="text-primary body-s">Michael Murphy</div>
+        <div className="text-content-primary body-s">Michael Murphy</div>
       </div>
       <div className="text-right">
         <div className="title-m">{amount}</div>
-        <div className="text-primary body-s">{date}</div>
+        <div className="text-content-primary body-s">{date}</div>
       </div>
     </div>
   );

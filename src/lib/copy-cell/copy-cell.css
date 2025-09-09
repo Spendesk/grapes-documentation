@@ -2,5 +2,5 @@
   display: flex;
   height: 100%;
   align-items: center;
-  gap: var(--unit-4);
+  gap: var(--grapes-unit-4);
 }

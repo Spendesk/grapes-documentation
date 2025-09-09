@@ -22,7 +22,7 @@ export function TypographyTailwind() {
       rowHeight="compact"
       data={[...headingTokens, ...titleTokens, ...bodyTokens].map((token) => ({
         tailwind: token,
-        css: `font: var(--${token})`,
+        css: `font: var(--grapes-${token})`,
       }))}
     />
   );

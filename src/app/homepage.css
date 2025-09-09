@@ -2,11 +2,11 @@
   --size-content: min(95vw, 1200px);
   --_size: 2000px;
 
-  background-color: var(--color-background-primary-default);
+  background-color: var(--grapes-color-background-primary-default);
   min-height: calc(100vh - var(--docs-offset-header));
   background-image: radial-gradient(
     rgba(111, 134, 255, 0.541) 10%,
-    var(--color-background-primary-default) 70%
+    var(--grapes-color-background-primary-default) 70%
   );
   background-repeat: no-repeat;
   background-position: bottom calc(-1 * var(--_size) / 2) right
@@ -28,43 +28,43 @@
     max-width: 800px;
     flex-direction: column;
     align-items: start;
-    gap: 0 var(--unit-48);
+    gap: 0 var(--grapes-unit-48);
   }
 
   .hero p {
     text-wrap: balance;
-    margin: var(--unit-32) 0;
+    margin: var(--grapes-unit-32) 0;
   }
 
   .hero h1 {
     paint-order: stroke fill;
-    font: var(--heading-xxl);
+    font: var(--grapes-heading-xxl);
     font-size: 130px;
     line-height: 90%;
     font-weight: 700;
     letter-spacing: -0.1ch;
-    padding-block: var(--unit-16);
-    color: var(--color-content-primary);
+    padding-block: var(--grapes-unit-16);
+    color: var(--grapes-color-content-primary);
   }
 
   .hero-cta {
-    background: var(--color-background-primary-brand-default);
-    border-radius: var(--border-radius-12);
+    background: var(--grapes-color-background-primary-brand-default);
+    border-radius: var(--grapes-border-radius-12);
     display: inline grid;
     grid-template-areas: "text arrow";
     grid-template-columns: 1fr min-content;
     align-items: center;
-    gap: var(--unit-8);
-    color: var(--color-content-complementary);
-    font: var(--body-l);
-    box-shadow: var(--elevation-m);
-    padding: var(--unit-16) var(--unit-24);
-    transition: background var(--transition-duration-long)
-      var(--transition-timing-function);
+    gap: var(--grapes-unit-8);
+    color: var(--grapes-color-content-complementary);
+    font: var(--grapes-body-l);
+    box-shadow: var(--grapes-elevation-m);
+    padding: var(--grapes-unit-16) var(--grapes-unit-24);
+    transition: background var(--grapes-transition-duration-long)
+      var(--grapes-transition-timing-function);
     contain: paint;
 
     &:hover {
-      background: var(--color-background-primary-brand-hover);
+      background: var(--grapes-color-background-primary-brand-hover);
 
       span {
         transform: rotate(calc(var(--deg) + -45deg));
@@ -86,19 +86,19 @@
       grid-area: text;
       transform: rotate(var(--deg));
       transform-origin: 150% 50%;
-      transition: transform var(--transition-duration)
-        var(--transition-timing-function);
+      transition: transform var(--grapes-transition-duration)
+        var(--grapes-transition-timing-function);
     }
   }
 
   section {
-    padding-block: var(--unit-48);
+    padding-block: var(--grapes-unit-48);
 
     h2 {
-      font: var(--heading-xxl);
-      color: var(--color-content-primary);
+      font: var(--grapes-heading-xxl);
+      color: var(--grapes-color-content-primary);
       text-wrap: pretty;
-      margin-block-end: var(--unit-16);
+      margin-block-end: var(--grapes-unit-16);
     }
   }
 
@@ -106,8 +106,8 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: max-content 1fr max-content;
-    padding: var(--unit-32) 0;
-    gap: 0 var(--unit-48);
+    padding: var(--grapes-unit-32) 0;
+    gap: 0 var(--grapes-unit-48);
   }
 
   .feature-item {
@@ -115,22 +115,22 @@
     display: grid;
     grid-row: span 3;
     grid-template-rows: subgrid;
-    background: var(--color-background-complementary-default);
-    color: var(--color-content-complementary);
-    border-radius: var(--border-radius-12);
-    padding: var(--unit-48) var(--unit-32) var(--unit-32);
+    background: var(--grapes-color-background-complementary-default);
+    color: var(--grapes-color-content-complementary);
+    border-radius: var(--grapes-border-radius-12);
+    padding: var(--grapes-unit-48) var(--grapes-unit-32) var(--grapes-unit-32);
   }
 
   .feature-item h3 {
-    font: var(--heading-xl);
+    font: var(--grapes-heading-xl);
   }
   .feature-item p {
-    margin-block: var(--unit-12) var(--unit-32);
-    font: var(--body-l);
+    margin-block: var(--grapes-unit-12) var(--grapes-unit-32);
+    font: var(--grapes-body-l);
   }
   .feature-item svg {
     transform: rotate(-45deg);
-    transition: transform 0.1s var(--transition-timing-function);
+    transition: transform 0.1s var(--grapes-transition-timing-function);
   }
   .feature-item:hover svg {
     transform: rotate(-45deg) translateX(10px);
@@ -143,6 +143,6 @@
 @media (width <= 900px) {
   .home-content .features {
     grid-template-columns: 1fr;
-    gap: var(--unit-16);
+    gap: var(--grapes-unit-16);
   }
 }

@@ -358,7 +358,7 @@ export function DemoGroupedTable() {
         return (
           <div className="flex items-center gap-8 py-8">
             <Avatar src={avatar} text={employeeName} />
-            <p className="grow body-m text-primary">{employeeName}</p>
+            <p className="grow body-m text-content-primary">{employeeName}</p>
             <p>{`${aggregatedRows.length} requests`}</p>
             <Button
               variant="secondaryNeutral"

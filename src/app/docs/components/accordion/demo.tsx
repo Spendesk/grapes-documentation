@@ -7,13 +7,13 @@ export function DemoAccordion() {
   return (
     <Accordion className="w-full">
       <AccordionItem renderHeader={() => "Invite team members"}>
-        <div className="p-24 pt-8 text-primary">
+        <div className="p-24 pt-8 text-content-primary">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec
           lectus sed sem porttitor viverra. Vestibulum magna leo.
         </div>
       </AccordionItem>
       <AccordionItem renderHeader={() => "Make a first payment"}>
-        <div className="p-24 pt-8 text-primary">
+        <div className="p-24 pt-8 text-content-primary">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec
           lectus sed sem porttitor viverra. Vestibulum magna leo.
         </div>
@@ -24,7 +24,7 @@ export function DemoAccordion() {
 
 export function DemoOpen() {
   return (
-    <Accordion className="w-full text-primary">
+    <Accordion className="w-full text-content-primary">
       <AccordionItem open renderHeader={() => "Invite team members"}>
         <div className="p-24 pt-8">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec
@@ -61,7 +61,7 @@ export function DemoControlledAccordion() {
           open={"open" === indexOpen} // [!code highlight]
           renderHeader={() => "Invite team members"}
         >
-          <div className="p-24 pt-8 text-primary">
+          <div className="p-24 pt-8 text-content-primary">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec
             lectus sed sem porttitor viverra. Vestibulum magna leo.
           </div>
@@ -81,7 +81,7 @@ export function DemoControlledState() {
       onToggle={(open) => setOpenItem(open)}
       renderHeader={() => (openItem ? "Show less" : "Show more")}
     >
-      <div className="p-24 pt-8 text-primary">
+      <div className="p-24 pt-8 text-content-primary">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec
         lectus sed sem porttitor viverra. Vestibulum magna leo.
       </div>

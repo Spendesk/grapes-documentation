@@ -1,5 +1,5 @@
 export const borderRadiusTokens = [
-  "--border-radius-4",
-  "--border-radius-8",
-  "--border-radius-12",
+  "--grapes-border-radius-4",
+  "--grapes-border-radius-8",
+  "--grapes-border-radius-12",
 ];

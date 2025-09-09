@@ -21,7 +21,7 @@ export function ElevationTailwind() {
       ]}
       rowHeight="compact"
       data={elevationTokens.map((elevationToken) => ({
-        tailwind: elevationToken.replace("--elevation", "elevation"),
+        tailwind: elevationToken.replace("--grapes-elevation", "elevation"),
         css: `box-shadow: var(${elevationToken})`,
       }))}
     />

@@ -147,7 +147,7 @@ export function ModalWithoutTitle() {
       <ModalOverlay isOpen={isOpen}>
         <ModalContent aria-label="Modal without title">
           <ModalBody>
-            <div className="h-[500px] bg-primary-brand-default"></div>
+            <div className="h-[500px] bg-background-primary-brand-default"></div>
           </ModalBody>
           <ModalFooter>
             <Button onClick={() => setIsOpen(false)} text="Close" />

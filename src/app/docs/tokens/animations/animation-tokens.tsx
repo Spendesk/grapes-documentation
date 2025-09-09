@@ -3,11 +3,11 @@
 import { useEffect, useRef, useState } from "react";
 
 const animationDurations = [
-  "--transition-duration",
-  "--transition-duration-long",
+  "--grapes-transition-duration",
+  "--grapes-transition-duration-long",
 ];
 
-const animationTimingFunction = "--transition-timing-function";
+const animationTimingFunction = "--grapes-transition-timing-function";
 
 export function AnimationTokens() {
   return (
@@ -50,7 +50,9 @@ function AnimationBox({
       }}
     >
       <div className="title-m mt-8">{token}</div>
-      <div className="text-secondary-bg-secondary">{animationToken}</div>
+      <div className="text-content-secondary-bg-secondary">
+        {animationToken}
+      </div>
     </div>
   );
 }

@@ -21,7 +21,7 @@ export function BorderRadiusTailwind() {
       ]}
       rowHeight="compact"
       data={borderRadiusTokens.map((token) => ({
-        tailwind: token.replace("--border-radius", "rounded"),
+        tailwind: token.replace("--grapes-border-radius", "rounded"),
         css: `border-radius: var(${token})`,
       }))}
     />

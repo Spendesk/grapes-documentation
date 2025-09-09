@@ -61,10 +61,6 @@ export const gettingStartedRoutes: RouteConfig[] = [
         label: "Philisophy",
         url: "/docs/guide/philosophy",
       },
-      {
-        label: "Tools",
-        url: "/docs/guide/tools",
-      },
     ],
   },
   {

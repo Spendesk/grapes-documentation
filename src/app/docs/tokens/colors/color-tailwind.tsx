@@ -4,13 +4,13 @@ import { Table, colors } from "@dev-spendesk/grapes";
 import { CopyCell } from "@/lib/copy-cell/copy-cell";
 
 function getTailwindClassName(color: string): string {
-  if (color.startsWith("var(--color-background")) {
-    return color.replace("var(--color-background", "bg").replace(")", "");
+  if (color.startsWith("var(--grapes-color-background")) {
+    return color.replace("var(--grapes-color", "bg").replace(")", "");
   }
-  if (color.startsWith("var(--color-content")) {
-    return color.replace("var(--color-content", "text").replace(")", "");
+  if (color.startsWith("var(--grapes-color-content")) {
+    return color.replace("var(--grapes-color", "text").replace(")", "");
   }
-  return color.replace("var(--color-border", "border").replace(")", "");
+  return color.replace("var(--grapes-color", "border").replace(")", "");
 }
 
 export function ColorTailwind() {
