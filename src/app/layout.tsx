@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { GrapesProvider } from "@dev-spendesk/grapes";
 import { GlobalHeader } from "@/lib/global-header/global-header";
 
@@ -15,6 +15,13 @@ export const metadata: Metadata = {
     // Globally enable openGraph
     siteName: "Grapes",
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "white" },
+    { media: "(prefers-color-scheme: dark)", color: "#303232" },
+  ],
 };
 
 export default function RootLayout({

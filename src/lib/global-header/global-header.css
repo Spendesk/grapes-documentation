@@ -2,9 +2,7 @@
   position: sticky;
   z-index: 1;
   top: 0;
-  background: var(--docs-background-header);
-  backdrop-filter: var(--docs-background-filter);
-  -webkit-backdrop-filter: var(--docs-background-filter);
+  background: var(--grapes-color-background-primary-default);
   border-block-end: 1px solid var(--grapes-color-border-default);
   height: var(--docs-offset-header);
 
