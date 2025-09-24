@@ -1,9 +1,9 @@
 @layer reset, theme, layout, content, grapes, components, utilities;
-@import "@dev-spendesk/grapes/dist/index" layer(grapes);
-@import "@dev-spendesk/grapes/dist/token" layer(grapes);
+@import "@dev-spendesk/grapes/style" layer(grapes);
+@import "@dev-spendesk/grapes/token" layer(grapes);
 @import "tailwindcss/theme.css" layer(theme);
 @import "tailwindcss/utilities.css" layer(utilities);
-@import "@dev-spendesk/grapes/dist/tailwind-grapes.css";
+@import "@dev-spendesk/grapes/tailwind";
 
 @font-face {
   font-family: "Roobert";
