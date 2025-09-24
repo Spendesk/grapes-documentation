@@ -7,7 +7,7 @@ import { Demo } from "./demo";
   <Demo value={new Date()} />
 </Preview>
 
-```tsx sandbox
+```tsx
 const Demo = () => {
   const [date, setDate] = useState<Date | undefined>();
 
@@ -39,7 +39,7 @@ Use `minDate` to set the earliest date allowed by the input and `maxDate` for th
   />
 </Preview>
 
-```tsx sandbox
+```tsx
 const Demo = () => {
   const minDate = new Date(2020, 0, 4);
   const maxDate = new Date(2020, 0, 25);

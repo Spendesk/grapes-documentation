@@ -10,13 +10,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
     pre: ({ children }) => {
       return (
-        <CodeBlock
-          // @ts-ignore
-          language={children.props.className}
-          // @ts-ignore
-          displaySandboxButton={children.props.sandbox}
-        >
-          {/* @ts-ignore */}
+        <CodeBlock language={children.props.className}>
           {children.props.children}
         </CodeBlock>
       );

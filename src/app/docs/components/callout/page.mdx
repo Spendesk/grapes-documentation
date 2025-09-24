@@ -12,7 +12,7 @@ The Callout comes with four visual styles: info (default), alert, warning, and s
   <Callout title="Success callout title" variant="success" />
 </Preview>
 
-```tsx sandbox
+```tsx
 <>
   <Callout title="Info callout title" variant="info" />
   <Callout title="Alert callout title" variant="alert" />
@@ -32,7 +32,7 @@ Use the `children` prop to add any content to the callout.
   </Callout>
 </Preview>
 
-```tsx sandbox
+```tsx
 <Callout title="Callout title">
   On the budget, the amount of the invoice will be proportionally reflected over
   the period.
@@ -44,23 +44,26 @@ Use the `children` prop to add any content to the callout.
 CTAs can be added through the `children` prop as well.
 
 <Preview className="grid">
-  <Callout className="mt-4" title="This automation rule changed" variant="info" iconName="lightning">
+  <Callout
+    className="mt-4"
+    title="This automation rule changed"
+    variant="info"
+    iconName="lightning"
+  >
     <div className="flex flex-row gap-8">
-      <Button
-        variant="primaryInfo"
-        text="Update with rule value"
-      />
-      <Button
-        variant="secondaryNeutral"
-        text="Ignore"
-        label="Ignore"
-      />
+      <Button variant="primaryInfo" text="Update with rule value" />
+      <Button variant="secondaryNeutral" text="Ignore" label="Ignore" />
     </div>
   </Callout>
 </Preview>
 
-```tsx sandbox
-<Callout className="mt-4" title="This automation rule changed" variant="info" iconName="lightning">
+```tsx
+<Callout
+  className="mt-4"
+  title="This automation rule changed"
+  variant="info"
+  iconName="lightning"
+>
   <div className="flex flex-row gap-8">
     <Button
       variant="primaryInfo"

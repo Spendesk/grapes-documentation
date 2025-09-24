@@ -15,7 +15,7 @@ import { VisibleOnClick } from "./visible-on-click";
   </Tooltip>
 </Preview>
 
-```tsx sandbox
+```tsx
 <Tooltip content="This is some useful information in a tooltip" triggerAsChild>
   <Button variant="primaryBrand" text="Top tooltip" />
 </Tooltip>
@@ -52,7 +52,7 @@ Use the `placement` prop to specify where the tooltip should be positioned.
   </Tooltip>
 </Preview>
 
-```tsx sandbox
+```tsx
 <>
   <Tooltip
     content="This is some useful information in a tooltip"
@@ -95,7 +95,7 @@ If the `isDisabled` prop is set to `true`, the tooltip will never appear.
   </Tooltip>
 </Preview>
 
-```tsx sandbox
+```tsx
 <Tooltip content="This is some useful information in a tooltip" isDisabled>
   <Button variant="primaryBrand" isDisabled text="Tooltip" />
 </Tooltip>
@@ -107,7 +107,7 @@ The tooltip can be controlled using the `isOpen` prop.
 
 <VisibleOnClick />
 
-```tsx sandbox
+```tsx
 const Demo = () => {
   const [isVisible, setIsVisible] = useState(false);
 

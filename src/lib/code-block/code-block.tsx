@@ -4,13 +4,11 @@ import {
   transformerNotationDiff,
 } from "@shikijs/transformers";
 import { CopyButton } from "@/lib/copy-button/copy-button";
-import { OpenInSandboxButton } from "@/lib/open-in-sandbox-button/open-in-sandbox-button";
 
 import "./code-block.css";
 
 type Props = {
   language?: string;
-  displaySandboxButton?: boolean;
   children: React.ReactNode;
 };
 
@@ -19,11 +17,7 @@ function extractLanguage(attr = "") {
   return result ? result[1] : "tsx";
 }
 
-export async function CodeBlock({
-  language,
-  children,
-  displaySandboxButton = false,
-}: Props) {
+export async function CodeBlock({ language, children }: Props) {
   const code = children as string;
   const lang = extractLanguage(language);
 
@@ -47,7 +41,6 @@ export async function CodeBlock({
     <div className="docs-code">
       <div dangerouslySetInnerHTML={{ __html: html }} />
       <CopyButton content={code} className="docs-cta-copy" />
-      {displaySandboxButton && <OpenInSandboxButton code={code} />}
     </div>
   );
 }

@@ -1,6 +1,11 @@
 import { Preview } from "@/lib/preview/preview";
 
-import { DemoNumberInput, DemoEmailInput, DemoNumberConstraint, DemoStringConstraint } from "./demo";
+import {
+  DemoNumberInput,
+  DemoEmailInput,
+  DemoNumberConstraint,
+  DemoStringConstraint,
+} from "./demo";
 
 :::warning{title="Usage"}
 Consider using this component as a last resort when none of the other available Grapes components meet your requirements, such as:
@@ -19,7 +24,7 @@ The primary difference between using an `Input` component versus a `TextInput` c
   <DemoNumberInput />
 </Preview>
 
-```tsx sandbox
+```tsx
 const Demo = () => {
   const [value, setValue] = useState(0);
 
@@ -50,7 +55,7 @@ Built-in email validation is often too permissive, so it's recommended to use a 
   <DemoEmailInput />
 </Preview>
 
-```tsx sandbox
+```tsx
 const Demo = () => {
   const [value, setValue] = useState(0);
   const [error, setError] = useState(false);
@@ -79,7 +84,7 @@ You can use the prop `min` and `max` to defines a minimal and maximal value for 
   <DemoNumberConstraint />
 </Preview>
 
-```tsx sandbox
+```tsx
 const Demo = () => {
   const [value, setValue] = useState(0);
 
@@ -87,13 +92,18 @@ const Demo = () => {
     <FormField label="Quantity">
       <Input
         placeholder="Enter a quantity"
-        type="number"  // [!code highlight]
+        type="number" // [!code highlight]
         min={3} // [!code highlight]
         max={5} // [!code highlight]
         value={value}
         onChange={(event) => {
-          if (event.target.checkValidity()) { // [!code highlight]
-            setValue(Number.isNaN(event.target.valueAsNumber) ? "" : event.target.valueAsNumber);
+          if (event.target.checkValidity()) {
+            // [!code highlight]
+            setValue(
+              Number.isNaN(event.target.valueAsNumber)
+                ? ""
+                : event.target.valueAsNumber
+            );
           }
         }}
       />
@@ -108,7 +118,7 @@ You can also use the prop `pattern` for text input:
   <DemoStringConstraint />
 </Preview>
 
-```tsx sandbox
+```tsx
 const Demo = () => {
   const [value, setValue] = useState("");
 
@@ -116,12 +126,13 @@ const Demo = () => {
     <FormField label="Name">
       <Input
         placeholder="Enter a name"
-        type="text"  // [!code highlight]
+        type="text" // [!code highlight]
         // Only lowercase letters, with a maximum length of 8 characters.
         pattern="[a-w]{0,8}" // [!code highlight]
         value={value}
         onChange={(event) => {
-          if (event.target.checkValidity()) { // [!code highlight]
+          if (event.target.checkValidity()) {
+            // [!code highlight]
             setValue(event.target.value);
           }
         }}

@@ -10,7 +10,7 @@ The Avatar comes with two visual styles: circle and square. You should use a `ci
   <Avatar variant="square" src="/aurelien.webp" text="Michael Murphy" />
 </Preview>
 
-```tsx sandbox
+```tsx
 <>
   <Avatar variant="circle" src="/aurelien.webp" text="Michael Murphy" />
   <Avatar variant="square" src="/aurelien.webp" text="Michael Murphy" />
@@ -29,7 +29,7 @@ The Avatar comes in five different sizes: 16, 24, 32 (default), 40, and 56.
   <Avatar size={56} src="/aurelien.webp" text="Michael Murphy" />
 </Preview>
 
-```tsx sandbox
+```tsx
 <>
   <Avatar size={16} src="/aurelien.webp" text="Michael Murphy" />
   <Avatar size={24} src="/aurelien.webp" text="Michael Murphy" />
@@ -66,7 +66,7 @@ A badge can be used with an avatar to display additional information, such as a 
   />
 </Preview>
 
-```tsx sandbox
+```tsx
 <>
   <Avatar
     badgeProps={{
@@ -95,28 +95,19 @@ A badge can be used with an avatar to display additional information, such as a 
 
 Name of the icon to display in the Avatar.
 
-Use either : 
-- `iconName` for icons 
+Use either :
+
+- `iconName` for icons
 - or `src` for images (with or without `fallbackSrc`)
 
 <Preview>
-  <Avatar
-    iconName="car"
-    size={40}
-    text="drive"
-    variant="square"
-  />
+  <Avatar iconName="car" size={40} text="drive" variant="square" />
   <Avatar iconName="person" size={40} text="George Gray" />
 </Preview>
 
-```tsx sandbox
+```tsx
 <>
-  <Avatar
-    iconName="car"
-    size={40}
-    text="drive"
-    variant="square"
-  />
+  <Avatar iconName="car" size={40} text="drive" variant="square" />
   <Avatar iconName="person" size={40} text="George Gray" />
 </>
 ```
@@ -129,25 +120,16 @@ If there is an error loading the src of the avatar or if the `src` has not been 
 - If there's no `fallbackSrc` prop, we use the text props to generate the initials and a random color for both the background and the text color.
 
 <Preview>
-  <Avatar
-    fallbackSrc="/jean.webp"
-    size={40}
-    text="Spendesk"
-    variant="square"
-  />
+  <Avatar fallbackSrc="/jean.webp" size={40} text="Spendesk" variant="square" />
   <Avatar size={40} text="George Gray" />
   <Avatar size={40} text="Lewis Barker" />
   <Avatar size={40} text="Michael Murphy" />
   <Avatar size={40} text="Nayden Lennart" />
 </Preview>
 
-```tsx sandbox
+```tsx
 <>
-  <Avatar
-    fallbackSrc="/jean.webp"
-    size={40}
-    text="Spendesk"
-  />
+  <Avatar fallbackSrc="/jean.webp" size={40} text="Spendesk" />
   <Avatar size={40} text="George Gray" />
   <Avatar size={40} text="Lewis Barker" />
   <Avatar size={40} text="Michael Murphy" />
