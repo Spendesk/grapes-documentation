@@ -18,7 +18,7 @@ The `PanelSection` component lets you define sections inside the SidePanel, whic
   <DemoSidePanel />
 </Preview>
 
-```tsx sandbox
+```tsx
 const Demo = () => {
   const [legalName, setLegalName] = useState("google");
   const [tmpLegalName, setTmpLegalName] = useState("");
@@ -117,7 +117,7 @@ Two props are available to display information at the bottom of a SidePanel: `fo
 <Preview>
   <DemoSidePanelFooter />
 </Preview>
-```tsx sandbox
+```tsx
 <SidePanel
   title="Supplier details"
   onClose={() => setOpen(false)}
@@ -136,7 +136,7 @@ The `footerSummary` has a number of options, including `title` and `content`, an
 <Preview>
   <DemoSidePanelFooterSummary />
 </Preview>
-```tsx sandbox
+```tsx
 <SidePanel
   footerSummary={{
     title: "Collapsible footer summary",

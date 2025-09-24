@@ -24,7 +24,7 @@ The Accordion is highly customizable and has few styles from the start.
   <DemoAccordion />
 </Preview>
 
-```tsx sandbox
+```tsx
 const accordionItems = [
   "Invite team members",
   "Make a first payment",
@@ -62,7 +62,7 @@ If you need to have multiple `AccordionItem` components open at the same time, y
   <DemoOpen />
 </Preview>
 
-```tsx sandbox
+```tsx
 <Accordion className="w-full text-content-primary">
   <AccordionItem
     open // [!code highlight]
@@ -90,7 +90,7 @@ To control an `AccordionItem`, use the `useState` hook and set the `open` prop t
   <DemoControlledAccordion />
 </Preview>
 
-```tsx sandbox
+```tsx
 function Demo() {
   const [indexOpen, setIndexOpen] = useState("close"); // [!code highlight]
 
@@ -130,7 +130,7 @@ The `onToggle` prop lets you get the state of an `AccordionItem` component.
   <DemoControlledState />
 </Preview>
 
-```tsx sandbox
+```tsx
 const Demo = () => {
   const [openItem, setOpenItem] = useState(false); // [!code highlight]
 

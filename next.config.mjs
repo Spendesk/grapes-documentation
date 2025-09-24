@@ -23,11 +23,6 @@ function myRemarkPlugin() {
         data.hName = "callout";
         data.hProperties = { variant: hast.tagName, ...hast.properties };
       }
-
-      if (node.type === "code") {
-        const data = node.data || (node.data = {});
-        data.hProperties = { sandbox: /sandbox/.test(node.meta) };
-      }
     });
   };
 }

@@ -12,7 +12,7 @@ import {
   <DemoTable />
 </Preview>
 
-```tsx sandbox
+```tsx
 type DataRow = {
   id: number;
   accountPayable: string;
@@ -300,7 +300,7 @@ You can customize the header of each group by using the `renderGroupedRowHeader`
 <Preview>
   <DemoGroupedTable />
 </Preview>
-```tsx sandbox
+```tsx
 const Demo = () => {
   const nf = new Intl.NumberFormat("en-US", {
     style: "currency",
@@ -384,7 +384,7 @@ The `renderCell` function should return a `ReactNode`, which allows you to build
 <Preview>
  <DemoTableDropdown />
 </Preview>
-```tsx sandbox
+```tsx
 <Table
   columns={[
     {
@@ -502,7 +502,7 @@ Table.Mini doesn't support:
   <DemoTableMini />
 </Preview>
 
-```tsx sandbox
+```tsx
 <Table.Mini
   columns={[
     {

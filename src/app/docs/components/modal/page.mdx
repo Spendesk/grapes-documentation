@@ -11,7 +11,7 @@ import {
 
 <DemoModal />
 
-```tsx sandbox
+```tsx
 const Demo = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -52,7 +52,7 @@ Instead of an icon, use `illustration` prop to provide an illustration.
 
 <WithIllustration />
 
-```tsx sandbox
+```tsx
 const Demo = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -100,7 +100,7 @@ In such scenarios, Grapes provides a set of lower-level constructs, allowing you
 
 <WithLowerLevelConstructModal />
 
-```tsx sandbox
+```tsx
 const Demo = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -154,7 +154,7 @@ Please use lower-level constructs as demonstrated in the example below.
   <ModalFlow />
 </Preview>
 
-```tsx sandbox
+```tsx
 type Action = "next" | "previous" | "open" | "close";
 const STATE = {
   close: -1,
@@ -258,7 +258,7 @@ It is recommended to include the aria-label prop in the ModalContent component t
   <ModalWithoutTitle />
 </Preview>
 
-```tsx sandbox
+```tsx
 const Demo = () => {
   const [isOpen, setIsOpen] = useState(false);
 
