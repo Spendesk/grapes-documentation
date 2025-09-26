@@ -1,6 +1,6 @@
 {
-  "name": "documentation-test",
-  "version": "0.1.0",
+  "name": "grapes-documentation",
+  "version": "0.0.0-dev",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -58,6 +58,9 @@
     "firefox 121",
     "safari 17.2"
   ],
+  "engines": {
+    "node": ">= 22"
+  },
   "lint-staged": {
     "*.{json,css}": [
       "prettier --write"
@@ -66,9 +69,5 @@
       "prettier --write",
       "eslint --quiet"
     ]
-  },
-  "overrides": {
-    "@types/react": "19.1.6",
-    "@types/react-dom": "19.1.5"
   }
 }
