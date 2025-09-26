@@ -17,10 +17,3 @@ Run `npm run generate:props` to generate the props data.
 Run the development server with `npm run dev`.
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-N.B: You might need to update node to 22+ (`volta install node@latest`)
-
-## Authors
-
-- Pauline Ménage ([@pmenage](https://github.com/pmenage))
-- Thibault Patois ([@drplop](https://github.com/drplop))
