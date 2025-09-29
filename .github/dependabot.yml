@@ -16,6 +16,10 @@ updates:
           - "next"
           - "@next/*"
           - "eslint-config-next"
+      react:
+        patterns:
+          - "react"
+          - "react-dom"
 
   - package-ecosystem: "github-actions"
     directory: "/"
