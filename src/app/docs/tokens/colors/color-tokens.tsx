@@ -1,7 +1,7 @@
 "use client";
 
 import { Tooltip, colors } from "@dev-spendesk/grapes";
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useState } from "react";
 
 type ColorSection = "content" | "border";
 type BackgroundColorSection =
@@ -279,19 +279,6 @@ export function ColorTokens() {
 
 function ColorBox({ color }: { color: Color }) {
   const [hasBeenCopied, setHasBeenCopied] = useState(false);
-  const [hexa, setHexa] = useState("");
-
-  // Use Effect to avoid hydration errors
-  // @see https://nextjs.org/docs/messages/react-hydration-error
-  useEffect(() => {
-    const regExp = /\(([^]+)\)/;
-    const colorVariable = regExp.exec(color.value)?.[1];
-    if (typeof window === "undefined" || !colorVariable) {
-      return;
-    }
-    const style = window.getComputedStyle(document.body);
-    setHexa(style.getPropertyValue(colorVariable));
-  }, [color.value]);
 
   function handleClick() {
     setHasBeenCopied(true);
@@ -302,18 +289,25 @@ function ColorBox({ color }: { color: Color }) {
   }
 
   return (
-    <div>
+    <div className="rounded-8 border border-border-default overflow-hidden flex flex-col">
       <Tooltip content="Copied" triggerAsChild isOpen={hasBeenCopied}>
         <button
-          style={{ backgroundColor: color.value }}
           aria-label={`Copy ${color.value}`}
-          className="h-64 rounded-8 w-full border-none transition-all cursor-pointer elevation-s hover:scale-105"
+          className="h-[112px] w-full border-none cursor-pointer grid grid-cols-2 self-center"
           onClick={handleClick}
-        ></button>
+        >
+          <div
+            className="scheme-light"
+            style={{ backgroundColor: color.value }}
+          ></div>
+          <div
+            className="scheme-dark"
+            style={{ backgroundColor: color.value }}
+          ></div>
+        </button>
       </Tooltip>
-      <div>
-        <p className="body-m text-content-primary mt-4">{color.name}</p>
-        <small className="body-s text-content-primary">{hexa}</small>
+      <div className="px-8 py-16 border-border-default border-t">
+        <p className="body-s text-content-primary">{color.name}</p>
       </div>
     </div>
   );
