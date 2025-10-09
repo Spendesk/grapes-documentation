@@ -19,7 +19,7 @@
     "@mdx-js/loader": "^3.1.1",
     "@mdx-js/react": "^3.1.1",
     "@next/mdx": "15.5.4",
-    "@react-docgen/cli": "^3.0.3",
+    "@react-docgen/cli": "^3.0.4",
     "@shikijs/transformers": "^3.13.0",
     "@types/mdx": "^2.0.13",
     "github-slugger": "^2.0.0",
